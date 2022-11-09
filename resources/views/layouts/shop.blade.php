@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/customizer.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/landing.css')}}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body class="{{$color}}">
@@ -120,6 +122,7 @@
 <script src="{{asset('assets/js/plugins/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/wow.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     // Start [ Menu hide/show on scroll ]
     let ost = 0;

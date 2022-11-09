@@ -761,7 +761,7 @@
                     <!--------------------- Start POs System ----------------------------------->
 
                     @if( Gate::check('manage warehouse') ||  Gate::check('manage purchase')  || Gate::check('manage pos') || Gate::check('manage print settings'))
-                    <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'warehouse' || Request::segment(1) == 'purchase')?' active dash-trigger':''}}">
+                        <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'warehouse' || Request::segment(1) == 'purchase')?' active dash-trigger':''}}">
                             <a href="#!" class="dash-link"><span class="dash-micon"><i class="ti ti-layers-difference"></i></span><span class="dash-mtext">{{__('POS System')}}</span><span class="dash-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="dash-submenu {{ (Request::segment(1) == 'warehouse' || Request::segment(1) == 'purchase')?'show':''}}">
                                 @can('manage warehouse')
@@ -797,10 +797,17 @@
 
                     <!--------------------- End POs System ----------------------------------->
 
-                    <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'ecommerce')?'active':''}}">
-                        <a href="{{route('ecommerce.index')}}" class="dash-link">
-                            <span class="dash-micon"><i class="fa fa-shopping-cart"></i></span><span class="dash-mtext">{{__('E-Commerce')}}</span>
-                        </a>
+                    <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'ecommerce' || Request::segment(1) == 'salesEcommerce')?' active dash-trigger':''}}">
+                        <a href="#!" class="dash-link"><span class="dash-micon"><i class="fa fa-shopping-cart"></i></span><span class="dash-mtext">{{__('E-Commerce')}}</span><span class="dash-arrow"><i data-feather="chevron-right"></i></span></a>
+                        <ul class="dash-submenu {{ (Request::segment(1) == 'ecommerce' || Request::segment(1) == 'salesEcommerce')?'show':''}}">
+                            <li class="dash-item {{ (Request::route()->getName() == 'ecommerce.index' || Request::route()->getName() == 'ecommerce.show') ? ' active' : '' }}">
+                                <a class="dash-link" href="{{ route('ecommerce.index') }}">{{__('Configuracion')}}</a>
+                            </li>
+
+                            <li class="dash-item {{ (Request::route()->getName() == 'salesEcommerce.index' || Request::route()->getName() == 'salesEcommerce.show') ? ' active' : '' }}">
+                                <a class="dash-link" href="{{ route('salesEcommerce.index') }}">{{__('Listado de ventas')}}</a>
+                            </li>
+                        </ul>
                     </li>
 
                     @if(\Auth::user()->type!='super admin')

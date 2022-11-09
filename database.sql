@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 09-11-2022 a las 11:20:27
+-- Tiempo de generación: 09-11-2022 a las 17:21:32
 -- Versión del servidor: 5.7.40
 -- Versión de PHP: 7.4.30
 
@@ -5549,10 +5549,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `plan`, `plan_expire_date`, `requested_plan`, `type`, `avatar`, `lang`, `mode`, `created_by`, `default_pipeline`, `delete_status`, `is_active`, `remember_token`, `last_login_at`, `created_at`, `updated_at`, `messenger_color`, `dark_mode`, `active_status`) VALUES
 (1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-08 18:27:25', '2022-10-26 17:37:48', '2022-11-08 21:27:25', '#2180f3', 0, 0),
-(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-09 12:35:55', '2022-10-26 17:37:54', '2022-11-09 15:35:55', '#2180f3', 0, 0),
+(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-09 17:35:48', '2022-10-26 17:37:54', '2022-11-09 20:35:48', '#2180f3', 0, 0),
 (3, 'accountant', 'accountant@example.com', NULL, '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', NULL, NULL, 0, 'accountant', '', 'en', 'light', 2, 1, 1, 1, NULL, '2022-11-02 01:13:07', '2022-10-26 17:37:55', '2022-11-02 04:13:07', '#2180f3', 0, 0),
 (4, 'client', 'client@example.com', NULL, '$2y$10$D1o/wWl1JIeyvwsjia474ufKeUdpOLL4CCRyFFFnXmFWaLupoN8vi', NULL, NULL, 0, 'client', '', 'en', 'light', 2, 1, 1, 1, NULL, NULL, '2022-10-26 17:37:57', '2022-10-26 17:37:57', '#2180f3', 0, 0),
-(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'pt', 'light', 1, NULL, 1, 1, NULL, '2022-11-09 00:01:35', '2022-10-28 22:14:30', '2022-11-09 03:01:35', '#2180f3', 0, 0),
+(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-09 16:51:58', '2022-10-28 22:14:30', '2022-11-09 20:01:33', '#2180f3', 0, 0),
 (6, 'Erick Santos', 'cliente@cliente.com', NULL, '$2y$10$suoDAUOf/Vaz0BrVwtZRo.6v2GoHZCoNRTB7cf/iq0n9ootFsS1WS', NULL, NULL, 0, 'client', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, '2022-11-02 16:03:25', '2022-11-02 18:59:38', '2022-11-02 19:03:25', '#2180f3', 0, 0),
 (7, 'qoBcOIZpLUXRvi', 'judithngoamy@outlook.com', NULL, '$2y$10$vmKjbNynY3NsutkbMAPyAOnYZN0zsmuVDPaAQ56CTYrpuo19vBZFy', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-04 09:15:28', '2022-11-04 09:15:28', '#2180f3', 0, 0);
 

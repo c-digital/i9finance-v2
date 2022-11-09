@@ -1,7 +1,7 @@
 @extends('layouts.shop')
 
 @section('content')
-    <div class="row">
+    <div class="row" style="margin-top: 100px">
         <div class="col" style="text-align: right; margin: auto">
             <img src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
         </div>
@@ -57,7 +57,7 @@
 
     <div class="row">
         <div class="col" style="text-align: center;">
-            <img src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">
+            <img class="img-fluid" src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">
 
             <form class="mt-5">
                 <div class="input-group">
@@ -65,7 +65,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <input type="text" name="search" class="form-control" value="{{ $request->search }}" placeholder="Ingrese el nombre del producto que desea buscar...">
+                    <input type="text" name="search" required class="form-control" value="{{ $request->search }}" placeholder="Ingrese el nombre del producto que desea buscar...">
 
                     <button class="btn btn-primary" type="submit">
                         <i class="fa fa-search"></i> 
@@ -77,7 +77,18 @@
             <div class="mt-5 categories d-none">
                 <ul class="list-group">
                     @foreach($categories as $category)
-                        <li class="list-group-item">{{ $category->name }}</li>
+                        <li class="list-group-item">                            
+
+                            <form style="cursor: pointer" class="filter-by-category">
+                                <input type="hidden" name="category" value="{{ $category->id }}">
+
+                                @if($request->search)
+                                    <input type="hidden" name="search" value="{{ $request->search }}">
+                                @endif
+
+                                {{ $category->name }}
+                            </form>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -104,7 +115,7 @@
                                 <div class="mt-3">
                                     <form class="add-to-order">
                                         <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control" min="1" placeholder="Ingrese cantidad">
+                                            <input type="number" required name="quantity" class="form-control" min="1" placeholder="Ingrese cantidad">
 
                                             <input type="hidden" name="id_product" value="{{ $product->id }}">
 
@@ -121,6 +132,22 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="view-order" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Pedido</h5>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Realizar pedido</button>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection
 
 @section('js')
@@ -132,7 +159,27 @@
                 quantity = $(this).find('[name=quantity]').val();
                 id_product = $(this).find('[name=id_product]').val();
 
-                console.log(quantity, id_product);
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        quantity: quantity,
+                        id_product: id_product,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    url: '/shop/order',
+                    success: function (response) {
+                        toastr.options.onclick = function () {
+                            $('#view-order').modal('show');
+                        }
+
+                        toastr.success('Producto agregado al pedido', 'Click aquí para ver el pedido');
+
+                        $('.modal-body').html(response);
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                })
             });
 
             $('.toggle-categories').click(function () {
@@ -144,6 +191,14 @@
                     $('.categories').addClass('d-none');
                 }
             });
+
+            $('.filter-by-category').click(function () {
+                $(this).submit();
+            });
         });
+
+        function eliminarProducto(id) {
+            alert(id);
+        }
     </script>
 @endsection
