@@ -18,6 +18,7 @@ class Purchase extends Model
         'discount_apply',
         'category_id',
         'created_by',
+        'online'
     ];
     public static $statues = [
         'Draft',

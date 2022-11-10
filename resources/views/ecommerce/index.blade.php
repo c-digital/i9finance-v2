@@ -40,7 +40,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="phone">Teléfono</label>
-                                    <input type="text" class="form-control" name="phone" required value="{{ $ecommerce->phone ?? null }}">
+                                    <input type="text" id="phone" class="form-control" name="phone" required value="{{ $ecommerce->phone ?? null }}">
                                 </div>
                             </div>
 

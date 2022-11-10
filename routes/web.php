@@ -3667,6 +3667,7 @@ Route::resource('salesEcommerce', 'SalesEcommerceController')->middleware(
 
 Route::get('/shop/{slug}', 'ShopController@index');
 Route::post('/shop/order', 'ShopController@order');
+Route::post('/shop/sale', 'ShopController@sale');
 
 Route::get('product-categories', 'ProductServiceCategoryController@getProductCategories')->name('product.categories')->middleware(['auth', 'XSS']);
 Route::get('add-to-cart/{id}/{session}', 'ProductServiceController@addToCart')->middleware(['auth', 'XSS']);

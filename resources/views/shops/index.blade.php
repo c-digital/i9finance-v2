@@ -136,15 +136,34 @@
     <div class="modal" id="view-order" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Pedido</h5>
-          </div>
-          <div class="modal-body">
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Realizar pedido</button>
-          </div>
+            <form class="process-order-form" action="/shop/sale" method="POST">
+
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+              <div class="modal-header">
+                <h5 class="modal-title">Pedido</h5>
+              </div>
+              <div class="modal-body">
+                <div class="order-details"></div>
+
+                <div class="customer-details d-none">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <div>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="proccess-order btn btn-primary">Realizar pedido</button>
+              </div>
+            </form>
         </div>
       </div>
     </div>
@@ -153,6 +172,21 @@
 @section('js')
     <script>
         $(document).ready(function () {
+            proccess = 1;
+
+            $('.proccess-order').click(function () {
+                if (proccess == 1) {
+                    $('.order-details').addClass('d-none');
+                    $('.customer-details').removeClass('d-none');
+
+                    proccess = 0;
+
+                    return false;
+                }
+
+                $('.process-order-form').submit();
+            });
+
             $('.add-to-order').submit(function (event) {
                 event.preventDefault();
 
@@ -174,7 +208,7 @@
 
                         toastr.success('Producto agregado al pedido', 'Click aquí para ver el pedido');
 
-                        $('.modal-body').html(response);
+                        $('.order-details').html(response);
                     },
                     error: function (error) {
                         console.log(error.responseText);

@@ -277,7 +277,7 @@ class PosController extends Controller
         if(\Auth::user()->can('manage pos'))
         {
 
-            $posPayments = Pos::where('created_by', '=', \Auth::user()->creatorId())->get();
+            $posPayments = Pos::where('created_by', '=', \Auth::user()->creatorId())->where('online', 0)->get();
             return view('pos.report',compact('posPayments'));
         }
         else

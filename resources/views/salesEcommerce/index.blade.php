@@ -1,126 +1,90 @@
 @extends('layouts.admin')
 @section('page-title')
-    {{__('Manage Online Sales')}}
+    {{__('POS Summary')}}
 @endsection
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{__('Dashboard')}}</a></li>
-    <li class="breadcrumb-item">{{__('Online Sales')}}</li>
+    <li class="breadcrumb-item">{{__('POS Summary')}}</li>
 @endsection
-@push('script-page')
-    <script>
-
-        $('.copy_link').click(function (e) {
-            e.preventDefault();
-            var copyText = $(this).attr('href');
-
-            document.addEventListener('copy', function (e) {
-                e.clipboardData.setData('text/plain', copyText);
-                e.preventDefault();
-            }, true);
-
-            document.execCommand('copy');
-            show_toastr('Success', 'Url copied to clipboard', 'success');
-        });
-    </script>
+@push('css-page')
+    <link rel="stylesheet" href="{{ asset('css/datatable/buttons.dataTables.min.css') }}">
 @endpush
 
+@push('script-page')
+    <script type="text/javascript" src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>
+    <script>
+
+        var filename = $('#filename').val();
+
+        function saveAsPDF() {
+            var element = document.getElementById('printableArea');
+            var opt = {
+                margin: 0.3,
+                filename: filename,
+                image: {type: 'jpeg', quality: 1},
+                html2canvas: {scale: 4, dpi: 72, letterRendering: true},
+                jsPDF: {unit: 'in', format: 'A2'}
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+
+@endpush
 
 @section('action-btn')
     <div class="float-end">
-
-
-{{--        <a href="{{ route('bill.export') }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="{{__('Export')}}">--}}
-{{--            <i class="ti ti-file-export"></i>--}}
-{{--        </a>--}}
+        <a href="#" class="btn btn-sm btn-primary" onclick="saveAsPDF()"data-bs-toggle="tooltip" title="{{__('Download')}}" data-original-title="{{__('Download')}}">
+            <span class="btn-inner--icon"><i class="ti ti-download"></i></span>
+        </a>
     </div>
+
+
 @endsection
 
 
 @section('content')
+    <div id="printableArea">
 
-
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body table-border-style">
                     <div class="table-responsive">
-                        <table class="table datatable">
+                        <table class="table">
                             <thead>
                             <tr>
-                                <th> {{__('Purchase')}}</th>
-                                <th> {{__('Vendor')}}</th>
-                                <th> {{__('Category')}}</th>
-                                <th> {{__('Purchase Date')}}</th>
-                                <th>{{__('Status')}}</th>
-                                @if(Gate::check('edit purchase') || Gate::check('delete purchase') || Gate::check('show purchase'))
-                                    <th > {{__('Action')}}</th>
-                                @endif
+                                <th>{{__('POS ID')}}</th>
+                                <th>{{ __('Date') }}</th>
+                                <th>{{ __('Customer') }}</th>
+                                <th>{{ __('Warehouse') }}</th>
+                                <th>{{ __('Amount') }}</th>
+
                             </tr>
                             </thead>
+
                             <tbody>
 
-
-                            @foreach ($purchases as $purchase)
-
+                            @forelse ($posPayments as $posPayment)
                                 <tr>
-                                    <td class="Id">
-                                        <a href="{{ route('purchase.show',\Crypt::encrypt($purchase->id)) }}" class="btn btn-outline-primary">{{ Auth::user()->purchaseNumberFormat($purchase->purchase_id) }}</a>
-
-                                    </td>
-
-                                    <td> {{ (!empty( $purchase->vender)?$purchase->vender->name:'') }} </td>
-
-                                    <td>{{ !empty($purchase->category)?$purchase->category->name:''}}</td>
-                                    <td>{{ Auth::user()->dateFormat($purchase->purchase_date) }}</td>
 
                                     <td>
-                                        @if($purchase->status == 0)
-                                            <span class="purchase_status badge bg-secondary p-2 px-3 rounded">{{ __(\App\Models\Purchase::$statues[$purchase->status]) }}</span>
-                                        @elseif($purchase->status == 1)
-                                            <span class="purchase_status badge bg-warning p-2 px-3 rounded">{{ __(\App\Models\Purchase::$statues[$purchase->status]) }}</span>
-                                        @elseif($purchase->status == 2)
-                                            <span class="purchase_status badge bg-danger p-2 px-3 rounded">{{ __(\App\Models\Purchase::$statues[$purchase->status]) }}</span>
-                                        @elseif($purchase->status == 3)
-                                            <span class="purchase_status badge bg-info p-2 px-3 rounded">{{ __(\App\Models\Purchase::$statues[$purchase->status]) }}</span>
-                                        @elseif($purchase->status == 4)
-                                            <span class="purchase_status badge bg-primary p-2 px-3 rounded">{{ __(\App\Models\Purchase::$statues[$purchase->status]) }}</span>
-                                        @endif
+                                        <a href="#" class="btn btn-outline-primary">{{ AUth::user()->posNumberFormat($posPayment->pos_id) }}</a>
                                     </td>
+                                    <td>{{ Auth::user()->dateFormat($posPayment->created_at)}}</td>
+                                    @if($posPayment->customer_id == 0)
+                                        <td class="">{{__('Walk-in Customer')}}</td>
+                                    @else
+                                        <td>{{ !empty($posPayment->customer) ? $posPayment->customer->name : '' }} </td>
 
-
-
-                                    @if(Gate::check('edit purchase') || Gate::check('delete purchase') || Gate::check('show purchase'))
-                                        <td class="Action">
-                                            <span>
-
-                                                @can('show purchase')
-                                                    <div class="action-btn bg-info ms-2">
-                                                            <a href="{{ route('purchase.show',\Crypt::encrypt($purchase->id)) }}" class="mx-3 btn btn-sm align-items-center" data-bs-toggle="tooltip" title="{{__('Show')}}" data-original-title="{{__('Detail')}}">
-                                                                <i class="ti ti-eye text-white"></i>
-                                                            </a>
-                                                        </div>
-                                                @endcan
-                                                @can('edit purchase')
-                                                    <div class="action-btn bg-primary ms-2">
-                                                        <a href="{{ route('purchase.edit',\Crypt::encrypt($purchase->id)) }}" class="mx-3 btn btn-sm align-items-center" data-bs-toggle="tooltip" title="Edit" data-original-title="{{__('Edit')}}">
-                                                            <i class="ti ti-pencil text-white"></i>
-                                                        </a>
-                                                    </div>
-                                                @endcan
-                                                @can('delete purchase')
-                                                    <div class="action-btn bg-danger ms-2">
-                                                        {!! Form::open(['method' => 'DELETE', 'route' => ['purchase.destroy', $purchase->id],'class'=>'delete-form-btn','id'=>'delete-form-'.$purchase->id]) !!}
-                                                        <a href="#" class="mx-3 btn btn-sm align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}" data-original-title="{{__('Delete')}}" data-confirm="{{__('Are You Sure?').'|'.__('This action can not be undone. Do you want to continue?')}}" data-confirm-yes="document.getElementById('delete-form-{{$purchase->id}}').submit();">
-                                                            <i class="ti ti-trash text-white"></i>
-                                                        </a>
-                                                        {!! Form::close() !!}
-                                                    </div>
-                                                @endcan
-                                            </span>
-                                        </td>
                                     @endif
+                                    <td>{{ !empty($posPayment->warehouse) ? $posPayment->warehouse->name : '' }} </td>
+                                    <td>{{!empty($posPayment->posPayment)? $posPayment->posPayment->amount:0}}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-dark"><p>{{__('No Data Found')}}</p></td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -128,5 +92,5 @@
             </div>
         </div>
     </div>
+    </div>
 @endsection
-

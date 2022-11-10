@@ -2,10 +2,10 @@
 -- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 09-11-2022 a las 17:21:32
--- Versión del servidor: 5.7.40
--- Versión de PHP: 7.4.30
+-- Host: localhost:3306
+-- Generation Time: Nov 10, 2022 at 01:00 AM
+-- Server version: 5.7.40
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -13,13 +13,13 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `i9finance_app`
+-- Database: `i9finance_app`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `activity_logs`
+-- Table structure for table `activity_logs`
 --
 
 CREATE TABLE `activity_logs` (
@@ -37,7 +37,7 @@ CREATE TABLE `activity_logs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admin_payment_settings`
+-- Table structure for table `admin_payment_settings`
 --
 
 CREATE TABLE `admin_payment_settings` (
@@ -50,7 +50,7 @@ CREATE TABLE `admin_payment_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `admin_payment_settings`
+-- Dumping data for table `admin_payment_settings`
 --
 
 INSERT INTO `admin_payment_settings` (`id`, `name`, `value`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `admin_payment_settings` (`id`, `name`, `value`, `created_by`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `allowances`
+-- Table structure for table `allowances`
 --
 
 CREATE TABLE `allowances` (
@@ -95,7 +95,7 @@ CREATE TABLE `allowances` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `allowance_options`
+-- Table structure for table `allowance_options`
 --
 
 CREATE TABLE `allowance_options` (
@@ -109,7 +109,7 @@ CREATE TABLE `allowance_options` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `announcements`
+-- Table structure for table `announcements`
 --
 
 CREATE TABLE `announcements` (
@@ -129,7 +129,7 @@ CREATE TABLE `announcements` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `announcement_employees`
+-- Table structure for table `announcement_employees`
 --
 
 CREATE TABLE `announcement_employees` (
@@ -144,7 +144,7 @@ CREATE TABLE `announcement_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `appraisals`
+-- Table structure for table `appraisals`
 --
 
 CREATE TABLE `appraisals` (
@@ -168,7 +168,7 @@ CREATE TABLE `appraisals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `assets`
+-- Table structure for table `assets`
 --
 
 CREATE TABLE `assets` (
@@ -186,7 +186,7 @@ CREATE TABLE `assets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `attendance_employees`
+-- Table structure for table `attendance_employees`
 --
 
 CREATE TABLE `attendance_employees` (
@@ -208,7 +208,7 @@ CREATE TABLE `attendance_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `awards`
+-- Table structure for table `awards`
 --
 
 CREATE TABLE `awards` (
@@ -226,7 +226,7 @@ CREATE TABLE `awards` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `award_types`
+-- Table structure for table `award_types`
 --
 
 CREATE TABLE `award_types` (
@@ -240,7 +240,7 @@ CREATE TABLE `award_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bank_accounts`
+-- Table structure for table `bank_accounts`
 --
 
 CREATE TABLE `bank_accounts` (
@@ -257,7 +257,7 @@ CREATE TABLE `bank_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bank_accounts`
+-- Dumping data for table `bank_accounts`
 --
 
 INSERT INTO `bank_accounts` (`id`, `holder_name`, `bank_name`, `account_number`, `opening_balance`, `contact_number`, `bank_address`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -266,7 +266,7 @@ INSERT INTO `bank_accounts` (`id`, `holder_name`, `bank_name`, `account_number`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bank_transfers`
+-- Table structure for table `bank_transfers`
 --
 
 CREATE TABLE `bank_transfers` (
@@ -286,7 +286,7 @@ CREATE TABLE `bank_transfers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bills`
+-- Table structure for table `bills`
 --
 
 CREATE TABLE `bills` (
@@ -309,7 +309,7 @@ CREATE TABLE `bills` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bill_payments`
+-- Table structure for table `bill_payments`
 --
 
 CREATE TABLE `bill_payments` (
@@ -329,7 +329,7 @@ CREATE TABLE `bill_payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bill_products`
+-- Table structure for table `bill_products`
 --
 
 CREATE TABLE `bill_products` (
@@ -348,7 +348,7 @@ CREATE TABLE `bill_products` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `branches`
+-- Table structure for table `branches`
 --
 
 CREATE TABLE `branches` (
@@ -362,7 +362,7 @@ CREATE TABLE `branches` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `budgets`
+-- Table structure for table `budgets`
 --
 
 CREATE TABLE `budgets` (
@@ -381,7 +381,7 @@ CREATE TABLE `budgets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bugs`
+-- Table structure for table `bugs`
 --
 
 CREATE TABLE `bugs` (
@@ -404,7 +404,7 @@ CREATE TABLE `bugs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_comments`
+-- Table structure for table `bug_comments`
 --
 
 CREATE TABLE `bug_comments` (
@@ -420,7 +420,7 @@ CREATE TABLE `bug_comments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_files`
+-- Table structure for table `bug_files`
 --
 
 CREATE TABLE `bug_files` (
@@ -439,7 +439,7 @@ CREATE TABLE `bug_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_statuses`
+-- Table structure for table `bug_statuses`
 --
 
 CREATE TABLE `bug_statuses` (
@@ -452,7 +452,7 @@ CREATE TABLE `bug_statuses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bug_statuses`
+-- Dumping data for table `bug_statuses`
 --
 
 INSERT INTO `bug_statuses` (`id`, `title`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -475,7 +475,7 @@ INSERT INTO `bug_statuses` (`id`, `title`, `created_by`, `order`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_accounts`
+-- Table structure for table `chart_of_accounts`
 --
 
 CREATE TABLE `chart_of_accounts` (
@@ -492,7 +492,7 @@ CREATE TABLE `chart_of_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_accounts`
+-- Dumping data for table `chart_of_accounts`
 --
 
 INSERT INTO `chart_of_accounts` (`id`, `name`, `code`, `type`, `sub_type`, `is_enabled`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -596,7 +596,7 @@ INSERT INTO `chart_of_accounts` (`id`, `name`, `code`, `type`, `sub_type`, `is_e
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_account_sub_types`
+-- Table structure for table `chart_of_account_sub_types`
 --
 
 CREATE TABLE `chart_of_account_sub_types` (
@@ -608,7 +608,7 @@ CREATE TABLE `chart_of_account_sub_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_account_sub_types`
+-- Dumping data for table `chart_of_account_sub_types`
 --
 
 INSERT INTO `chart_of_account_sub_types` (`id`, `name`, `type`, `created_at`, `updated_at`) VALUES
@@ -664,7 +664,7 @@ INSERT INTO `chart_of_account_sub_types` (`id`, `name`, `type`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_account_types`
+-- Table structure for table `chart_of_account_types`
 --
 
 CREATE TABLE `chart_of_account_types` (
@@ -676,7 +676,7 @@ CREATE TABLE `chart_of_account_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_account_types`
+-- Dumping data for table `chart_of_account_types`
 --
 
 INSERT INTO `chart_of_account_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -699,7 +699,7 @@ INSERT INTO `chart_of_account_types` (`id`, `name`, `created_by`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ch_favorites`
+-- Table structure for table `ch_favorites`
 --
 
 CREATE TABLE `ch_favorites` (
@@ -713,7 +713,7 @@ CREATE TABLE `ch_favorites` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ch_messages`
+-- Table structure for table `ch_messages`
 --
 
 CREATE TABLE `ch_messages` (
@@ -731,7 +731,7 @@ CREATE TABLE `ch_messages` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `client_deals`
+-- Table structure for table `client_deals`
 --
 
 CREATE TABLE `client_deals` (
@@ -745,7 +745,7 @@ CREATE TABLE `client_deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `commissions`
+-- Table structure for table `commissions`
 --
 
 CREATE TABLE `commissions` (
@@ -762,7 +762,7 @@ CREATE TABLE `commissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `company_payment_settings`
+-- Table structure for table `company_payment_settings`
 --
 
 CREATE TABLE `company_payment_settings` (
@@ -777,7 +777,7 @@ CREATE TABLE `company_payment_settings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `company_policies`
+-- Table structure for table `company_policies`
 --
 
 CREATE TABLE `company_policies` (
@@ -794,7 +794,7 @@ CREATE TABLE `company_policies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `competencies`
+-- Table structure for table `competencies`
 --
 
 CREATE TABLE `competencies` (
@@ -809,7 +809,7 @@ CREATE TABLE `competencies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `complaints`
+-- Table structure for table `complaints`
 --
 
 CREATE TABLE `complaints` (
@@ -827,7 +827,7 @@ CREATE TABLE `complaints` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contracts`
+-- Table structure for table `contracts`
 --
 
 CREATE TABLE `contracts` (
@@ -852,7 +852,7 @@ CREATE TABLE `contracts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_attachment`
+-- Table structure for table `contract_attachment`
 --
 
 CREATE TABLE `contract_attachment` (
@@ -867,7 +867,7 @@ CREATE TABLE `contract_attachment` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_comment`
+-- Table structure for table `contract_comment`
 --
 
 CREATE TABLE `contract_comment` (
@@ -882,7 +882,7 @@ CREATE TABLE `contract_comment` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_notes`
+-- Table structure for table `contract_notes`
 --
 
 CREATE TABLE `contract_notes` (
@@ -897,7 +897,7 @@ CREATE TABLE `contract_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_types`
+-- Table structure for table `contract_types`
 --
 
 CREATE TABLE `contract_types` (
@@ -911,7 +911,7 @@ CREATE TABLE `contract_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `coupons`
+-- Table structure for table `coupons`
 --
 
 CREATE TABLE `coupons` (
@@ -929,7 +929,7 @@ CREATE TABLE `coupons` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `credit_notes`
+-- Table structure for table `credit_notes`
 --
 
 CREATE TABLE `credit_notes` (
@@ -946,7 +946,7 @@ CREATE TABLE `credit_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -983,16 +983,17 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `customer_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Erick Santos', 'dr.ericksantos@gmail.com', NULL, '', '71608981', '', 5, 1, NULL, 'brasil', 'brasil', 'brasil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-02 18:52:58', '2022-11-02 18:52:58');
+(1, 1, 'Erick Santos', 'dr.ericksantos@gmail.com', NULL, '', '71608981', '', 5, 1, NULL, 'brasil', 'brasil', 'brasil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-02 18:52:58', '2022-11-02 18:52:58'),
+(2, 1, 'Erick Santos', 'Erick@erick.com', NULL, '', '71608981', '', 2, 1, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:38:40', '2022-11-10 06:38:40');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_fields`
+-- Table structure for table `custom_fields`
 --
 
 CREATE TABLE `custom_fields` (
@@ -1005,10 +1006,18 @@ CREATE TABLE `custom_fields` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `custom_fields`
+--
+
+INSERT INTO `custom_fields` (`id`, `name`, `type`, `module`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Teste', 'text', 'product', 2, '2022-11-10 06:27:45', '2022-11-10 06:27:45'),
+(2, 'Data vencimento', 'date', 'product', 2, '2022-11-10 06:28:20', '2022-11-10 06:28:20');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_field_values`
+-- Table structure for table `custom_field_values`
 --
 
 CREATE TABLE `custom_field_values` (
@@ -1023,7 +1032,7 @@ CREATE TABLE `custom_field_values` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_questions`
+-- Table structure for table `custom_questions`
 --
 
 CREATE TABLE `custom_questions` (
@@ -1038,7 +1047,7 @@ CREATE TABLE `custom_questions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deals`
+-- Table structure for table `deals`
 --
 
 CREATE TABLE `deals` (
@@ -1063,7 +1072,7 @@ CREATE TABLE `deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_calls`
+-- Table structure for table `deal_calls`
 --
 
 CREATE TABLE `deal_calls` (
@@ -1082,7 +1091,7 @@ CREATE TABLE `deal_calls` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_discussions`
+-- Table structure for table `deal_discussions`
 --
 
 CREATE TABLE `deal_discussions` (
@@ -1097,7 +1106,7 @@ CREATE TABLE `deal_discussions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_emails`
+-- Table structure for table `deal_emails`
 --
 
 CREATE TABLE `deal_emails` (
@@ -1113,7 +1122,7 @@ CREATE TABLE `deal_emails` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_files`
+-- Table structure for table `deal_files`
 --
 
 CREATE TABLE `deal_files` (
@@ -1128,7 +1137,7 @@ CREATE TABLE `deal_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_tasks`
+-- Table structure for table `deal_tasks`
 --
 
 CREATE TABLE `deal_tasks` (
@@ -1146,7 +1155,7 @@ CREATE TABLE `deal_tasks` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `debit_notes`
+-- Table structure for table `debit_notes`
 --
 
 CREATE TABLE `debit_notes` (
@@ -1163,7 +1172,7 @@ CREATE TABLE `debit_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deduction_options`
+-- Table structure for table `deduction_options`
 --
 
 CREATE TABLE `deduction_options` (
@@ -1177,7 +1186,7 @@ CREATE TABLE `deduction_options` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `departments`
+-- Table structure for table `departments`
 --
 
 CREATE TABLE `departments` (
@@ -1192,7 +1201,7 @@ CREATE TABLE `departments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `designations`
+-- Table structure for table `designations`
 --
 
 CREATE TABLE `designations` (
@@ -1207,7 +1216,7 @@ CREATE TABLE `designations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `documents`
+-- Table structure for table `documents`
 --
 
 CREATE TABLE `documents` (
@@ -1222,7 +1231,7 @@ CREATE TABLE `documents` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ducument_uploads`
+-- Table structure for table `ducument_uploads`
 --
 
 CREATE TABLE `ducument_uploads` (
@@ -1239,7 +1248,7 @@ CREATE TABLE `ducument_uploads` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ecommerces`
+-- Table structure for table `ecommerces`
 --
 
 CREATE TABLE `ecommerces` (
@@ -1265,7 +1274,7 @@ CREATE TABLE `ecommerces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `ecommerces`
+-- Dumping data for table `ecommerces`
 --
 
 INSERT INTO `ecommerces` (`id`, `id_user`, `slug`, `name`, `logo`, `phone`, `address`, `title`, `description`, `type`, `type_company`, `nit`, `email`, `minimum_order`, `banner`, `facebook`, `instagram`, `google`, `youtube`) VALUES
@@ -1274,7 +1283,7 @@ INSERT INTO `ecommerces` (`id`, `id_user`, `slug`, `name`, `logo`, `phone`, `add
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `email_templates`
+-- Table structure for table `email_templates`
 --
 
 CREATE TABLE `email_templates` (
@@ -1288,7 +1297,7 @@ CREATE TABLE `email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `email_templates`
+-- Dumping data for table `email_templates`
 --
 
 INSERT INTO `email_templates` (`id`, `name`, `from`, `slug`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1319,7 +1328,7 @@ INSERT INTO `email_templates` (`id`, `name`, `from`, `slug`, `created_by`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `email_template_langs`
+-- Table structure for table `email_template_langs`
 --
 
 CREATE TABLE `email_template_langs` (
@@ -1333,7 +1342,7 @@ CREATE TABLE `email_template_langs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `email_template_langs`
+-- Dumping data for table `email_template_langs`
 --
 
 INSERT INTO `email_template_langs` (`id`, `parent_id`, `lang`, `subject`, `content`, `created_at`, `updated_at`) VALUES
@@ -1622,7 +1631,7 @@ INSERT INTO `email_template_langs` (`id`, `parent_id`, `lang`, `subject`, `conte
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `employees`
+-- Table structure for table `employees`
 --
 
 CREATE TABLE `employees` (
@@ -1656,7 +1665,7 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `employees`
+-- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id`, `user_id`, `name`, `dob`, `gender`, `phone`, `address`, `email`, `password`, `employee_id`, `branch_id`, `department_id`, `designation_id`, `company_doj`, `documents`, `account_holder_name`, `account_number`, `bank_name`, `bank_identifier_code`, `branch_location`, `tax_payer_id`, `salary_type`, `salary`, `is_active`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1665,7 +1674,7 @@ INSERT INTO `employees` (`id`, `user_id`, `name`, `dob`, `gender`, `phone`, `add
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `employee_documents`
+-- Table structure for table `employee_documents`
 --
 
 CREATE TABLE `employee_documents` (
@@ -1681,7 +1690,7 @@ CREATE TABLE `employee_documents` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estimations`
+-- Table structure for table `estimations`
 --
 
 CREATE TABLE `estimations` (
@@ -1701,7 +1710,7 @@ CREATE TABLE `estimations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
@@ -1722,7 +1731,7 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `event_employees`
+-- Table structure for table `event_employees`
 --
 
 CREATE TABLE `event_employees` (
@@ -1737,7 +1746,7 @@ CREATE TABLE `event_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `expenses`
+-- Table structure for table `expenses`
 --
 
 CREATE TABLE `expenses` (
@@ -1757,7 +1766,7 @@ CREATE TABLE `expenses` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `experience_certificates`
+-- Table structure for table `experience_certificates`
 --
 
 CREATE TABLE `experience_certificates` (
@@ -1770,7 +1779,7 @@ CREATE TABLE `experience_certificates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `experience_certificates`
+-- Dumping data for table `experience_certificates`
 --
 
 INSERT INTO `experience_certificates` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1817,7 +1826,7 @@ INSERT INTO `experience_certificates` (`id`, `lang`, `content`, `created_by`, `c
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -1832,7 +1841,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_builders`
+-- Table structure for table `form_builders`
 --
 
 CREATE TABLE `form_builders` (
@@ -1849,7 +1858,7 @@ CREATE TABLE `form_builders` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_fields`
+-- Table structure for table `form_fields`
 --
 
 CREATE TABLE `form_fields` (
@@ -1865,7 +1874,7 @@ CREATE TABLE `form_fields` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_field_responses`
+-- Table structure for table `form_field_responses`
 --
 
 CREATE TABLE `form_field_responses` (
@@ -1883,7 +1892,7 @@ CREATE TABLE `form_field_responses` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_responses`
+-- Table structure for table `form_responses`
 --
 
 CREATE TABLE `form_responses` (
@@ -1897,7 +1906,7 @@ CREATE TABLE `form_responses` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generate_offer_letters`
+-- Table structure for table `generate_offer_letters`
 --
 
 CREATE TABLE `generate_offer_letters` (
@@ -1910,7 +1919,7 @@ CREATE TABLE `generate_offer_letters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `generate_offer_letters`
+-- Dumping data for table `generate_offer_letters`
 --
 
 INSERT INTO `generate_offer_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1958,7 +1967,7 @@ INSERT INTO `generate_offer_letters` (`id`, `lang`, `content`, `created_by`, `cr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `genrate_payslip_options`
+-- Table structure for table `genrate_payslip_options`
 --
 
 CREATE TABLE `genrate_payslip_options` (
@@ -1970,7 +1979,7 @@ CREATE TABLE `genrate_payslip_options` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goals`
+-- Table structure for table `goals`
 --
 
 CREATE TABLE `goals` (
@@ -1989,7 +1998,7 @@ CREATE TABLE `goals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goal_trackings`
+-- Table structure for table `goal_trackings`
 --
 
 CREATE TABLE `goal_trackings` (
@@ -2012,7 +2021,7 @@ CREATE TABLE `goal_trackings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goal_types`
+-- Table structure for table `goal_types`
 --
 
 CREATE TABLE `goal_types` (
@@ -2026,7 +2035,7 @@ CREATE TABLE `goal_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `holidays`
+-- Table structure for table `holidays`
 --
 
 CREATE TABLE `holidays` (
@@ -2042,7 +2051,7 @@ CREATE TABLE `holidays` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `indicators`
+-- Table structure for table `indicators`
 --
 
 CREATE TABLE `indicators` (
@@ -2066,7 +2075,7 @@ CREATE TABLE `indicators` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `interview_schedules`
+-- Table structure for table `interview_schedules`
 --
 
 CREATE TABLE `interview_schedules` (
@@ -2085,7 +2094,7 @@ CREATE TABLE `interview_schedules` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoices`
+-- Table structure for table `invoices`
 --
 
 CREATE TABLE `invoices` (
@@ -2108,7 +2117,7 @@ CREATE TABLE `invoices` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoice_payments`
+-- Table structure for table `invoice_payments`
 --
 
 CREATE TABLE `invoice_payments` (
@@ -2133,7 +2142,7 @@ CREATE TABLE `invoice_payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoice_products`
+-- Table structure for table `invoice_products`
 --
 
 CREATE TABLE `invoice_products` (
@@ -2152,7 +2161,7 @@ CREATE TABLE `invoice_products` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ip_restricts`
+-- Table structure for table `ip_restricts`
 --
 
 CREATE TABLE `ip_restricts` (
@@ -2166,7 +2175,7 @@ CREATE TABLE `ip_restricts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `jobs`
+-- Table structure for table `jobs`
 --
 
 CREATE TABLE `jobs` (
@@ -2193,7 +2202,7 @@ CREATE TABLE `jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_applications`
+-- Table structure for table `job_applications`
 --
 
 CREATE TABLE `job_applications` (
@@ -2224,7 +2233,7 @@ CREATE TABLE `job_applications` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_application_notes`
+-- Table structure for table `job_application_notes`
 --
 
 CREATE TABLE `job_application_notes` (
@@ -2240,7 +2249,7 @@ CREATE TABLE `job_application_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_categories`
+-- Table structure for table `job_categories`
 --
 
 CREATE TABLE `job_categories` (
@@ -2254,7 +2263,7 @@ CREATE TABLE `job_categories` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_on_boards`
+-- Table structure for table `job_on_boards`
 --
 
 CREATE TABLE `job_on_boards` (
@@ -2276,7 +2285,7 @@ CREATE TABLE `job_on_boards` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_stages`
+-- Table structure for table `job_stages`
 --
 
 CREATE TABLE `job_stages` (
@@ -2289,7 +2298,7 @@ CREATE TABLE `job_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `job_stages`
+-- Dumping data for table `job_stages`
 --
 
 INSERT INTO `job_stages` (`id`, `title`, `order`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2312,7 +2321,7 @@ INSERT INTO `job_stages` (`id`, `title`, `order`, `created_by`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `joining_letters`
+-- Table structure for table `joining_letters`
 --
 
 CREATE TABLE `joining_letters` (
@@ -2325,7 +2334,7 @@ CREATE TABLE `joining_letters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `joining_letters`
+-- Dumping data for table `joining_letters`
 --
 
 INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2380,7 +2389,7 @@ INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_a
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `journal_entries`
+-- Table structure for table `journal_entries`
 --
 
 CREATE TABLE `journal_entries` (
@@ -2397,7 +2406,7 @@ CREATE TABLE `journal_entries` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `journal_items`
+-- Table structure for table `journal_items`
 --
 
 CREATE TABLE `journal_items` (
@@ -2414,7 +2423,7 @@ CREATE TABLE `journal_items` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `labels`
+-- Table structure for table `labels`
 --
 
 CREATE TABLE `labels` (
@@ -2428,7 +2437,7 @@ CREATE TABLE `labels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `labels`
+-- Dumping data for table `labels`
 --
 
 INSERT INTO `labels` (`id`, `name`, `color`, `pipeline_id`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2451,7 +2460,7 @@ INSERT INTO `labels` (`id`, `name`, `color`, `pipeline_id`, `created_by`, `creat
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `landing_page_sections`
+-- Table structure for table `landing_page_sections`
 --
 
 CREATE TABLE `landing_page_sections` (
@@ -2470,7 +2479,7 @@ CREATE TABLE `landing_page_sections` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leads`
+-- Table structure for table `leads`
 --
 
 CREATE TABLE `leads` (
@@ -2498,7 +2507,7 @@ CREATE TABLE `leads` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_activity_logs`
+-- Table structure for table `lead_activity_logs`
 --
 
 CREATE TABLE `lead_activity_logs` (
@@ -2514,7 +2523,7 @@ CREATE TABLE `lead_activity_logs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_calls`
+-- Table structure for table `lead_calls`
 --
 
 CREATE TABLE `lead_calls` (
@@ -2533,7 +2542,7 @@ CREATE TABLE `lead_calls` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_discussions`
+-- Table structure for table `lead_discussions`
 --
 
 CREATE TABLE `lead_discussions` (
@@ -2548,7 +2557,7 @@ CREATE TABLE `lead_discussions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_emails`
+-- Table structure for table `lead_emails`
 --
 
 CREATE TABLE `lead_emails` (
@@ -2564,7 +2573,7 @@ CREATE TABLE `lead_emails` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_files`
+-- Table structure for table `lead_files`
 --
 
 CREATE TABLE `lead_files` (
@@ -2579,7 +2588,7 @@ CREATE TABLE `lead_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_stages`
+-- Table structure for table `lead_stages`
 --
 
 CREATE TABLE `lead_stages` (
@@ -2593,7 +2602,7 @@ CREATE TABLE `lead_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `lead_stages`
+-- Dumping data for table `lead_stages`
 --
 
 INSERT INTO `lead_stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -2616,7 +2625,7 @@ INSERT INTO `lead_stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leaves`
+-- Table structure for table `leaves`
 --
 
 CREATE TABLE `leaves` (
@@ -2638,7 +2647,7 @@ CREATE TABLE `leaves` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leave_types`
+-- Table structure for table `leave_types`
 --
 
 CREATE TABLE `leave_types` (
@@ -2653,7 +2662,7 @@ CREATE TABLE `leave_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `loans`
+-- Table structure for table `loans`
 --
 
 CREATE TABLE `loans` (
@@ -2674,7 +2683,7 @@ CREATE TABLE `loans` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `loan_options`
+-- Table structure for table `loan_options`
 --
 
 CREATE TABLE `loan_options` (
@@ -2688,7 +2697,7 @@ CREATE TABLE `loan_options` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `log_activities`
+-- Table structure for table `log_activities`
 --
 
 CREATE TABLE `log_activities` (
@@ -2707,7 +2716,7 @@ CREATE TABLE `log_activities` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `meetings`
+-- Table structure for table `meetings`
 --
 
 CREATE TABLE `meetings` (
@@ -2727,7 +2736,7 @@ CREATE TABLE `meetings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `meeting_employees`
+-- Table structure for table `meeting_employees`
 --
 
 CREATE TABLE `meeting_employees` (
@@ -2742,7 +2751,7 @@ CREATE TABLE `meeting_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -2752,7 +2761,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -2967,7 +2976,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `milestones`
+-- Table structure for table `milestones`
 --
 
 CREATE TABLE `milestones` (
@@ -2987,7 +2996,7 @@ CREATE TABLE `milestones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `model_has_permissions`
+-- Table structure for table `model_has_permissions`
 --
 
 CREATE TABLE `model_has_permissions` (
@@ -2999,7 +3008,7 @@ CREATE TABLE `model_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `model_has_roles`
+-- Table structure for table `model_has_roles`
 --
 
 CREATE TABLE `model_has_roles` (
@@ -3009,11 +3018,12 @@ CREATE TABLE `model_has_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `model_has_roles`
+-- Dumping data for table `model_has_roles`
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
+(3, 'App\\Models\\Vender', 1),
 (4, 'App\\Models\\User', 2),
 (5, 'App\\Models\\User', 3),
 (6, 'App\\Models\\User', 4),
@@ -3024,7 +3034,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noc_certificates`
+-- Table structure for table `noc_certificates`
 --
 
 CREATE TABLE `noc_certificates` (
@@ -3037,7 +3047,7 @@ CREATE TABLE `noc_certificates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `noc_certificates`
+-- Dumping data for table `noc_certificates`
 --
 
 INSERT INTO `noc_certificates` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -3084,7 +3094,7 @@ INSERT INTO `noc_certificates` (`id`, `lang`, `content`, `created_by`, `created_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `notifications`
+-- Table structure for table `notifications`
 --
 
 CREATE TABLE `notifications` (
@@ -3100,7 +3110,7 @@ CREATE TABLE `notifications` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -3125,7 +3135,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `order_id`, `name`, `email`, `card_number`, `card_exp_month`, `card_exp_year`, `plan_name`, `plan_id`, `price`, `price_currency`, `txn_id`, `payment_status`, `payment_type`, `receipt`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -3134,7 +3144,7 @@ INSERT INTO `orders` (`id`, `order_id`, `name`, `email`, `card_number`, `card_ex
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `other_payments`
+-- Table structure for table `other_payments`
 --
 
 CREATE TABLE `other_payments` (
@@ -3151,7 +3161,7 @@ CREATE TABLE `other_payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `overtimes`
+-- Table structure for table `overtimes`
 --
 
 CREATE TABLE `overtimes` (
@@ -3170,7 +3180,7 @@ CREATE TABLE `overtimes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -3182,7 +3192,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `payments`
+-- Table structure for table `payments`
 --
 
 CREATE TABLE `payments` (
@@ -3205,7 +3215,7 @@ CREATE TABLE `payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `payslip_types`
+-- Table structure for table `payslip_types`
 --
 
 CREATE TABLE `payslip_types` (
@@ -3219,7 +3229,7 @@ CREATE TABLE `payslip_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pay_slips`
+-- Table structure for table `pay_slips`
 --
 
 CREATE TABLE `pay_slips` (
@@ -3243,7 +3253,7 @@ CREATE TABLE `pay_slips` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `performance_types`
+-- Table structure for table `performance_types`
 --
 
 CREATE TABLE `performance_types` (
@@ -3257,7 +3267,7 @@ CREATE TABLE `performance_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -3269,7 +3279,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
@@ -3775,7 +3785,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -3793,7 +3803,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pipelines`
+-- Table structure for table `pipelines`
 --
 
 CREATE TABLE `pipelines` (
@@ -3805,18 +3815,19 @@ CREATE TABLE `pipelines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pipelines`
+-- Dumping data for table `pipelines`
 --
 
 INSERT INTO `pipelines` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'Sales', 2, '2022-10-26 17:37:57', '2022-10-26 17:37:57'),
 (2, 'Sales', 5, '2022-10-28 22:14:31', '2022-10-28 22:14:31'),
-(3, 'Sales', 7, '2022-11-04 09:15:29', '2022-11-04 09:15:29');
+(3, 'Sales', 7, '2022-11-04 09:15:29', '2022-11-04 09:15:29'),
+(4, 'Teste pipeline', 2, '2022-11-10 06:21:46', '2022-11-10 06:21:46');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `plans`
+-- Table structure for table `plans`
 --
 
 CREATE TABLE `plans` (
@@ -3839,7 +3850,7 @@ CREATE TABLE `plans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `plans`
+-- Dumping data for table `plans`
 --
 
 INSERT INTO `plans` (`id`, `name`, `price`, `duration`, `max_users`, `max_customers`, `max_venders`, `max_clients`, `crm`, `hrm`, `account`, `project`, `description`, `image`, `created_at`, `updated_at`) VALUES
@@ -3850,7 +3861,7 @@ INSERT INTO `plans` (`id`, `name`, `price`, `duration`, `max_users`, `max_custom
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `plan_requests`
+-- Table structure for table `plan_requests`
 --
 
 CREATE TABLE `plan_requests` (
@@ -3866,7 +3877,7 @@ CREATE TABLE `plan_requests` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos`
+-- Table structure for table `pos`
 --
 
 CREATE TABLE `pos` (
@@ -3880,13 +3891,22 @@ CREATE TABLE `pos` (
   `shipping_display` int(11) NOT NULL DEFAULT '1',
   `created_by` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `online` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pos`
+--
+
+INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `category_id`, `status`, `shipping_display`, `created_by`, `created_at`, `updated_at`, `online`) VALUES
+(1, 1, 2, 1, NULL, 0, 0, 1, 2, '2022-11-10 06:41:46', '2022-11-10 06:41:46', 0),
+(2, 2, 2, 1, NULL, 0, 0, 1, 2, '2022-11-10 06:48:49', '2022-11-10 06:48:49', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos_payments`
+-- Table structure for table `pos_payments`
 --
 
 CREATE TABLE `pos_payments` (
@@ -3899,10 +3919,18 @@ CREATE TABLE `pos_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pos_payments`
+--
+
+INSERT INTO `pos_payments` (`id`, `pos_id`, `date`, `amount`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, '$10.00', 0, '2022-11-10 06:41:46', '2022-11-10 06:41:46'),
+(2, 2, NULL, '$10.00', 0, '2022-11-10 06:48:49', '2022-11-10 06:48:49');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos_products`
+-- Table structure for table `pos_products`
 --
 
 CREATE TABLE `pos_products` (
@@ -3918,10 +3946,18 @@ CREATE TABLE `pos_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pos_products`
+--
+
+INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 1, 0.00, 0.00, 10.00, NULL, '2022-11-10 06:41:46', '2022-11-10 06:41:46'),
+(2, 2, 2, 1, 0.00, 0.00, 10.00, NULL, '2022-11-10 06:48:49', '2022-11-10 06:48:49');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_services`
+-- Table structure for table `product_services`
 --
 
 CREATE TABLE `product_services` (
@@ -3943,13 +3979,13 @@ CREATE TABLE `product_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_services`
+-- Dumping data for table `product_services`
 --
 
 INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_price`, `quantity`, `tax_id`, `category_id`, `unit_id`, `type`, `description`, `pro_image`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'Produto 01', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 5, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
-(2, 'Produto 01', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
-(3, 'Produto 02', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
+(2, 'Produto 01', '12345', '10.00', '5.00', 221, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-10 06:48:49'),
+(3, 'Produto 02', '12345', '10.00', '5.00', 446, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-10 06:29:23'),
 (4, 'Produto 03', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
 (5, 'Produto 04', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
 (6, 'Produto 05', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07');
@@ -3957,7 +3993,7 @@ INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_pri
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_service_categories`
+-- Table structure for table `product_service_categories`
 --
 
 CREATE TABLE `product_service_categories` (
@@ -3971,16 +4007,17 @@ CREATE TABLE `product_service_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_service_categories`
+-- Dumping data for table `product_service_categories`
 --
 
 INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'teste', '0', 'FFFFFF', 5, '2022-11-02 19:01:02', '2022-11-02 19:01:02');
+(1, 'teste', '0', 'FFFFFF', 5, '2022-11-02 19:01:02', '2022-11-02 19:01:02'),
+(2, 'Categoría 01', '0', 'FFFFFF', 2, '2022-11-10 06:26:45', '2022-11-10 06:26:45');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_service_units`
+-- Table structure for table `product_service_units`
 --
 
 CREATE TABLE `product_service_units` (
@@ -3992,16 +4029,17 @@ CREATE TABLE `product_service_units` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_service_units`
+-- Dumping data for table `product_service_units`
 --
 
 INSERT INTO `product_service_units` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Kg', 5, '2022-11-02 19:01:21', '2022-11-02 19:01:21');
+(1, 'Kg', 5, '2022-11-02 19:01:21', '2022-11-02 19:01:21'),
+(2, 'Kg', 2, '2022-11-10 06:27:10', '2022-11-10 06:27:10');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projects`
+-- Table structure for table `projects`
 --
 
 CREATE TABLE `projects` (
@@ -4024,7 +4062,7 @@ CREATE TABLE `projects` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projectstages`
+-- Table structure for table `projectstages`
 --
 
 CREATE TABLE `projectstages` (
@@ -4040,7 +4078,7 @@ CREATE TABLE `projectstages` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_email_templates`
+-- Table structure for table `project_email_templates`
 --
 
 CREATE TABLE `project_email_templates` (
@@ -4055,7 +4093,7 @@ CREATE TABLE `project_email_templates` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_invoices`
+-- Table structure for table `project_invoices`
 --
 
 CREATE TABLE `project_invoices` (
@@ -4074,7 +4112,7 @@ CREATE TABLE `project_invoices` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_tasks`
+-- Table structure for table `project_tasks`
 --
 
 CREATE TABLE `project_tasks` (
@@ -4103,7 +4141,7 @@ CREATE TABLE `project_tasks` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_users`
+-- Table structure for table `project_users`
 --
 
 CREATE TABLE `project_users` (
@@ -4118,7 +4156,7 @@ CREATE TABLE `project_users` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `promotions`
+-- Table structure for table `promotions`
 --
 
 CREATE TABLE `promotions` (
@@ -4136,7 +4174,7 @@ CREATE TABLE `promotions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proposals`
+-- Table structure for table `proposals`
 --
 
 CREATE TABLE `proposals` (
@@ -4158,7 +4196,7 @@ CREATE TABLE `proposals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proposal_products`
+-- Table structure for table `proposal_products`
 --
 
 CREATE TABLE `proposal_products` (
@@ -4177,30 +4215,38 @@ CREATE TABLE `proposal_products` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchases`
+-- Table structure for table `purchases`
 --
 
 CREATE TABLE `purchases` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `purchase_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `vender_id` int(11) NOT NULL,
-  `warehouse_id` int(11) NOT NULL,
+  `vender_id` int(11) DEFAULT NULL,
+  `warehouse_id` int(11) DEFAULT NULL,
   `purchase_date` date NOT NULL,
   `purchase_number` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `shipping_display` int(11) NOT NULL DEFAULT '1',
   `send_date` date DEFAULT NULL,
+  `online` int(11) DEFAULT '0',
   `discount_apply` int(11) NOT NULL DEFAULT '0',
-  `category_id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `purchase_id`, `vender_id`, `warehouse_id`, `purchase_date`, `purchase_number`, `status`, `shipping_display`, `send_date`, `online`, `discount_apply`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
+(14, '1', NULL, NULL, '2022-11-10', 0, 0, 1, NULL, 1, 0, NULL, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchase_payments`
+-- Table structure for table `purchase_payments`
 --
 
 CREATE TABLE `purchase_payments` (
@@ -4220,7 +4266,7 @@ CREATE TABLE `purchase_payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchase_products`
+-- Table structure for table `purchase_products`
 --
 
 CREATE TABLE `purchase_products` (
@@ -4236,10 +4282,17 @@ CREATE TABLE `purchase_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `purchase_products`
+--
+
+INSERT INTO `purchase_products` (`id`, `purchase_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
+(5, 14, 2, 123, NULL, 0.00, 10.00, NULL, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resignations`
+-- Table structure for table `resignations`
 --
 
 CREATE TABLE `resignations` (
@@ -4256,7 +4309,7 @@ CREATE TABLE `resignations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `revenues`
+-- Table structure for table `revenues`
 --
 
 CREATE TABLE `revenues` (
@@ -4278,7 +4331,7 @@ CREATE TABLE `revenues` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -4291,7 +4344,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -4305,7 +4358,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_by`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `role_has_permissions`
+-- Table structure for table `role_has_permissions`
 --
 
 CREATE TABLE `role_has_permissions` (
@@ -4314,7 +4367,7 @@ CREATE TABLE `role_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `role_has_permissions`
+-- Dumping data for table `role_has_permissions`
 --
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
@@ -4988,7 +5041,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `saturation_deductions`
+-- Table structure for table `saturation_deductions`
 --
 
 CREATE TABLE `saturation_deductions` (
@@ -5006,7 +5059,7 @@ CREATE TABLE `saturation_deductions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -5019,7 +5072,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -5062,7 +5115,7 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `set_salaries`
+-- Table structure for table `set_salaries`
 --
 
 CREATE TABLE `set_salaries` (
@@ -5074,7 +5127,7 @@ CREATE TABLE `set_salaries` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sources`
+-- Table structure for table `sources`
 --
 
 CREATE TABLE `sources` (
@@ -5086,7 +5139,7 @@ CREATE TABLE `sources` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `sources`
+-- Dumping data for table `sources`
 --
 
 INSERT INTO `sources` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -5109,7 +5162,7 @@ INSERT INTO `sources` (`id`, `name`, `created_by`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stages`
+-- Table structure for table `stages`
 --
 
 CREATE TABLE `stages` (
@@ -5123,7 +5176,7 @@ CREATE TABLE `stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `stages`
+-- Dumping data for table `stages`
 --
 
 INSERT INTO `stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -5146,7 +5199,7 @@ INSERT INTO `stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `creat
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stock_reports`
+-- Table structure for table `stock_reports`
 --
 
 CREATE TABLE `stock_reports` (
@@ -5164,7 +5217,7 @@ CREATE TABLE `stock_reports` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `supports`
+-- Table structure for table `supports`
 --
 
 CREATE TABLE `supports` (
@@ -5186,7 +5239,7 @@ CREATE TABLE `supports` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `support_replies`
+-- Table structure for table `support_replies`
 --
 
 CREATE TABLE `support_replies` (
@@ -5203,7 +5256,7 @@ CREATE TABLE `support_replies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_checklists`
+-- Table structure for table `task_checklists`
 --
 
 CREATE TABLE `task_checklists` (
@@ -5220,7 +5273,7 @@ CREATE TABLE `task_checklists` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_comments`
+-- Table structure for table `task_comments`
 --
 
 CREATE TABLE `task_comments` (
@@ -5237,7 +5290,7 @@ CREATE TABLE `task_comments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_files`
+-- Table structure for table `task_files`
 --
 
 CREATE TABLE `task_files` (
@@ -5256,7 +5309,7 @@ CREATE TABLE `task_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_stages`
+-- Table structure for table `task_stages`
 --
 
 CREATE TABLE `task_stages` (
@@ -5272,7 +5325,7 @@ CREATE TABLE `task_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `task_stages`
+-- Dumping data for table `task_stages`
 --
 
 INSERT INTO `task_stages` (`id`, `name`, `complete`, `project_id`, `color`, `order`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -5292,7 +5345,7 @@ INSERT INTO `task_stages` (`id`, `name`, `complete`, `project_id`, `color`, `ord
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `taxes`
+-- Table structure for table `taxes`
 --
 
 CREATE TABLE `taxes` (
@@ -5307,7 +5360,7 @@ CREATE TABLE `taxes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `terminations`
+-- Table structure for table `terminations`
 --
 
 CREATE TABLE `terminations` (
@@ -5325,7 +5378,7 @@ CREATE TABLE `terminations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `termination_types`
+-- Table structure for table `termination_types`
 --
 
 CREATE TABLE `termination_types` (
@@ -5339,7 +5392,7 @@ CREATE TABLE `termination_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `timesheets`
+-- Table structure for table `timesheets`
 --
 
 CREATE TABLE `timesheets` (
@@ -5357,7 +5410,7 @@ CREATE TABLE `timesheets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `time_trackers`
+-- Table structure for table `time_trackers`
 --
 
 CREATE TABLE `time_trackers` (
@@ -5379,7 +5432,7 @@ CREATE TABLE `time_trackers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `track_photos`
+-- Table structure for table `track_photos`
 --
 
 CREATE TABLE `track_photos` (
@@ -5396,7 +5449,7 @@ CREATE TABLE `track_photos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trainers`
+-- Table structure for table `trainers`
 --
 
 CREATE TABLE `trainers` (
@@ -5416,7 +5469,7 @@ CREATE TABLE `trainers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trainings`
+-- Table structure for table `trainings`
 --
 
 CREATE TABLE `trainings` (
@@ -5441,7 +5494,7 @@ CREATE TABLE `trainings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `training_types`
+-- Table structure for table `training_types`
 --
 
 CREATE TABLE `training_types` (
@@ -5455,7 +5508,7 @@ CREATE TABLE `training_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transactions`
+-- Table structure for table `transactions`
 --
 
 CREATE TABLE `transactions` (
@@ -5477,7 +5530,7 @@ CREATE TABLE `transactions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transfers`
+-- Table structure for table `transfers`
 --
 
 CREATE TABLE `transfers` (
@@ -5495,7 +5548,7 @@ CREATE TABLE `transfers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `travels`
+-- Table structure for table `travels`
 --
 
 CREATE TABLE `travels` (
@@ -5514,7 +5567,7 @@ CREATE TABLE `travels` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -5544,22 +5597,22 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `plan`, `plan_expire_date`, `requested_plan`, `type`, `avatar`, `lang`, `mode`, `created_by`, `default_pipeline`, `delete_status`, `is_active`, `remember_token`, `last_login_at`, `created_at`, `updated_at`, `messenger_color`, `dark_mode`, `active_status`) VALUES
-(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-08 18:27:25', '2022-10-26 17:37:48', '2022-11-08 21:27:25', '#2180f3', 0, 0),
-(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-09 17:35:48', '2022-10-26 17:37:54', '2022-11-09 20:35:48', '#2180f3', 0, 0),
+(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-10 00:43:07', '2022-10-26 17:37:48', '2022-11-10 03:43:07', '#2180f3', 0, 0),
+(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-10 03:15:21', '2022-10-26 17:37:54', '2022-11-10 06:32:30', '#2180f3', 0, 0),
 (3, 'accountant', 'accountant@example.com', NULL, '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', NULL, NULL, 0, 'accountant', '', 'en', 'light', 2, 1, 1, 1, NULL, '2022-11-02 01:13:07', '2022-10-26 17:37:55', '2022-11-02 04:13:07', '#2180f3', 0, 0),
 (4, 'client', 'client@example.com', NULL, '$2y$10$D1o/wWl1JIeyvwsjia474ufKeUdpOLL4CCRyFFFnXmFWaLupoN8vi', NULL, NULL, 0, 'client', '', 'en', 'light', 2, 1, 1, 1, NULL, NULL, '2022-10-26 17:37:57', '2022-10-26 17:37:57', '#2180f3', 0, 0),
-(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-09 16:51:58', '2022-10-28 22:14:30', '2022-11-09 20:01:33', '#2180f3', 0, 0),
+(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-10 00:39:02', '2022-10-28 22:14:30', '2022-11-10 03:39:02', '#2180f3', 0, 0),
 (6, 'Erick Santos', 'cliente@cliente.com', NULL, '$2y$10$suoDAUOf/Vaz0BrVwtZRo.6v2GoHZCoNRTB7cf/iq0n9ootFsS1WS', NULL, NULL, 0, 'client', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, '2022-11-02 16:03:25', '2022-11-02 18:59:38', '2022-11-02 19:03:25', '#2180f3', 0, 0),
 (7, 'qoBcOIZpLUXRvi', 'judithngoamy@outlook.com', NULL, '$2y$10$vmKjbNynY3NsutkbMAPyAOnYZN0zsmuVDPaAQ56CTYrpuo19vBZFy', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-04 09:15:28', '2022-11-04 09:15:28', '#2180f3', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_contacts`
+-- Table structure for table `user_contacts`
 --
 
 CREATE TABLE `user_contacts` (
@@ -5573,7 +5626,7 @@ CREATE TABLE `user_contacts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_coupons`
+-- Table structure for table `user_coupons`
 --
 
 CREATE TABLE `user_coupons` (
@@ -5588,7 +5641,7 @@ CREATE TABLE `user_coupons` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_deals`
+-- Table structure for table `user_deals`
 --
 
 CREATE TABLE `user_deals` (
@@ -5602,7 +5655,7 @@ CREATE TABLE `user_deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_email_templates`
+-- Table structure for table `user_email_templates`
 --
 
 CREATE TABLE `user_email_templates` (
@@ -5615,7 +5668,7 @@ CREATE TABLE `user_email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user_email_templates`
+-- Dumping data for table `user_email_templates`
 --
 
 INSERT INTO `user_email_templates` (`id`, `template_id`, `user_id`, `is_active`, `created_at`, `updated_at`) VALUES
@@ -5692,7 +5745,7 @@ INSERT INTO `user_email_templates` (`id`, `template_id`, `user_id`, `is_active`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_leads`
+-- Table structure for table `user_leads`
 --
 
 CREATE TABLE `user_leads` (
@@ -5706,7 +5759,7 @@ CREATE TABLE `user_leads` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_to_dos`
+-- Table structure for table `user_to_dos`
 --
 
 CREATE TABLE `user_to_dos` (
@@ -5721,7 +5774,7 @@ CREATE TABLE `user_to_dos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venders`
+-- Table structure for table `venders`
 --
 
 CREATE TABLE `venders` (
@@ -5757,10 +5810,17 @@ CREATE TABLE `venders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `venders`
+--
+
+INSERT INTO `venders` (`id`, `vender_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Vendedor 01', 'Vendedor@vendedor.com', NULL, '', '123456', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:40:13', '2022-11-10 06:40:13');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warehouses`
+-- Table structure for table `warehouses`
 --
 
 CREATE TABLE `warehouses` (
@@ -5775,23 +5835,24 @@ CREATE TABLE `warehouses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `warehouses`
+-- Dumping data for table `warehouses`
 --
 
 INSERT INTO `warehouses` (`id`, `name`, `address`, `city`, `city_zip`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 2, '2022-10-26 17:37:58', '2022-10-26 17:37:58'),
+(1, 'Colorado', '723 N. Tillamook Street Portland, OR Portland, United States', 'Colorado', '97227', 2, '2022-10-26 17:37:58', '2022-11-10 06:24:24'),
 (2, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 5, '2022-10-28 22:14:30', '2022-10-28 22:14:30'),
-(3, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 7, '2022-11-04 09:15:28', '2022-11-04 09:15:28');
+(3, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 7, '2022-11-04 09:15:28', '2022-11-04 09:15:28'),
+(4, 'Vilhena', 'Centro', 'Vilhena', '76980000', 2, '2022-11-10 06:23:56', '2022-11-10 06:24:51');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warehouse_products`
+-- Table structure for table `warehouse_products`
 --
 
 CREATE TABLE `warehouse_products` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `warehouse_id` int(11) NOT NULL DEFAULT '0',
+  `warehouse_id` int(11) DEFAULT '0',
   `product_id` int(11) NOT NULL DEFAULT '0',
   `quantity` int(11) NOT NULL DEFAULT '0',
   `created_by` int(11) NOT NULL DEFAULT '0',
@@ -5799,10 +5860,17 @@ CREATE TABLE `warehouse_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `warehouse_products`
+--
+
+INSERT INTO `warehouse_products` (`id`, `warehouse_id`, `product_id`, `quantity`, `created_by`, `created_at`, `updated_at`) VALUES
+(2, NULL, 2, 123, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warnings`
+-- Table structure for table `warnings`
 --
 
 CREATE TABLE `warnings` (
@@ -5820,7 +5888,7 @@ CREATE TABLE `warnings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `zoom_meetings`
+-- Table structure for table `zoom_meetings`
 --
 
 CREATE TABLE `zoom_meetings` (
@@ -5842,174 +5910,174 @@ CREATE TABLE `zoom_meetings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `activity_logs`
+-- Indexes for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `admin_payment_settings`
+-- Indexes for table `admin_payment_settings`
 --
 ALTER TABLE `admin_payment_settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admin_payment_settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `allowances`
+-- Indexes for table `allowances`
 --
 ALTER TABLE `allowances`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `allowance_options`
+-- Indexes for table `allowance_options`
 --
 ALTER TABLE `allowance_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `announcements`
+-- Indexes for table `announcements`
 --
 ALTER TABLE `announcements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `announcement_employees`
+-- Indexes for table `announcement_employees`
 --
 ALTER TABLE `announcement_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `appraisals`
+-- Indexes for table `appraisals`
 --
 ALTER TABLE `appraisals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `assets`
+-- Indexes for table `assets`
 --
 ALTER TABLE `assets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `attendance_employees`
+-- Indexes for table `attendance_employees`
 --
 ALTER TABLE `attendance_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `awards`
+-- Indexes for table `awards`
 --
 ALTER TABLE `awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `award_types`
+-- Indexes for table `award_types`
 --
 ALTER TABLE `award_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bank_accounts`
+-- Indexes for table `bank_accounts`
 --
 ALTER TABLE `bank_accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bank_transfers`
+-- Indexes for table `bank_transfers`
 --
 ALTER TABLE `bank_transfers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bills`
+-- Indexes for table `bills`
 --
 ALTER TABLE `bills`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bill_payments`
+-- Indexes for table `bill_payments`
 --
 ALTER TABLE `bill_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bill_products`
+-- Indexes for table `bill_products`
 --
 ALTER TABLE `bill_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `branches`
+-- Indexes for table `branches`
 --
 ALTER TABLE `branches`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `budgets`
+-- Indexes for table `budgets`
 --
 ALTER TABLE `budgets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bugs`
+-- Indexes for table `bugs`
 --
 ALTER TABLE `bugs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_comments`
+-- Indexes for table `bug_comments`
 --
 ALTER TABLE `bug_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_files`
+-- Indexes for table `bug_files`
 --
 ALTER TABLE `bug_files`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_statuses`
+-- Indexes for table `bug_statuses`
 --
 ALTER TABLE `bug_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_accounts`
+-- Indexes for table `chart_of_accounts`
 --
 ALTER TABLE `chart_of_accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_account_sub_types`
+-- Indexes for table `chart_of_account_sub_types`
 --
 ALTER TABLE `chart_of_account_sub_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_account_types`
+-- Indexes for table `chart_of_account_types`
 --
 ALTER TABLE `chart_of_account_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ch_favorites`
+-- Indexes for table `ch_favorites`
 --
 ALTER TABLE `ch_favorites`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ch_messages`
+-- Indexes for table `ch_messages`
 --
 ALTER TABLE `ch_messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `client_deals`
+-- Indexes for table `client_deals`
 --
 ALTER TABLE `client_deals`
   ADD PRIMARY KEY (`id`),
@@ -6017,93 +6085,93 @@ ALTER TABLE `client_deals`
   ADD KEY `client_deals_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `commissions`
+-- Indexes for table `commissions`
 --
 ALTER TABLE `commissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `company_payment_settings`
+-- Indexes for table `company_payment_settings`
 --
 ALTER TABLE `company_payment_settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `company_payment_settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `company_policies`
+-- Indexes for table `company_policies`
 --
 ALTER TABLE `company_policies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `competencies`
+-- Indexes for table `competencies`
 --
 ALTER TABLE `competencies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `complaints`
+-- Indexes for table `complaints`
 --
 ALTER TABLE `complaints`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contracts`
+-- Indexes for table `contracts`
 --
 ALTER TABLE `contracts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_attachment`
+-- Indexes for table `contract_attachment`
 --
 ALTER TABLE `contract_attachment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_comment`
+-- Indexes for table `contract_comment`
 --
 ALTER TABLE `contract_comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_notes`
+-- Indexes for table `contract_notes`
 --
 ALTER TABLE `contract_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_types`
+-- Indexes for table `contract_types`
 --
 ALTER TABLE `contract_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `coupons`
+-- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `credit_notes`
+-- Indexes for table `credit_notes`
 --
 ALTER TABLE `credit_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `customers_email_unique` (`email`);
 
 --
--- Indices de la tabla `custom_fields`
+-- Indexes for table `custom_fields`
 --
 ALTER TABLE `custom_fields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `custom_field_values`
+-- Indexes for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   ADD PRIMARY KEY (`id`),
@@ -6111,501 +6179,501 @@ ALTER TABLE `custom_field_values`
   ADD KEY `custom_field_values_field_id_foreign` (`field_id`);
 
 --
--- Indices de la tabla `custom_questions`
+-- Indexes for table `custom_questions`
 --
 ALTER TABLE `custom_questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deals`
+-- Indexes for table `deals`
 --
 ALTER TABLE `deals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deal_calls`
+-- Indexes for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_calls_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_discussions`
+-- Indexes for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_discussions_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_emails`
+-- Indexes for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_emails_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_files`
+-- Indexes for table `deal_files`
 --
 ALTER TABLE `deal_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_files_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_tasks`
+-- Indexes for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_tasks_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `debit_notes`
+-- Indexes for table `debit_notes`
 --
 ALTER TABLE `debit_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deduction_options`
+-- Indexes for table `deduction_options`
 --
 ALTER TABLE `deduction_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `departments`
+-- Indexes for table `departments`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `designations`
+-- Indexes for table `designations`
 --
 ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `documents`
+-- Indexes for table `documents`
 --
 ALTER TABLE `documents`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ducument_uploads`
+-- Indexes for table `ducument_uploads`
 --
 ALTER TABLE `ducument_uploads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ecommerces`
+-- Indexes for table `ecommerces`
 --
 ALTER TABLE `ecommerces`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `email_templates`
+-- Indexes for table `email_templates`
 --
 ALTER TABLE `email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `email_template_langs`
+-- Indexes for table `email_template_langs`
 --
 ALTER TABLE `email_template_langs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `employees`
+-- Indexes for table `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `employee_documents`
+-- Indexes for table `employee_documents`
 --
 ALTER TABLE `employee_documents`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estimations`
+-- Indexes for table `estimations`
 --
 ALTER TABLE `estimations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `event_employees`
+-- Indexes for table `event_employees`
 --
 ALTER TABLE `event_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `expenses`
+-- Indexes for table `expenses`
 --
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `experience_certificates`
+-- Indexes for table `experience_certificates`
 --
 ALTER TABLE `experience_certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_builders`
+-- Indexes for table `form_builders`
 --
 ALTER TABLE `form_builders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `form_builders_code_unique` (`code`);
 
 --
--- Indices de la tabla `form_fields`
+-- Indexes for table `form_fields`
 --
 ALTER TABLE `form_fields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_field_responses`
+-- Indexes for table `form_field_responses`
 --
 ALTER TABLE `form_field_responses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_responses`
+-- Indexes for table `form_responses`
 --
 ALTER TABLE `form_responses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `generate_offer_letters`
+-- Indexes for table `generate_offer_letters`
 --
 ALTER TABLE `generate_offer_letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `genrate_payslip_options`
+-- Indexes for table `genrate_payslip_options`
 --
 ALTER TABLE `genrate_payslip_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goals`
+-- Indexes for table `goals`
 --
 ALTER TABLE `goals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goal_trackings`
+-- Indexes for table `goal_trackings`
 --
 ALTER TABLE `goal_trackings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goal_types`
+-- Indexes for table `goal_types`
 --
 ALTER TABLE `goal_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `holidays`
+-- Indexes for table `holidays`
 --
 ALTER TABLE `holidays`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `indicators`
+-- Indexes for table `indicators`
 --
 ALTER TABLE `indicators`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `interview_schedules`
+-- Indexes for table `interview_schedules`
 --
 ALTER TABLE `interview_schedules`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoices`
+-- Indexes for table `invoices`
 --
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoice_payments`
+-- Indexes for table `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoice_products`
+-- Indexes for table `invoice_products`
 --
 ALTER TABLE `invoice_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ip_restricts`
+-- Indexes for table `ip_restricts`
 --
 ALTER TABLE `ip_restricts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `jobs`
+-- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_applications`
+-- Indexes for table `job_applications`
 --
 ALTER TABLE `job_applications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_application_notes`
+-- Indexes for table `job_application_notes`
 --
 ALTER TABLE `job_application_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_categories`
+-- Indexes for table `job_categories`
 --
 ALTER TABLE `job_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_on_boards`
+-- Indexes for table `job_on_boards`
 --
 ALTER TABLE `job_on_boards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_stages`
+-- Indexes for table `job_stages`
 --
 ALTER TABLE `job_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `joining_letters`
+-- Indexes for table `joining_letters`
 --
 ALTER TABLE `joining_letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `journal_entries`
+-- Indexes for table `journal_entries`
 --
 ALTER TABLE `journal_entries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `journal_items`
+-- Indexes for table `journal_items`
 --
 ALTER TABLE `journal_items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `labels`
+-- Indexes for table `labels`
 --
 ALTER TABLE `labels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `landing_page_sections`
+-- Indexes for table `landing_page_sections`
 --
 ALTER TABLE `landing_page_sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leads`
+-- Indexes for table `leads`
 --
 ALTER TABLE `leads`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `leads_email_unique` (`email`);
 
 --
--- Indices de la tabla `lead_activity_logs`
+-- Indexes for table `lead_activity_logs`
 --
 ALTER TABLE `lead_activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `lead_calls`
+-- Indexes for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_calls_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_discussions`
+-- Indexes for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_discussions_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_emails`
+-- Indexes for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_emails_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_files`
+-- Indexes for table `lead_files`
 --
 ALTER TABLE `lead_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_files_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_stages`
+-- Indexes for table `lead_stages`
 --
 ALTER TABLE `lead_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leaves`
+-- Indexes for table `leaves`
 --
 ALTER TABLE `leaves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leave_types`
+-- Indexes for table `leave_types`
 --
 ALTER TABLE `leave_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `loans`
+-- Indexes for table `loans`
 --
 ALTER TABLE `loans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `loan_options`
+-- Indexes for table `loan_options`
 --
 ALTER TABLE `loan_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `log_activities`
+-- Indexes for table `log_activities`
 --
 ALTER TABLE `log_activities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `meetings`
+-- Indexes for table `meetings`
 --
 ALTER TABLE `meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `meeting_employees`
+-- Indexes for table `meeting_employees`
 --
 ALTER TABLE `meeting_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `milestones`
+-- Indexes for table `milestones`
 --
 ALTER TABLE `milestones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `model_has_permissions`
+-- Indexes for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
   ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indices de la tabla `model_has_roles`
+-- Indexes for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indices de la tabla `noc_certificates`
+-- Indexes for table `noc_certificates`
 --
 ALTER TABLE `noc_certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `notifications`
+-- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `orders_order_id_unique` (`order_id`);
 
 --
--- Indices de la tabla `other_payments`
+-- Indexes for table `other_payments`
 --
 ALTER TABLE `other_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `overtimes`
+-- Indexes for table `overtimes`
 --
 ALTER TABLE `overtimes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `payments`
+-- Indexes for table `payments`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `payslip_types`
+-- Indexes for table `payslip_types`
 --
 ALTER TABLE `payslip_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pay_slips`
+-- Indexes for table `pay_slips`
 --
 ALTER TABLE `pay_slips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `performance_types`
+-- Indexes for table `performance_types`
 --
 ALTER TABLE `performance_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -6613,323 +6681,323 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indices de la tabla `pipelines`
+-- Indexes for table `pipelines`
 --
 ALTER TABLE `pipelines`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `plans`
+-- Indexes for table `plans`
 --
 ALTER TABLE `plans`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `plans_name_unique` (`name`);
 
 --
--- Indices de la tabla `plan_requests`
+-- Indexes for table `plan_requests`
 --
 ALTER TABLE `plan_requests`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos`
+-- Indexes for table `pos`
 --
 ALTER TABLE `pos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos_payments`
+-- Indexes for table `pos_payments`
 --
 ALTER TABLE `pos_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos_products`
+-- Indexes for table `pos_products`
 --
 ALTER TABLE `pos_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_services`
+-- Indexes for table `product_services`
 --
 ALTER TABLE `product_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_service_categories`
+-- Indexes for table `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_service_units`
+-- Indexes for table `product_service_units`
 --
 ALTER TABLE `product_service_units`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `projects`
+-- Indexes for table `projects`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `projectstages`
+-- Indexes for table `projectstages`
 --
 ALTER TABLE `projectstages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_email_templates`
+-- Indexes for table `project_email_templates`
 --
 ALTER TABLE `project_email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_invoices`
+-- Indexes for table `project_invoices`
 --
 ALTER TABLE `project_invoices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_tasks`
+-- Indexes for table `project_tasks`
 --
 ALTER TABLE `project_tasks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_users`
+-- Indexes for table `project_users`
 --
 ALTER TABLE `project_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `promotions`
+-- Indexes for table `promotions`
 --
 ALTER TABLE `promotions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `proposals`
+-- Indexes for table `proposals`
 --
 ALTER TABLE `proposals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `proposal_products`
+-- Indexes for table `proposal_products`
 --
 ALTER TABLE `proposal_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchases`
+-- Indexes for table `purchases`
 --
 ALTER TABLE `purchases`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchase_payments`
+-- Indexes for table `purchase_payments`
 --
 ALTER TABLE `purchase_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchase_products`
+-- Indexes for table `purchase_products`
 --
 ALTER TABLE `purchase_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `resignations`
+-- Indexes for table `resignations`
 --
 ALTER TABLE `resignations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `revenues`
+-- Indexes for table `revenues`
 --
 ALTER TABLE `revenues`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `role_has_permissions`
+-- Indexes for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
--- Indices de la tabla `saturation_deductions`
+-- Indexes for table `saturation_deductions`
 --
 ALTER TABLE `saturation_deductions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `set_salaries`
+-- Indexes for table `set_salaries`
 --
 ALTER TABLE `set_salaries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `sources`
+-- Indexes for table `sources`
 --
 ALTER TABLE `sources`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `stages`
+-- Indexes for table `stages`
 --
 ALTER TABLE `stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `stock_reports`
+-- Indexes for table `stock_reports`
 --
 ALTER TABLE `stock_reports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `supports`
+-- Indexes for table `supports`
 --
 ALTER TABLE `supports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `support_replies`
+-- Indexes for table `support_replies`
 --
 ALTER TABLE `support_replies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_checklists`
+-- Indexes for table `task_checklists`
 --
 ALTER TABLE `task_checklists`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_comments`
+-- Indexes for table `task_comments`
 --
 ALTER TABLE `task_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_files`
+-- Indexes for table `task_files`
 --
 ALTER TABLE `task_files`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_stages`
+-- Indexes for table `task_stages`
 --
 ALTER TABLE `task_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `taxes`
+-- Indexes for table `taxes`
 --
 ALTER TABLE `taxes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `terminations`
+-- Indexes for table `terminations`
 --
 ALTER TABLE `terminations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `termination_types`
+-- Indexes for table `termination_types`
 --
 ALTER TABLE `termination_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `timesheets`
+-- Indexes for table `timesheets`
 --
 ALTER TABLE `timesheets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `time_trackers`
+-- Indexes for table `time_trackers`
 --
 ALTER TABLE `time_trackers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `track_photos`
+-- Indexes for table `track_photos`
 --
 ALTER TABLE `track_photos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `trainers`
+-- Indexes for table `trainers`
 --
 ALTER TABLE `trainers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `trainings`
+-- Indexes for table `trainings`
 --
 ALTER TABLE `trainings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `training_types`
+-- Indexes for table `training_types`
 --
 ALTER TABLE `training_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `transactions`
+-- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `transfers`
+-- Indexes for table `transfers`
 --
 ALTER TABLE `transfers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `travels`
+-- Indexes for table `travels`
 --
 ALTER TABLE `travels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indices de la tabla `user_contacts`
+-- Indexes for table `user_contacts`
 --
 ALTER TABLE `user_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_coupons`
+-- Indexes for table `user_coupons`
 --
 ALTER TABLE `user_coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_deals`
+-- Indexes for table `user_deals`
 --
 ALTER TABLE `user_deals`
   ADD PRIMARY KEY (`id`),
@@ -6937,13 +7005,13 @@ ALTER TABLE `user_deals`
   ADD KEY `user_deals_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `user_email_templates`
+-- Indexes for table `user_email_templates`
 --
 ALTER TABLE `user_email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_leads`
+-- Indexes for table `user_leads`
 --
 ALTER TABLE `user_leads`
   ADD PRIMARY KEY (`id`),
@@ -6951,1219 +7019,1219 @@ ALTER TABLE `user_leads`
   ADD KEY `user_leads_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `user_to_dos`
+-- Indexes for table `user_to_dos`
 --
 ALTER TABLE `user_to_dos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `venders`
+-- Indexes for table `venders`
 --
 ALTER TABLE `venders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `venders_email_unique` (`email`);
 
 --
--- Indices de la tabla `warehouses`
+-- Indexes for table `warehouses`
 --
 ALTER TABLE `warehouses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `warehouse_products`
+-- Indexes for table `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `warnings`
+-- Indexes for table `warnings`
 --
 ALTER TABLE `warnings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `zoom_meetings`
+-- Indexes for table `zoom_meetings`
 --
 ALTER TABLE `zoom_meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `activity_logs`
+-- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `admin_payment_settings`
+-- AUTO_INCREMENT for table `admin_payment_settings`
 --
 ALTER TABLE `admin_payment_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
 
 --
--- AUTO_INCREMENT de la tabla `allowances`
+-- AUTO_INCREMENT for table `allowances`
 --
 ALTER TABLE `allowances`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `allowance_options`
+-- AUTO_INCREMENT for table `allowance_options`
 --
 ALTER TABLE `allowance_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `announcements`
+-- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `announcement_employees`
+-- AUTO_INCREMENT for table `announcement_employees`
 --
 ALTER TABLE `announcement_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `appraisals`
+-- AUTO_INCREMENT for table `appraisals`
 --
 ALTER TABLE `appraisals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `assets`
+-- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `attendance_employees`
+-- AUTO_INCREMENT for table `attendance_employees`
 --
 ALTER TABLE `attendance_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `awards`
+-- AUTO_INCREMENT for table `awards`
 --
 ALTER TABLE `awards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `award_types`
+-- AUTO_INCREMENT for table `award_types`
 --
 ALTER TABLE `award_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bank_accounts`
+-- AUTO_INCREMENT for table `bank_accounts`
 --
 ALTER TABLE `bank_accounts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `bank_transfers`
+-- AUTO_INCREMENT for table `bank_transfers`
 --
 ALTER TABLE `bank_transfers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bills`
+-- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bill_payments`
+-- AUTO_INCREMENT for table `bill_payments`
 --
 ALTER TABLE `bill_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bill_products`
+-- AUTO_INCREMENT for table `bill_products`
 --
 ALTER TABLE `bill_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `branches`
+-- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `budgets`
+-- AUTO_INCREMENT for table `budgets`
 --
 ALTER TABLE `budgets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bugs`
+-- AUTO_INCREMENT for table `bugs`
 --
 ALTER TABLE `bugs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_comments`
+-- AUTO_INCREMENT for table `bug_comments`
 --
 ALTER TABLE `bug_comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_files`
+-- AUTO_INCREMENT for table `bug_files`
 --
 ALTER TABLE `bug_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_statuses`
+-- AUTO_INCREMENT for table `bug_statuses`
 --
 ALTER TABLE `bug_statuses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_accounts`
+-- AUTO_INCREMENT for table `chart_of_accounts`
 --
 ALTER TABLE `chart_of_accounts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_account_sub_types`
+-- AUTO_INCREMENT for table `chart_of_account_sub_types`
 --
 ALTER TABLE `chart_of_account_sub_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_account_types`
+-- AUTO_INCREMENT for table `chart_of_account_types`
 --
 ALTER TABLE `chart_of_account_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `client_deals`
+-- AUTO_INCREMENT for table `client_deals`
 --
 ALTER TABLE `client_deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `commissions`
+-- AUTO_INCREMENT for table `commissions`
 --
 ALTER TABLE `commissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `company_payment_settings`
+-- AUTO_INCREMENT for table `company_payment_settings`
 --
 ALTER TABLE `company_payment_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `company_policies`
+-- AUTO_INCREMENT for table `company_policies`
 --
 ALTER TABLE `company_policies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `competencies`
+-- AUTO_INCREMENT for table `competencies`
 --
 ALTER TABLE `competencies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `complaints`
+-- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contracts`
+-- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_attachment`
+-- AUTO_INCREMENT for table `contract_attachment`
 --
 ALTER TABLE `contract_attachment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_comment`
+-- AUTO_INCREMENT for table `contract_comment`
 --
 ALTER TABLE `contract_comment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_notes`
+-- AUTO_INCREMENT for table `contract_notes`
 --
 ALTER TABLE `contract_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_types`
+-- AUTO_INCREMENT for table `contract_types`
 --
 ALTER TABLE `contract_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `coupons`
+-- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `credit_notes`
+-- AUTO_INCREMENT for table `credit_notes`
 --
 ALTER TABLE `credit_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `custom_fields`
+-- AUTO_INCREMENT for table `custom_fields`
 --
 ALTER TABLE `custom_fields`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `custom_field_values`
+-- AUTO_INCREMENT for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `custom_questions`
+-- AUTO_INCREMENT for table `custom_questions`
 --
 ALTER TABLE `custom_questions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deals`
+-- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_calls`
+-- AUTO_INCREMENT for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_discussions`
+-- AUTO_INCREMENT for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_emails`
+-- AUTO_INCREMENT for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_files`
+-- AUTO_INCREMENT for table `deal_files`
 --
 ALTER TABLE `deal_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_tasks`
+-- AUTO_INCREMENT for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `debit_notes`
+-- AUTO_INCREMENT for table `debit_notes`
 --
 ALTER TABLE `debit_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deduction_options`
+-- AUTO_INCREMENT for table `deduction_options`
 --
 ALTER TABLE `deduction_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `departments`
+-- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `designations`
+-- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `documents`
+-- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ducument_uploads`
+-- AUTO_INCREMENT for table `ducument_uploads`
 --
 ALTER TABLE `ducument_uploads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ecommerces`
+-- AUTO_INCREMENT for table `ecommerces`
 --
 ALTER TABLE `ecommerces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `email_templates`
+-- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de la tabla `email_template_langs`
+-- AUTO_INCREMENT for table `email_template_langs`
 --
 ALTER TABLE `email_template_langs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
--- AUTO_INCREMENT de la tabla `employees`
+-- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `employee_documents`
+-- AUTO_INCREMENT for table `employee_documents`
 --
 ALTER TABLE `employee_documents`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `estimations`
+-- AUTO_INCREMENT for table `estimations`
 --
 ALTER TABLE `estimations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `event_employees`
+-- AUTO_INCREMENT for table `event_employees`
 --
 ALTER TABLE `event_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `expenses`
+-- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `experience_certificates`
+-- AUTO_INCREMENT for table `experience_certificates`
 --
 ALTER TABLE `experience_certificates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_builders`
+-- AUTO_INCREMENT for table `form_builders`
 --
 ALTER TABLE `form_builders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_fields`
+-- AUTO_INCREMENT for table `form_fields`
 --
 ALTER TABLE `form_fields`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_field_responses`
+-- AUTO_INCREMENT for table `form_field_responses`
 --
 ALTER TABLE `form_field_responses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_responses`
+-- AUTO_INCREMENT for table `form_responses`
 --
 ALTER TABLE `form_responses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `generate_offer_letters`
+-- AUTO_INCREMENT for table `generate_offer_letters`
 --
 ALTER TABLE `generate_offer_letters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT de la tabla `genrate_payslip_options`
+-- AUTO_INCREMENT for table `genrate_payslip_options`
 --
 ALTER TABLE `genrate_payslip_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goals`
+-- AUTO_INCREMENT for table `goals`
 --
 ALTER TABLE `goals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goal_trackings`
+-- AUTO_INCREMENT for table `goal_trackings`
 --
 ALTER TABLE `goal_trackings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goal_types`
+-- AUTO_INCREMENT for table `goal_types`
 --
 ALTER TABLE `goal_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `holidays`
+-- AUTO_INCREMENT for table `holidays`
 --
 ALTER TABLE `holidays`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `indicators`
+-- AUTO_INCREMENT for table `indicators`
 --
 ALTER TABLE `indicators`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `interview_schedules`
+-- AUTO_INCREMENT for table `interview_schedules`
 --
 ALTER TABLE `interview_schedules`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `invoices`
+-- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `invoice_payments`
+-- AUTO_INCREMENT for table `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `invoice_products`
+-- AUTO_INCREMENT for table `invoice_products`
 --
 ALTER TABLE `invoice_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ip_restricts`
+-- AUTO_INCREMENT for table `ip_restricts`
 --
 ALTER TABLE `ip_restricts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `jobs`
+-- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_applications`
+-- AUTO_INCREMENT for table `job_applications`
 --
 ALTER TABLE `job_applications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_application_notes`
+-- AUTO_INCREMENT for table `job_application_notes`
 --
 ALTER TABLE `job_application_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_categories`
+-- AUTO_INCREMENT for table `job_categories`
 --
 ALTER TABLE `job_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_on_boards`
+-- AUTO_INCREMENT for table `job_on_boards`
 --
 ALTER TABLE `job_on_boards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_stages`
+-- AUTO_INCREMENT for table `job_stages`
 --
 ALTER TABLE `job_stages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `joining_letters`
+-- AUTO_INCREMENT for table `joining_letters`
 --
 ALTER TABLE `joining_letters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT de la tabla `journal_entries`
+-- AUTO_INCREMENT for table `journal_entries`
 --
 ALTER TABLE `journal_entries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `journal_items`
+-- AUTO_INCREMENT for table `journal_items`
 --
 ALTER TABLE `journal_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `labels`
+-- AUTO_INCREMENT for table `labels`
 --
 ALTER TABLE `labels`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `landing_page_sections`
+-- AUTO_INCREMENT for table `landing_page_sections`
 --
 ALTER TABLE `landing_page_sections`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `leads`
+-- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_activity_logs`
+-- AUTO_INCREMENT for table `lead_activity_logs`
 --
 ALTER TABLE `lead_activity_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_calls`
+-- AUTO_INCREMENT for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_discussions`
+-- AUTO_INCREMENT for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_emails`
+-- AUTO_INCREMENT for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_files`
+-- AUTO_INCREMENT for table `lead_files`
 --
 ALTER TABLE `lead_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_stages`
+-- AUTO_INCREMENT for table `lead_stages`
 --
 ALTER TABLE `lead_stages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `leaves`
+-- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `leave_types`
+-- AUTO_INCREMENT for table `leave_types`
 --
 ALTER TABLE `leave_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `loans`
+-- AUTO_INCREMENT for table `loans`
 --
 ALTER TABLE `loans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `loan_options`
+-- AUTO_INCREMENT for table `loan_options`
 --
 ALTER TABLE `loan_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `log_activities`
+-- AUTO_INCREMENT for table `log_activities`
 --
 ALTER TABLE `log_activities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `meetings`
+-- AUTO_INCREMENT for table `meetings`
 --
 ALTER TABLE `meetings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `meeting_employees`
+-- AUTO_INCREMENT for table `meeting_employees`
 --
 ALTER TABLE `meeting_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 
 --
--- AUTO_INCREMENT de la tabla `milestones`
+-- AUTO_INCREMENT for table `milestones`
 --
 ALTER TABLE `milestones`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `noc_certificates`
+-- AUTO_INCREMENT for table `noc_certificates`
 --
 ALTER TABLE `noc_certificates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT de la tabla `notifications`
+-- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `other_payments`
+-- AUTO_INCREMENT for table `other_payments`
 --
 ALTER TABLE `other_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `overtimes`
+-- AUTO_INCREMENT for table `overtimes`
 --
 ALTER TABLE `overtimes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `payments`
+-- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `payslip_types`
+-- AUTO_INCREMENT for table `payslip_types`
 --
 ALTER TABLE `payslip_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pay_slips`
+-- AUTO_INCREMENT for table `pay_slips`
 --
 ALTER TABLE `pay_slips`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `performance_types`
+-- AUTO_INCREMENT for table `performance_types`
 --
 ALTER TABLE `performance_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=499;
 
 --
--- AUTO_INCREMENT de la tabla `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pipelines`
+-- AUTO_INCREMENT for table `pipelines`
 --
 ALTER TABLE `pipelines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `plans`
+-- AUTO_INCREMENT for table `plans`
 --
 ALTER TABLE `plans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `plan_requests`
+-- AUTO_INCREMENT for table `plan_requests`
 --
 ALTER TABLE `plan_requests`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `pos`
+-- AUTO_INCREMENT for table `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `pos_payments`
+-- AUTO_INCREMENT for table `pos_payments`
 --
 ALTER TABLE `pos_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `pos_products`
+-- AUTO_INCREMENT for table `pos_products`
 --
 ALTER TABLE `pos_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `product_services`
+-- AUTO_INCREMENT for table `product_services`
 --
 ALTER TABLE `product_services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `product_service_categories`
+-- AUTO_INCREMENT for table `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `product_service_units`
+-- AUTO_INCREMENT for table `product_service_units`
 --
 ALTER TABLE `product_service_units`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `projects`
+-- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `projectstages`
+-- AUTO_INCREMENT for table `projectstages`
 --
 ALTER TABLE `projectstages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_email_templates`
+-- AUTO_INCREMENT for table `project_email_templates`
 --
 ALTER TABLE `project_email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_invoices`
+-- AUTO_INCREMENT for table `project_invoices`
 --
 ALTER TABLE `project_invoices`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_tasks`
+-- AUTO_INCREMENT for table `project_tasks`
 --
 ALTER TABLE `project_tasks`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_users`
+-- AUTO_INCREMENT for table `project_users`
 --
 ALTER TABLE `project_users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `promotions`
+-- AUTO_INCREMENT for table `promotions`
 --
 ALTER TABLE `promotions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `proposals`
+-- AUTO_INCREMENT for table `proposals`
 --
 ALTER TABLE `proposals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `proposal_products`
+-- AUTO_INCREMENT for table `proposal_products`
 --
 ALTER TABLE `proposal_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `purchases`
+-- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT de la tabla `purchase_payments`
+-- AUTO_INCREMENT for table `purchase_payments`
 --
 ALTER TABLE `purchase_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `purchase_products`
+-- AUTO_INCREMENT for table `purchase_products`
 --
 ALTER TABLE `purchase_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `resignations`
+-- AUTO_INCREMENT for table `resignations`
 --
 ALTER TABLE `resignations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `revenues`
+-- AUTO_INCREMENT for table `revenues`
 --
 ALTER TABLE `revenues`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `saturation_deductions`
+-- AUTO_INCREMENT for table `saturation_deductions`
 --
 ALTER TABLE `saturation_deductions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT de la tabla `set_salaries`
+-- AUTO_INCREMENT for table `set_salaries`
 --
 ALTER TABLE `set_salaries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `sources`
+-- AUTO_INCREMENT for table `sources`
 --
 ALTER TABLE `sources`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `stages`
+-- AUTO_INCREMENT for table `stages`
 --
 ALTER TABLE `stages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `stock_reports`
+-- AUTO_INCREMENT for table `stock_reports`
 --
 ALTER TABLE `stock_reports`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `supports`
+-- AUTO_INCREMENT for table `supports`
 --
 ALTER TABLE `supports`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `support_replies`
+-- AUTO_INCREMENT for table `support_replies`
 --
 ALTER TABLE `support_replies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `task_checklists`
+-- AUTO_INCREMENT for table `task_checklists`
 --
 ALTER TABLE `task_checklists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `task_comments`
+-- AUTO_INCREMENT for table `task_comments`
 --
 ALTER TABLE `task_comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `task_files`
+-- AUTO_INCREMENT for table `task_files`
 --
 ALTER TABLE `task_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `task_stages`
+-- AUTO_INCREMENT for table `task_stages`
 --
 ALTER TABLE `task_stages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `taxes`
+-- AUTO_INCREMENT for table `taxes`
 --
 ALTER TABLE `taxes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `terminations`
+-- AUTO_INCREMENT for table `terminations`
 --
 ALTER TABLE `terminations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `termination_types`
+-- AUTO_INCREMENT for table `termination_types`
 --
 ALTER TABLE `termination_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `timesheets`
+-- AUTO_INCREMENT for table `timesheets`
 --
 ALTER TABLE `timesheets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `time_trackers`
+-- AUTO_INCREMENT for table `time_trackers`
 --
 ALTER TABLE `time_trackers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `track_photos`
+-- AUTO_INCREMENT for table `track_photos`
 --
 ALTER TABLE `track_photos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `trainers`
+-- AUTO_INCREMENT for table `trainers`
 --
 ALTER TABLE `trainers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `trainings`
+-- AUTO_INCREMENT for table `trainings`
 --
 ALTER TABLE `trainings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `training_types`
+-- AUTO_INCREMENT for table `training_types`
 --
 ALTER TABLE `training_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `transactions`
+-- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `transfers`
+-- AUTO_INCREMENT for table `transfers`
 --
 ALTER TABLE `transfers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `travels`
+-- AUTO_INCREMENT for table `travels`
 --
 ALTER TABLE `travels`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `user_contacts`
+-- AUTO_INCREMENT for table `user_contacts`
 --
 ALTER TABLE `user_contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_coupons`
+-- AUTO_INCREMENT for table `user_coupons`
 --
 ALTER TABLE `user_coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_deals`
+-- AUTO_INCREMENT for table `user_deals`
 --
 ALTER TABLE `user_deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_email_templates`
+-- AUTO_INCREMENT for table `user_email_templates`
 --
 ALTER TABLE `user_email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
--- AUTO_INCREMENT de la tabla `user_leads`
+-- AUTO_INCREMENT for table `user_leads`
 --
 ALTER TABLE `user_leads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_to_dos`
+-- AUTO_INCREMENT for table `user_to_dos`
 --
 ALTER TABLE `user_to_dos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `venders`
+-- AUTO_INCREMENT for table `venders`
 --
 ALTER TABLE `venders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `warehouses`
+-- AUTO_INCREMENT for table `warehouses`
 --
 ALTER TABLE `warehouses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `warehouse_products`
+-- AUTO_INCREMENT for table `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `warnings`
+-- AUTO_INCREMENT for table `warnings`
 --
 ALTER TABLE `warnings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `zoom_meetings`
+-- AUTO_INCREMENT for table `zoom_meetings`
 --
 ALTER TABLE `zoom_meetings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `client_deals`
+-- Constraints for table `client_deals`
 --
 ALTER TABLE `client_deals`
   ADD CONSTRAINT `client_deals_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `client_deals_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `custom_field_values`
+-- Constraints for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   ADD CONSTRAINT `custom_field_values_field_id_foreign` FOREIGN KEY (`field_id`) REFERENCES `custom_fields` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_calls`
+-- Constraints for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   ADD CONSTRAINT `deal_calls_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_discussions`
+-- Constraints for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   ADD CONSTRAINT `deal_discussions_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_emails`
+-- Constraints for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   ADD CONSTRAINT `deal_emails_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_files`
+-- Constraints for table `deal_files`
 --
 ALTER TABLE `deal_files`
   ADD CONSTRAINT `deal_files_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_tasks`
+-- Constraints for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   ADD CONSTRAINT `deal_tasks_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_calls`
+-- Constraints for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   ADD CONSTRAINT `lead_calls_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_discussions`
+-- Constraints for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   ADD CONSTRAINT `lead_discussions_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_emails`
+-- Constraints for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   ADD CONSTRAINT `lead_emails_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_files`
+-- Constraints for table `lead_files`
 --
 ALTER TABLE `lead_files`
   ADD CONSTRAINT `lead_files_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `model_has_permissions`
+-- Constraints for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `model_has_roles`
+-- Constraints for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `role_has_permissions`
+-- Constraints for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `user_deals`
+-- Constraints for table `user_deals`
 --
 ALTER TABLE `user_deals`
   ADD CONSTRAINT `user_deals_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_deals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `user_leads`
+-- Constraints for table `user_leads`
 --
 ALTER TABLE `user_leads`
   ADD CONSTRAINT `user_leads_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE,

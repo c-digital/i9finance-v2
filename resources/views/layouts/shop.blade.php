@@ -45,6 +45,12 @@
     <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome.css')}}">
     <link rel="stylesheet" href="{{asset('assets/fonts/material.css')}}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .iti { width: 100%; }
+    </style>
+
     <!-- vendor css -->
     @if ($SITE_RTL == 'on')
         <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
@@ -123,6 +129,7 @@
 <script src="{{asset('assets/js/plugins/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/wow.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" integrity="sha512-+gShyB8GWoOiXNwOlBaYXdLTiZt10Iy6xjACGadpqMs20aJOoh+PJt3bwUVA6Cefe7yF7vblX6QwyXZiVwTWGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     // Start [ Menu hide/show on scroll ]
     let ost = 0;
@@ -148,6 +155,13 @@
     wow.init();
     var scrollSpy = new bootstrap.ScrollSpy(document.body, {
         target: "#navbar-example",
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        input = document.querySelector('#phone');
+        window.intlTelInput(input);
     });
 </script>
 
