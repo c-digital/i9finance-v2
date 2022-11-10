@@ -139,6 +139,7 @@
             <form class="process-order-form" action="/shop/sale" method="POST">
 
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <input type="hidden" name="slug" value="{{ $slug }}">
 
               <div class="modal-header">
                 <h5 class="modal-title">Pedido</h5>
@@ -153,6 +154,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <div>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="phone">Teléfono</label>
                         <div>
                             <input type="text" class="form-control" id="phone" name="phone" required>
@@ -164,6 +172,18 @@
                 <button type="button" class="proccess-order btn btn-primary">Realizar pedido</button>
               </div>
             </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="success-order" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pedido</h5>
+            </div>
+
+            <div class="modal-body"></div>
         </div>
       </div>
     </div>
@@ -184,7 +204,26 @@
                     return false;
                 }
 
-                $('.process-order-form').submit();
+                data = $('.process-order-form').serialize();
+
+                console.log(data);
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/shop/sale',
+                    data: data,
+                    success: function (response) {
+                        $('#view-order').modal('hide');
+
+                        console.log(response);
+
+                        $('#success-order').find('.modal-body').html(response);
+                        $('#success-order').modal('show');
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                });
             });
 
             $('.add-to-order').submit(function (event) {

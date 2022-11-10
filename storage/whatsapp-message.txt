@@ -1,0 +1,17 @@
+👋 Hola, vengo de https://i9finance.com%0A
+*{{telefono}}*%0A
+{{fecha}} ⏰ {{hora}}%0A%0A
+
+Nombre: {{customerName}}%0A
+Teléfono: {{customerPhone}}%0A%0A
+
+*💲 Costos*%0A
+Costo de los productos: {{amount}}%0A
+*Total a pagar: {{amount}}*%0A%0A
+
+*📝 Pedido*%0A%0A
+
+- *x1 Salchichas ❤️ Bs. 75,00*%0A
+  Precio unitario Bs. 75,00%0A%0A
+
+👆 Envía este mensaje. Te atenderemos enseguida.%0A

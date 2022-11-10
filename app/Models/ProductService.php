@@ -126,10 +126,10 @@ class ProductService extends Model
         return $totalquantity;
     }
 
-    public static function tax_id($product_id)
+    public static function tax_id($product_id, $user_id)
     {
         $results = DB::select(
-            DB::raw("SELECT IFNULL( (SELECT tax_id from product_services where id = :id and created_by = :created_by limit 1),  '0') as tax_id"), [ 'id' => $product_id,  'created_by' => Auth::user()->creatorId(),]
+            DB::raw("SELECT IFNULL( (SELECT tax_id from product_services where id = :id and created_by = :created_by limit 1),  '0') as tax_id"), [ 'id' => $product_id,  'created_by' => $user_id]
         );
 
         return $results[0]->tax_id;

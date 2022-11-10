@@ -10,6 +10,14 @@ use App\Models\PurchaseProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Utility;
+use App\Models\Customer;
+use App\Models\Pos;
+use App\Models\PosProduct;
+use App\Models\Tax;
+use App\Models\PosPayment;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
 
 class ShopController extends Controller
 {
@@ -36,7 +44,7 @@ class ShopController extends Controller
             ->groupBy('product_service_categories.id')
             ->get();
 
-        return view('shops.index', compact('ecommerce', 'products', 'request', 'categories'));
+        return view('shops.index', compact('slug', 'ecommerce', 'products', 'request', 'categories'));
     }
 
     public function order(Request $request)
@@ -51,97 +59,122 @@ class ShopController extends Controller
 
     public function sale(Request $request)
     {        
-        $user_id = Auth::user()->creatorId();
-        $customer_id      = Customer::customer_id($request->vc_name);
+        session_start();
 
-        $warehouse_id      = warehouse::warehouse_id($request->warehouse_name);
+        $user_id = Ecommerce::where('slug', $request->slug)->first()->id_user;
 
+        $customer = Customer::updateOrCreate(
+            ['email' => $request->email],
+            [
+                'customer_id' => $this->customerNumber($request->slug),
+                'name' => $request->name,
+                'contact' => $request->phone,
+                'created_by' => $user_id
+            ]
+        );
 
-        $pos_id       = $this->invoicePosNumber();
-        $sales            = session()->get('pos');
-
-        if (isset($sales) && !empty($sales) && count($sales) > 0) {
-            $result = DB::table('pos')->where('pos_id', $pos_id)->where('created_by', $user_id)->get();
-            if (count($result) > 0) {
-                return response()->json(
-                    [
-                        'code' => 200,
-                        'success' => __('Payment is already completed!'),
-                    ]
-                );
-            } else {
-                $pos = new Pos();
-                $pos->pos_id       = $pos_id;
-                $pos->customer_id      = $customer_id;
-                $pos->warehouse_id      = $request->warehouse_name;
-                $pos->created_by       = $user_id;
-                $pos->save();
-
-                foreach ($sales as $key => $value) {
-                    $product_id = $value['id'];
-
-                    $product = ProductService::whereId($product_id)->where('created_by', $user_id)->first();
-
-                    $original_quantity = ($product == null) ? 0 : (int)$product->quantity;
-
-                    $product_quantity = $original_quantity - $value['quantity'];
+        $customer_id = $customer->id;
 
 
-                    if ($product != null && !empty($product)) {
-                        ProductService::where('id', $product_id)->update(['quantity' => $product_quantity]);
-                    }
+        $pos_id       = $this->invoicePosNumber($request->slug);
+        $sales            = $_SESSION['order'];
 
-                    $tax_id = ProductService::tax_id($product_id);
+        $pos = new Pos();
+        $pos->pos_id       = $pos_id;
+        $pos->customer_id      = $customer_id;
+        $pos->created_by       = $user_id;
+        $pos->pos_date = date('Y-m-d h:i:s');
+        $pos->online = 1;
+        $pos->save();
+
+        foreach ($sales as $key => $value) {
+            $product_id = $key;
+
+            $product = ProductService::whereId($product_id)->where('created_by', $user_id)->first();
+
+            $original_quantity = ($product == null) ? 0 : (int)$product->quantity;
+
+            $product_quantity = $original_quantity - $value;
 
 
-                    $positems = new PosProduct();
-                    $positems->pos_id    = $pos->id;
-                    $positems->product_id = $product_id;
-                    $positems->price      = $value['price'];
-                    $positems->quantity   = $value['quantity'];
-                    $positems->tax     = $tax_id;
-                    $positems->tax        = $value['tax'];
-                    $positems->save();
-                }
-
-                $posPayment                 = new PosPayment();
-                $posPayment->pos_id          =$pos->id;
-                $posPayment->date           = $request->date;
-
-                $mainsubtotal = 0;
-                $sales        = [];
-
-                $sess = session()->get('pos');
-                foreach ($sess as $key => $value) {
-                    $subtotal = $value['price'] * $value['quantity'];
-                    $tax      = ($subtotal * $value['tax']) / 100;
-                    $sales['data'][$key]['price']      = Auth::user()->priceFormat($value['price']);
-                    $sales['data'][$key]['tax']        = $value['tax'] . '%';
-                    $sales['data'][$key]['tax_amount'] = Auth::user()->priceFormat($tax);
-                    $sales['data'][$key]['subtotal']   = Auth::user()->priceFormat($value['subtotal']);
-                    $mainsubtotal                      += $value['subtotal'];
-                }
-                $amount = Auth::user()->priceFormat($mainsubtotal);
-                $posPayment->amount         = $amount;
-                $posPayment->save();
-
-                session()->forget('pos');
-
-                return response()->json(
-                    [
-                        'code' => 200,
-                        'success' => __('Payment completed successfully!'),
-                    ]
-                );
+            if ($product != null && !empty($product)) {
+                ProductService::where('id', $product_id)->update(['quantity' => $product_quantity]);
             }
-        } else {
-            return response()->json(
-                [
-                    'code' => 404,
-                    'success' => __('Items not found!'),
-                ]
-            );
+
+            $tax_id = ProductService::tax_id($product_id, $user_id);
+
+
+            $positems = new PosProduct();
+            $positems->pos_id    = $pos->id;
+            $positems->product_id = $product_id;
+            $positems->price      = $product->sale_price;
+            $positems->quantity   = $value;
+            $positems->tax     = $tax_id;
+            $positems->save();
         }
+
+        $posPayment                 = new PosPayment();
+        $posPayment->pos_id          =$pos->id;
+        $posPayment->date           = date('Y-m-d h:i:s');
+        $posPayment->created_by     = $user_id;
+
+        $mainsubtotal = 0;
+        $sales        = [];
+
+        $user = User::find($user_id);
+
+        $sess = $_SESSION['order'];
+        foreach ($sess as $key => $value) {
+
+            $product_id = $key;
+            $product = ProductService::whereId($product_id)->where('created_by', $user_id)->first();
+
+            $tax = Tax::whereId($product->tax_id);
+
+            $subtotal = $product->sale_price * $value;
+            $tax      = isset($tax->rate) ? ($subtotal * $tax->rate) / 100 : 0;
+            $sales['data'][$key]['price']      = $user->priceFormat($product->sale_price);
+            $sales['data'][$key]['tax']        = (isset($tax->rate)) ? $tax->rate . '%' : null;
+            $sales['data'][$key]['tax_amount'] = $user->priceFormat($tax);
+            $sales['data'][$key]['subtotal']   = $user->priceFormat($subtotal);
+            $mainsubtotal                      += $subtotal;
+        }
+        $amount = $user->priceFormat($mainsubtotal);
+        $posPayment->amount         = $amount;
+        $posPayment->save();
+
+        $message = Storage::get('whatsapp-message.txt');
+
+        $ecommerce = Ecommerce::where('slug', $slug)->first();
+
+        $message = str_replace('{{customerName}}', $customer->name, $message);
+        $message = str_replace('{{customerPhone}}', $customer->phone, $message);
+        $message = str_replace('{{amount}}', $amount, $message);
+        $message = str_replace('{{fecha}}', date('Y-m-d'), $message);
+        $message = str_replace('{{hora}}', date('h:i:s'), $message);
+        $message = str_replace('{{telefono}}', $ecommerce->phone, $message);
+
+        return view('shops.success', compact('message'));
+    }
+
+    function customerNumber($slug)
+    {
+        $ecommerce = Ecommerce::where('slug', $slug)->first();
+
+        $latest = Customer::where('created_by', '=', $ecommerce->id_user)->latest()->first();
+        if(!$latest)
+        {
+            return 1;
+        }
+
+        return $latest->customer_id + 1;
+    }
+
+    function invoicePosNumber($slug)
+    {
+        $ecommerce = Ecommerce::where('slug', $slug)->first();
+        $latest = Pos::where('created_by', '=', $ecommerce->id_user)->latest()->first();
+        return $latest ? $latest->pos_id + 1 : 1;
     }
 }
 
