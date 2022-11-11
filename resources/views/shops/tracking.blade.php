@@ -9,8 +9,9 @@
                 <div class="row align-items-center mb-4 invoice mt-2">
                     <div class="col invoice-details">
                         <img src="{{ '/storage/shops/logos/' . $shop->logo }}" alt="">
-                        <h1 class="invoice-id h6">Invoice Nro: {{ $pos->pos_id }}</h1>
+                        <h1 class="invoice-id h6">Invoice Nro: {{ $user->posNumberFormat($pos->pos_id) }}</h1>
                         <div class="date"><b>{{ __('Date') }}: </b>{{ $pos->pos_date }}</div>
+                        <div class="date"><b>{{ __('Status') }}: </b>{{ $pos->order_status }}</div>
                     </div>
                 </div>
                 <div class="row invoice mt-2">

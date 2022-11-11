@@ -810,6 +810,15 @@
                         </ul>
                     </li>
 
+                    <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'reports')?' active dash-trigger':''}}">
+                        <a href="#!" class="dash-link"><span class="dash-micon"><i class="fa fa-list"></i></span><span class="dash-mtext">{{__('Reports')}}</span><span class="dash-arrow"><i data-feather="chevron-right"></i></span></a>
+                        <ul class="dash-submenu {{ (Request::segment(1) == 'reports')?'show':''}}">
+                            <li class="dash-item {{ (Request::route()->getName() == 'reports.onlineSales') ? ' active' : '' }}">
+                                <a class="dash-link" href="{{ route('reports.salesOnline') }}">{{__('Ventas online')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     @if(\Auth::user()->type!='super admin')
                         <li class="dash-item dash-hasmenu {{ (Request::segment(1) == 'support')?'active':''}}">
                             <a href="{{route('support.index')}}" class="dash-link">

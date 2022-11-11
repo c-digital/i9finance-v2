@@ -19,6 +19,32 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="slug">URL</label>
+
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">https://i9finance.com/shop/</span>
+
+                                        <input type="text" class="form-control" id="slug" name="slug" required value="{{ $ecommerce->slug ?? null }}">
+
+                                        <button onclick="copyToClipboard(this)" type="button" class="btn btn-secondary">
+                                            <i class="fa fa-copy"></i> Copiar
+                                        </button>
+                                    </div>
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger mt-2">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control" name="name" required value="{{ $ecommerce->name ?? null }}">
                                 </div>
@@ -31,7 +57,7 @@
 
                                     <div class="mt-3">
                                         @if(isset($ecommerce->logo))
-                                            <img src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
+                                            <img style="width: 300px; height: 300px" src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
                                         @endif
                                     </div>
                                 </div>
@@ -129,7 +155,7 @@
 
                                     <div class="mt-3">
                                         @if(isset($ecommerce->banner))
-                                            <img src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">
+                                            <img class="img-fluid" src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">
                                         @endif
                                     </div>
                                 </div>
@@ -180,6 +206,20 @@
 
         <input type="submit" value="Guardar cambios" class="btn btn-primary">
     {{ Form::close() }}
+
+    <script>
+        function copyToClipboard(element) {
+            var copyText = document.getElementById("slug");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            navigator.clipboard.writeText(copyText.value);
+
+            document.execCommand("copy");
+        }
+    </script>    
+
 @endsection
 
 

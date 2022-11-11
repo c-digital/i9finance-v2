@@ -2221,6 +2221,8 @@ Route::get('report/attendance/{month}/{branch}/{department}', 'ReportController@
     ]
 );
 
+Route::get('/reports/salesOnline', 'ReportController@salesOnline')->name('reports.salesOnline');
+
 // User Module
 Route::get(
     'users/{view?}', [
@@ -3664,6 +3666,8 @@ Route::resource('salesEcommerce', 'SalesEcommerceController')->middleware(
         'revalidate',
     ]
 );
+
+Route::post('salesEcommerce/status', 'SalesEcommerceController@status');
 
 Route::get('/shop/{slug}', 'ShopController@index');
 Route::post('/shop/order', 'ShopController@order');

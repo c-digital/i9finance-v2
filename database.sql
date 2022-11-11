@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 10-11-2022 a las 20:19:03
+-- Tiempo de generación: 11-11-2022 a las 18:37:07
 -- Versión del servidor: 5.7.40
 -- Versión de PHP: 7.4.30
 
@@ -989,7 +989,8 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`id`, `customer_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Erick Santos', 'dr.ericksantos@gmail.com', NULL, '', '71608981', '', 5, 1, NULL, 'brasil', 'brasil', 'brasil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-02 18:52:58', '2022-11-02 18:52:58'),
 (2, 1, 'Erick Santos', 'Erick@erick.com', NULL, '', '71608981', '', 2, 1, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:38:40', '2022-11-10 06:38:40'),
-(7, 23, 'Nisa Delgado', 'ndelgado@grupop.com.ve', NULL, NULL, '584246402701', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-10 19:04:53', '2022-11-10 19:48:17');
+(7, 23, 'Nisa Delgado', 'ndelgado@grupop.com.ve', NULL, NULL, '584246402701', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'v', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-10 19:04:53', '2022-11-10 19:48:17'),
+(8, 35, 'Nisa Delgado', 'nisadelgado@gmail.com', NULL, NULL, '04246402701', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-11 03:59:05', '2022-11-11 04:28:49');
 
 -- --------------------------------------------------------
 
@@ -1279,7 +1280,8 @@ CREATE TABLE `ecommerces` (
 --
 
 INSERT INTO `ecommerces` (`id`, `id_user`, `slug`, `name`, `logo`, `phone`, `address`, `title`, `description`, `type`, `type_company`, `nit`, `email`, `minimum_order`, `banner`, `facebook`, `instagram`, `google`, `youtube`) VALUES
-(12, 2, 'aidisa', 'Aidisa', '12.png', '+58 246402701', 'Calle 5', 'Aidisa', 'Llegando con los mejores productos al hogar de todos los bolivianos', NULL, NULL, NULL, 'info@aidisa.com', NULL, '12.png', 'https://www.facebook.com/nisa6delgado', 'https://www.instagram.com/nisa6delgado', 'mailto:nisadelgado@gmail.com', 'https://www.youtube.com/channel/UCTgu94owdYN98yBZQnW0ihA');
+(12, 2, 'aidisa', 'Aidisa', '12.png', '+58 246402701', 'Calle 5', 'Aidisa', 'Llegando con los mejores productos al hogar de todos los bolivianos', NULL, NULL, NULL, 'info@aidisa.com', NULL, '12.png', 'https://www.facebook.com/nisa6delgado', 'https://www.instagram.com/nisa6delgado', 'mailto:nisadelgado@gmail.com', 'https://www.youtube.com/channel/UCTgu94owdYN98yBZQnW0ihA'),
+(13, 5, 'i9finance', 'I9Finance', '.png', '71608981', 'calle Florida', 'La mejor empresa', 'la mejor empresa', NULL, NULL, '4151169016', 'dr.ericksantos@gmail.com', '100', '.png', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3893,34 +3895,49 @@ CREATE TABLE `pos` (
   `created_by` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `online` int(11) NOT NULL DEFAULT '0'
+  `online` int(11) NOT NULL DEFAULT '0',
+  `order_status` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT 'Abierto'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `pos`
 --
 
-INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `category_id`, `status`, `shipping_display`, `created_by`, `created_at`, `updated_at`, `online`) VALUES
-(31, 1, 7, 0, NULL, 0, 0, 1, 2, '2022-11-10 19:06:06', '2022-11-10 19:06:06', 0),
-(32, 2, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:07:27', '2022-11-10 19:07:27', 0),
-(33, 3, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:08:14', '2022-11-10 19:08:14', 1),
-(34, 4, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:24:39', '2022-11-10 19:24:39', 1),
-(35, 5, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:25:21', '2022-11-10 19:25:21', 1),
-(36, 6, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:25:53', '2022-11-10 19:25:53', 1),
-(37, 7, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:26:26', '2022-11-10 19:26:26', 1),
-(38, 8, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:26:41', '2022-11-10 19:26:41', 1),
-(39, 9, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:29:47', '2022-11-10 19:29:47', 1),
-(40, 10, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:33:11', '2022-11-10 19:33:11', 1),
-(41, 11, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:33:47', '2022-11-10 19:33:47', 1),
-(42, 12, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:15', '2022-11-10 19:36:15', 1),
-(43, 13, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:39', '2022-11-10 19:36:39', 1),
-(44, 14, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:50', '2022-11-10 19:36:50', 1),
-(45, 15, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:38:55', '2022-11-10 19:38:55', 1),
-(46, 16, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:39:26', '2022-11-10 19:39:26', 1),
-(47, 17, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:41:24', '2022-11-10 19:41:24', 1),
-(48, 18, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:42:28', '2022-11-10 19:42:28', 1),
-(49, 19, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:44:28', '2022-11-10 19:44:28', 1),
-(50, 20, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:48:17', '2022-11-10 19:48:17', 1);
+INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `category_id`, `status`, `shipping_display`, `created_by`, `created_at`, `updated_at`, `online`, `order_status`) VALUES
+(31, 1, 7, 0, NULL, 0, 0, 1, 2, '2022-11-10 19:06:06', '2022-11-10 19:06:06', 0, 'Abierto'),
+(32, 2, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:07:27', '2022-11-10 19:07:27', 0, 'Abierto'),
+(33, 3, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:08:14', '2022-11-10 19:08:14', 1, 'Abierto'),
+(34, 4, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:24:39', '2022-11-10 19:24:39', 1, 'Abierto'),
+(35, 5, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:25:21', '2022-11-10 19:25:21', 1, 'Abierto'),
+(36, 6, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:25:53', '2022-11-10 19:25:53', 1, 'Abierto'),
+(37, 7, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:26:26', '2022-11-10 19:26:26', 1, 'Abierto'),
+(38, 8, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:26:41', '2022-11-10 19:26:41', 1, 'Abierto'),
+(39, 9, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:29:47', '2022-11-10 19:29:47', 1, 'Abierto'),
+(40, 10, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:33:11', '2022-11-11 21:47:07', 1, 'Finalizado'),
+(41, 11, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:33:47', '2022-11-10 19:33:47', 1, 'Abierto'),
+(42, 12, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:15', '2022-11-10 19:36:15', 1, 'Abierto'),
+(43, 13, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:39', '2022-11-10 19:36:39', 1, 'Abierto'),
+(44, 14, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:36:50', '2022-11-10 19:36:50', 1, 'Abierto'),
+(45, 15, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:38:55', '2022-11-10 19:38:55', 1, 'Abierto'),
+(46, 16, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:39:26', '2022-11-10 19:39:26', 1, 'Abierto'),
+(47, 17, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:41:24', '2022-11-10 19:41:24', 1, 'Abierto'),
+(48, 18, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:42:28', '2022-11-10 19:42:28', 1, 'Abierto'),
+(49, 19, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:44:28', '2022-11-10 19:44:28', 1, 'Abierto'),
+(50, 20, 7, 0, '2022-11-10', 0, 0, 1, 2, '2022-11-10 19:48:17', '2022-11-10 19:48:17', 1, 'Abierto'),
+(51, 21, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 03:59:06', '2022-11-11 03:59:06', 1, 'Abierto'),
+(52, 22, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 03:59:51', '2022-11-11 03:59:51', 1, 'Abierto'),
+(53, 23, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:01:08', '2022-11-11 04:01:08', 1, 'Abierto'),
+(54, 24, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:02:35', '2022-11-11 04:02:35', 1, 'Abierto'),
+(55, 25, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:08:51', '2022-11-11 04:08:51', 1, 'Abierto'),
+(56, 26, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:11:24', '2022-11-11 04:11:24', 1, 'Abierto'),
+(57, 27, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:14:56', '2022-11-11 04:14:56', 1, 'Abierto'),
+(58, 28, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:15:17', '2022-11-11 04:15:17', 1, 'Abierto'),
+(59, 29, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:15:33', '2022-11-11 04:15:33', 1, 'Abierto'),
+(60, 30, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:16:46', '2022-11-11 04:16:46', 1, 'Abierto'),
+(61, 31, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:28:17', '2022-11-11 04:28:17', 1, 'Abierto'),
+(62, 32, 8, 0, '2022-11-11', 0, 0, 1, 2, '2022-11-11 04:28:49', '2022-11-11 04:28:49', 1, 'Abierto'),
+(63, 33, 7, 1, NULL, 0, 0, 1, 2, '2022-11-11 04:57:55', '2022-11-11 04:57:55', 0, 'Abierto'),
+(64, 34, 7, 1, NULL, 0, 0, 1, 2, '2022-11-11 05:16:45', '2022-11-11 05:16:45', 0, 'Abierto');
 
 -- --------------------------------------------------------
 
@@ -3964,7 +3981,19 @@ INSERT INTO `pos_payments` (`id`, `pos_id`, `date`, `amount`, `created_by`, `cre
 (29, 47, '2022-11-10', '$1,230.00', 2, '2022-11-10 19:41:24', '2022-11-10 19:41:24'),
 (30, 48, '2022-11-10', '$1,230.00', 2, '2022-11-10 19:42:28', '2022-11-10 19:42:28'),
 (31, 49, '2022-11-10', '$1,230.00', 2, '2022-11-10 19:44:28', '2022-11-10 19:44:28'),
-(32, 50, '2022-11-10', '$1,230.00', 2, '2022-11-10 19:48:17', '2022-11-10 19:48:17');
+(32, 50, '2022-11-10', '$1,230.00', 2, '2022-11-10 19:48:17', '2022-11-10 19:48:17'),
+(33, 51, '2022-11-11', '$120.00', 2, '2022-11-11 03:59:06', '2022-11-11 03:59:06'),
+(34, 52, '2022-11-11', '$120.00', 2, '2022-11-11 03:59:51', '2022-11-11 03:59:51'),
+(35, 53, '2022-11-11', '$120.00', 2, '2022-11-11 04:01:08', '2022-11-11 04:01:08'),
+(36, 54, '2022-11-11', '$120.00', 2, '2022-11-11 04:02:35', '2022-11-11 04:02:35'),
+(37, 55, '2022-11-11', '$120.00', 2, '2022-11-11 04:08:51', '2022-11-11 04:08:51'),
+(38, 56, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:11:24', '2022-11-11 04:11:24'),
+(39, 57, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:14:56', '2022-11-11 04:14:56'),
+(40, 58, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:15:17', '2022-11-11 04:15:17'),
+(41, 59, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:15:33', '2022-11-11 04:15:33'),
+(42, 60, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:16:46', '2022-11-11 04:16:46'),
+(43, 61, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:28:17', '2022-11-11 04:28:17'),
+(44, 62, '2022-11-11', '$1,230.00', 2, '2022-11-11 04:28:49', '2022-11-11 04:28:49');
 
 -- --------------------------------------------------------
 
@@ -4011,7 +4040,19 @@ INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `di
 (42, 47, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-10 19:41:24', '2022-11-10 19:41:24'),
 (43, 48, 2, 123, 0.00, 0.00, 10.00, NULL, '2022-11-10 19:42:28', '2022-11-10 19:42:28'),
 (44, 49, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-10 19:44:28', '2022-11-10 19:44:28'),
-(45, 50, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-10 19:48:17', '2022-11-10 19:48:17');
+(45, 50, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-10 19:48:17', '2022-11-10 19:48:17'),
+(46, 51, 3, 12, 0.00, 0.00, 10.00, NULL, '2022-11-11 03:59:06', '2022-11-11 03:59:06'),
+(47, 52, 3, 12, 0.00, 0.00, 10.00, NULL, '2022-11-11 03:59:51', '2022-11-11 03:59:51'),
+(48, 53, 3, 12, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:01:08', '2022-11-11 04:01:08'),
+(49, 54, 3, 12, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:02:35', '2022-11-11 04:02:35'),
+(50, 55, 3, 12, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:08:51', '2022-11-11 04:08:51'),
+(51, 56, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:11:24', '2022-11-11 04:11:24'),
+(52, 57, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:14:56', '2022-11-11 04:14:56'),
+(53, 58, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:15:17', '2022-11-11 04:15:17'),
+(54, 59, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:15:33', '2022-11-11 04:15:33'),
+(55, 60, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:16:46', '2022-11-11 04:16:46'),
+(56, 61, 2, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:28:17', '2022-11-11 04:28:17'),
+(57, 62, 3, 123, 0.00, 0.00, 10.00, NULL, '2022-11-11 04:28:49', '2022-11-11 04:28:49');
 
 -- --------------------------------------------------------
 
@@ -4043,10 +4084,10 @@ CREATE TABLE `product_services` (
 
 INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_price`, `quantity`, `tax_id`, `category_id`, `unit_id`, `type`, `description`, `pro_image`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'Produto 01', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 5, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
-(2, 'Produto 01', '12345', '10.00', '5.00', 98, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-10 19:42:28'),
-(3, 'Produto 02', '12345', '10.00', '5.00', -2599, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-10 19:48:17'),
+(2, 'Produto 01', '12345', '10.00', '5.00', 73, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-11 05:16:45'),
+(3, 'Produto 02', '12345', '10.00', '5.00', -3397, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-11 04:28:49'),
 (4, 'Produto 03', '12345', '10.00', '5.00', -515, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-10 19:39:26'),
-(5, 'Produto 04', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
+(5, 'Produto 04', '12345', '10.00', '5.00', 200, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-11 04:39:40'),
 (6, 'Produto 05', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07');
 
 -- --------------------------------------------------------
@@ -4071,7 +4112,9 @@ CREATE TABLE `product_service_categories` (
 
 INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'teste', '0', 'FFFFFF', 5, '2022-11-02 19:01:02', '2022-11-02 19:01:02'),
-(2, 'Categoría 01', '0', 'FFFFFF', 2, '2022-11-10 06:26:45', '2022-11-10 06:26:45');
+(2, 'Categoría 01', '0', 'FFFFFF', 2, '2022-11-10 06:26:45', '2022-11-10 06:26:45'),
+(3, 'Cateogria de prueba', '1', 'FFFFFF', 2, '2022-11-11 04:52:25', '2022-11-11 04:52:25'),
+(4, 'Categoria 2', '2', 'FFFFFF', 2, '2022-11-11 04:53:02', '2022-11-11 04:53:02');
 
 -- --------------------------------------------------------
 
@@ -4300,7 +4343,8 @@ CREATE TABLE `purchases` (
 --
 
 INSERT INTO `purchases` (`id`, `purchase_id`, `vender_id`, `warehouse_id`, `purchase_date`, `purchase_number`, `status`, `shipping_display`, `send_date`, `online`, `discount_apply`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
-(14, '1', NULL, NULL, '2022-11-10', 0, 0, 1, NULL, 1, 0, NULL, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+(14, '1', NULL, NULL, '2022-11-10', 0, 0, 1, NULL, 1, 0, NULL, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31'),
+(15, '2', 1, 1, '2022-11-10', 0, 0, 1, NULL, 0, 0, 4, 2, '2022-11-11 04:53:28', '2022-11-11 04:53:28');
 
 -- --------------------------------------------------------
 
@@ -4346,7 +4390,8 @@ CREATE TABLE `purchase_products` (
 --
 
 INSERT INTO `purchase_products` (`id`, `purchase_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
-(5, 14, 2, 123, NULL, 0.00, 10.00, NULL, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+(5, 14, 2, 123, NULL, 0.00, 10.00, NULL, '2022-11-10 06:31:31', '2022-11-10 06:31:31'),
+(6, 15, 2, 100, NULL, 0.00, 5.00, NULL, '2022-11-11 04:53:28', '2022-11-11 04:53:28');
 
 -- --------------------------------------------------------
 
@@ -5273,6 +5318,13 @@ CREATE TABLE `stock_reports` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `stock_reports`
+--
+
+INSERT INTO `stock_reports` (`id`, `product_id`, `quantity`, `type`, `type_id`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 5, 100, 'manually', 0, '100  quantity added by manually', 2, '2022-11-11 04:39:40', '2022-11-11 04:39:40');
+
 -- --------------------------------------------------------
 
 --
@@ -5661,10 +5713,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `plan`, `plan_expire_date`, `requested_plan`, `type`, `avatar`, `lang`, `mode`, `created_by`, `default_pipeline`, `delete_status`, `is_active`, `remember_token`, `last_login_at`, `created_at`, `updated_at`, `messenger_color`, `dark_mode`, `active_status`) VALUES
 (1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-10 22:42:35', '2022-10-26 17:37:48', '2022-11-11 01:42:35', '#2180f3', 0, 0),
-(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-10 03:15:21', '2022-10-26 17:37:54', '2022-11-10 06:32:30', '#2180f3', 0, 0),
+(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'en', 'light', 1, 1, 1, 1, NULL, '2022-11-11 15:52:23', '2022-10-26 17:37:54', '2022-11-11 18:52:23', '#2180f3', 0, 0),
 (3, 'accountant', 'accountant@example.com', NULL, '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', NULL, NULL, 0, 'accountant', '', 'en', 'light', 2, 1, 1, 1, NULL, '2022-11-02 01:13:07', '2022-10-26 17:37:55', '2022-11-02 04:13:07', '#2180f3', 0, 0),
 (4, 'client', 'client@example.com', NULL, '$2y$10$D1o/wWl1JIeyvwsjia474ufKeUdpOLL4CCRyFFFnXmFWaLupoN8vi', NULL, NULL, 0, 'client', '', 'en', 'light', 2, 1, 1, 1, NULL, NULL, '2022-10-26 17:37:57', '2022-10-26 17:37:57', '#2180f3', 0, 0),
-(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-10 22:54:22', '2022-10-28 22:14:30', '2022-11-11 01:54:22', '#2180f3', 0, 0),
+(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-11 19:59:00', '2022-10-28 22:14:30', '2022-11-11 22:59:00', '#2180f3', 0, 0),
 (6, 'Erick Santos', 'cliente@cliente.com', NULL, '$2y$10$suoDAUOf/Vaz0BrVwtZRo.6v2GoHZCoNRTB7cf/iq0n9ootFsS1WS', NULL, NULL, 0, 'client', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, '2022-11-02 16:03:25', '2022-11-02 18:59:38', '2022-11-02 19:03:25', '#2180f3', 0, 0),
 (7, 'qoBcOIZpLUXRvi', 'judithngoamy@outlook.com', NULL, '$2y$10$vmKjbNynY3NsutkbMAPyAOnYZN0zsmuVDPaAQ56CTYrpuo19vBZFy', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-04 09:15:28', '2022-11-04 09:15:28', '#2180f3', 0, 0);
 
@@ -5924,7 +5976,8 @@ CREATE TABLE `warehouse_products` (
 --
 
 INSERT INTO `warehouse_products` (`id`, `warehouse_id`, `product_id`, `quantity`, `created_by`, `created_at`, `updated_at`) VALUES
-(2, NULL, 2, 123, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31');
+(2, NULL, 2, 123, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31'),
+(3, 1, 2, 100, 2, '2022-11-11 04:53:28', '2022-11-11 04:53:28');
 
 -- --------------------------------------------------------
 
@@ -7350,7 +7403,7 @@ ALTER TABLE `credit_notes`
 -- AUTO_INCREMENT de la tabla `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `custom_fields`
@@ -7446,7 +7499,7 @@ ALTER TABLE `ducument_uploads`
 -- AUTO_INCREMENT de la tabla `ecommerces`
 --
 ALTER TABLE `ecommerces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `email_templates`
@@ -7854,19 +7907,19 @@ ALTER TABLE `plan_requests`
 -- AUTO_INCREMENT de la tabla `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `pos_payments`
 --
 ALTER TABLE `pos_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `pos_products`
 --
 ALTER TABLE `pos_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `product_services`
@@ -7878,7 +7931,7 @@ ALTER TABLE `product_services`
 -- AUTO_INCREMENT de la tabla `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `product_service_units`
@@ -7944,7 +7997,7 @@ ALTER TABLE `proposal_products`
 -- AUTO_INCREMENT de la tabla `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `purchase_payments`
@@ -7956,7 +8009,7 @@ ALTER TABLE `purchase_payments`
 -- AUTO_INCREMENT de la tabla `purchase_products`
 --
 ALTER TABLE `purchase_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `resignations`
@@ -8010,7 +8063,7 @@ ALTER TABLE `stages`
 -- AUTO_INCREMENT de la tabla `stock_reports`
 --
 ALTER TABLE `stock_reports`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `supports`
@@ -8178,7 +8231,7 @@ ALTER TABLE `warehouses`
 -- AUTO_INCREMENT de la tabla `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `warnings`

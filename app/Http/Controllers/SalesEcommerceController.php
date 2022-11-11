@@ -32,4 +32,12 @@ class SalesEcommerceController extends Controller
         return view('salesEcommerce.index',compact('posPayments'));
     }
 
+    public function status(Request $request)
+    {
+        $pos = Pos::find($request->id);
+        $pos->update(['order_status' => $request->order_status]);
+
+        return redirect()->route('salesEcommerce.index');
+    }
+
 }

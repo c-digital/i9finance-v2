@@ -28,9 +28,35 @@ use App\Models\LeaveType;
 use App\Models\BankTransfer;
 use App\Models\Vender;
 use Illuminate\Http\Request;
+use App\Models\Pos;
 
 class ReportController extends Controller
 {
+    public function salesOnline(Request $request)
+    {
+        $sales = Pos::where('online', 1)->get();
+
+        if ($request->status) {
+            $sales = Pos::where('online', 1)
+                ->where('order_status', $request->status)
+                ->get();            
+        }
+
+        if ($request->print) {
+            return view('reports.salesOnlinePrint', compact('request', 'sales'));            
+        }
+
+        if ($request->export == 'pdf') {
+            return view('reports.salesOnlinePrint', compact('request', 'sales'));            
+        }
+
+        if ($request->export == 'excel') {
+            return view('reports.salesOnlinePrint', compact('request', 'sales'));            
+        }
+
+        return view('reports.salesOnline', compact('request', 'sales'));
+    }
+
     public function incomeSummary(Request $request)
     {
         if(\Auth::user()->can('income report'))

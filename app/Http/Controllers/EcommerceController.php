@@ -16,6 +16,10 @@ class EcommerceController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'slug' => 'unique:ecommerces'
+        ]);
+
         $ecommerce = Ecommerce::where('id_user', auth()->user()->id)->first();
 
         if (!isset($ecommerce->id)) {
@@ -23,7 +27,7 @@ class EcommerceController extends Controller
         }
 
         $ecommerce->id_user = auth()->user()->id;
-        $ecommerce->slug = Str::slug($request->name);
+        $ecommerce->slug = $request->slug;
         $ecommerce->name = $request->name;
         $ecommerce->phone = $request->phone;
         $ecommerce->address = $request->address;

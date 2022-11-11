@@ -16,7 +16,8 @@ class Pos extends Model
         'status',
         'shipping_display',
         'created_by',
-        'online'
+        'online',
+        'order_status'
     ];
 
     public function customer()
