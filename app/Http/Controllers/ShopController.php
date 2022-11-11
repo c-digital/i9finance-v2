@@ -124,6 +124,9 @@ class ShopController extends Controller
         $user = User::find($user_id);
 
         $sess = $_SESSION['order'];
+
+        $productsList = "";
+
         foreach ($sess as $key => $value) {
 
             $product_id = $key;
@@ -138,23 +141,30 @@ class ShopController extends Controller
             $sales['data'][$key]['tax_amount'] = $user->priceFormat($tax);
             $sales['data'][$key]['subtotal']   = $user->priceFormat($subtotal);
             $mainsubtotal                      += $subtotal;
+
+            $productsList = $productsList . "- *x$value {$product->name} Bs. {$product->sale_price}*%0A";
         }
+
+        $productsList = $productsList . "*%0A";
+
         $amount = $user->priceFormat($mainsubtotal);
         $posPayment->amount         = $amount;
         $posPayment->save();
 
         $message = Storage::get('whatsapp-message.txt');
 
-        $ecommerce = Ecommerce::where('slug', $slug)->first();
+        $ecommerce = Ecommerce::where('slug', $request->slug)->first();
 
         $message = str_replace('{{customerName}}', $customer->name, $message);
-        $message = str_replace('{{customerPhone}}', $customer->phone, $message);
+        $message = str_replace('{{customerPhone}}', $customer->contact, $message);
         $message = str_replace('{{amount}}', $amount, $message);
         $message = str_replace('{{fecha}}', date('Y-m-d'), $message);
         $message = str_replace('{{hora}}', date('h:i:s'), $message);
         $message = str_replace('{{telefono}}', $ecommerce->phone, $message);
 
-        return view('shops.success', compact('message'));
+        $message = str_replace('{{productsList}}', $productsList, $message);
+
+        return view('shops.success', compact('message', 'pos_id'));
     }
 
     function customerNumber($slug)
@@ -175,6 +185,18 @@ class ShopController extends Controller
         $ecommerce = Ecommerce::where('slug', $slug)->first();
         $latest = Pos::where('created_by', '=', $ecommerce->id_user)->latest()->first();
         return $latest ? $latest->pos_id + 1 : 1;
+    }
+
+    public function tracking($order_id)
+    {
+        $pos = Pos::find($order_id);
+        $customer = Customer::find($pos->customer_id);
+        $user = User::find($pos->created_by);
+        $posProducts = PosProduct::where('pos_id', $pos->id)->get();
+        $total = 0;
+        $shop = Ecommerce::where('id_user', $pos->created_by)->first();
+
+        return view('shops.tracking', compact('pos', 'customer', 'user', 'posProducts', 'total', 'shop'));
     }
 }
 
