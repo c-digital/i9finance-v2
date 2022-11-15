@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Models\BankAccount;
 use App\Models\Bill;
 use App\Models\Branch;
@@ -29,6 +30,7 @@ use App\Models\BankTransfer;
 use App\Models\Vender;
 use Illuminate\Http\Request;
 use App\Models\Pos;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportController extends Controller
 {
@@ -47,7 +49,9 @@ class ReportController extends Controller
         }
 
         if ($request->export == 'pdf') {
-            return view('reports.salesOnlinePrint', compact('request', 'sales'));            
+            $pdf = App::make('dompdf');
+            $pdf->loadView('reports.salesOnlinePrint', compact('request', 'sales'));
+            return $pdf->download('sales-on-line.pdf');
         }
 
         if ($request->export == 'excel') {

@@ -17,7 +17,17 @@
 
                     <div class="card-body">                    
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-4">
+                                <div class="form-group" style="text-align: center">
+                                    @if(isset($ecommerce->logo))
+                                        <img style="border: 1px solid black; width: 100px; height: 100px; border-radius: 50px" src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
+                                    @endif
+
+                                    <input type="file" class="form-control mt-1" name="logo">
+                                </div>
+                            </div>
+
+                            <div class="col-8">
                                 <div class="form-group">
                                     <label for="slug">URL</label>
 
@@ -41,28 +51,15 @@
                                         </div>
                                     @endif
                                 </div>
-                            </div>
 
-                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control" name="name" required value="{{ $ecommerce->name ?? null }}">
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="logo">Logo</label>
-                                    <input type="file" class="form-control" name="logo">
-
-                                    <div class="mt-3">
-                                        @if(isset($ecommerce->logo))
-                                            <img style="width: 300px; height: 300px" src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="phone">Teléfono</label>
@@ -207,15 +204,14 @@
         <input type="submit" value="Guardar cambios" class="btn btn-primary">
     {{ Form::close() }}
 
+    <input type="hidden" id="slug-hidden">
+
     <script>
         function copyToClipboard(element) {
-            var copyText = document.getElementById("slug");
-
+            value = document.getElementById('slug').value;
+            document.getElementById('slug-hidden').value = 'https://i9finance.com/shop/' + value;
+            copyText = document.getElementById('slug-hidden');
             copyText.select();
-            copyText.setSelectionRange(0, 99999);
-
-            navigator.clipboard.writeText(copyText.value);
-
             document.execCommand("copy");
         }
     </script>    

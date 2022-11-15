@@ -49,6 +49,8 @@
 
     <style>
         .iti { width: 100%; }
+
+        
     </style>
 
     <!-- vendor css -->
@@ -162,9 +164,17 @@
     $(document).ready(function () {
         input = document.querySelector('#phone');
         window.intlTelInput(input);
+
+        $('.view-order-btn').click(function () {
+            $('#view-order').modal('show');
+        });
     });
 </script>
-
 @yield('js')
+
+<a href="#" style="bottom:10px;right:10px;position:fixed;z-index:9999" class="view-order-btn btn btn-primary">
+    <i class="fa fa-shopping-cart"></i> Ver pedido
+</a>
+
 </body>
 </html>

@@ -1,9 +1,22 @@
 @extends('layouts.shop')
 
 @section('content')
+
+        <style>
+            .dropdown:hover > .dropdown-menu {
+              display: block;
+            }
+        </style>    
+
+    <div class="row" style="text-align: center;">
+        <div class="col">
+            <img class="img-fluid" src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">            
+        </div>
+    </div>
+
     <div class="row" style="margin-top: 100px">
         <div class="col" style="text-align: right; margin: auto">
-            <img src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
+            <img style="border: 1px solid black; border-radius: 150px; width: 200px" src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
         </div>
 
         <div class="col">
@@ -57,41 +70,40 @@
 
     <div class="row">
         <div class="col" style="text-align: center;">
-            <img class="img-fluid" src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">
-
             <form class="mt-5">
-                <div class="input-group">
-                    <button class="btn btn-secondary toggle-categories" type="button">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                <table width="100%">
+                    <tr>
+                        <td width="10%">
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-bars"></i>
+                              </a>
 
-                    <input type="text" name="search" required class="form-control" value="{{ $request->search }}" placeholder="Ingrese el nombre del producto que desea buscar...">
+                              <ul class="dropdown-menu">
+                                @foreach($categories as $category)
+                                    <li>
+                                        <form>
+                                            <a data-id="{{ $category->id }}" class="dropdown-item filter-by-category" href="#">{{ $category->name }}</a>
+                                        </form>
+                                    </li>
+                                @endforeach
+                              </ul>
+                            </div>
+                        </td>
 
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fa fa-search"></i> 
-                        Buscar
-                    </button>
-                </div>
+                        <td width="79%">
+                            <input type="text" name="search" required class="form-control" value="{{ $request->search }}" placeholder="Ingrese el nombre del producto que desea buscar...">
+                        </td>
+
+                        <td width="15%">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-search"></i> 
+                                Buscar
+                            </button>
+                        </td>
+                    </tr>
+                </table>
             </form>
-
-            <div class="mt-5 categories d-none">
-                <ul class="list-group">
-                    @foreach($categories as $category)
-                        <li class="list-group-item">                            
-
-                            <form style="cursor: pointer" class="filter-by-category">
-                                <input type="hidden" name="category" value="{{ $category->id }}">
-
-                                @if($request->search)
-                                    <input type="hidden" name="search" value="{{ $request->search }}">
-                                @endif
-
-                                {{ $category->name }}
-                            </form>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
         </div>
     </div>
 
@@ -145,7 +157,9 @@
                 <h5 class="modal-title">Pedido</h5>
               </div>
               <div class="modal-body">
-                <div class="order-details"></div>
+                <div class="order-details text-center">
+                    <h4>No has agregado ningún producto</h4>
+                </div>
 
                 <div class="customer-details d-none">
                     <div class="form-group">
@@ -183,7 +197,9 @@
                 <h5 class="modal-title">Pedido</h5>
             </div>
 
-            <div class="modal-body"></div>
+            <div class="modal-body">
+                
+            </div>
         </div>
       </div>
     </div>
@@ -265,8 +281,11 @@
                 }
             });
 
-            $('.filter-by-category').click(function () {
-                $(this).submit();
+            $('.filter-by-category').click(function (event) {
+                event.preventDefault();
+
+                id_category = $(this).attr('data-id');
+                window.location.href = '?category=' + id_category;
             });
         });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ecommerce;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class EcommerceController extends Controller
 {
@@ -16,11 +17,18 @@ class EcommerceController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'slug' => 'unique:ecommerces'
-        ]);
 
         $ecommerce = Ecommerce::where('id_user', auth()->user()->id)->first();
+
+        if ($ecommerce->id) {
+            $request->validate([
+                'slug' => Rule::unique('ecommerces')->ignore($ecommerce->id)
+            ]);
+        } else {
+            $request->validate([
+                'slug' => 'unique:ecommerces'
+            ]);
+        }
 
         if (!isset($ecommerce->id)) {
             $ecommerce = new Ecommerce();
