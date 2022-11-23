@@ -15,8 +15,8 @@ class PosProduct extends Model
         'total',
     ];
 
-    public function product(){
-        return $this->hasOne('App\Models\ProductService', 'id', 'product_id')->first();
+    public function name(){
+        return ProductService::find($this->product_id)->name;
     }
 
 }

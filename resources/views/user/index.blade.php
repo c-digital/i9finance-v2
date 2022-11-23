@@ -82,7 +82,7 @@
                             </div>
                             <div class="card-body full-card">
                                 <div class="img-fluid rounded-circle card-avatar">
-                                    <img src="{{(!empty($user->avatar))? asset(Storage::url("uploads/avatar/".$user->avatar)): asset(Storage::url("uploads/avatar/avatar.png"))}}" class="img-user wid-80 round-img rounded-circle">
+                                    <img src="{{(!empty($user->avatar))? '/storage/uploads/avatar/'.$user->avatar: '/storage/avatar/avatar.png' }}" class="img-user wid-80 round-img rounded-circle">
                                 </div>
                                 <h4 class=" mt-3 text-primary">{{ $user->name }}</h4>
                                 @if($user->delete_status==0)

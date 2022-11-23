@@ -6,20 +6,43 @@
             .dropdown:hover > .dropdown-menu {
               display: block;
             }
+
+            @media (max-width: 600px) {
+                .logo-container {
+                    text-align: center;
+                }
+
+                .company-info-container {
+                    text-align: center;
+                    margin-top: 30px;
+                }
+
+                .header-container {
+                    margin-top: 100px;
+                    margin-bottom: -80px;
+                }
+            }
+
+            @media (min-width: 600px) {
+                .logo-container {
+                    text-align: right;
+                    margin: auto;
+                }
+            }
         </style>    
 
     <div class="row" style="text-align: center;">
-        <div class="col">
+        <div class="col header-container">
             <img class="img-fluid" src="{{ '/storage/shops/banners/' . $ecommerce->banner }}" alt="">            
         </div>
     </div>
 
     <div class="row" style="margin-top: 100px">
-        <div class="col" style="text-align: right; margin: auto">
+        <div class="col logo-container">
             <img style="border: 1px solid black; border-radius: 150px; width: 200px" src="{{ '/storage/shops/logos/' . $ecommerce->logo }}" alt="">
         </div>
 
-        <div class="col">
+        <div class="col company-info-container">
             <h1>{{ $ecommerce->name }}</h1>
 
             @if($ecommerce->nit)
@@ -131,6 +154,8 @@
 
                                             <input type="hidden" name="id_product" value="{{ $product->id }}">
 
+                                            <input type="hidden" name="parameters" value="{{ $product->variation }}">
+
                                             <button type="submit" title="Agregar al pedido" class="btn btn-primary">
                                                 <i class="fas fa-shopping-cart"></i>
                                             </button>
@@ -143,6 +168,28 @@
                 @endforeach
             </div>
         </div>
+    </div>
+
+    <div class="modal" id="parameters-modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" class="add-to-order-with-parameters">
+              <div class="modal-header">
+                <h5 class="modal-title">Establecer parámetros</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-shopping-cart"></i> Agregar al pedido
+                </button>
+              </div>
+            </form>
+        </div>
+      </div>
     </div>
 
     <div class="modal" id="view-order" tabindex="-1" role="dialog">
@@ -242,17 +289,73 @@
                 });
             });
 
+            $('.add-to-order-with-parameters').submit(function (event) {
+                event.preventDefault();
+
+                quantity = $(this).find('[name=quantity]').val();
+                id_product = $(this).find('[name=id_product]').val();
+                parameters = $(this).find('[name=parameters]').val();
+
+                data = $(this).serialize();
+
+                console.log(data);
+
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        data: data,
+                        _token: '{{ csrf_token() }}',
+                    },
+                    url: '/shop/order',
+                    success: function (response) {
+                        toastr.options.onclick = function () {
+                            $('#view-order').modal('show');
+                        }
+
+                        toastr.success('Producto agregado al pedido', 'Click aquí para ver el pedido');
+
+                        $('.order-details').html(response);
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                });
+            });
+
             $('.add-to-order').submit(function (event) {
                 event.preventDefault();
 
                 quantity = $(this).find('[name=quantity]').val();
                 id_product = $(this).find('[name=id_product]').val();
+                parameters = $(this).find('[name=parameters]').val();
+
+                if (parameters) {
+                    $.ajax({
+                        type: 'GET',
+                        data: {
+                            quantity: quantity,
+                            parameters: parameters,
+                            id_product: id_product
+                        },
+                        url: '/shop/parameters',
+                        success: function (response) {
+                            $('#parameters-modal').find('.modal-body').html(response);
+                            $('#parameters-modal').modal('show');
+                        },
+                        error: function (error) {
+                            console.log(error.responseText);
+                        }
+                    });
+
+                    return false;
+                }
+
+                data = $(this).serialize();
 
                 $.ajax({
                     type: 'POST',
                     data: {
-                        quantity: quantity,
-                        id_product: id_product,
+                        data: data,
                         _token: '{{ csrf_token() }}'
                     },
                     url: '/shop/order',
@@ -268,7 +371,7 @@
                     error: function (error) {
                         console.log(error.responseText);
                     }
-                })
+                });
             });
 
             $('.toggle-categories').click(function () {

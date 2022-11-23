@@ -26,7 +26,20 @@
 				@endphp
 
 				<tr>
-					<th>{{ $product->name }}</th>
+					<th>
+						{{ $product->name }}
+
+						@if(isset($parameters[$key]))
+							<div>
+								<small>|
+									@foreach($parameters[$key] as $key => $value)
+										{{ $key . ': ' . $value }} |
+									@endforeach
+								</small>
+							</div>
+						@endif
+					</th>
+
 					<th>{{ $quantity }}</th>
 					<th>{{ $product->sale_price }}</th>
 					<th>{{ number_format($quantity * $product->sale_price, 2) }}</th>

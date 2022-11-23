@@ -31,6 +31,8 @@ use App\Models\Vender;
 use Illuminate\Http\Request;
 use App\Models\Pos;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SalesOnlineExport;
 
 class ReportController extends Controller
 {
@@ -49,13 +51,12 @@ class ReportController extends Controller
         }
 
         if ($request->export == 'pdf') {
-            $pdf = App::make('dompdf');
-            $pdf->loadView('reports.salesOnlinePrint', compact('request', 'sales'));
+            $pdf = Pdf::loadView('reports.salesOnlinePrint', compact('request', 'sales'));
             return $pdf->download('sales-on-line.pdf');
         }
 
         if ($request->export == 'excel') {
-            return view('reports.salesOnlinePrint', compact('request', 'sales'));            
+            return Excel::download(new SalesOnlineExport($sales), 'sales-on-line.xlsx');            
         }
 
         return view('reports.salesOnline', compact('request', 'sales'));

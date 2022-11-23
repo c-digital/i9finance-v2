@@ -722,15 +722,15 @@ class ProposalController extends Controller
 //        }
 
 
-        $logo         = asset(Storage::url('uploads/logo/'));
+        $logo         = '/storage/uploads/logo/';
         $company_logo = Utility::getValByName('company_logo_dark');
         $proposal_logo = Utility::getValByName('proposal_logo');
         if(isset($proposal_logo) && !empty($proposal_logo))
         {
-            $img = Utility::get_file('proposal_logo/') . $proposal_logo;
+            $img = '/storage/proposal_logo/' . $proposal_logo;
         }
         else{
-            $img          = asset($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png'));
+            $img          = $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png');
         }
 
 

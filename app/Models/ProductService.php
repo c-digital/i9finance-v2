@@ -36,6 +36,11 @@ class ProductService extends Model
         return $this->hasOne('App\Models\ProductServiceCategory', 'id', 'category_id');
     }
 
+    public function variation()
+    {
+        return $this->belongsTo('App\Models\ProductVariation');
+    }
+
     public function tax($taxes)
     {
         $taxArr = explode(',', $taxes);

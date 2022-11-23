@@ -191,7 +191,7 @@ class PosController extends Controller
                             ProductService::where('id', $product_id)->update(['quantity' => $product_quantity]);
                         }
 
-                        $tax_id = ProductService::tax_id($product_id);
+                        $tax_id = ProductService::tax_id($product_id, $user_id);
 
 
                         $positems = new PosProduct();

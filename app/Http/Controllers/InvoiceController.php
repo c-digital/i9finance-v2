@@ -933,7 +933,7 @@ class InvoiceController extends Controller
         $color      = '#' . $color;
         $font_color = Utility::getFontColor($color);
 
-        $logo         = asset(Storage::url('uploads/logo/'));
+        $logo         = '/storage/uploads/logo/';
         $company_logo = Utility::getValByName('company_logo_dark');
         $invoice_logo = Utility::getValByName('invoice_logo');
         if(isset($invoice_logo) && !empty($invoice_logo))
@@ -941,7 +941,7 @@ class InvoiceController extends Controller
             $img = Utility::get_file('invoice_logo/') . $invoice_logo;
         }
         else{
-            $img          = asset($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png'));
+            $img          = $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png');
         }
 
 

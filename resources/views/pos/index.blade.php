@@ -157,7 +157,7 @@
                                             @endphp
                                                 <tr data-product-id="{{$id}}" id="product-id-{{$id}}">
                                                     <td class="cart-images">
-                                                        <img alt="Image placeholder" src="{{ asset(Storage::url($image_url)) }}" class="card-image avatar rounded-circle-sale shadow hover-shadow-lg">
+                                                        <img alt="Image placeholder" src="/storage/uploads/pro_image/{{ $product->pro_image }}" class="card-image avatar rounded-circle-sale shadow hover-shadow-lg">
                                                     </td>
                                                     <td class="name">{{ $details['name'] }}</td>
                                                     <td>
@@ -561,6 +561,7 @@
                 error: function (data) {
                     data = data.responseJSON;
                     show_toastr('{{ __("Error") }}', data.error, 'error');
+                    console.log(data);
                 }
 
             });

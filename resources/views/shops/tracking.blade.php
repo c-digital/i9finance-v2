@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row align-items-center mb-4 invoice mt-2">
                     <div class="col invoice-details">
-                        <img src="{{ '/storage/shops/logos/' . $shop->logo }}" alt="">
+                        <img width="150px" src="{{ '/storage/shops/logos/' . $shop->logo }}" alt="">
                         <h1 class="invoice-id h6">Invoice Nro: {{ $user->posNumberFormat($pos->pos_id) }}</h1>
                         <div class="date"><b>{{ __('Date') }}: </b>{{ $pos->pos_date }}</div>
                         <div class="date"><b>{{ __('Status') }}: </b>{{ $pos->order_status }}</div>
@@ -58,7 +58,16 @@
                                     @foreach ($posProducts as $product)
                                         <tr>
                                             <td class="cart-summary-table text-left">
-                                                {{ $product->name }}
+                                                {{ $product->name() }}
+
+                                                <div>
+                                                    @if($product->parameters)
+                                                        |
+                                                        @foreach(json_decode($product->parameters) as $key => $value)
+                                                            <small>{{$key . ': ' . $value}}</small> |
+                                                        @endforeach
+                                                    @endif
+                                                </div>
                                             </td>
                                             <td class="cart-summary-table">
                                                 {{ $product->quantity }}

@@ -117,6 +117,12 @@ class User extends Authenticatable
         return (($settings['site_currency_symbol_position'] == "pre") ? $settings['site_currency_symbol'] : '') . number_format($price, Utility::getValByName('decimal_number')) . (($settings['site_currency_symbol_position'] == "post") ? $settings['site_currency_symbol'] : '');
     }
 
+    public function salesOnline()
+    {
+        $pos = Pos::where('online', 1)->where('created_by', $this->id)->get();
+        return $pos->count();
+    }
+
     public function currencySymbol()
     {
         $settings = Utility::settings();

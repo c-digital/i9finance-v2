@@ -195,6 +195,8 @@ Route::group(
 }
 );
 
+Route::resource('product-variation', 'ProductVariationController');
+
 Route::get('productservice/index', 'ProductServiceController@index')->name('productservice.index');
 Route::get('productservice/{id}/detail', 'ProductServiceController@warehouseDetail')->name('productservice.detail');
 Route::post('empty-cart', 'ProductServiceController@emptyCart')->middleware(['auth', 'XSS']);
@@ -3669,10 +3671,11 @@ Route::resource('salesEcommerce', 'SalesEcommerceController')->middleware(
 
 Route::post('salesEcommerce/status', 'SalesEcommerceController@status');
 
-Route::get('/shop/{slug}', 'ShopController@index');
 Route::post('/shop/order', 'ShopController@order');
 Route::post('/shop/sale', 'ShopController@sale');
 Route::get('/shop/tracking/{order}', 'ShopController@tracking');
+Route::get('/shop/parameters', 'ShopController@parameters');
+Route::get('/shop/{slug}', 'ShopController@index');
 
 Route::get('product-categories', 'ProductServiceCategoryController@getProductCategories')->name('product.categories')->middleware(['auth', 'XSS']);
 Route::get('add-to-cart/{id}/{session}', 'ProductServiceController@addToCart')->middleware(['auth', 'XSS']);

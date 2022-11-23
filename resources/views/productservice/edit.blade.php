@@ -79,9 +79,18 @@
             <div class="choose-file ">
                 <label for="pro_image" class="form-label">
                     <input type="file" class="form-control" name="pro_image" id="pro_image" data-filename="pro_image_create">
-                    <img id="image"  class="mt-3" width="100" src="@if($productService->pro_image){{asset(Storage::url('uploads/pro_image/'.$productService->pro_image))}}@else{{asset(Storage::url('uploads/pro_image/user-2_1654779769.jpg'))}}@endif" />
+                    <img id="image"  class="mt-3" width="100" src="@if($productService->pro_image){{'/storage/uploads/pro_image/'.$productService->pro_image}}@else{{'/storage/uploads/pro_image/user-2_1654779769.jpg'}}@endif" />
 
                 </label>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            {{ Form::label('variation_id', __('Variation'),['class'=>'form-label']) }}<span class="text-danger">*</span>
+            {{ Form::select('variation_id', $variations,null, array('class' => 'form-control select','required'=>'required')) }}
+
+            <div class=" text-xs">
+                <a href="{{route('product-variation.index')}}"><b>{{__('Add Variation')}}</b></a>
             </div>
         </div>
 

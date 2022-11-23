@@ -59,6 +59,7 @@
             {{ Form::label('quantity', __('Quantity'),['class'=>'form-label']) }}<span class="text-danger">*</span>
             {{ Form::text('quantity',null, array('class' => 'form-control','required'=>'required')) }}
         </div>
+
         <div class="col-md-6">
             <div class="form-group">
                 <div class="btn-box">
@@ -92,6 +93,14 @@
             </div>
         </div>
 
+        <div class="form-group col-md-6">
+            {{ Form::label('variation_id', __('Variation'),['class'=>'form-label']) }}<span class="text-danger">*</span>
+            {{ Form::select('variation_id', $variations,null, array('class' => 'form-control select','required'=>'required')) }}
+
+            <div class=" text-xs">
+                <a href="{{route('product-variation.index')}}"><b>{{__('Add Variation')}}</b></a>
+            </div>
+        </div>
 
         @if(!$customFields->isEmpty())
             <div class="col-lg-6 col-md-6 col-sm-6">

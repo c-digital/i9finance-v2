@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\ProductVariation;
 
 
 
@@ -59,8 +60,16 @@ class ProductServiceController extends Controller
             $category     = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 0)->get()->pluck('name', 'id');
             $unit         = ProductServiceUnit::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $tax          = Tax::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+            $items = ProductVariation::get();
 
-            return view('productservice.create', compact('category', 'unit', 'tax', 'customFields'));
+            $variations = [];
+            $variations[] = '';
+
+            foreach ($items as $item) {
+                $variations[$item->id] = $item->name;
+            }
+
+            return view('productservice.create', compact('category', 'unit', 'tax', 'customFields', 'variations'));
         }
         else
         {
@@ -105,6 +114,7 @@ class ProductServiceController extends Controller
             $productService->quantity        = $request->quantity;
             $productService->type           = $request->type;
             $productService->category_id    = $request->category_id;
+            $productService->variation_id    = $request->variation_id;
 //            if(isset($request->pro_image))
 //            {
 //                $productService->pro_image = $fileNameToStore;
@@ -155,8 +165,16 @@ class ProductServiceController extends Controller
                 $productService->customField = CustomField::getData($productService, 'product');
                 $customFields                = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'product')->get();
                 $productService->tax_id      = explode(',', $productService->tax_id);
+                $items = ProductVariation::get();
 
-                return view('productservice.edit', compact('category', 'unit', 'tax', 'productService', 'customFields'));
+                $variations = [];
+                $variations[] = '';
+
+                foreach ($items as $item) {
+                    $variations[$item->id] = $item->name;
+                }
+
+                return view('productservice.edit', compact('category', 'unit', 'tax', 'productService', 'customFields', 'variations'));
             }
             else
             {
@@ -209,6 +227,7 @@ class ProductServiceController extends Controller
                 $productService->quantity        = $request->quantity;
                 $productService->type           = $request->type;
                 $productService->category_id    = $request->category_id;
+                $productService->variation_id    = $request->variation_id;
 //                if(isset($request->pro_image))
 //                {
 //                    $productService->pro_image = $fileNameToStore;
@@ -431,7 +450,7 @@ class ProductServiceController extends Controller
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 col-12">
                                 <div class="tab-pane fade show active toacart w-100" data-url="' . url('add-to-cart/' . $product->id . '/' . $lastsegment) .'">
                                     <div class="position-relative card">
-                                        <img alt="Image placeholder" src="' . asset(Storage::url($image_url)) . '" class="card-image avatar shadow hover-shadow-lg" style=" height: 6rem; width: 100%;">
+                                        <img alt="Image placeholder" src="/storage/' . $image_url . '" class="card-image avatar shadow hover-shadow-lg" style=" height: 6rem; width: 100%;">
                                         <div class="p-0 custom-card-body card-body d-flex ">
                                             <div class="card-body my-2 p-2 text-left card-bottom-content">
                                                 <h6 class="mb-2 text-dark product-title-name">' . $product->name . '</h6>
@@ -525,7 +544,7 @@ class ProductServiceController extends Controller
 
             $carthtml .= '<tr data-product-id="' . $id . '" id="product-id-' . $id . '">
                             <td class="cart-images">
-                                <img alt="Image placeholder" src="' . asset(Storage::url($image_url)) . '" class="card-image avatar shadow hover-shadow-lg">
+                                <img alt="Image placeholder" src="/storage/' . $image_url . '" class="card-image avatar shadow hover-shadow-lg">
                             </td>
 
                             <td class="name">' . $productname . '</td>

@@ -199,7 +199,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-lg-3 col-6">
+                                <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="theme-avtar bg-primary">
@@ -213,7 +213,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-6">
+                                <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="theme-avtar bg-info">
@@ -226,7 +226,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-6">
+                                <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="theme-avtar bg-warning">
@@ -238,7 +238,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-6">
+                                <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="theme-avtar bg-danger">
@@ -247,6 +247,18 @@
                                             <p class="text-muted text-sm mt-4 mb-2">{{__('Total')}}</p>
                                             <h6 class="mb-3">{{__('Bills')}}</h6>
                                             <h3 class="mb-0">{{\Auth::user()->countBills()}} </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="theme-avtar bg-danger">
+                                                <i class="fas fa-globe-americas"></i>
+                                            </div>
+                                            <p class="text-muted text-sm mt-4 mb-2">{{__('Total')}}</p>
+                                            <h6 class="mb-3">{{__('Sales online')}}</h6>
+                                            <h3 class="mb-0">{{\Auth::user()->salesOnline()}} </h3>
                                         </div>
                                     </div>
                                 </div>

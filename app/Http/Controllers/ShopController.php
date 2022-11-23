@@ -49,12 +49,22 @@ class ShopController extends Controller
 
     public function order(Request $request)
     {
+        parse_str(urldecode($request->data), $request);
+        $request = (object) $request;
+
         session_start();
         $order = $_SESSION['order'];
         $order[$request->id_product] = $request->quantity;
+        $parameters = [];
+
+        if ($request->parameters) {
+            $_SESSION['parameters'][$request->id_product] = $request->parameters;
+            $parameters = $_SESSION['parameters'];
+        }
+
         $_SESSION['order'] = $order;
 
-        return view('shops.order', compact('order'));
+        return view('shops.order', compact('order', 'parameters'));
     }
 
     public function sale(Request $request)
@@ -105,11 +115,12 @@ class ShopController extends Controller
 
 
             $positems = new PosProduct();
-            $positems->pos_id    = $pos->id;
+            $positems->pos_id    = $pos->pos_id;
             $positems->product_id = $product_id;
             $positems->price      = $product->sale_price;
             $positems->quantity   = $value;
             $positems->tax     = $tax_id;
+            $positems->parameters = isset($_SESSION['parameters'][$product_id]) ? json_encode($_SESSION['parameters'][$product_id]) : null;
             $positems->save();
         }
 
@@ -189,14 +200,25 @@ class ShopController extends Controller
 
     public function tracking($order_id)
     {
-        $pos = Pos::find($order_id);
+        $pos = Pos::where('pos_id', $order_id)->first();
         $customer = Customer::find($pos->customer_id);
         $user = User::find($pos->created_by);
-        $posProducts = PosProduct::where('pos_id', $pos->id)->get();
+        $posProducts = PosProduct::where('pos_id', $pos->pos_id)->get();
         $total = 0;
         $shop = Ecommerce::where('id_user', $pos->created_by)->first();
 
         return view('shops.tracking', compact('pos', 'customer', 'user', 'posProducts', 'total', 'shop'));
+    }
+
+    public function parameters(Request $request)
+    {
+        $data['id_product'] = $request->id_product;
+        $data['quantity'] = $request->quantity;
+        $data['parameters'] = json_decode($request->parameters)->parameters;
+
+        /*dd($data['parameters']);*/
+
+        return view('shops.parameters', $data);
     }
 }
 

@@ -20,7 +20,7 @@ class EcommerceController extends Controller
 
         $ecommerce = Ecommerce::where('id_user', auth()->user()->id)->first();
 
-        if ($ecommerce->id) {
+        if (isset($ecommerce->id)) {
             $request->validate([
                 'slug' => Rule::unique('ecommerces')->ignore($ecommerce->id)
             ]);
