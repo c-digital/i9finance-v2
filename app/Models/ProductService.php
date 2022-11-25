@@ -19,7 +19,10 @@ class ProductService extends Model
         'unit_id',
         'type',
         'created_by',
+        'variation_id'
     ];
+
+    protected $casts = ['variation_id' => 'array'];
 
     public function taxes()
     {
@@ -34,11 +37,6 @@ class ProductService extends Model
     public function category()
     {
         return $this->hasOne('App\Models\ProductServiceCategory', 'id', 'category_id');
-    }
-
-    public function variation()
-    {
-        return $this->belongsTo('App\Models\ProductVariation');
     }
 
     public function tax($taxes)

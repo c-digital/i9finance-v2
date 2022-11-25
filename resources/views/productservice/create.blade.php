@@ -94,8 +94,8 @@
         </div>
 
         <div class="form-group col-md-6">
-            {{ Form::label('variation_id', __('Variation'),['class'=>'form-label']) }}<span class="text-danger">*</span>
-            {{ Form::select('variation_id', $variations,null, array('class' => 'form-control select','required'=>'required')) }}
+            {{ Form::label('variation_id', __('Variation'),['class'=>'form-label','style'=>'display:block']) }}<span class="text-danger">*</span>
+            {{ Form::select('variation_id[]', $variations,null, array('class' => 'form-control select2','required'=>'required','multiple' =>'multiple','style'=>'width:100%')) }}
 
             <div class=" text-xs">
                 <a href="{{route('product-variation.index')}}"><b>{{__('Add Variation')}}</b></a>
@@ -123,4 +123,10 @@
         var src = URL.createObjectURL(this.files[0])
         document.getElementById('image').src = src
     }
+</script>
+
+<script>
+  $(document).ready(function () {
+      $('.select2').select2();
+  });
 </script>

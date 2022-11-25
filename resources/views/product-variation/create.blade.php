@@ -15,7 +15,7 @@
         <div class="paramters-container">
             <div class="row mb-3">
                 <div class="col">
-                    <b>{{ __('Parameters:') }}</b>
+                    <b>{{ __('Options:') }}</b>
                 </div>
             </div>
 
@@ -25,21 +25,20 @@
                 </div>
 
                 <div class="col-5">
-                    <label for="name">{{ __('Options (Separated by comma)') }}</label>
+                    <label for="name">{{ __('Price') }}</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-5">
                     <div class="form-group">                        
-                        <input type="text" class="form-control" name="parameters[0][name]">
+                        <input type="text" class="form-control" name="options[0][name]">
                     </div>
                 </div>
 
                 <div class="col-5">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="parameters[0][options]">
-                        <input type="text" class="form-control" name="parameters[0][prices]">
+                        <input type="text" class="form-control" name="options[0][price]">
                     </div>
                 </div>
 
@@ -67,14 +66,13 @@
                 <div class="row">
                     <div class="col-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="parameters[${i}][name]">
+                            <input type="text" class="form-control" name="options[${i}][name]">
                         </div>
                     </div>
 
                     <div class="col-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="parameters[${i}][options]">
-                            <input type="text" class="form-control" name="parameters[${i}][prices]">
+                            <input type="text" class="form-control" name="options[${i}][price]">
                         </div>
                     </div>
 

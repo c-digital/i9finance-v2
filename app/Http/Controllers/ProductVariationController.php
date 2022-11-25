@@ -40,7 +40,7 @@ class ProductVariationController extends Controller
     {
         $variation = new ProductVariation();
         $variation->name = $request->name;
-        $variation->parameters = $request->parameters;
+        $variation->options = $request->options;
         $variation->save();
 
         return redirect('/product-variation');
@@ -85,7 +85,7 @@ class ProductVariationController extends Controller
     {
         $variation = ProductVariation::find($id);
         $variation->name = $request->name;
-        $variation->parameters = $request->parameters;
+        $variation->options = $request->options;
         $variation->save();
 
         return redirect('/product-variation');

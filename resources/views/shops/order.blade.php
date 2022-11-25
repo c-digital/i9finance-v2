@@ -33,7 +33,17 @@
 							<div>
 								<small>|
 									@foreach($parameters[$key] as $key => $value)
-										{{ $key . ': ' . $value }} |
+
+										@php
+											$price = null;
+
+											if (isset($prices[$product->id])) {
+												$i = array_search($key, array_column($prices, 'name'));
+												$price = json_decode($prices[$product->id], true)[$i]['price'];
+											}
+										@endphp
+
+										{{ $key . ': ' . $value }} @if($price)(+ Bs. {{ $price }}) |@endif
 									@endforeach
 								</small>
 							</div>

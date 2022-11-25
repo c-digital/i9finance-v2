@@ -154,7 +154,7 @@
 
                                             <input type="hidden" name="id_product" value="{{ $product->id }}">
 
-                                            <input type="hidden" name="parameters" value="{{ $product->variation }}">
+                                            <input type="hidden" name="parameters" value="{{ $product->variation_id ? json_encode($product->variation_id) : null }}">
 
                                             <button type="submit" title="Agregar al pedido" class="btn btn-primary">
                                                 <i class="fas fa-shopping-cart"></i>
@@ -295,10 +295,18 @@
                 quantity = $(this).find('[name=quantity]').val();
                 id_product = $(this).find('[name=id_product]').val();
                 parameters = $(this).find('[name=parameters]').val();
+                prices = [];
+
+                $('.optionRadio:checked').each(function (key, value) {
+                    price = $(value).attr('data-price');
+                    name = $(value).val();
+
+                    prices[id_product] = { "name": name, "price": price };
+                });
+
+                $('[name=prices]').val(JSON.stringify(prices));
 
                 data = $(this).serialize();
-
-                console.log(data);
 
                 $.ajax({
                     type: 'POST',
@@ -315,6 +323,7 @@
                         toastr.success('Producto agregado al pedido', 'Click aquí para ver el pedido');
 
                         $('.order-details').html(response);
+                        $('#parameters-modal').modal('hide');
                     },
                     error: function (error) {
                         console.log(error.responseText);
@@ -341,6 +350,8 @@
                         success: function (response) {
                             $('#parameters-modal').find('.modal-body').html(response);
                             $('#parameters-modal').modal('show');
+
+                            console.log(response);
                         },
                         error: function (error) {
                             console.log(error.responseText);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ecommerce;
 use App\Models\ProductService;
+use App\Models\ProductVariation;
 use App\Models\ProductServiceCategory;
 use App\Models\Purchase;
 use App\Models\PurchaseProduct;
@@ -59,12 +60,15 @@ class ShopController extends Controller
 
         if ($request->parameters) {
             $_SESSION['parameters'][$request->id_product] = $request->parameters;
+            $_SESSION['prices'][$request->id_product] = $request->prices;
+
             $parameters = $_SESSION['parameters'];
+            $prices = str_replace('null,', '', $_SESSION['prices']);
         }
 
         $_SESSION['order'] = $order;
 
-        return view('shops.order', compact('order', 'parameters'));
+        return view('shops.order', compact('order', 'parameters', 'prices'));
     }
 
     public function sale(Request $request)
@@ -214,9 +218,15 @@ class ShopController extends Controller
     {
         $data['id_product'] = $request->id_product;
         $data['quantity'] = $request->quantity;
-        $data['parameters'] = json_decode($request->parameters)->parameters;
 
-        /*dd($data['parameters']);*/
+        $data['parameters'] = [];
+
+        foreach (json_decode($request->parameters) as $variation) {
+            $productVariation = ProductVariation::find($variation);
+            $data['parameters'][] = $productVariation;
+        }
+
+        /*return $data['parameters'];*/
 
         return view('shops.parameters', $data);
     }

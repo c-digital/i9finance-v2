@@ -15,11 +15,11 @@
         <div class="paramters-container">
             <div class="row mb-3">
                 <div class="col">
-                    <b>{{ __('Parameters:') }}</b>
+                    <b>{{ __('Options:') }}</b>
                 </div>
             </div>
 
-            @foreach($variation->parameters as $parameter)
+            @foreach($variation->options as $parameter)
                 @if($loop->index == 0)
                     <div class="row">
                         <div class="col-5">
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="col-5">
-                            <label for="name">{{ __('Options (Separated by comma)') }}</label>
+                            <label for="name">{{ __('Price') }}</label>
                         </div>
                     </div>
                 @endif
@@ -35,14 +35,13 @@
                 <div class="row">
                     <div class="col-5">
                         <div class="form-group">                        
-                            <input type="text" class="form-control" name="parameters[{{$loop->index}}][name]" value="{{ $parameter['name'] }}">
+                            <input type="text" class="form-control" name="options[{{$loop->index}}][name]" value="{{ $parameter['name'] }}">
                         </div>
                     </div>
 
                     <div class="col-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="parameters[{{$loop->index}}][options]" value="{{ $parameter['options'] }}">
-                            <input type="text" class="form-control" name="parameters[{{$loop->index}}][prices]" value="{{ $parameter['prices'] }}">
+                            <input type="text" class="form-control" name="options[{{$loop->index}}][price]" value="{{ $parameter['price'] }}">
                         </div>
                     </div>
 
@@ -72,21 +71,20 @@
 
 <script>
     $(document).ready(function () {
-        i = {{ count($variation->parameters) }};
+        i = {{ count($variation->options) }};
 
         $('.add-new-parameter').click(function () {
             html = `
                 <div class="row">
                     <div class="col-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="parameters[${i}][name]">
+                            <input type="text" class="form-control" name="options[${i}][name]">
                         </div>
                     </div>
 
                     <div class="col-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="parameters[${i}][options]">
-                            <input type="text" class="form-control" name="parameters[${i}][prices]">
+                            <input type="text" class="form-control" name="options[${i}][price]">
                         </div>
                     </div>
 
