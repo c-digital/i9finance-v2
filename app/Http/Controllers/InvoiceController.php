@@ -939,6 +939,7 @@ class InvoiceController extends Controller
         if(isset($invoice_logo) && !empty($invoice_logo))
         {
             $img = Utility::get_file('invoice_logo/') . $invoice_logo;
+            $img = "https://i9finance.com/storage/invoice_logo/" . $invoice_logo;
         }
         else{
             $img          = $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png');

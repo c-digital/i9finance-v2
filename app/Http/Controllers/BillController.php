@@ -945,6 +945,7 @@ class BillController extends Controller
         if(isset($bill_logo) && !empty($bill_logo))
         {
             $img = Utility::get_file('bill_logo/') . $bill_logo;
+            $img = "https://i9finance.com/storage/bill_logo/" . $bill_logo;
         }
         else{
             $img          = asset($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png'));

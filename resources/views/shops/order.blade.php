@@ -13,16 +13,17 @@
 		<tbody>
 
 			@php
-				$total_pedido = 0;
-				$total_productos = 0;
+				$total_order = 0;
+				$total_products = 0;
 			@endphp
 
 			@foreach($order as $key => $quantity)
 
 				@php
 					$product = App\Models\ProductService::find($key);
-					$total_pedido = $total_pedido + ($product->sale_price * $quantity);
-					$total_productos = $total_productos + $quantity;
+
+					$total_order = $total_order + ($product->sale_price * $quantity);
+					$total_products = $total_products + $quantity;			
 				@endphp
 
 				<tr>
@@ -30,6 +31,9 @@
 						{{ $product->name }}
 
 						@if(isset($parameters[$key]))
+
+							@php $additional = 0; @endphp
+
 							<div>
 								<small>|
 									@foreach($parameters[$key] as $key => $value)
@@ -38,8 +42,9 @@
 											$price = null;
 
 											if (isset($prices[$product->id])) {
-												$i = array_search($key, array_column($prices, 'name'));
+												$i = array_search($value, array_column(json_decode($prices[$product->id], true), 'name'));
 												$price = json_decode($prices[$product->id], true)[$i]['price'];
+												$additional = $additional + $price;
 											}
 										@endphp
 
@@ -51,8 +56,11 @@
 					</th>
 
 					<th>{{ $quantity }}</th>
-					<th>{{ $product->sale_price }}</th>
-					<th>{{ number_format($quantity * $product->sale_price, 2) }}</th>
+
+					<th>{{ $additional ? number_format($product->sale_price + $additional, 2) : number_format($product->sale_price, 2) }}</th>
+
+					<th>{{ $additional ? number_format($quantity * ($product->sale_price + $additional), 2) : number_format(($quantity * $product->sale_price), 2) }}</th>
+
 					<td>
 						<button type="button" class="btn btn-danger" title="Eliminar" onclick="eliminarProducto({{ $key }})">
 							<i class="fa fa-trash"></i>
@@ -69,12 +77,12 @@
 		<tbody>
 			<tr>
 				<th>Total pedido</th>
-				<td>{{ $total_pedido }}</td>
+				<td>{{ number_format($total_order, 2) }}</td>
 			</tr>
 
 			<tr>
 				<th>Total productos</th>
-				<td>{{ $total_productos }}</td>
+				<td>{{ $total_products }}</td>
 			</tr>
 		</tbody>
 	</table>

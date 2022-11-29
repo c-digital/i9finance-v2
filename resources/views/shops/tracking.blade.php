@@ -64,7 +64,17 @@
                                                     @if($product->parameters)
                                                         |
                                                         @foreach(json_decode($product->parameters) as $key => $value)
-                                                            <small>{{$key . ': ' . $value}}</small> |
+
+                                                            @php
+                                                                $price = null;
+
+                                                                if (isset($product->parameters_prices[$product->product_id])) {
+                                                                    $i = array_search($key, array_column(json_decode($product->parameters_prices, true), 'name'));
+                                                                    $price = json_decode($product->parameters_prices[$product->product_id], true)[$i]['price'];
+                                                                }
+                                                            @endphp
+
+                                                            <small>{{$key . ': ' . $value}} @if($price)(+ Bs. {{ $price }})@endif </small> |
                                                         @endforeach
                                                     @endif
                                                 </div>

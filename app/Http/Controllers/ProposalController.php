@@ -291,6 +291,7 @@ class ProposalController extends Controller
 
     public function show($ids)
     {
+
         if(\Auth::user()->can('show proposal'))
         {
             $id       = Crypt::decrypt($ids);
@@ -835,6 +836,7 @@ class ProposalController extends Controller
         if(isset($proposal_logo) && !empty($proposal_logo))
         {
             $img = Utility::get_file('proposal_logo/') . $proposal_logo;
+            $img = 'https://i9finance.com/storage/proposal_logo/' . $proposal_logo;
         }
         else{
             $img          = asset($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png'));

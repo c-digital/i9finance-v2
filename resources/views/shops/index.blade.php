@@ -301,7 +301,7 @@
                     price = $(value).attr('data-price');
                     name = $(value).val();
 
-                    prices[id_product] = { "name": name, "price": price };
+                    prices.push({ "name": name, "price": price });
                 });
 
                 $('[name=prices]').val(JSON.stringify(prices));
@@ -324,6 +324,8 @@
 
                         $('.order-details').html(response);
                         $('#parameters-modal').modal('hide');
+
+                        console.log(response);
                     },
                     error: function (error) {
                         console.log(error.responseText);

@@ -57,13 +57,14 @@ class ShopController extends Controller
         $order = $_SESSION['order'];
         $order[$request->id_product] = $request->quantity;
         $parameters = [];
+        $prices = [];
 
         if ($request->parameters) {
             $_SESSION['parameters'][$request->id_product] = $request->parameters;
             $_SESSION['prices'][$request->id_product] = $request->prices;
 
             $parameters = $_SESSION['parameters'];
-            $prices = str_replace('null,', '', $_SESSION['prices']);
+            $prices = $_SESSION['prices'];
         }
 
         $_SESSION['order'] = $order;
@@ -101,6 +102,8 @@ class ShopController extends Controller
         $pos->online = 1;
         $pos->save();
 
+        $prices = str_replace('null,', '', $_SESSION['prices']);
+
         foreach ($sales as $key => $value) {
             $product_id = $key;
 
@@ -117,7 +120,6 @@ class ShopController extends Controller
 
             $tax_id = ProductService::tax_id($product_id, $user_id);
 
-
             $positems = new PosProduct();
             $positems->pos_id    = $pos->pos_id;
             $positems->product_id = $product_id;
@@ -125,6 +127,18 @@ class ShopController extends Controller
             $positems->quantity   = $value;
             $positems->tax     = $tax_id;
             $positems->parameters = isset($_SESSION['parameters'][$product_id]) ? json_encode($_SESSION['parameters'][$product_id]) : null;
+            $positems->parameters_prices = isset($_SESSION['prices'][$product_id]) ? json_encode($_SESSION['prices'][$product_id]) : null;
+
+            if ($positems->parameters_prices) {
+                $positems->parameters_prices = str_replace('\\', '', $positems->parameters_prices);
+
+                $parameters_prices = $positems->parameters_prices;
+                $parameters_prices = substr($parameters_prices, 0, -1);
+                $parameters_prices = substr($parameters_prices, 1);
+
+                $positems->parameters_prices = $parameters_prices;
+            }
+
             $positems->save();
         }
 
