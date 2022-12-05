@@ -260,7 +260,7 @@ class PosController extends Controller
         }
     }
 
-    function invoicePosNumber()
+    public function invoicePosNumber()
     {
         if (Auth::user()->can('manage pos')) {
             $latest = Pos::where('created_by', '=', \Auth::user()->creatorId())->latest()->first();
@@ -272,7 +272,7 @@ class PosController extends Controller
         }
     }
 
-    function report()
+    public function report()
     {
         if(\Auth::user()->can('manage pos'))
         {
@@ -285,6 +285,19 @@ class PosController extends Controller
             return redirect()->back()->with('error', __('Permission Denied.'));
         }
 
+    }
+
+    public function show($id, Request $request)
+    {
+        $pos = Pos::find($id);
+        $posProducts = PosProduct::where('pos_id', $pos->id)->get();
+        $posPayments = PosPayment::where('pos_id', $pos->id)->first();
+
+        if ($request->get('thermal')) {
+            return view('pos.thermal', compact('pos', 'posProducts', 'posPayments'));            
+        }
+
+        return view('pos.print', compact('pos', 'posProducts', 'posPayments'));
     }
 
 }

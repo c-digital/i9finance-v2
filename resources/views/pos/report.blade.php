@@ -68,7 +68,7 @@
                                 <tr>
 
                                     <td>
-                                        <a href="#" class="btn btn-outline-primary">{{ AUth::user()->posNumberFormat($posPayment->pos_id) }}</a>
+                                        <a href="{{ route('pos.show', $posPayment->id) }}" class="btn btn-outline-primary">{{ AUth::user()->posNumberFormat($posPayment->pos_id) }}</a>
                                     </td>
                                     <td>{{ Auth::user()->dateFormat($posPayment->created_at)}}</td>
                                     @if($posPayment->customer_id == 0)

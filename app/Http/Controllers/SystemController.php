@@ -957,6 +957,7 @@ class SystemController extends Controller
 
     public function posPrintIndex()
     {
+
         if(\Auth::user()->can('manage print settings'))
         {
             $settings = Utility::settings();

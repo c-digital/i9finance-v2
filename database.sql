@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 21-11-2022 a las 17:29:04
+-- Tiempo de generación: 02-12-2022 a las 17:06:22
 -- Versión del servidor: 5.7.40
--- Versión de PHP: 7.4.30
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,6 +33,20 @@ CREATE TABLE `activity_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `activity_logs`
+--
+
+INSERT INTO `activity_logs` (`id`, `user_id`, `project_id`, `task_id`, `deal_id`, `log_type`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 10, 2, 1, 0, 'Create Task', '{\"title\":\"Limpiar\"}', '2022-11-22 14:03:58', '2022-11-22 14:03:58'),
+(2, 10, 2, 1, 0, 'Move Task', '{\"title\":\"Limpiar\",\"old_stage\":\"To Do\",\"new_stage\":\"In Progress\"}', '2022-11-22 14:06:20', '2022-11-22 14:06:20'),
+(3, 10, 2, 1, 0, 'Move Task', '{\"title\":\"Limpiar\",\"old_stage\":\"In Progress\",\"new_stage\":\"Done\"}', '2022-11-22 14:06:28', '2022-11-22 14:06:28'),
+(4, 11, 3, 2, 0, 'Create Task', '{\"title\":\"Entubar y cablear\"}', '2022-11-23 10:57:39', '2022-11-23 10:57:39'),
+(5, 11, 4, 3, 0, 'Create Task', '{\"title\":\"Cableado cielo falso\"}', '2022-11-23 11:28:47', '2022-11-23 11:28:47'),
+(6, 11, 4, 0, 0, 'Create Expense', '{\"title\":\"EN PROCESO\"}', '2022-11-27 10:04:39', '2022-11-27 10:04:39'),
+(7, 11, 4, 3, 0, 'Move Task', '{\"title\":\"Cableado cielo falso\",\"old_stage\":\"NUEVO\",\"new_stage\":\"EN PROCESO\"}', '2022-11-27 10:07:19', '2022-11-27 10:07:19'),
+(8, 11, 4, 0, 0, 'Create Expense', '{\"title\":\"PAGO A PERSONAL\"}', '2022-12-02 03:06:49', '2022-12-02 03:06:49');
 
 -- --------------------------------------------------------
 
@@ -262,8 +276,9 @@ CREATE TABLE `bank_accounts` (
 
 INSERT INTO `bank_accounts` (`id`, `holder_name`, `bank_name`, `account_number`, `opening_balance`, `contact_number`, `bank_address`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'cash', '', '-', 0.00, '-', '-', 2, '2022-10-26 17:37:55', '2022-10-26 17:37:55'),
-(2, 'Caja Chica', 'Caja Chica', '01', 1259.00, '01', '01', 10, '2022-11-20 01:52:25', '2022-11-20 02:25:50'),
-(3, 'Ganadero', 'Ganadero', '010203', 0.00, '01', '01', 10, '2022-11-20 01:52:45', '2022-11-20 01:52:45');
+(2, 'Caja Chica', 'Caja Chica', '01', 2657.00, '01', '01', 10, '2022-11-20 01:52:25', '2022-11-30 23:42:24'),
+(3, 'Ganadero', 'Ganadero', '010203', 0.00, '01', '01', 10, '2022-11-20 01:52:45', '2022-11-20 01:52:45'),
+(4, 'yant my gaj', 'BNB', '134566', 7950.00, '63852712', 'CENTRAL', 11, '2022-11-27 09:34:19', '2022-12-02 09:43:10');
 
 -- --------------------------------------------------------
 
@@ -366,7 +381,8 @@ CREATE TABLE `branches` (
 --
 
 INSERT INTO `branches` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Centro', 11, '2022-11-21 16:52:51', '2022-11-21 16:52:51');
+(3, 'Atlanta', 11, '2022-11-24 23:24:59', '2022-11-24 23:24:59'),
+(4, 'BRAVA KOW', 11, '2022-11-27 09:49:19', '2022-11-27 09:49:19');
 
 -- --------------------------------------------------------
 
@@ -1090,6 +1106,13 @@ CREATE TABLE `contracts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `contracts`
+--
+
+INSERT INTO `contracts` (`id`, `client_name`, `subject`, `value`, `type`, `start_date`, `end_date`, `description`, `project_id`, `contract_description`, `status`, `client_signature`, `company_signature`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 15, 'contrato privado', '4', 1, '2022-12-01', '2022-12-02', 'ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', '4', '<p>vzxbmmdvjDBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p><p>SDDDASSSSDWFFFFFFFFFFFF</p>', 'pending', NULL, NULL, 11, '2022-12-02 02:57:14', '2022-12-02 02:59:50');
+
 -- --------------------------------------------------------
 
 --
@@ -1149,6 +1172,13 @@ CREATE TABLE `contract_types` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `contract_types`
+--
+
+INSERT INTO `contract_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Construccion', 11, '2022-11-24 11:33:48', '2022-11-24 11:33:48');
+
 -- --------------------------------------------------------
 
 --
@@ -1183,6 +1213,14 @@ CREATE TABLE `credit_notes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `credit_notes`
+--
+
+INSERT INTO `credit_notes` (`id`, `invoice`, `customer`, `amount`, `date`, `description`, `created_at`, `updated_at`) VALUES
+(1, 7, 13, 1800.00, '2022-11-30', 'pago parcial', '2022-12-01 02:04:22', '2022-12-01 02:04:22'),
+(2, 9, 17, 100.00, '2022-11-30', 'pago parcial', '2022-12-01 02:05:25', '2022-12-01 02:05:25');
 
 -- --------------------------------------------------------
 
@@ -1230,12 +1268,17 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`id`, `customer_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 2, 'erick g. dos santos', 'dr.ericksantos@gmail.com', NULL, '', '71608981', '', 5, 1, NULL, 'brasil', 'brasil', 'brasil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-02 18:52:58', '2022-11-12 01:41:37'),
 (2, 1, 'Erick Santos', 'Erick@erick.com', NULL, '', '71608981', '', 2, 1, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:38:40', '2022-11-10 06:38:40'),
-(7, 40, 'Nisa Delgado', 'ndelgado@grupop.com.ve', NULL, NULL, '123', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'v', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-10 19:04:53', '2022-11-16 21:33:49'),
+(7, 42, 'Nisa Delgado', 'ndelgado@grupop.com.ve', NULL, NULL, 'edfsdfsdf', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'v', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-10 19:04:53', '2022-11-25 17:19:23'),
 (8, 35, 'Nisa Delgado', 'nisadelgado@gmail.com', NULL, NULL, '04246402701', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-11 03:59:05', '2022-11-11 04:28:49'),
-(9, 37, '123', '321', NULL, NULL, '2123', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-16 20:36:39', '2022-11-16 20:37:59'),
-(10, 39, 'Nisa Delgado', '123', NULL, NULL, '123', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-16 21:31:42', '2022-11-16 21:33:24'),
+(9, 43, '123', '321', NULL, NULL, '321', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-16 20:36:39', '2022-11-25 17:59:29'),
+(10, 43, '123', '123', NULL, NULL, '123', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-16 21:31:42', '2022-11-25 17:44:05'),
 (11, 1, 'Cliente Comun', 'cliente@cliente.com', NULL, NULL, '7160981', '', 10, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-20 01:49:37', '2022-11-20 01:49:37'),
-(12, 2, 'Erick Santos', 'info@i9finance.com', '01', NULL, '71608981', '', 10, 1, NULL, 'Erick Santos', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '71608981', NULL, 'Bush 593', 'Erick Santos', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '71608981', NULL, 'Bush 593', 'es', 699.00, NULL, '2022-11-20 01:50:02', '2022-11-20 02:25:50');
+(12, 2, 'Erick Santos', 'info@i9finance.com', '01', NULL, '71608981', '', 10, 1, NULL, 'Erick Santos', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '71608981', NULL, 'Bush 593', 'Erick Santos', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '71608981', NULL, 'Bush 593', 'es', -699.00, NULL, '2022-11-20 01:50:02', '2022-11-30 23:42:24'),
+(14, 2, 'Donal central', 'elias.roclas@ gmail.com', NULL, NULL, '12445', '', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-23 10:21:29', '2022-12-01 01:57:23'),
+(15, 43, 'Nisa Delgado', 'nisadelgado@live.com', NULL, NULL, '123', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-25 16:13:53', '2022-11-25 17:46:13'),
+(16, 42, '123', '1123', NULL, NULL, '123', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-25 17:39:22', '2022-11-25 17:39:22'),
+(17, 3, 'Alfredo vallejos', 'yanet.atlanta@gmail.com', '34', NULL, '6759845', '', 11, 1, NULL, 'Alfredo srl', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-26 20:09:22', '2022-12-01 02:06:39'),
+(18, 4, 'Felix baltazar', 'elias.roclas@gmail.com', '56889', NULL, '15789900', '', 11, 1, NULL, 'Felix srl', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-12-01 14:19:24', '2022-12-01 14:19:24');
 
 -- --------------------------------------------------------
 
@@ -1275,6 +1318,14 @@ CREATE TABLE `custom_field_values` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `custom_field_values`
+--
+
+INSERT INTO `custom_field_values` (`id`, `record_id`, `field_id`, `value`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, NULL, '2022-11-24 19:24:08', '2022-11-24 19:37:40'),
+(2, 2, 2, NULL, '2022-11-24 19:24:08', '2022-11-24 19:37:40');
 
 -- --------------------------------------------------------
 
@@ -1919,7 +1970,9 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`id`, `user_id`, `name`, `dob`, `gender`, `phone`, `address`, `email`, `password`, `employee_id`, `branch_id`, `department_id`, `designation_id`, `company_doj`, `documents`, `account_holder_name`, `account_number`, `bank_name`, `bank_identifier_code`, `branch_location`, `tax_payer_id`, `salary_type`, `salary`, `is_active`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 3, 'accountant', NULL, NULL, NULL, NULL, 'accountant@example.com', '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, '2022-10-26 17:37:57', '2022-10-26 17:37:57'),
-(2, 12, 'Erick Santos', NULL, NULL, NULL, NULL, 'gerente@gerente.com', '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2022-11-21 17:05:26', '2022-11-21 17:05:26');
+(2, 12, 'Erick Santos', NULL, NULL, NULL, NULL, 'gerente@gerente.com', '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2022-11-21 17:05:26', '2022-11-21 17:05:26'),
+(3, 13, 'Usuario', NULL, NULL, NULL, NULL, 'usuario@i9finance.com', '$2y$10$7vkHTpLUOHigffikcz/c4ODe20.M/AQ79tiuESQXe.mGAeu3CTS42', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 10, '2022-11-22 13:59:49', '2022-11-22 13:59:49'),
+(4, 16, 'Ricardo moye equipo', NULL, NULL, NULL, NULL, 'istelectric24@gmail.com', '$2y$10$SCbMoX7a1qa5l8FUvvL1Ce5uxMwgfXHOBM1tsvHr.6QsJEruq35I6', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 11, '2022-11-23 10:42:28', '2022-11-23 10:42:28');
 
 -- --------------------------------------------------------
 
@@ -2012,6 +2065,14 @@ CREATE TABLE `expenses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `expenses`
+--
+
+INSERT INTO `expenses` (`id`, `name`, `date`, `description`, `amount`, `attachment`, `project_id`, `task_id`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'EN PROCESO', '1969-12-31', 'SE PAGO AL JAVIER', '690.00', NULL, 4, 3, 11, '2022-11-27 10:04:39', '2022-11-27 10:04:39'),
+(2, 'PAGO A PERSONAL', '1969-12-31', 'AFDSFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', '500.00', 'expense/1669954009.pdf', 4, 3, 11, '2022-12-02 03:06:49', '2022-12-02 03:06:49');
 
 -- --------------------------------------------------------
 
@@ -2309,7 +2370,7 @@ INSERT INTO `generate_offer_letters` (`id`, `lang`, `content`, `created_by`, `cr
 (79, 'ar', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>رسالة عرض</strong></span></p>\n\n\n                    <p>عزيزي {applicationant_name} ،</p>\n\n\n                    <p>{app_name} متحمس لاصطحابك على متن الطائرة بصفتك {job_title}.</p>\n\n                    <p>كنت على بعد خطوات قليلة من الشروع في العمل. يرجى أخذ الوقت الكافي لمراجعة عرضنا الرسمي. يتضمن تفاصيل مهمة حول راتبك ومزاياك وبنود وشروط عملك المتوقع مع {app_name}.</p>\n\n\n                    <p>{app_name} يقدم {job_type}. المنصب بالنسبة لك كـ {job_title} ، تقديم التقارير إلى [المدير المباشر / المشرف] بدءًا من {start_date} في {workplace_location}. ساعات العمل المتوقعة هي {days_of_week}.</p>\n\n\n                    <p>في هذا المنصب ، يعرض عليك {app_name}&nbsp; {salary}أن تبدأ لك بمعدل دفع {salary_type} لكل {salary_duration}. سوف يتم الدفع لك على أساس.</p>\n\n\n                    <p>كجزء من تعويضك ، إذا كان ذلك ممكنًا ، ستصف مكافأتك ومشاركة الأرباح وهيكل العمولة وخيارات الأسهم وقواعد لجنة التعويضات هنا.</p>\n\n\n                    <p>بصفتك موظفًا في {app_name} ، ستكون مؤهلاً للحصول على مزايا الاسم المختصر ، مثل التأمين الصحي ، وخطة الأسهم ، والتأمين على الأسنان ، وما إلى ذلك.</p>\n\n\n                    <p>الرجاء توضيح موافقتك على هذه البنود وقبول هذا العرض عن طريق التوقيع على هذه الاتفاقية وتأريخها في أو قبل {offer_expiration_date}.</p>\n\n                    <p>بإخلاص،</p>\n\n                    <p>{app_name}</p>\n                    ', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
 (80, 'da', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Tilbudsbrev</strong></span></p>\n\n                    <p>K&aelig;re {applicant_name}</p>\n\n                    <p>{app_name} er glade for at f&aring; dig med som {job_title}.</p>\n\n                    <p>Der var kun et par formaliteter fra at komme p&aring; arbejde. Tag dig tid til at gennemg&aring; vores formelle tilbud. Den indeholder vigtige oplysninger om din kompensation, fordele og vilk&aring;rene og betingelserne for din forventede ans&aelig;ttelse hos {app_name}.</p>\n\n                    <p>{app_name} tilbyder en {job_type}. stilling til dig som {job_title}, der rapporterer til [n&aelig;rmeste leder/supervisor] fra og med {start_date} p&aring;{workplace_location}. Forventet arbejdstid er {days_of_week}.</p>\n\n\n                    <p>I denne stilling tilbyder {app_name} at starte dig med en l&oslash;nsats p&aring; {salary} pr. {salary_type}. Du vil blive betalt p&aring; {salary_duration}-basis.</p>\n\n                    <p>Som en del af din kompensation, du ogs&aring; tilbyder, hvis det er relevant, vil du beskrive din bonus, overskudsdeling, kommissionsstruktur, aktieoptioner og regler for kompensationsudvalget her.</p>\n\n\n                    <p>Som ansat hos {app_name} vil du v&aelig;re berettiget til kort navnefordele, s&aring;som sundhedsforsikring, aktieplan, tandforsikring osv.</p>\n\n                    <p>Angiv venligst din accept af disse vilk&aring;r og accepter dette tilbud ved at underskrive og datere denne aftale p&aring; eller f&oslash;r {offer_expiration_date}.</p>\n\n                    <p>Med venlig hilsen</p>\n\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
 (81, 'de', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Angebotsschreiben</strong></span></p>\n\n\n                    <p>Sehr geehrter {applicant_name},</p>\n\n\n                    <p>{app_name} freut sich, Sie als {job_title} an Bord zu holen.</p>\n\n\n                    <p>Nur noch wenige Formalit&auml;ten bis zur Arbeit. Bitte nehmen Sie sich die Zeit, unser formelles Angebot zu pr&uuml;fen. Es enth&auml;lt wichtige Details zu Ihrer Verg&uuml;tung, Ihren Leistungen und den Bedingungen Ihrer voraussichtlichen Anstellung bei {app_name}.</p>\n\n\n                    <p>{app_name} bietet einen {job_type} an. Position f&uuml;r Sie als {job_title}, ab {start_date} am {workplace_location} unterstellt an unmittelbarer Manager/Vorgesetzter. Erwartete Arbeitszeiten sind {days_of_week}.</p>\n\n\n                    <p>In dieser Position bietet {app_name} Ihnen an, mit einem Gehaltssatz von {salary} pro {salary_type} zu beginnen. Sie werden auf Basis von {salary_duration} bezahlt.</p>\n\n\n                    <p>Als Teil Ihrer Verg&uuml;tung, die Sie gegebenenfalls auch anbieten, beschreiben Sie hier Ihren Bonus, Ihre Gewinnbeteiligung, Ihre Provisionsstruktur, Ihre Aktienoptionen und die Regeln des Verg&uuml;tungsausschusses.</p>\n\n\n                    <p>Als Mitarbeiter von {app_name} haben Sie Anspruch auf Kurznamenvorteile wie Krankenversicherung, Aktienplan, Zahnversicherung usw.</p>\n\n\n\n                    <p>Bitte erkl&auml;ren Sie Ihr Einverst&auml;ndnis mit diesen Bedingungen und nehmen Sie dieses Angebot an, indem Sie diese Vereinbarung am oder vor dem {offer_expiration_date} unterzeichnen und datieren.</p>\n\n\n                    <p>Aufrichtig,</p>\n\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
-(82, 'en', '<p style=\"text-align: center;\"><strong>Offer Letter</strong></p>\n\n                    <p>Dear {applicant_name},</p>\n\n                    <p>{app_name} is excited to bring you on board as {job_title}.</p>\n\n                    <p>Were just a few formalities away from getting down to work. Please take the time to review our formal offer. It includes important details about your compensation, benefits, and the terms and conditions of your anticipated employment with {app_name}.</p>\n\n                    <p>{app_name} is offering a {job_type}. position for you as {job_title}, reporting to [immediate manager/supervisor] starting on {start_date} at{workplace_location}. Expected hours of work are{days_of_week}.</p>\n\n                    <p>In this position, {app_name} is offering to start you at a pay rate of {salary} per {salary_type}. You will be paid on a{salary_duration} basis.&nbsp;</p>\n\n                    <p>As part of your compensation, were also offering [if applicable, youll describe your bonus, profit sharing, commission structure, stock options, and compensation committee rules here].</p>\n\n                    <p>As an employee of {app_name} , you will be eligible for briefly name benefits, such as health insurance, stock plan, dental insurance, etc.</p>\n\n                    <p>Please indicate your agreement with these terms and accept this offer by signing and dating this agreement on or before {offer_expiration_date}.</p>\n\n                    <p>Sincerely,</p>\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
+(82, 'en', '<p style=\"text-align: center;\"><strong>Offer Letter</strong></p>\n\n                    <p>Dear {applicant_name},</p>\n\n                    <p>{app_name} is excited to bring you on board as {job_title}.</p>\n\n                    <p>Were just a few formalities away from getting down to work. Please take the time to review our formal offer. It includes important details about your compensation, benefits, and the terms and conditions of your anticipated employment with {app_name}.</p>\n\n                    <p>{app_name} is offering a {job_type}. position for you as {job_title}, reporting to [immediate manager/supervisor] starting on {start_date} at{workplace_location}. Expected hours of work are{days_of_week}.</p>\n\n                    <p>In this position, {app_name} is offering to start you at a pay rate of {salary} per {salary_type}. You will be paid on a{salary_duration} basis. </p>\n\n                    <p>As part of your compensation, were also offering [if applicable, youll describe your bonus, profit sharing, commission structure, stock options, and compensation committee rules here].</p>\n\n                    <p>As an employee of {app_name} , you will be eligible for briefly name benefits, such as health insurance, stock plan, dental insurance, etc.</p>\n\n                    <p>Please indicate your agreement with these terms and accept this offer by signing and dating this agreement on or before {offer_expiration_date}.</p>\n\n                    <p>Sincerely,</p>\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-27 10:52:04'),
 (83, 'es', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Carta de oferta</strong></span></p>\n\n\n                    <p>Estimado {applicant_name},</p>\n\n                    <p>{app_name} se complace en incorporarlo como {job_title}.</p>\n\n\n                    <p>Faltaban s&oacute;lo unos tr&aacute;mites para ponerse manos a la obra. T&oacute;mese el tiempo para revisar nuestra oferta formal. Incluye detalles importantes sobre su compensaci&oacute;n, beneficios y los t&eacute;rminos y condiciones de su empleo anticipado con {app_name}.</p>\n\n\n                    <p>{app_name} est&aacute; ofreciendo {job_type}. posici&oacute;n para usted como {job_title}, reportando al gerente/supervisor inmediato a partir del {start_date} en {workplace_location}. Las horas de trabajo esperadas son {days_of_week}.</p>\n\n\n                    <p>En este puesto, {app_name} te ofrece comenzar con una tarifa de pago de {salary} por {salary_type}. Se le pagar&aacute; sobre la base de {salary_duration}.</p>\n\n\n                    <p>Como parte de su compensaci&oacute;n, tambi&eacute;n ofrecemos, si corresponde, aqu&iacute; describir&aacute; su bonificaci&oacute;n, participaci&oacute;n en las ganancias, estructura de comisiones, opciones sobre acciones y reglas del comit&eacute; de compensaci&oacute;n.</p>\n\n\n                    <p>Como empleado de {app_name}, ser&aacute; elegible para beneficios de nombre breve, como seguro m&eacute;dico, plan de acciones, seguro dental, etc.</p>\n\n\n                    <p>Indique su acuerdo con estos t&eacute;rminos y acepte esta oferta firmando y fechando este acuerdo el {offer_expiration_date} o antes.</p>\n\n\n                    <p>Sinceramente,</p>\n\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
 (84, 'fr', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Lettre doffre</strong></span></p>\n\n\n                    <p>Cher {applicant_name},</p>\n\n\n                    <p>{app_name} est ravi de vous accueillir en tant que {job_title}.</p>\n\n\n                    <p>&Eacute;taient juste quelques formalit&eacute;s loin de se mettre au travail. Veuillez prendre le temps dexaminer notre offre formelle. Il comprend des d&eacute;tails importants sur votre r&eacute;mun&eacute;ration, vos avantages et les termes et conditions de votre emploi pr&eacute;vu avec {app_name}.</p>\n\n\n                    <p>{app_name} propose un {job_type}. poste pour vous en tant que {job_title}, relevant du directeur/superviseur imm&eacute;diat &agrave; partir du {start_date} &agrave; {workplace_location}. Les heures de travail pr&eacute;vues sont de {days_of_week}.</p>\n\n\n                    <p>&Agrave; ce poste, {app_name} vous propose de commencer avec un taux de r&eacute;mun&eacute;ration de {salary} par {salary_type}. Vous serez pay&eacute; sur une base de {salary_duration}.</p>\n\n\n                    <p>Dans le cadre de votre r&eacute;mun&eacute;ration, le cas &eacute;ch&eacute;ant, vous d&eacute;crivez ici votre bonus, votre participation aux b&eacute;n&eacute;fices, votre structure de commission, vos options sur actions et les r&egrave;gles du comit&eacute; de r&eacute;mun&eacute;ration.</p>\n\n\n                    <p>En tant quemploy&eacute; de {app_name}, vous aurez droit &agrave; des avantages bri&egrave;vement nomm&eacute;s, tels que lassurance maladie, le plan dactionnariat, lassurance dentaire, etc.</p>\n\n\n                    <p>Veuillez indiquer votre accord avec ces conditions et accepter cette offre en signant et en datant cet accord au plus tard le {offer_expiration_date}.</p>\n\n\n                    <p>Sinc&egrave;rement,</p>\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
 (85, 'id', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Surat penawaran</strong></span></p>\n\n\n                    <p>{applicant_name} yang terhormat,</p>\n\n\n                    <p>{app_name} dengan senang hati membawa Anda sebagai {job_title}.</p>\n\n\n                    <p>Tinggal beberapa formalitas lagi untuk mulai bekerja. Harap luangkan waktu untuk meninjau penawaran resmi kami. Ini mencakup detail penting tentang kompensasi, tunjangan, serta persyaratan dan ketentuan pekerjaan yang Anda harapkan dengan {app_name}.</p>\n\n\n                    <p>{app_name} menawarkan {job_type}. posisi untuk Anda sebagai {job_title}, melapor ke manajer/penyelia langsung mulai {start_date} di{workplace_location}. Jam kerja yang diharapkan adalah{days_of_week}.</p>\n\n\n                    <p>Di posisi ini, {app_name} menawarkan untuk memulai Anda dengan tarif pembayaran {salary} per {salary_type}. Anda akan dibayar berdasarkan {salary_duration}.</p>\n\n\n                    <p>Sebagai bagian dari kompensasi Anda, yang juga ditawarkan jika berlaku, Anda akan menjelaskan bonus, pembagian keuntungan, struktur komisi, opsi saham, dan aturan komite kompensasi Anda di sini.</p>\n\n\n                    <p>Sebagai karyawan {app_name} , Anda akan memenuhi syarat untuk mendapatkan manfaat singkat, seperti asuransi kesehatan, paket saham, asuransi gigi, dll.</p>\n\n\n                    <p>Harap tunjukkan persetujuan Anda dengan persyaratan ini dan terima penawaran ini dengan menandatangani dan memberi tanggal pada perjanjian ini pada atau sebelum {offer_expiration_date}.</p>\n\n\n                    <p>Sungguh-sungguh,</p>\n\n                    <p>{app_name}</p>', 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13');
@@ -2477,7 +2538,20 @@ CREATE TABLE `invoices` (
 
 INSERT INTO `invoices` (`id`, `invoice_id`, `customer_id`, `issue_date`, `due_date`, `send_date`, `category_id`, `ref_number`, `status`, `shipping_display`, `discount_apply`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 1, 12, '2022-11-19', '2022-12-19', '2022-11-19', 8, NULL, 4, 1, 0, 10, '2022-11-20 01:59:45', '2022-11-20 02:02:17'),
-(2, 2, 12, '2022-11-19', '2022-11-20', '2022-11-19', 8, NULL, 3, 1, 0, 10, '2022-11-20 02:22:34', '2022-11-20 02:25:49');
+(2, 2, 12, '2022-11-19', '2022-11-20', '2022-11-19', 8, NULL, 4, 1, 0, 10, '2022-11-20 02:22:34', '2022-11-30 23:42:16'),
+(3, 3, 12, '2022-11-24', '2022-11-24', NULL, 8, NULL, 0, 1, 0, 10, '2022-11-24 15:23:29', '2022-11-24 15:23:29'),
+(4, 1, 14, '2022-11-24', '2022-11-24', '2022-11-30', 13, '234', 4, 1, 0, 11, '2022-11-24 23:32:01', '2022-12-01 01:54:59'),
+(5, 2, 14, '2022-11-24', '2022-11-24', '2022-11-24', 13, '1236889', 4, 1, 0, 11, '2022-11-24 23:48:33', '2022-12-01 01:57:23'),
+(6, 3, 13, '2022-11-25', '2022-11-25', '2022-11-25', 13, '34578', 4, 1, 0, 11, '2022-11-25 21:47:21', '2022-12-01 01:45:02'),
+(7, 4, 13, '2022-11-26', '2022-11-26', '2022-11-26', 13, '4500', 1, 1, 0, 11, '2022-11-26 09:31:39', '2022-11-26 09:32:03'),
+(8, 5, 13, '2022-11-26', '2022-11-26', '2022-11-26', 13, '3456', 1, 1, 0, 11, '2022-11-26 11:35:01', '2022-11-26 11:35:33'),
+(9, 6, 17, '2022-11-26', '2022-11-26', '2022-11-26', 13, '456', 4, 1, 0, 11, '2022-11-26 20:10:37', '2022-12-01 02:06:39'),
+(10, 7, 13, '2022-11-27', '2022-11-27', '2022-11-30', 13, NULL, 4, 1, 0, 11, '2022-11-27 09:24:25', '2022-12-01 02:01:05'),
+(11, 8, 13, '2022-11-27', '2022-11-27', NULL, 13, NULL, 0, 1, 0, 11, '2022-11-27 09:40:35', '2022-11-27 09:40:35'),
+(12, 9, 17, '2022-11-27', '2022-11-27', NULL, 13, NULL, 0, 1, 0, 11, '2022-11-27 09:43:02', '2022-11-27 09:43:02'),
+(13, 10, 14, '2022-11-30', '2022-11-30', NULL, 13, NULL, 0, 1, 0, 11, '2022-12-01 02:24:17', '2022-12-01 02:24:17'),
+(14, 11, 17, '2022-11-30', '2022-11-30', NULL, 13, '45555', 0, 1, 0, 11, '2022-12-01 02:41:54', '2022-12-01 02:41:54'),
+(15, 12, 18, '2022-12-01', '2022-12-01', NULL, 13, '2557890000', 0, 1, 0, 11, '2022-12-01 14:57:16', '2022-12-01 14:57:16');
 
 -- --------------------------------------------------------
 
@@ -2510,7 +2584,14 @@ CREATE TABLE `invoice_payments` (
 
 INSERT INTO `invoice_payments` (`id`, `invoice_id`, `date`, `amount`, `account_id`, `payment_method`, `receipt`, `payment_type`, `txn_id`, `currency`, `order_id`, `reference`, `add_receipt`, `description`, `created_at`, `updated_at`) VALUES
 (1, 1, '2022-11-22', '559.00', 2, 0, NULL, 'Manually', NULL, NULL, NULL, NULL, '1668913337_Mi-Ferreteria-Logo-small.jpg', NULL, '2022-11-20 02:02:17', '2022-11-20 02:02:17'),
-(2, 2, '2022-11-19', '700.00', 2, 0, NULL, 'Manually', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-20 02:25:49', '2022-11-20 02:25:49');
+(2, 2, '2022-11-19', '700.00', 2, 0, NULL, 'Manually', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-20 02:25:49', '2022-11-20 02:25:49'),
+(3, 2, '2022-11-30', '699.00', 2, 0, NULL, 'Manually', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-30 23:42:16', '2022-11-30 23:42:16'),
+(4, 2, '2022-11-30', '699.00', 2, 0, NULL, 'Manually', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-30 23:42:24', '2022-11-30 23:42:24'),
+(5, 6, '2022-11-30', '8000.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'GAD DMN', '1669862702_Cotización #80043 (1).pdf', 'pago efectivo', '2022-12-01 01:45:02', '2022-12-01 01:45:02'),
+(6, 4, '2022-11-30', '600.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, '23254', NULL, 'pago completo', '2022-12-01 01:54:59', '2022-12-01 01:54:59'),
+(7, 5, '2022-11-30', '10000.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, '23254', '1669863441_img28.jpg', 'pagado', '2022-12-01 01:57:23', '2022-12-01 01:57:23'),
+(8, 10, '2022-11-30', '2400.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, '23254', NULL, NULL, '2022-12-01 02:01:05', '2022-12-01 02:01:05'),
+(9, 9, '2022-11-30', '150.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, '23254', NULL, 'completado', '2022-12-01 02:06:39', '2022-12-01 02:06:39');
 
 -- --------------------------------------------------------
 
@@ -2537,7 +2618,20 @@ CREATE TABLE `invoice_products` (
 
 INSERT INTO `invoice_products` (`id`, `invoice_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
 (1, 1, 7, 1, NULL, 0.00, '559.00', 'Amoladora', '2022-11-20 01:59:45', '2022-11-20 01:59:45'),
-(2, 2, 8, 1, NULL, 0.00, '1399.00', 'Amoladora', '2022-11-20 02:22:35', '2022-11-20 02:22:35');
+(2, 2, 8, 1, NULL, 0.00, '1399.00', 'Amoladora', '2022-11-20 02:22:35', '2022-11-20 02:22:35'),
+(3, 3, 7, 12, '1', 0.00, '559.00', NULL, '2022-11-24 15:23:29', '2022-11-24 15:23:29'),
+(4, 4, 13, 3, NULL, 0.00, '200.00', 'Cable antillama', '2022-11-24 23:32:01', '2022-11-24 23:32:01'),
+(5, 5, 13, 50, NULL, 0.00, '200.00', 'Cable antillama', '2022-11-24 23:48:33', '2022-11-24 23:48:33'),
+(6, 6, 13, 40, NULL, 0.00, '200.00', 'Cable antillama', '2022-11-25 21:47:21', '2022-11-25 21:47:21'),
+(7, 7, 13, 9, NULL, 0.00, '200.00', 'Cable antillama', '2022-11-26 09:31:39', '2022-11-26 09:31:39'),
+(8, 8, 13, 1, NULL, 0.00, '200.00', 'Cable antillama', '2022-11-26 11:35:01', '2022-11-26 11:35:01'),
+(9, 9, 13, 1, NULL, 0.00, '250.00', 'Cable antillama', '2022-11-26 20:10:37', '2022-11-26 20:10:37'),
+(10, 10, 13, 12, NULL, 0.00, '200.00', NULL, '2022-11-27 09:24:25', '2022-11-27 09:24:25'),
+(11, 11, 13, 12, NULL, 0.00, '200.00', NULL, '2022-11-27 09:40:35', '2022-11-27 09:40:35'),
+(12, 12, 13, 15, NULL, 0.00, '200.00', NULL, '2022-11-27 09:43:02', '2022-11-27 09:43:02'),
+(13, 13, 13, 2, NULL, 0.00, '200.00', NULL, '2022-12-01 02:24:17', '2022-12-01 02:24:17'),
+(14, 14, 13, 3, NULL, 20.00, '200.00', 'Cable antillama', '2022-12-01 02:41:54', '2022-12-01 02:41:54'),
+(15, 15, 13, 10, NULL, 0.00, '200.00', 'Cable antillama', '2022-12-01 14:57:16', '2022-12-01 14:57:16');
 
 -- --------------------------------------------------------
 
@@ -3531,6 +3625,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (4, 'App\\Models\\User', 2),
 (3, 'App\\Models\\Vender', 2),
 (5, 'App\\Models\\User', 3),
+(3, 'App\\Models\\Vender', 3),
 (6, 'App\\Models\\User', 4),
 (4, 'App\\Models\\User', 5),
 (6, 'App\\Models\\User', 6),
@@ -3539,7 +3634,11 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (4, 'App\\Models\\User', 9),
 (4, 'App\\Models\\User', 10),
 (4, 'App\\Models\\User', 11),
-(7, 'App\\Models\\User', 12);
+(7, 'App\\Models\\User', 12),
+(8, 'App\\Models\\User', 13),
+(6, 'App\\Models\\User', 14),
+(6, 'App\\Models\\User', 15),
+(9, 'App\\Models\\User', 16);
 
 -- --------------------------------------------------------
 
@@ -3702,7 +3801,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order_id`, `name`, `email`, `card_number`, `card_exp_month`, `card_exp_year`, `plan_name`, `plan_id`, `price`, `price_currency`, `txn_id`, `payment_status`, `payment_type`, `receipt`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, '6362939B20792899386863', NULL, NULL, NULL, NULL, NULL, 'Plata', 2, 10.00, 'usd', '', 'succeeded', 'Manually Upgrade By Super Admin', NULL, 5, '2022-11-02 18:58:19', '2022-11-02 18:58:19');
+(1, '6362939B20792899386863', NULL, NULL, NULL, NULL, NULL, 'Plata', 2, 10.00, 'usd', '', 'succeeded', 'Manually Upgrade By Super Admin', NULL, 5, '2022-11-02 18:58:19', '2022-11-02 18:58:19'),
+(2, '637D1C3EC9320420457409', NULL, NULL, NULL, NULL, NULL, 'Plata', 2, 15.00, '', '', 'succeeded', 'Manually', NULL, 11, '2022-11-22 18:00:14', '2022-11-22 18:00:14');
 
 -- --------------------------------------------------------
 
@@ -3774,6 +3874,14 @@ CREATE TABLE `payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `payments`
+--
+
+INSERT INTO `payments` (`id`, `date`, `amount`, `account_id`, `vender_id`, `description`, `category_id`, `recurring`, `payment_method`, `reference`, `add_receipt`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '2022-11-27', '400.00', 4, 3, NULL, 12, NULL, 0, 'GAD DMN', '1669546570_#INVO00004.pdf', 11, '2022-11-27 09:56:11', '2022-11-27 09:56:11'),
+(2, '2022-11-30', '200.00', 4, 3, 'pagado', 12, NULL, 0, '23254', '1669864178_img100.jpg', 11, '2022-12-01 02:09:38', '2022-12-01 02:09:38');
 
 -- --------------------------------------------------------
 
@@ -4422,8 +4530,8 @@ CREATE TABLE `plans` (
 
 INSERT INTO `plans` (`id`, `name`, `price`, `duration`, `max_users`, `max_customers`, `max_venders`, `max_clients`, `crm`, `hrm`, `account`, `project`, `description`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'Bronce', 0.00, 'unlimited', 2, 10, 3, 10, 1, 1, 1, 1, NULL, 'free_plan.png', '2022-10-26 17:37:48', '2022-11-21 17:49:41'),
-(2, 'Plata', 15.00, 'month', 5, 500, 5, 500, 1, 1, 1, 1, 'Plata', NULL, '2022-10-28 22:16:19', '2022-11-21 18:28:20'),
-(3, 'ORO', 35.00, 'month', 12, 1000, 12, 1000, 1, 1, 1, 1, 'ORO', NULL, '2022-11-01 02:52:29', '2022-11-21 18:28:34');
+(2, 'Plata', 15.00, 'month', 5, 500, 500, 500, 1, 1, 1, 1, 'Plata', NULL, '2022-10-28 22:16:19', '2022-11-22 17:57:14'),
+(3, 'ORO', 35.00, 'month', 12, 1000, 1000, 1000, 1, 1, 1, 1, 'ORO', NULL, '2022-11-01 02:52:29', '2022-11-22 17:56:55');
 
 -- --------------------------------------------------------
 
@@ -4517,7 +4625,46 @@ INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `c
 (77, 6, 0, 7, NULL, 0, 0, 1, 10, '2022-11-21 19:06:03', '2022-11-21 19:06:03', 0, 'Abierto'),
 (78, 7, 0, 7, NULL, 0, 0, 1, 10, '2022-11-21 19:13:49', '2022-11-21 19:13:49', 0, 'Abierto'),
 (79, 8, 0, 7, NULL, 0, 0, 1, 10, '2022-11-21 19:15:14', '2022-11-21 19:15:14', 0, 'Abierto'),
-(80, 9, 0, 7, NULL, 0, 0, 1, 10, '2022-11-21 19:17:53', '2022-11-21 19:17:53', 0, 'Abierto');
+(80, 9, 0, 7, NULL, 0, 0, 1, 10, '2022-11-21 19:17:53', '2022-11-21 19:17:53', 0, 'Abierto'),
+(81, 1, 13, 10, NULL, 0, 0, 1, 11, '2022-11-22 12:15:14', '2022-11-22 12:15:14', 0, 'Abierto'),
+(82, 10, 11, 7, NULL, 0, 0, 1, 10, '2022-11-22 13:17:09', '2022-11-22 13:17:09', 0, 'Abierto'),
+(83, 11, 12, 7, NULL, 0, 0, 1, 10, '2022-11-22 13:50:02', '2022-11-22 13:50:02', 0, 'Abierto'),
+(84, 2, 13, 10, NULL, 0, 0, 1, 11, '2022-11-23 16:56:57', '2022-11-23 16:56:57', 0, 'Abierto'),
+(85, 3, 13, 10, NULL, 0, 0, 1, 11, '2022-11-23 20:18:39', '2022-11-23 20:18:39', 0, 'Abierto'),
+(86, 4, 0, 10, NULL, 0, 0, 1, 11, '2022-11-23 20:29:09', '2022-11-23 20:29:09', 0, 'Abierto'),
+(87, 5, 13, 10, NULL, 0, 0, 1, 11, '2022-11-23 20:34:59', '2022-11-23 20:34:59', 0, 'Abierto'),
+(88, 6, 13, 10, NULL, 0, 0, 1, 11, '2022-11-24 00:16:29', '2022-11-24 00:16:29', 0, 'Abierto'),
+(89, 7, 0, 10, NULL, 0, 0, 1, 11, '2022-11-24 16:11:50', '2022-11-24 16:11:50', 0, 'Abierto'),
+(90, 12, 11, 7, NULL, 0, 0, 1, 10, '2022-11-24 16:39:04', '2022-11-24 16:39:04', 0, 'Abierto'),
+(91, 13, 0, 7, NULL, 0, 0, 1, 10, '2022-11-24 22:45:45', '2022-11-24 22:45:45', 0, 'Abierto'),
+(92, 14, 0, 7, NULL, 0, 0, 1, 10, '2022-11-24 22:47:18', '2022-11-24 22:47:18', 0, 'Abierto'),
+(93, 8, 13, 10, NULL, 0, 0, 1, 11, '2022-11-25 09:00:25', '2022-11-25 09:00:25', 0, 'Abierto'),
+(94, 41, 15, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 16:13:53', '2022-11-25 16:13:53', 1, 'Abierto'),
+(95, 42, 7, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:10:10', '2022-11-25 17:10:10', 1, 'Abierto'),
+(96, 43, 7, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:11:34', '2022-11-25 17:11:34', 1, 'Abierto'),
+(97, 44, 7, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:12:26', '2022-11-25 17:12:26', 1, 'Abierto'),
+(98, 45, 15, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:16:28', '2022-11-25 17:16:28', 1, 'Abierto'),
+(99, 46, 7, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:17:28', '2022-11-25 17:17:28', 1, 'Abierto'),
+(100, 47, 7, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:19:23', '2022-11-25 17:19:23', 1, 'Abierto'),
+(101, 48, 10, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:25:19', '2022-11-25 17:25:19', 1, 'Abierto'),
+(102, 49, 10, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:36:20', '2022-11-25 17:36:20', 1, 'Abierto'),
+(103, 50, 16, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:39:22', '2022-11-25 17:39:22', 1, 'Abierto'),
+(104, 51, 10, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:44:05', '2022-11-25 17:44:05', 1, 'Abierto'),
+(105, 52, 15, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:46:13', '2022-11-25 17:46:13', 1, 'Abierto'),
+(106, 53, 10, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:47:27', '2022-11-25 17:47:27', 1, 'Abierto'),
+(107, 54, 10, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:57:59', '2022-11-25 17:57:59', 1, 'Abierto'),
+(108, 55, 9, 0, '2022-11-25', 0, 0, 1, 2, '2022-11-25 17:59:29', '2022-11-25 17:59:29', 1, 'Abierto'),
+(109, 9, 0, 10, NULL, 0, 0, 1, 11, '2022-11-26 01:36:01', '2022-11-26 01:36:01', 0, 'Abierto'),
+(110, 10, 13, 10, NULL, 0, 0, 1, 11, '2022-11-26 11:19:38', '2022-11-26 11:19:38', 0, 'Abierto'),
+(111, 11, 17, 10, NULL, 0, 0, 1, 11, '2022-11-27 02:57:26', '2022-11-27 02:57:26', 0, 'Abierto'),
+(112, 12, 17, 10, NULL, 0, 0, 1, 11, '2022-11-27 09:27:28', '2022-11-27 09:27:28', 0, 'Abierto'),
+(113, 13, 0, 10, NULL, 0, 0, 1, 11, '2022-12-01 01:40:10', '2022-12-01 01:40:10', 0, 'Abierto'),
+(114, 14, 0, 10, NULL, 0, 0, 1, 11, '2022-12-01 02:27:16', '2022-12-01 02:27:16', 0, 'Abierto'),
+(115, 15, 17, 10, NULL, 0, 0, 1, 11, '2022-12-01 02:28:15', '2022-12-01 02:28:15', 0, 'Abierto'),
+(116, 16, 0, 10, NULL, 0, 0, 1, 11, '2022-12-01 02:39:41', '2022-12-01 02:39:41', 0, 'Abierto'),
+(117, 17, 18, 10, NULL, 0, 0, 1, 11, '2022-12-01 14:21:38', '2022-12-01 14:21:38', 0, 'Abierto'),
+(118, 15, 0, 7, NULL, 0, 0, 1, 10, '2022-12-01 17:10:59', '2022-12-01 17:10:59', 0, 'Abierto'),
+(119, 18, 18, 10, NULL, 0, 0, 1, 11, '2022-12-02 18:35:55', '2022-12-02 18:35:55', 0, 'Abierto');
 
 -- --------------------------------------------------------
 
@@ -4579,7 +4726,44 @@ INSERT INTO `pos_payments` (`id`, `pos_id`, `date`, `amount`, `created_by`, `cre
 (47, 70, '2022-11-16', '$4,440.00', 2, '2022-11-16 21:33:24', '2022-11-16 21:33:24'),
 (48, 71, '2022-11-16', '$1,260.00', 2, '2022-11-16 21:33:49', '2022-11-16 21:33:49'),
 (49, 79, NULL, '$631.67', 0, '2022-11-21 19:15:14', '2022-11-21 19:15:14'),
-(50, 80, NULL, '$56.39', 0, '2022-11-21 19:17:53', '2022-11-21 19:17:53');
+(50, 80, NULL, '$56.39', 0, '2022-11-21 19:17:53', '2022-11-21 19:17:53'),
+(51, 81, NULL, '$2,000.00', 0, '2022-11-22 12:15:14', '2022-11-22 12:15:14'),
+(52, 82, NULL, '$28.25', 0, '2022-11-22 13:17:09', '2022-11-22 13:17:09'),
+(53, 83, NULL, '$1,354.87', 0, '2022-11-22 13:50:02', '2022-11-22 13:50:02'),
+(54, 84, NULL, '$200.00', 0, '2022-11-23 16:56:57', '2022-11-23 16:56:57'),
+(55, 85, NULL, '$600.00', 0, '2022-11-23 20:18:39', '2022-11-23 20:18:39'),
+(56, 86, NULL, '$1,400.00', 0, '2022-11-23 20:29:09', '2022-11-23 20:29:09'),
+(57, 87, NULL, '$1,600.00', 0, '2022-11-23 20:34:59', '2022-11-23 20:34:59'),
+(58, 88, NULL, '$200.00', 0, '2022-11-24 00:16:29', '2022-11-24 00:16:29'),
+(59, 89, NULL, '$200.00', 0, '2022-11-24 16:11:50', '2022-11-24 16:11:50'),
+(60, 90, NULL, '$491.55', 0, '2022-11-24 16:39:04', '2022-11-24 16:39:04'),
+(61, 91, NULL, '$28.14', 0, '2022-11-24 22:45:45', '2022-11-24 22:45:45'),
+(62, 92, NULL, '$2,100.56', 0, '2022-11-24 22:47:18', '2022-11-24 22:47:18'),
+(63, 93, NULL, '$3,000.00', 0, '2022-11-25 09:00:25', '2022-11-25 09:00:25'),
+(64, 94, '2022-11-25', '$10.00', 2, '2022-11-25 16:13:53', '2022-11-25 16:13:53'),
+(65, 96, '2022-11-25', '$10.00', 2, '2022-11-25 17:11:34', '2022-11-25 17:11:34'),
+(66, 97, '2022-11-25', '$10.00', 2, '2022-11-25 17:12:26', '2022-11-25 17:12:26'),
+(67, 98, '2022-11-25', '$20.00', 2, '2022-11-25 17:16:28', '2022-11-25 17:16:28'),
+(68, 99, '2022-11-25', '$20.00', 2, '2022-11-25 17:17:28', '2022-11-25 17:17:28'),
+(69, 100, '2022-11-25', '$20.00', 2, '2022-11-25 17:19:23', '2022-11-25 17:19:23'),
+(70, 101, '2022-11-25', '$30.00', 2, '2022-11-25 17:25:19', '2022-11-25 17:25:19'),
+(71, 102, '2022-11-25', '$1,230.00', 2, '2022-11-25 17:36:20', '2022-11-25 17:36:20'),
+(72, 104, '2022-11-25', '$30.00', 2, '2022-11-25 17:44:05', '2022-11-25 17:44:05'),
+(73, 105, '2022-11-25', '$20.00', 2, '2022-11-25 17:46:13', '2022-11-25 17:46:13'),
+(74, 106, '2022-11-25', '$20.00', 2, '2022-11-25 17:47:27', '2022-11-25 17:47:27'),
+(75, 107, '2022-11-25', '$20.00', 2, '2022-11-25 17:57:59', '2022-11-25 17:57:59'),
+(76, 108, '2022-11-25', '$30.00', 2, '2022-11-25 17:59:29', '2022-11-25 17:59:29'),
+(77, 109, NULL, '$400.00', 0, '2022-11-26 01:36:01', '2022-11-26 01:36:01'),
+(78, 110, NULL, '200.00Bs', 0, '2022-11-26 11:19:38', '2022-11-26 11:19:38'),
+(79, 111, NULL, 'Bs400.0', 0, '2022-11-27 02:57:26', '2022-11-27 02:57:26'),
+(80, 112, NULL, 'Bs600.0', 0, '2022-11-27 09:27:28', '2022-11-27 09:27:28'),
+(81, 113, NULL, 'Bs1,200.0', 0, '2022-12-01 01:40:10', '2022-12-01 01:40:10'),
+(82, 114, NULL, 'Bs200.0', 0, '2022-12-01 02:27:16', '2022-12-01 02:27:16'),
+(83, 115, NULL, 'Bs200.0', 0, '2022-12-01 02:28:15', '2022-12-01 02:28:15'),
+(84, 116, NULL, 'Bs400.0', 0, '2022-12-01 02:39:41', '2022-12-01 02:39:41'),
+(85, 117, NULL, 'Bs200.0', 0, '2022-12-01 14:21:38', '2022-12-01 14:21:38'),
+(86, 118, NULL, '$1,580.87', 0, '2022-12-01 17:10:59', '2022-12-01 17:10:59'),
+(87, 119, NULL, 'Bs800.0', 0, '2022-12-02 18:35:55', '2022-12-02 18:35:55');
 
 -- --------------------------------------------------------
 
@@ -4597,6 +4781,7 @@ CREATE TABLE `pos_products` (
   `price` double(8,2) NOT NULL DEFAULT '0.00',
   `description` text COLLATE utf8mb4_unicode_ci,
   `parameters` text COLLATE utf8mb4_unicode_ci,
+  `parameters_prices` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4605,50 +4790,19 @@ CREATE TABLE `pos_products` (
 -- Volcado de datos para la tabla `pos_products`
 --
 
-INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `parameters`, `created_at`, `updated_at`) VALUES
-(24, 29, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:04:53', '2022-11-10 19:04:53'),
-(25, 30, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:05:19', '2022-11-10 19:05:19'),
-(26, 31, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:06:06', '2022-11-10 19:06:06'),
-(27, 32, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:07:27', '2022-11-10 19:07:27'),
-(28, 33, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:08:14', '2022-11-10 19:08:14'),
-(29, 34, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:24:39', '2022-11-10 19:24:39'),
-(30, 35, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:25:21', '2022-11-10 19:25:21'),
-(31, 36, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:25:53', '2022-11-10 19:25:53'),
-(32, 37, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:26:26', '2022-11-10 19:26:26'),
-(33, 38, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:26:41', '2022-11-10 19:26:41'),
-(34, 39, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:29:47', '2022-11-10 19:29:47'),
-(36, 41, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:33:47', '2022-11-10 19:33:47'),
-(37, 42, 4, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:36:15', '2022-11-10 19:36:15'),
-(38, 43, 4, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:36:39', '2022-11-10 19:36:39'),
-(39, 44, 4, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:36:50', '2022-11-10 19:36:50'),
-(40, 45, 4, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:38:55', '2022-11-10 19:38:55'),
-(41, 46, 4, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:39:26', '2022-11-10 19:39:26'),
-(42, 47, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:41:24', '2022-11-10 19:41:24'),
-(43, 48, 2, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:42:28', '2022-11-10 19:42:28'),
-(44, 49, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:44:28', '2022-11-10 19:44:28'),
-(45, 50, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-10 19:48:17', '2022-11-10 19:48:17'),
-(46, 51, 3, 12, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 03:59:06', '2022-11-11 03:59:06'),
-(47, 52, 3, 12, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 03:59:51', '2022-11-11 03:59:51'),
-(48, 53, 3, 12, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:01:08', '2022-11-11 04:01:08'),
-(49, 54, 3, 12, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:02:35', '2022-11-11 04:02:35'),
-(50, 55, 3, 12, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:08:51', '2022-11-11 04:08:51'),
-(51, 56, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:11:24', '2022-11-11 04:11:24'),
-(52, 57, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:14:56', '2022-11-11 04:14:56'),
-(53, 58, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:15:17', '2022-11-11 04:15:17'),
-(54, 59, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:15:33', '2022-11-11 04:15:33'),
-(55, 60, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:16:46', '2022-11-11 04:16:46'),
-(56, 61, 2, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:28:17', '2022-11-11 04:28:17'),
-(57, 62, 3, 123, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-11 04:28:49', '2022-11-11 04:28:49'),
-(58, 65, 1, 1, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-12 01:41:37', '2022-11-12 01:41:37'),
-(59, 68, 2, 123, 0.00, 0.00, 10.00, NULL, '{\"Talla\":\"S\",\"Color\":\"Amarillo\"}', '2022-11-16 20:37:59', '2022-11-16 20:37:59'),
-(60, 38, 2, 123, 0.00, 0.00, 10.00, NULL, '{\"Talla\":\"S\",\"Color\":\"Amarillo\"}', '2022-11-16 21:31:42', '2022-11-16 21:31:42'),
-(61, 39, 2, 123, 0.00, 0.00, 10.00, NULL, '{\"Talla\":\"S\",\"Color\":\"Amarillo\"}', '2022-11-16 21:33:24', '2022-11-16 21:33:24'),
-(62, 39, 3, 321, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-16 21:33:24', '2022-11-16 21:33:24'),
-(63, 40, 2, 123, 0.00, 0.00, 10.00, NULL, '{\"Talla\":\"S\",\"Color\":\"Amarillo\"}', '2022-11-16 21:33:49', '2022-11-16 21:33:49'),
-(64, 40, 3, 3, 0.00, 0.00, 10.00, NULL, NULL, '2022-11-16 21:33:49', '2022-11-16 21:33:49'),
-(65, 79, 7, 1, 13.00, 0.00, 559.00, NULL, NULL, '2022-11-21 19:15:14', '2022-11-21 19:15:14'),
-(66, 80, 12, 1, 13.00, 0.00, 24.90, NULL, NULL, '2022-11-21 19:17:53', '2022-11-21 19:17:53'),
-(67, 80, 11, 1, 13.00, 0.00, 25.00, NULL, NULL, '2022-11-21 19:17:53', '2022-11-21 19:17:53');
+INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `parameters`, `parameters_prices`, `created_at`, `updated_at`) VALUES
+(12, 55, 2, 3, 0.00, 0.00, 10.00, NULL, '{\"tipo\":\"inalambrico\",\"color\":\"azul\"}', '[{\"name\":\"inalambrico\",\"price\":\"10\"},{\"name\":\"azul\",\"price\":\"5\"}]', '2022-11-25 17:59:29', '2022-11-25 17:59:29'),
+(13, 109, 13, 2, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-11-26 01:36:01', '2022-11-26 01:36:01'),
+(14, 110, 13, 1, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-11-26 11:19:38', '2022-11-26 11:19:38'),
+(15, 111, 13, 2, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-11-27 02:57:26', '2022-11-27 02:57:26'),
+(16, 112, 13, 3, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-11-27 09:27:28', '2022-11-27 09:27:28'),
+(17, 113, 13, 6, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-01 01:40:10', '2022-12-01 01:40:10'),
+(18, 114, 13, 1, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-01 02:27:16', '2022-12-01 02:27:16'),
+(19, 115, 13, 1, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-01 02:28:15', '2022-12-01 02:28:15'),
+(20, 116, 13, 2, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-01 02:39:41', '2022-12-01 02:39:41'),
+(21, 117, 13, 1, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-01 14:21:38', '2022-12-01 14:21:38'),
+(22, 72, 8, 1, 13.00, 0.00, 1399.00, NULL, NULL, NULL, '2022-12-01 17:10:59', '2022-12-01 17:10:59'),
+(23, 119, 13, 4, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-02 18:35:55', '2022-12-02 18:35:55');
 
 -- --------------------------------------------------------
 
@@ -4669,7 +4823,7 @@ CREATE TABLE `product_services` (
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `pro_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `variation_id` int(11) DEFAULT NULL,
+  `variation_id` text COLLATE utf8mb4_unicode_ci,
   `created_by` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -4680,18 +4834,17 @@ CREATE TABLE `product_services` (
 --
 
 INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_price`, `quantity`, `tax_id`, `category_id`, `unit_id`, `type`, `description`, `pro_image`, `variation_id`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Produto 01', '12345', '10.00', '5.00', 99, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 5, '2022-11-02 19:03:07', '2022-11-12 01:41:37'),
-(2, 'Produto 01', '12345', '10.00', '5.00', -542, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', 2, 2, '2022-11-02 19:03:07', '2022-11-16 21:33:49'),
+(1, 'Produto 01', '0987', '10.00', '5.00', 99, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 5, '2022-11-02 19:03:07', '2022-11-12 01:41:37'),
+(2, 'Produto 01', '765', '10.00', '5.00', -813, '', 2, 2, 'product', 'teste', '1667404986_Logo.png', '[\"2\",\"5\"]', 2, '2022-11-02 19:03:07', '2022-11-25 17:59:29'),
 (3, 'Produto 02', '12345', '10.00', '5.00', -4165, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-16 21:33:49'),
 (4, 'Produto 03', '12345', '10.00', '5.00', -515, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-10 19:39:26'),
 (5, 'Produto 04', '12345', '10.00', '5.00', 200, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-11 04:39:40'),
 (6, 'Produto 05', '12345', '10.00', '5.00', 100, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-02 19:03:07'),
-(7, 'Amoladora Kit TC-AG', '010205', '559.00', '230.00', 122442, '1', 5, 3, 'product', '125/850 Einhell', '1669057693_Amoladora-Kit-TC-AG-125-850-Einhell-1-34463.jpg', 0, 10, '2022-11-20 01:15:04', '2022-11-21 19:15:14'),
-(8, 'Amoladora Inalámbrica', 'TE-AG 18/115 LI', '1399.00', '745.00', 10122, '1', 5, 3, 'product', 'Amoladora', '1669057716_TE-AG-18-115-LI-Amoladora-Inal-mbrica-1-33750.jpg', 0, 10, '2022-11-20 01:19:01', '2022-11-21 18:55:20'),
-(9, 'Taladro atornillador', '020202', '410.00', '188.00', 1098, '1', 5, 3, 'product', 'Taladro atornillador 13mm, 18v con 1 batería', '1669057754_Taladro-atornillador-13mm-18v-con-1-bater-a-1-35837.jpg', 0, 10, '2022-11-20 01:21:33', '2022-11-21 19:06:03'),
-(10, 'Compresor de Aire', 'TC-AC 190/6/8 Einhell', '1199.00', '650.00', 10100, '1', 5, 3, 'product', 'Compresor de Aire TC-AC 190/6/8 Einhell', '1669057807_Compresor-de-Aire-TC-AC-190-6-8-Einhell-1-33974.jpg', 0, 10, '2022-11-20 01:32:02', '2022-11-21 18:55:20'),
-(11, 'Carbón Brush (cb-100) 2(piezas)', 'P/6906', '25.00', '12.00', 10099, '1', 7, 3, 'product', 'Carbón Brush', '1669057832_Carb-n-Brush-cb-100-2-piezas-P-6906-1-34835.jpg', 0, 10, '2022-11-20 01:36:04', '2022-11-21 19:17:53'),
-(12, 'Juego de Brocas para Hormigón 4pzas', '040404', '24.90', '11.00', 10095, '1', 5, 3, 'product', 'Juego de Brocas para Hormigón 4pzas', '1669057848_Ganchos-transparentes-medianos-2pz-3M-1-15174.jpg', 0, 10, '2022-11-20 01:39:01', '2022-11-21 19:17:53');
+(8, 'Amoladora Inalámbrica', 'TE-AG 18/115 LI', '1399.00', '745.00', 10120, '1', 5, 3, 'product', 'Amoladora', '1669057716_TE-AG-18-115-LI-Amoladora-Inal-mbrica-1-33750.jpg', '0', 10, '2022-11-20 01:19:01', '2022-12-01 17:10:59'),
+(9, 'Taladro atornillador', '020202', '410.00', '188.00', 1096, '1', 5, 3, 'product', 'Taladro atornillador 13mm, 18v con 1 batería', '1669057754_Taladro-atornillador-13mm-18v-con-1-bater-a-1-35837.jpg', '0', 10, '2022-11-20 01:21:33', '2022-11-24 22:47:18'),
+(11, 'Carbón Brush (cb-100) 2(piezas)', 'P/6906', '25.00', '12.00', 10096, '1', 7, 3, 'product', 'Carbón Brush', '1669057832_Carb-n-Brush-cb-100-2-piezas-P-6906-1-34835.jpg', '0', 10, '2022-11-20 01:36:04', '2022-11-24 22:47:18'),
+(12, 'Juego de Brocas para Hormigón 4pzas', '040404', '24.90', '11.00', 10093, '1', 5, 3, 'product', 'Juego de Brocas para Hormigón 4pzas', '1669057848_Ganchos-transparentes-medianos-2pz-3M-1-15174.jpg', '0', 10, '2022-11-20 01:39:01', '2022-11-24 22:47:18'),
+(13, 'Cable 2.5', '2345', '200.00', '100.00', -12, '', 9, 7, 'product', 'Cable antillama', '1669224705_compressed_1669223186247.png', '0', 11, '2022-11-22 11:23:34', '2022-12-02 18:35:55');
 
 -- --------------------------------------------------------
 
@@ -4724,7 +4877,9 @@ INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `create
 (8, 'Mano de Obra', '1', '58C7FF', 10, '2022-11-20 01:56:03', '2022-11-20 01:56:03'),
 (9, 'Xavles', '0', 'FFFFFF', 11, '2022-11-21 17:55:56', '2022-11-21 17:55:56'),
 (10, 'Xavles', '0', 'FFFFFF', 11, '2022-11-21 17:56:00', '2022-11-21 17:56:00'),
-(11, 'Compras Proveedor', '2', 'FF2836', 10, '2022-11-21 18:53:20', '2022-11-21 18:53:33');
+(11, 'Compras Proveedor', '2', 'FF2836', 10, '2022-11-21 18:53:20', '2022-11-21 18:53:33'),
+(12, 'Cables flexibles', '2', 'FFFFFF', 11, '2022-11-22 12:05:32', '2022-11-22 12:10:14'),
+(13, 'Productos', '1', '5857FF', 11, '2022-11-23 14:41:12', '2022-11-23 14:41:12');
 
 -- --------------------------------------------------------
 
@@ -4750,7 +4905,9 @@ INSERT INTO `product_service_units` (`id`, `name`, `created_by`, `created_at`, `
 (3, 'Und.', 10, '2022-11-20 01:11:17', '2022-11-20 01:11:17'),
 (4, 'Mts.', 10, '2022-11-20 01:11:27', '2022-11-20 01:11:27'),
 (5, 'Kg.', 10, '2022-11-20 01:11:54', '2022-11-20 01:11:54'),
-(6, 'Lts.', 10, '2022-11-20 01:12:02', '2022-11-20 01:12:02');
+(6, 'Lts.', 10, '2022-11-20 01:12:02', '2022-11-20 01:12:02'),
+(7, 'Rollo', 11, '2022-11-22 11:17:29', '2022-11-22 11:17:29'),
+(8, 'Metro', 11, '2022-11-22 11:17:39', '2022-11-22 11:17:49');
 
 -- --------------------------------------------------------
 
@@ -4761,15 +4918,16 @@ INSERT INTO `product_service_units` (`id`, `name`, `created_by`, `created_at`, `
 CREATE TABLE `product_variations` (
   `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
-  `parameters` text
+  `options` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `product_variations`
 --
 
-INSERT INTO `product_variations` (`id`, `name`, `parameters`) VALUES
-(2, 'Tipo', '[{\"name\":\"Tipo\",\"options\":\"Innalambrico, Cable\"},{\"name\":\"Color\",\"options\":\"Amarillo,Azul,Rojo\"}]');
+INSERT INTO `product_variations` (`id`, `name`, `options`) VALUES
+(2, 'Tipo', '[{\"name\": \"Inalambrico\", \"price\": \"10\"}, {\"name\": \"Con cable\", \"price\": \"0\"}]'),
+(5, 'Color', '[{\"name\":\"Rojo\",\"price\":\"0\"},{\"name\":\"Azul\",\"price\":\"5\"}]');
 
 -- --------------------------------------------------------
 
@@ -4799,7 +4957,10 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `project_name`, `start_date`, `end_date`, `project_image`, `budget`, `client_id`, `description`, `status`, `estimated_hrs`, `tags`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Bus', '2022-11-21', '2022-12-01', 'projects/1669054005.jpg', 100, 6, NULL, 'in_progress', '02', NULL, 5, '2022-11-21 17:06:46', '2022-11-21 17:06:46');
+(1, 'Bus', '2022-11-21', '2022-12-01', 'projects/1669054005.jpg', 100, 6, NULL, 'in_progress', '02', NULL, 5, '2022-11-21 17:06:46', '2022-11-21 17:06:46'),
+(2, 'Limpieza de Galpon', '2022-11-22', '2022-11-23', 'projects/1669129358.jpg', 100, 14, NULL, 'on_hold', NULL, NULL, 10, '2022-11-22 14:02:43', '2022-11-22 14:02:43'),
+(3, 'Heladeria mi alegria', '2022-11-23', '2022-11-30', 'projects/1669204249.jpg', 2000, 15, 'Instalacion eléctrica  en general', 'in_progress', '50', '2378', 11, '2022-11-23 10:50:53', '2022-11-23 10:50:53'),
+(4, 'Helavderia mi alegria', '2022-11-23', '2022-12-22', 'projects/1669371422.png', 2000, 15, 'Instalación  electrica en general', 'in_progress', '250', '23679', 11, '2022-11-23 11:24:23', '2022-11-25 09:17:03');
 
 -- --------------------------------------------------------
 
@@ -4880,6 +5041,15 @@ CREATE TABLE `project_tasks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `project_tasks`
+--
+
+INSERT INTO `project_tasks` (`id`, `name`, `description`, `estimated_hrs`, `start_date`, `end_date`, `priority`, `priority_color`, `assign_to`, `project_id`, `milestone_id`, `stage_id`, `order`, `created_by`, `is_favourite`, `is_complete`, `marked_at`, `progress`, `created_at`, `updated_at`) VALUES
+(1, 'Limpiar', 'Lipiar Todo', 2, '2022-11-22', '2022-11-22', 'critical', NULL, '13', 2, 0, 24, 0, 10, 0, 1, '2022-11-22', '0', '2022-11-22 14:03:58', '2022-11-22 14:06:28'),
+(2, 'Entubar y cablear', 'Cableado', 20, '2022-11-23', '2022-11-23', 'critical', NULL, '11,16', 3, 0, 25, 0, 11, 0, 0, NULL, '0', '2022-11-23 10:57:39', '2022-11-23 10:57:39'),
+(3, 'Cableado cielo falso', 'Cableadoventubado', 48, '2022-11-25', '2022-11-29', 'medium', NULL, NULL, 4, 0, 26, 0, 11, 0, 0, NULL, '0', '2022-11-23 11:28:47', '2022-11-27 10:07:18');
+
 -- --------------------------------------------------------
 
 --
@@ -4901,7 +5071,12 @@ CREATE TABLE `project_users` (
 
 INSERT INTO `project_users` (`id`, `project_id`, `user_id`, `invited_by`, `created_at`, `updated_at`) VALUES
 (1, 1, 5, 0, '2022-11-21 17:06:46', '2022-11-21 17:06:46'),
-(2, 1, 12, 0, '2022-11-21 17:06:46', '2022-11-21 17:06:46');
+(2, 1, 12, 0, '2022-11-21 17:06:46', '2022-11-21 17:06:46'),
+(3, 2, 10, 0, '2022-11-22 14:02:44', '2022-11-22 14:02:44'),
+(4, 2, 13, 0, '2022-11-22 14:02:44', '2022-11-22 14:02:44'),
+(6, 3, 16, 0, '2022-11-23 10:50:53', '2022-11-23 10:50:53'),
+(7, 4, 11, 0, '2022-11-23 11:24:23', '2022-11-23 11:24:23'),
+(8, 4, 16, 0, '2022-11-23 11:24:23', '2022-11-23 11:24:23');
 
 -- --------------------------------------------------------
 
@@ -4943,6 +5118,27 @@ CREATE TABLE `proposals` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `proposals`
+--
+
+INSERT INTO `proposals` (`id`, `proposal_id`, `customer_id`, `issue_date`, `send_date`, `category_id`, `status`, `discount_apply`, `converted_invoice_id`, `is_convert`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 12, '2022-11-22', '2022-11-22', 8, 1, 0, 3, 1, 10, '2022-11-22 13:51:17', '2022-11-24 15:23:29'),
+(2, 1, 14, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 14:44:35', '2022-12-01 02:23:05'),
+(3, 2, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 15:12:31', '2022-11-23 15:13:29'),
+(4, 3, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 15:20:54', '2022-11-23 15:21:10'),
+(5, 4, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 16:13:47', '2022-11-23 16:14:06'),
+(6, 5, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 16:46:04', '2022-11-23 16:47:26'),
+(7, 6, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 19:47:47', '2022-11-23 19:48:14'),
+(8, 7, 13, '2022-11-23', '2022-11-23', 13, 1, 0, 0, 0, 11, '2022-11-23 19:52:29', '2022-11-23 19:53:04'),
+(9, 8, 13, '2022-11-24', '2022-11-25', 13, 1, 0, 0, 0, 11, '2022-11-24 23:41:48', '2022-11-25 22:09:29'),
+(10, 9, 13, '2022-11-25', '2022-11-25', 13, 1, 0, 0, 0, 11, '2022-11-26 01:21:20', '2022-11-26 01:21:43'),
+(11, 10, 13, '2022-11-26', '2022-11-26', 13, 2, 0, 10, 1, 11, '2022-11-26 11:21:36', '2022-11-27 09:24:25'),
+(12, 11, 17, '2022-11-27', '2022-11-27', 13, 1, 0, 12, 1, 11, '2022-11-27 09:35:15', '2022-11-27 09:43:02'),
+(13, 12, 17, '2022-11-27', NULL, 13, 0, 0, 11, 1, 11, '2022-11-27 09:40:03', '2022-11-27 09:42:06'),
+(14, 13, 14, '2022-11-30', '2022-11-30', 13, 2, 0, 13, 1, 11, '2022-12-01 02:23:47', '2022-12-01 02:25:03'),
+(15, 14, 18, '2022-12-01', '2022-12-01', 13, 1, 0, 0, 0, 11, '2022-12-01 14:24:18', '2022-12-01 14:25:23');
+
 -- --------------------------------------------------------
 
 --
@@ -4961,6 +5157,27 @@ CREATE TABLE `proposal_products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proposal_products`
+--
+
+INSERT INTO `proposal_products` (`id`, `proposal_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 7, 12, '1', 0.00, '559.00', 'prueba', '2022-11-22 13:51:17', '2022-11-22 13:51:17'),
+(2, 2, 13, 2, NULL, 0.00, '200.00', NULL, '2022-11-23 14:44:35', '2022-11-23 14:44:35'),
+(3, 3, 13, 4, NULL, 0.00, '200.00', NULL, '2022-11-23 15:12:31', '2022-11-23 15:12:31'),
+(4, 4, 13, 1, NULL, 0.00, '200.00', NULL, '2022-11-23 15:20:54', '2022-11-23 15:20:54'),
+(5, 5, 13, 6, NULL, 0.00, '200.00', NULL, '2022-11-23 16:13:47', '2022-11-23 16:13:47'),
+(6, 6, 13, 3, NULL, 0.00, '200.00', NULL, '2022-11-23 16:46:04', '2022-11-23 16:46:04'),
+(7, 7, 13, 5, NULL, 0.00, '200.00', NULL, '2022-11-23 19:47:47', '2022-11-23 19:47:47'),
+(8, 8, 13, 1, NULL, 0.00, '200.00', NULL, '2022-11-23 19:52:29', '2022-11-23 19:52:29'),
+(9, 9, 13, 1, NULL, 0.00, '200.00', NULL, '2022-11-24 23:41:48', '2022-11-24 23:41:48'),
+(10, 10, 13, 9, NULL, 0.00, '200.00', NULL, '2022-11-26 01:21:20', '2022-11-26 09:30:28'),
+(11, 11, 13, 12, NULL, 0.00, '200.00', NULL, '2022-11-26 11:21:36', '2022-11-26 11:21:36'),
+(12, 12, 13, 15, NULL, 0.00, '200.00', NULL, '2022-11-27 09:35:15', '2022-11-27 09:35:15'),
+(13, 13, 13, 12, NULL, 0.00, '200.00', NULL, '2022-11-27 09:40:03', '2022-11-27 09:40:03'),
+(14, 14, 13, 2, NULL, 0.00, '200.00', NULL, '2022-12-01 02:23:47', '2022-12-01 02:23:47'),
+(15, 15, 13, 1, NULL, 0.00, '200.00', NULL, '2022-12-01 14:24:18', '2022-12-01 14:24:18');
 
 -- --------------------------------------------------------
 
@@ -4993,7 +5210,12 @@ CREATE TABLE `purchases` (
 INSERT INTO `purchases` (`id`, `purchase_id`, `vender_id`, `warehouse_id`, `purchase_date`, `purchase_number`, `status`, `shipping_display`, `send_date`, `online`, `discount_apply`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
 (14, '1', NULL, NULL, '2022-11-10', 0, 0, 1, NULL, 1, 0, NULL, 2, '2022-11-10 06:31:31', '2022-11-10 06:31:31'),
 (15, '2', 1, 1, '2022-11-10', 0, 0, 1, NULL, 0, 0, 4, 2, '2022-11-11 04:53:28', '2022-11-11 04:53:28'),
-(16, '1', 2, 7, '2022-11-21', 0, 1, 1, '2022-11-21', 0, 0, 11, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:38');
+(16, '1', 2, 7, '2022-11-21', 0, 1, 1, '2022-11-21', 0, 0, 11, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:38'),
+(17, '1', 3, 10, '2022-11-22', 0, 0, 1, NULL, 0, 0, 12, 11, '2022-11-22 12:11:47', '2022-11-22 12:11:47'),
+(18, '2', 3, 10, '2022-11-23', 0, 0, 1, NULL, 0, 0, 12, 11, '2022-11-23 16:55:02', '2022-11-23 16:55:02'),
+(19, '3', 3, 10, '2022-11-24', 0, 1, 1, '2022-12-02', 0, 0, 12, 11, '2022-11-24 16:08:12', '2022-12-02 09:50:40'),
+(20, '4', 3, 10, '2022-11-30', 0, 4, 1, '2022-11-30', 0, 0, 12, 11, '2022-12-01 02:34:51', '2022-12-01 02:35:51'),
+(21, '5', 3, 10, '2022-11-30', 0, 4, 1, '2022-12-02', 0, 0, 12, 11, '2022-12-01 02:38:31', '2022-12-02 09:43:10');
 
 -- --------------------------------------------------------
 
@@ -5014,6 +5236,14 @@ CREATE TABLE `purchase_payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `purchase_payments`
+--
+
+INSERT INTO `purchase_payments` (`id`, `purchase_id`, `date`, `amount`, `account_id`, `payment_method`, `reference`, `description`, `add_receipt`, `created_at`, `updated_at`) VALUES
+(1, 20, '2022-11-30', 1500.00, 4, 0, '23254', 'pago cabled', NULL, '2022-12-01 02:35:51', '2022-12-01 02:35:51'),
+(2, 21, '2022-12-02', 900.00, 4, 0, '112333', 'hhiii', NULL, '2022-12-02 09:43:10', '2022-12-02 09:43:10');
 
 -- --------------------------------------------------------
 
@@ -5046,7 +5276,13 @@ INSERT INTO `purchase_products` (`id`, `purchase_id`, `product_id`, `quantity`, 
 (9, 16, 9, 100, '1', 0.00, 188.00, NULL, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
 (10, 16, 10, 100, '1', 0.00, 650.00, NULL, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
 (11, 16, 11, 100, '1', 0.00, 12.00, NULL, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
-(12, 16, 12, 100, '1', 0.00, 11.00, NULL, '2022-11-21 18:55:20', '2022-11-21 18:55:20');
+(12, 16, 12, 100, '1', 0.00, 11.00, NULL, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
+(13, 17, 13, 10, NULL, 0.00, 100.00, NULL, '2022-11-22 12:11:47', '2022-11-22 12:11:47'),
+(14, 17, 13, 1, NULL, 0.00, 100.00, NULL, '2022-11-22 12:11:47', '2022-11-22 12:11:47'),
+(15, 18, 13, 20, NULL, 0.00, 100.00, NULL, '2022-11-23 16:55:02', '2022-11-23 16:55:02'),
+(16, 19, 13, 100, NULL, 0.00, 100.00, NULL, '2022-11-24 16:08:12', '2022-11-24 16:08:12'),
+(17, 20, 13, 15, NULL, 0.00, 100.00, NULL, '2022-12-01 02:34:51', '2022-12-01 02:34:51'),
+(18, 21, 13, 9, NULL, 0.00, 100.00, NULL, '2022-12-01 02:38:31', '2022-12-01 02:38:31');
 
 -- --------------------------------------------------------
 
@@ -5113,7 +5349,9 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_by`, `created_at`, `up
 (4, 'company', 'web', 0, '2022-10-26 17:37:49', '2022-10-26 17:37:49'),
 (5, 'accountant', 'web', 2, '2022-10-26 17:37:54', '2022-10-26 17:37:54'),
 (6, 'client', 'web', 2, '2022-10-26 17:37:55', '2022-10-26 17:37:55'),
-(7, 'Gerente', 'web', 5, '2022-11-21 17:03:17', '2022-11-21 17:03:17');
+(7, 'Gerente', 'web', 5, '2022-11-21 17:03:17', '2022-11-21 17:03:17'),
+(8, 'Vendedor', 'web', 10, '2022-11-22 13:59:15', '2022-11-22 13:59:15'),
+(9, 'Tecnico electricista', 'web', 11, '2022-11-23 10:39:43', '2022-11-23 10:39:43');
 
 -- --------------------------------------------------------
 
@@ -5829,7 +6067,158 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (148, 7),
 (149, 7),
 (150, 7),
-(151, 7);
+(151, 7),
+(3, 8),
+(5, 8),
+(6, 8),
+(7, 8),
+(8, 8),
+(10, 8),
+(11, 8),
+(12, 8),
+(13, 8),
+(14, 8),
+(15, 8),
+(16, 8),
+(17, 8),
+(18, 8),
+(22, 8),
+(23, 8),
+(24, 8),
+(25, 8),
+(36, 8),
+(37, 8),
+(38, 8),
+(39, 8),
+(40, 8),
+(41, 8),
+(42, 8),
+(43, 8),
+(44, 8),
+(45, 8),
+(46, 8),
+(47, 8),
+(48, 8),
+(49, 8),
+(50, 8),
+(51, 8),
+(148, 8),
+(149, 8),
+(150, 8),
+(151, 8),
+(152, 8),
+(153, 8),
+(154, 8),
+(155, 8),
+(156, 8),
+(157, 8),
+(162, 8),
+(163, 8),
+(164, 8),
+(165, 8),
+(166, 8),
+(167, 8),
+(168, 8),
+(169, 8),
+(171, 8),
+(172, 8),
+(173, 8),
+(174, 8),
+(175, 8),
+(176, 8),
+(177, 8),
+(178, 8),
+(179, 8),
+(180, 8),
+(181, 8),
+(182, 8),
+(183, 8),
+(184, 8),
+(185, 8),
+(186, 8),
+(187, 8),
+(188, 8),
+(193, 8),
+(194, 8),
+(195, 8),
+(196, 8),
+(407, 8),
+(408, 8),
+(409, 8),
+(410, 8),
+(411, 8),
+(412, 8),
+(413, 8),
+(414, 8),
+(415, 8),
+(416, 8),
+(417, 8),
+(418, 8),
+(419, 8),
+(420, 8),
+(421, 8),
+(422, 8),
+(423, 8),
+(424, 8),
+(425, 8),
+(426, 8),
+(427, 8),
+(428, 8),
+(429, 8),
+(430, 8),
+(431, 8),
+(432, 8),
+(433, 8),
+(434, 8),
+(435, 8),
+(436, 8),
+(437, 8),
+(438, 8),
+(439, 8),
+(440, 8),
+(441, 8),
+(442, 8),
+(443, 8),
+(444, 8),
+(445, 8),
+(446, 8),
+(459, 8),
+(460, 8),
+(461, 8),
+(462, 8),
+(471, 8),
+(490, 8),
+(491, 8),
+(492, 8),
+(493, 8),
+(494, 8),
+(495, 8),
+(496, 8),
+(497, 8),
+(498, 8),
+(1, 9),
+(199, 9),
+(223, 9),
+(308, 9),
+(309, 9),
+(403, 9),
+(409, 9),
+(410, 9),
+(412, 9),
+(415, 9),
+(416, 9),
+(418, 9),
+(421, 9),
+(422, 9),
+(425, 9),
+(426, 9),
+(428, 9),
+(431, 9),
+(432, 9),
+(439, 9),
+(440, 9),
+(444, 9),
+(445, 9);
 
 -- --------------------------------------------------------
 
@@ -5934,7 +6323,105 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `upda
 (87, 'cust_darklayout', 'off', 5, NULL, NULL),
 (88, 'company_logo_dark', 'logo-dark.png', 5, NULL, NULL),
 (89, 'company_logo_light', 'logo-light.png', 5, NULL, NULL),
-(90, 'company_favicon', 'favicon.png', 5, NULL, NULL);
+(90, 'company_favicon', 'favicon.png', 5, NULL, NULL),
+(96, 'purchase_template', 'template1', 10, NULL, NULL),
+(97, 'purchase_color', 'ffffff', 10, NULL, NULL),
+(98, 'purchase_logo', '10_purchase_logo.png', 10, NULL, NULL),
+(99, 'proposal_template', 'template7', 11, NULL, NULL),
+(100, 'proposal_color', '297cc0', 11, NULL, NULL),
+(105, 'proposal_template', 'template1', 10, NULL, NULL),
+(106, 'proposal_color', 'ffffff', 10, NULL, NULL),
+(107, 'proposal_logo', '10_proposal_logo.png', 10, NULL, NULL),
+(108, 'invoice_template', 'template1', 10, NULL, NULL),
+(109, 'invoice_color', 'ffffff', 10, NULL, NULL),
+(110, 'invoice_logo', '10_invoice_logo.png', 10, NULL, NULL),
+(111, 'bill_template', 'template1', 10, NULL, NULL),
+(112, 'bill_color', 'ffffff', 10, NULL, NULL),
+(113, 'bill_logo', '10_bill_logo.png', 10, NULL, NULL),
+(116, 'twilio_sid', '2345', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(117, 'twilio_token', '90', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(118, 'twilio_from', '34', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(119, 'twilio_customer_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(120, 'twilio_vender_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(121, 'twilio_invoice_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(122, 'twilio_revenue_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(123, 'twilio_bill_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(124, 'twilio_proposal_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(125, 'twilio_payment_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(126, 'twilio_reminder_notification', '1', 11, '2022-11-23 15:16:16', '2022-11-26 20:15:16'),
+(129, 'proposal_logo', '11_proposal_logo.png', 11, NULL, NULL),
+(147, 'purchase_template', 'template7', 11, NULL, NULL),
+(148, 'purchase_color', 'ffffff', 11, NULL, NULL),
+(149, 'purchase_logo', '11_purchase_logo.png', 11, NULL, NULL),
+(150, 'company_logo_dark', 'logo-dark.png', 11, NULL, NULL),
+(151, 'title_text', 'Atlanta Electric Systems', 11, NULL, NULL),
+(152, 'footer_text', 'Desarrollado por @Criative Digital', 11, NULL, NULL),
+(153, 'cust_theme_bg', 'on', 11, NULL, NULL),
+(154, 'SITE_RTL', 'off', 11, NULL, NULL),
+(155, 'cust_darklayout', 'off', 11, NULL, NULL),
+(173, 'invoice_template', 'template7', 11, NULL, NULL),
+(174, 'invoice_color', 'ffffff', 11, NULL, NULL),
+(175, 'invoice_logo', '11_invoice_logo.png', 11, NULL, NULL),
+(176, 'bill_template', 'template1', 11, NULL, NULL),
+(177, 'bill_color', 'ffffff', 11, NULL, NULL),
+(178, 'bill_logo', '11_bill_logo.png', 11, NULL, NULL),
+(182, 'company_logo_light', 'logo-light.png', 11, NULL, NULL),
+(183, 'company_favicon', 'favicon.png', 11, NULL, NULL),
+(186, 'color', 'theme-4', 11, NULL, NULL),
+(250, 'site_currency', 'Bs.', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(251, 'site_currency_symbol', 'Bs', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(252, 'site_currency_symbol_position', 'pre', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(253, 'site_date_format', 'M j, Y', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(254, 'site_time_format', 'H:i', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(255, 'invoice_prefix', '#INVO', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(256, 'proposal_prefix', '#PROP', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(257, 'purchase_prefix', '#COMP', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(258, 'pos_prefix', '#POS', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(259, 'bill_prefix', '#BILL', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(260, 'customer_prefix', '#CLI.', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(261, 'vender_prefix', '#PROV', 11, '2022-11-26 11:12:49', '2022-11-26 11:12:49'),
+(262, 'footer_title', 'Gracias por su preferencia', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(263, 'decimal_number', '1', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(264, 'journal_prefix', '#JUR', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(265, 'interval_time', '10', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(266, 'shipping_display', 'on', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(267, 'footer_notes', 'Mail.yanet.atlanta@gmail.com', 11, '2022-11-26 11:12:50', '2022-11-26 11:12:50'),
+(304, 'company_name', 'Atlanta electric systems', 11, NULL, NULL),
+(305, 'company_address', 'Pez esturion', 11, NULL, NULL),
+(306, 'company_city', 'Cochabamba', 11, NULL, NULL),
+(307, 'company_state', 'Cochabamba', 11, NULL, NULL),
+(308, 'company_zipcode', '1974', 11, NULL, NULL),
+(309, 'company_country', NULL, 11, NULL, NULL),
+(310, 'company_telephone', NULL, 11, NULL, NULL),
+(311, 'company_email', 'yanet.atlanta@gmail.com', 11, NULL, NULL),
+(312, 'company_email_from_name', 'yaner.atlanta@gmail.com', 11, NULL, NULL),
+(313, 'registration_number', NULL, 11, NULL, NULL),
+(314, 'vat_number', NULL, 11, NULL, NULL),
+(315, 'company_start_time', '08:00', 11, NULL, NULL),
+(316, 'company_end_time', '18:00', 11, NULL, NULL),
+(353, 'telegram_accestoken', NULL, 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(354, 'telegram_chatid', NULL, 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(355, 'telegram_lead_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(356, 'telegram_deal_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(357, 'telegram_leadtodeal_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(358, 'telegram_contract_notification', '1', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(359, 'telegram_project_notification', '1', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(360, 'telegram_task_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(361, 'telegram_taskmove_notification', '1', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(362, 'telegram_taskcomment_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(363, 'telegram_payslip_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(364, 'telegram_award_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(365, 'telegram_announcement_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(366, 'telegram_holiday_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(367, 'telegram_support_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(368, 'telegram_event_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(369, 'telegram_meeting_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(370, 'telegram_policy_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(371, 'telegram_invoice_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(372, 'telegram_revenue_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(373, 'telegram_bill_notification', '0', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(374, 'telegram_payment_notification', '1', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04'),
+(375, 'telegram_budget_notification', '1', 11, '2022-11-26 19:47:16', '2022-11-26 20:16:04');
 
 -- --------------------------------------------------------
 
@@ -6090,7 +6577,21 @@ INSERT INTO `stock_reports` (`id`, `product_id`, `quantity`, `type`, `type_id`, 
 (5, 7, 12345, 'manually', 0, '12345  cantidad añadida manualmente ', 10, '2022-11-21 18:26:18', '2022-11-21 18:26:18'),
 (6, 7, 10000, 'manually', 0, '10000  quantidade adicionado por manualmente ', 10, '2022-11-21 18:38:57', '2022-11-21 18:38:57'),
 (7, 7, 0, 'manually', 0, '0  cantidad añadida manualmente ', 10, '2022-11-21 18:44:34', '2022-11-21 18:44:34'),
-(8, 7, 0, 'manually', 0, '0  cantidad añadida manualmente ', 10, '2022-11-21 18:44:51', '2022-11-21 18:44:51');
+(8, 7, 0, 'manually', 0, '0  cantidad añadida manualmente ', 10, '2022-11-21 18:44:51', '2022-11-21 18:44:51'),
+(9, 13, 20, 'manually', 0, '20  cantidad añadida manualmente ', 11, '2022-11-24 00:15:31', '2022-11-24 00:15:31'),
+(10, 13, 30, 'manually', 0, '30  cantidad añadida manualmente ', 11, '2022-11-24 15:41:26', '2022-11-24 15:41:26'),
+(11, 13, 3, 'invoice', 4, '3   cantidad vendida en factura  #INVO00001', 11, '2022-11-24 23:32:03', '2022-11-24 23:32:03'),
+(12, 13, 50, 'invoice', 5, '50   cantidad vendida en factura  #INVO00002', 11, '2022-11-24 23:48:34', '2022-11-24 23:48:34'),
+(13, 13, 40, 'invoice', 6, '40   cantidad vendida en factura  #INVO00003', 11, '2022-11-25 21:47:25', '2022-11-25 21:47:25'),
+(14, 13, 9, 'invoice', 7, '9   cantidad vendida en factura  #INVO00004', 11, '2022-11-26 09:31:40', '2022-11-26 09:31:40'),
+(15, 13, 1, 'invoice', 8, '1   cantidad vendida en factura  #INVO00005', 11, '2022-11-26 11:35:01', '2022-11-26 11:35:01'),
+(16, 13, 1, 'invoice', 9, '1   cantidad vendida en factura  #INVO00006', 11, '2022-11-26 20:10:38', '2022-11-26 20:10:38'),
+(17, 13, 12, 'invoice', 10, '12 cantidad vendida en  #PROP00010 Propuesta convertida en factura  #INVO00007', 11, '2022-11-27 09:24:25', '2022-11-27 09:24:25'),
+(18, 13, 12, 'invoice', 11, '12 cantidad vendida en  #PROP00012 Propuesta convertida en factura  #INVO00008', 11, '2022-11-27 09:40:35', '2022-11-27 09:40:35'),
+(19, 13, 15, 'invoice', 12, '15 cantidad vendida en  #PROP00011 Propuesta convertida en factura  #INVO00009', 11, '2022-11-27 09:43:02', '2022-11-27 09:43:02'),
+(20, 13, 2, 'invoice', 13, '2 cantidad vendida en  #PROP00013 Propuesta convertida en factura  #INVO00010', 11, '2022-12-01 02:24:17', '2022-12-01 02:24:17'),
+(21, 13, 3, 'invoice', 14, '3   cantidad vendida en factura  #INVO00011', 11, '2022-12-01 02:41:55', '2022-12-01 02:41:55'),
+(22, 13, 10, 'invoice', 15, '10   cantidad vendida en factura  #INVO00012', 11, '2022-12-01 14:57:17', '2022-12-01 14:57:17');
 
 -- --------------------------------------------------------
 
@@ -6148,6 +6649,13 @@ CREATE TABLE `task_checklists` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `task_checklists`
+--
+
+INSERT INTO `task_checklists` (`id`, `name`, `task_id`, `user_type`, `created_by`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ya no hay tubos', 3, 'User', 11, 1, '2022-11-25 15:10:16', '2022-11-27 10:10:01');
+
 -- --------------------------------------------------------
 
 --
@@ -6164,6 +6672,16 @@ CREATE TABLE `task_comments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `task_comments`
+--
+
+INSERT INTO `task_comments` (`id`, `comment`, `task_id`, `user_id`, `user_type`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'falta producto', 1, 10, 'company', 10, '2022-11-22 14:06:02', '2022-11-22 14:06:02'),
+(2, 'Empezar als 9', 2, 11, 'company', 11, '2022-11-23 10:58:41', '2022-11-23 10:58:41'),
+(3, 'hoy se hizo emtubado', 3, 11, 'company', 11, '2022-11-25 15:09:30', '2022-11-25 15:09:30'),
+(4, 'SE HA PICADO LOS BAÑOS', 3, 11, 'company', 11, '2022-11-27 10:08:51', '2022-11-27 10:08:51');
 
 -- --------------------------------------------------------
 
@@ -6183,6 +6701,13 @@ CREATE TABLE `task_files` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `task_files`
+--
+
+INSERT INTO `task_files` (`id`, `file`, `name`, `extension`, `file_size`, `task_id`, `user_type`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, '31669392590_Cotización DONAL.pdf', 'Cotización DONAL.pdf', 'pdf', '0.11 MB', 3, 'User', 11, '2022-11-25 15:09:50', '2022-11-25 15:09:50');
 
 -- --------------------------------------------------------
 
@@ -6231,10 +6756,10 @@ INSERT INTO `task_stages` (`id`, `name`, `complete`, `project_id`, `color`, `ord
 (22, 'In Progress', 0, 0, NULL, 1, 10, '2022-11-20 04:18:15', '2022-11-20 04:18:15'),
 (23, 'Review', 0, 0, NULL, 2, 10, '2022-11-20 04:18:15', '2022-11-20 04:18:15'),
 (24, 'Done', 0, 0, NULL, 3, 10, '2022-11-20 04:18:15', '2022-11-20 04:18:15'),
-(25, 'To Do', 0, 0, NULL, 0, 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
-(26, 'In Progress', 0, 0, NULL, 1, 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
-(27, 'Review', 0, 0, NULL, 2, 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13'),
-(28, 'Done', 0, 0, NULL, 3, 11, '2022-11-21 12:24:13', '2022-11-21 12:24:13');
+(25, 'NUEVO', 0, 0, '#FFFFFF', 0, 11, '2022-11-21 12:24:13', '2022-11-27 09:58:09'),
+(26, 'EN PROCESO', 0, 0, '#FFFFFF', 1, 11, '2022-11-21 12:24:13', '2022-11-27 09:59:19'),
+(27, 'REVICION', 0, 0, '#FFFFFF', 2, 11, '2022-11-21 12:24:13', '2022-11-27 09:59:44'),
+(28, 'FINALIZADO', 0, 0, '#FFFFFF', 3, 11, '2022-11-21 12:24:13', '2022-11-27 10:00:01');
 
 -- --------------------------------------------------------
 
@@ -6434,7 +6959,18 @@ CREATE TABLE `transactions` (
 
 INSERT INTO `transactions` (`id`, `user_id`, `user_type`, `account`, `type`, `amount`, `description`, `date`, `created_by`, `payment_id`, `category`, `created_at`, `updated_at`) VALUES
 (1, 12, 'Customer', 2, 'Partial', '559.00', NULL, '2022-11-22', 10, 1, 'Invoice', '2022-11-20 02:02:17', '2022-11-20 02:02:17'),
-(2, 12, 'Customer', 2, 'Partial', '700.00', NULL, '2022-11-19', 10, 2, 'Invoice', '2022-11-20 02:25:50', '2022-11-20 02:25:50');
+(2, 12, 'Customer', 2, 'Partial', '700.00', NULL, '2022-11-19', 10, 2, 'Invoice', '2022-11-20 02:25:50', '2022-11-20 02:25:50'),
+(3, 3, 'Vender', 4, 'Payment', '400.00', NULL, '2022-11-27', 11, 1, 'Cables flexibles', '2022-11-27 09:56:11', '2022-11-27 09:56:11'),
+(4, 12, 'Customer', 2, 'Partial', '699.00', NULL, '2022-11-30', 10, 3, 'Invoice', '2022-11-30 23:42:16', '2022-11-30 23:42:16'),
+(5, 12, 'Customer', 2, 'Partial', '699.00', NULL, '2022-11-30', 10, 4, 'Invoice', '2022-11-30 23:42:24', '2022-11-30 23:42:24'),
+(6, 13, 'Customer', 4, 'Partial', '8000.00', 'pago efectivo', '2022-11-30', 11, 5, 'Invoice', '2022-12-01 01:45:02', '2022-12-01 01:45:02'),
+(7, 14, 'Customer', 4, 'Partial', '600.00', 'pago completo', '2022-11-30', 11, 6, 'Invoice', '2022-12-01 01:54:59', '2022-12-01 01:54:59'),
+(8, 14, 'Customer', 4, 'Partial', '10000.00', 'pagado', '2022-11-30', 11, 7, 'Invoice', '2022-12-01 01:57:23', '2022-12-01 01:57:23'),
+(9, 13, 'Customer', 4, 'Partial', '2400.00', NULL, '2022-11-30', 11, 8, 'Invoice', '2022-12-01 02:01:05', '2022-12-01 02:01:05'),
+(10, 17, 'Customer', 4, 'Partial', '150.00', 'completado', '2022-11-30', 11, 9, 'Invoice', '2022-12-01 02:06:39', '2022-12-01 02:06:39'),
+(11, 3, 'Vender', 4, 'Payment', '200.00', 'pagado', '2022-11-30', 11, 2, 'Cables flexibles', '2022-12-01 02:09:38', '2022-12-01 02:09:38'),
+(12, 3, 'Vender', 4, 'Partial', '1500.00', 'pago cabled', '2022-11-30', 11, 1, 'Bill', '2022-12-01 02:35:51', '2022-12-01 02:35:51'),
+(13, 3, 'Vender', 4, 'Partial', '900.00', 'hhiii', '2022-12-02', 11, 2, 'Bill', '2022-12-02 09:43:10', '2022-12-02 09:43:10');
 
 -- --------------------------------------------------------
 
@@ -6510,18 +7046,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `plan`, `plan_expire_date`, `requested_plan`, `type`, `avatar`, `lang`, `mode`, `created_by`, `default_pipeline`, `delete_status`, `is_active`, `remember_token`, `last_login_at`, `created_at`, `updated_at`, `messenger_color`, `dark_mode`, `active_status`) VALUES
-(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-21 15:27:26', '2022-10-26 17:37:48', '2022-11-21 18:27:26', '#2180f3', 0, 0),
-(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'es', 'light', 1, 1, 1, 1, NULL, '2022-11-21 15:02:07', '2022-10-26 17:37:54', '2022-11-21 18:02:07', '#2180f3', 0, 0),
+(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2022-11-22 20:44:15', '2022-10-26 17:37:48', '2022-11-22 23:44:15', '#2180f3', 0, 0),
+(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'es', 'light', 1, 1, 1, 1, NULL, '2022-11-24 19:44:05', '2022-10-26 17:37:54', '2022-11-24 22:44:05', '#2180f3', 0, 0),
 (3, 'accountant', 'accountant@example.com', NULL, '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', NULL, NULL, 0, 'accountant', '', 'en', 'light', 2, 1, 1, 1, NULL, '2022-11-02 01:13:07', '2022-10-26 17:37:55', '2022-11-02 04:13:07', '#2180f3', 0, 0),
 (4, 'client', 'client@example.com', NULL, '$2y$10$D1o/wWl1JIeyvwsjia474ufKeUdpOLL4CCRyFFFnXmFWaLupoN8vi', NULL, NULL, 0, 'client', '', 'en', 'light', 2, 1, 1, 1, NULL, NULL, '2022-10-26 17:37:57', '2022-10-26 17:37:57', '#2180f3', 0, 0),
-(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'pt', 'light', 1, NULL, 1, 1, NULL, '2022-11-21 13:57:49', '2022-10-28 22:14:30', '2022-11-21 16:57:49', '#2180f3', 0, 0),
+(5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 2, '2022-12-02', 0, 'company', 'Logo_1667351386.png', 'pt', 'light', 1, NULL, 1, 1, NULL, '2022-11-22 08:53:34', '2022-10-28 22:14:30', '2022-11-22 11:53:34', '#2180f3', 0, 0),
 (6, 'Erick Santos', 'cliente@cliente.com', NULL, '$2y$10$suoDAUOf/Vaz0BrVwtZRo.6v2GoHZCoNRTB7cf/iq0n9ootFsS1WS', NULL, NULL, 0, 'client', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, '2022-11-02 16:03:25', '2022-11-02 18:59:38', '2022-11-02 19:03:25', '#2180f3', 0, 0),
 (7, 'qoBcOIZpLUXRvi', 'judithngoamy@outlook.com', NULL, '$2y$10$vmKjbNynY3NsutkbMAPyAOnYZN0zsmuVDPaAQ56CTYrpuo19vBZFy', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-04 09:15:28', '2022-11-04 09:15:28', '#2180f3', 0, 0),
 (8, 'Victor', 'vico.1245@gmail.com', NULL, '$2y$10$Gh.IlbVdD/cBUJoAT3WQkO.D1Q0vffJLJcZ6DOdGFv1BqnjGBkqq6', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-18 16:37:32', '2022-11-18 16:37:32', '#2180f3', 0, 0),
 (9, 'Viviana', 'vivisilmat9890@gmail.com', NULL, '$2y$10$CDO801wKYMUGcKw2o0ORfuv6hIhdS3eRng/WzCKlVz969s1F9PnOS', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-19 18:16:48', '2022-11-19 18:16:48', '#2180f3', 0, 0),
-(10, 'Ferreteria', 'ferreteria@i9finance.com', NULL, '$2y$10$sw1x11zY/cZGVxwWqL4uGuGnTSamR.r6YublNbvP8tH85iCeL4KiC', 1, NULL, 0, 'company', 'Mi-Ferreteria-Logo-small_1668907495.jpg', 'en', 'light', 1, NULL, 1, 1, NULL, '2022-11-21 16:03:05', '2022-11-20 04:18:14', '2022-11-21 19:03:05', '#2180f3', 0, 0),
-(11, 'Elias Roclas', 'elias.roclas@gmail.com', NULL, '$2y$10$MuBU8P6/YHLw1ZGAEk6SlOaF2dRZxjTb8HyTPfbXdVvy777.DUMJW', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-11-21 13:45:00', '2022-11-21 12:24:12', '2022-11-21 16:45:00', '#2180f3', 0, 0),
-(12, 'Erick Santos', 'gerente@gerente.com', NULL, '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', NULL, NULL, 0, 'Gerente', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, NULL, '2022-11-21 17:05:26', '2022-11-21 17:05:26', '#2180f3', 0, 0);
+(10, 'Ferreteria', 'ferreteria@i9finance.com', NULL, '$2y$10$sw1x11zY/cZGVxwWqL4uGuGnTSamR.r6YublNbvP8tH85iCeL4KiC', 1, NULL, 0, 'company', 'Mi-Ferreteria-Logo-small_1668907495.jpg', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-12-02 14:48:04', '2022-11-20 04:18:14', '2022-12-02 17:48:04', '#2180f3', 0, 0),
+(11, 'Elias Roclas', 'elias.roclas@gmail.com', NULL, '$2y$10$MuBU8P6/YHLw1ZGAEk6SlOaF2dRZxjTb8HyTPfbXdVvy777.DUMJW', 2, '2022-12-22', 0, 'company', 'logo-dark (1)_1669233700.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2022-12-02 15:23:35', '2022-11-21 12:24:12', '2022-12-02 18:23:35', '#2180f3', 0, 0),
+(12, 'Erick Santos', 'gerente@gerente.com', NULL, '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', NULL, NULL, 0, 'Gerente', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, NULL, '2022-11-21 17:05:26', '2022-11-21 17:05:26', '#2180f3', 0, 0),
+(13, 'Usuario', 'usuario@i9finance.com', NULL, '$2y$10$7vkHTpLUOHigffikcz/c4ODe20.M/AQ79tiuESQXe.mGAeu3CTS42', NULL, NULL, 0, 'Vendedor', NULL, 'es', 'light', 10, NULL, 1, 1, NULL, NULL, '2022-11-22 13:59:49', '2022-11-22 13:59:49', '#2180f3', 0, 0),
+(14, 'Erick Santos', 'clienteproyecto@i9finance.com', NULL, '$2y$10$0qkXjgT24a76QAbg7G3pYuFbmc5dVfExLvQ3rrirUjYsqEbnp4y42', NULL, NULL, 0, 'client', NULL, 'en', 'light', 10, NULL, 1, 1, NULL, NULL, '2022-11-22 14:01:56', '2022-11-22 14:01:56', '#2180f3', 0, 0),
+(15, 'Mi alegria', 'istelectric@gmail.com', NULL, '$2y$10$mCM/hwvkmiIXjxLcRqhejOF.gvnaBbaGHP3ZMnFr92VwBBidSennm', NULL, NULL, 0, 'client', NULL, 'en', 'light', 11, NULL, 1, 1, NULL, NULL, '2022-11-23 10:30:11', '2022-11-23 10:30:11', '#2180f3', 0, 0),
+(16, 'Ricardo moye equipo', 'istelectric24@gmail.com', NULL, '$2y$10$SCbMoX7a1qa5l8FUvvL1Ce5uxMwgfXHOBM1tsvHr.6QsJEruq35I6', NULL, NULL, 0, 'Tecnico electricista', NULL, 'es', 'light', 11, NULL, 1, 1, NULL, NULL, '2022-11-23 10:42:28', '2022-11-23 10:42:28', '#2180f3', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -6822,7 +7362,8 @@ CREATE TABLE `venders` (
 
 INSERT INTO `venders` (`id`, `vender_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Vendedor 01', 'Vendedor@vendedor.com', NULL, '', '123456', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:40:13', '2022-11-10 06:40:13'),
-(2, 1, 'Proveedor01', 'proveedor@i9finance.com', '01', '', '01', '', 10, 1, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'es', 207468.00, NULL, '2022-11-21 18:50:08', '2022-11-21 18:55:38');
+(2, 1, 'Proveedor01', 'proveedor@i9finance.com', '01', '', '01', '', 10, 1, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'es', 207468.00, NULL, '2022-11-21 18:50:08', '2022-11-21 18:55:38'),
+(3, 1, 'Electropaulo', 'Elias.roclas@ gmail.com', NULL, '', '135788', '', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 9400.00, NULL, '2022-11-22 11:53:36', '2022-12-02 09:50:40');
 
 -- --------------------------------------------------------
 
@@ -6885,7 +7426,8 @@ INSERT INTO `warehouse_products` (`id`, `warehouse_id`, `product_id`, `quantity`
 (6, 7, 9, 100, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
 (7, 7, 10, 100, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
 (8, 7, 11, 100, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
-(9, 7, 12, 100, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:20');
+(9, 7, 12, 100, 10, '2022-11-21 18:55:20', '2022-11-21 18:55:20'),
+(10, 10, 13, 155, 11, '2022-11-22 12:11:47', '2022-12-01 02:38:31');
 
 -- --------------------------------------------------------
 
@@ -8089,7 +8631,7 @@ ALTER TABLE `zoom_meetings`
 -- AUTO_INCREMENT de la tabla `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `admin_payment_settings`
@@ -8155,7 +8697,7 @@ ALTER TABLE `award_types`
 -- AUTO_INCREMENT de la tabla `bank_accounts`
 --
 ALTER TABLE `bank_accounts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `bank_transfers`
@@ -8185,7 +8727,7 @@ ALTER TABLE `bill_products`
 -- AUTO_INCREMENT de la tabla `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `budgets`
@@ -8275,7 +8817,7 @@ ALTER TABLE `complaints`
 -- AUTO_INCREMENT de la tabla `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `contract_attachment`
@@ -8299,7 +8841,7 @@ ALTER TABLE `contract_notes`
 -- AUTO_INCREMENT de la tabla `contract_types`
 --
 ALTER TABLE `contract_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `coupons`
@@ -8311,13 +8853,13 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT de la tabla `credit_notes`
 --
 ALTER TABLE `credit_notes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `custom_fields`
@@ -8329,7 +8871,7 @@ ALTER TABLE `custom_fields`
 -- AUTO_INCREMENT de la tabla `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `custom_questions`
@@ -8431,7 +8973,7 @@ ALTER TABLE `email_template_langs`
 -- AUTO_INCREMENT de la tabla `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `employee_documents`
@@ -8461,7 +9003,7 @@ ALTER TABLE `event_employees`
 -- AUTO_INCREMENT de la tabla `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `experience_certificates`
@@ -8551,19 +9093,19 @@ ALTER TABLE `interview_schedules`
 -- AUTO_INCREMENT de la tabla `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `invoice_products`
 --
 ALTER TABLE `invoice_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `ip_restricts`
@@ -8749,7 +9291,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `other_payments`
@@ -8767,7 +9309,7 @@ ALTER TABLE `overtimes`
 -- AUTO_INCREMENT de la tabla `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `payslip_types`
@@ -8821,49 +9363,49 @@ ALTER TABLE `plan_requests`
 -- AUTO_INCREMENT de la tabla `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT de la tabla `pos_payments`
 --
 ALTER TABLE `pos_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de la tabla `pos_products`
 --
 ALTER TABLE `pos_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `product_services`
 --
 ALTER TABLE `product_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `product_service_units`
 --
 ALTER TABLE `product_service_units`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `projectstages`
@@ -8887,13 +9429,13 @@ ALTER TABLE `project_invoices`
 -- AUTO_INCREMENT de la tabla `project_tasks`
 --
 ALTER TABLE `project_tasks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `project_users`
 --
 ALTER TABLE `project_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `promotions`
@@ -8905,31 +9447,31 @@ ALTER TABLE `promotions`
 -- AUTO_INCREMENT de la tabla `proposals`
 --
 ALTER TABLE `proposals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `proposal_products`
 --
 ALTER TABLE `proposal_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `purchase_payments`
 --
 ALTER TABLE `purchase_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `purchase_products`
 --
 ALTER TABLE `purchase_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `resignations`
@@ -8947,7 +9489,7 @@ ALTER TABLE `revenues`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `saturation_deductions`
@@ -8959,7 +9501,7 @@ ALTER TABLE `saturation_deductions`
 -- AUTO_INCREMENT de la tabla `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=430;
 
 --
 -- AUTO_INCREMENT de la tabla `set_salaries`
@@ -8983,7 +9525,7 @@ ALTER TABLE `stages`
 -- AUTO_INCREMENT de la tabla `stock_reports`
 --
 ALTER TABLE `stock_reports`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `supports`
@@ -9001,19 +9543,19 @@ ALTER TABLE `support_replies`
 -- AUTO_INCREMENT de la tabla `task_checklists`
 --
 ALTER TABLE `task_checklists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `task_comments`
 --
 ALTER TABLE `task_comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `task_files`
 --
 ALTER TABLE `task_files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `task_stages`
@@ -9079,7 +9621,7 @@ ALTER TABLE `training_types`
 -- AUTO_INCREMENT de la tabla `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `transfers`
@@ -9097,7 +9639,7 @@ ALTER TABLE `travels`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `user_contacts`
@@ -9139,7 +9681,7 @@ ALTER TABLE `user_to_dos`
 -- AUTO_INCREMENT de la tabla `venders`
 --
 ALTER TABLE `venders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `warehouses`
@@ -9151,7 +9693,7 @@ ALTER TABLE `warehouses`
 -- AUTO_INCREMENT de la tabla `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `warnings`

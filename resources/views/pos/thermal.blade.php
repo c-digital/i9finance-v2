@@ -1,10 +1,87 @@
-   @php
-    $settings_data = \App\Models\Utility::settingsById($bill->created_by);
+@php
+    $SITE_RTL = Cookie::get('SITE_RTL');
 
-    dd(123);
+    $totalQuantity = 0;
+    $totalPrice = 0;
+
+    $objUser  = \Auth::user();
+    $settings = Utility::settings();
+    $purchase     = new App\Models\Purchase();
+
+    $color = 'ffffff';
+
+    $customer = App\Models\Customer::find($pos->customer_id);
+
+    $totalTaxPrice = 0;
+    $taxesData     = [];
+    $items         = [];
+    for($i = 1; $i <= 3; $i++)
+    {
+        $item           = new \stdClass();
+        $item->name     = 'Item ' . $i;
+        $item->quantity = 1;
+        $item->tax      = 5;
+        $item->discount = 50;
+        $item->price    = 100;
+
+        $taxes = [
+            'Tax 1',
+            'Tax 2',
+        ];
+
+        $itemTaxes = [];
+        foreach($taxes as $k => $tax)
+        {
+            $taxPrice         = 10;
+            $totalTaxPrice    += $taxPrice;
+            $itemTax['name']  = 'Tax ' . $k;
+            $itemTax['rate']  = '10 %';
+            $itemTax['price'] = '$10';
+            $itemTaxes[]      = $itemTax;
+            if(array_key_exists('Tax ' . $k, $taxesData))
+            {
+                $taxesData['Tax ' . $k] = $taxesData['Tax 1'] + $taxPrice;
+            }
+            else
+            {
+                $taxesData['Tax ' . $k] = $taxPrice;
+            }
+        }
+        $item->itemTax = $itemTaxes;
+        $items[]       = $item;
+    }
+
+    $purchase->purchase_id    = 1;
+    $purchase->issue_date = date('Y-m-d H:i:s');
+//        $purchase->due_date   = date('Y-m-d H:i:s');
+    $purchase->itemData   = $items;
+
+    $purchase->totalTaxPrice = 60;
+    $purchase->totalQuantity = 3;
+    $purchase->totalRate     = 300;
+    $purchase->totalDiscount = 10;
+    $purchase->taxesData     = $taxesData;
+    $purchase->created_by     = $objUser->creatorId();
+
+    $preview      = 1;
+    $color        = '#' . $color;
+    $font_color   = Utility::getFontColor($color);
+
+    $logo         = asset(Storage::url('uploads/logo/'));
+    $company_logo = Utility::getValByName('company_logo_dark');
+    $settings_data = \App\Models\Utility::settingsById($purchase->created_by);
+    $purchase_logo = $settings_data['purchase_logo'];
+
+    if(isset($purchase_logo) && !empty($purchase_logo))
+    {
+        $img = '/storage/purchase_logo/' . $purchase_logo;
+    }
+    else{
+        $img          = $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png');
+    }
 @endphp
     <!DOCTYPE html>
-<html lang="en" dir="{{$settings_data['SITE_RTL'] == 'on'?'rtl':''}}">
+<html lang="en" dir="{{$SITE_RTL == 'on'?'rtl':''}}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -510,8 +587,8 @@
 
 
     </style>
- @if($settings_data['SITE_RTL']=='on')
-        <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.css') }}">
+    @if($SITE_RTL  == 'on' )
+        <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
     @endif
 </head>
 <body class="">
@@ -527,9 +604,26 @@
                                 <div data-v-f2a183a6="" class="d-header-inner">
                                     <div data-v-f2a183a6="" class="d-header-50">
                                         <div data-v-f2a183a6="" class="d-header-brand">
-                                            <img src="{{$img}}" style="max-width: 250px"/>
+                                            
                                         </div>
+
+                                        <div data-v-f2a183a6="" class="d-header-50">
+                                            <div data-v-f2a183a6="" class="d-title ">{{__('Venta')}}</div>
+                                            <table data-v-f2a183a6="" class="summary-table">
+                                                <tbody data-v-f2a183a6="">
+                                                <tr>
+                                                    <td>{{__('Number')}}: {{ AUth::user()->posNumberFormat($pos->id) }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{__('Purchase Date')}}: {{$pos->pos_date ? Utility::dateFormat($settings,$pos->pos_date) : Utility::dateFormat($settings, date('Y-m-d'))}}</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
                                         <div data-v-f2a183a6="" class="break-25"></div>
+
                                         <p data-v-f2a183a6="">@if($settings['company_name']){{$settings['company_name']}}@endif</p>
                                         <p data-v-f2a183a6="">
                                             @if($settings['company_email']){{$settings['company_email']}}@endif<br>
@@ -540,36 +634,9 @@
                                                 @if(!empty($settings['registration_number'])){{__('Registration Number')}} : {{$settings['registration_number']}} @endif<br>
                                                 @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
                                         </p>
-                                    </div>
 
-                                    <div data-v-f2a183a6="" class="d-header-50 d-right">
-                                        <div data-v-f2a183a6="" class="d-title ">{{__('Bill')}}</div>
-                                        <table data-v-f2a183a6="" class="summary-table">
-                                            <tbody data-v-f2a183a6="">
-                                            <tr>
-                                                <td>{{__('Number')}}:</td>
-                                                <td>{{Utility::billNumberFormat($settings,$bill->bill_id)}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{{__('Issue Date')}}:</td>
-                                                <td>{{Utility::dateFormat($settings,$bill->bill_date)}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>{{__('Due Date')}}:</td>
-                                                <td>{{Utility::dateFormat($settings,$bill->due_date)}}</td>
-                                            </tr>
-                                             @if(!empty($customFields) && count($bill->customField)>0)
-                                                @foreach($customFields as $field)
-                                                    <tr>
-                                                        <td>{{$field->name}} :</td>
-                                                        <td> {{!empty($bill->customField)?$bill->customField[$field->id]:'-'}}</td>
-                                                    </tr>
-                                                @endforeach
-                                            @endif
-                                            </tbody>
-                                        </table>
-                                        <div class="float-right mt-5">
-                                            {!! DNS2D::getBarcodeHTML(route('bill.link.copy',\Crypt::encrypt($bill->bill_id)), "QRCODE",2,2) !!}
+                                        <div class="mt-5">
+                                            {!! DNS2D::getBarcodeHTML(route('purchase.link.copy',\Crypt::encrypt($purchase->purchase_id)), "QRCODE",2,2) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -579,152 +646,58 @@
                                 <div data-v-f2a183a6="" class="d-bill-to">
                                     <div class="row">
                                         <div class="bill_to">
-                                            <strong data-v-f2a183a6="">{{__('Bill To')}}:</strong>
+                                            <strong data-v-f2a183a6="">{{__('Customer')}}:</strong>
                                             <p>
-                                                {{!empty($vendor->billing_name)?$vendor->billing_name:''}}<br>
-                                                {{!empty($vendor->billing_phone)?$vendor->billing_phone:''}}<br>
-                                                {{!empty($vendor->billing_address)?$vendor->billing_address:''}}<br>
-                                                {{!empty($vendor->billing_zip)?$vendor->billing_zip:''}}<br>
-                                                {{!empty($vendor->billing_city)?$vendor->billing_city:'' .', '}} {{!empty($vendor->billing_state)?$vendor->billing_state:'',', '}} {{!empty($vendor->billing_country)?$vendor->billing_country:''}}
+                                                {{!empty($customer->billing_name)?$customer->billing_name:''}}<br>
+                                                {{!empty($customer->billing_phone)?$customer->billing_phone:''}}<br>
+                                                {{!empty($customer->billing_address)?$customer->billing_address:''}}<br>
+                                                {{!empty($customer->billing_zip)?$customer->billing_zip:''}}<br>
+                                                {{!empty($customer->billing_city)?$customer->billing_city:'' .', '}} {{!empty($customer->billing_state)?$customer->billing_state:'',', '}} {{!empty($customer->billing_country)?$customer->billing_country:''}}
                                             </p>
                                         </div>
-                                        @if($settings['shipping_display']=='on')
-                                                <div class="ship_to">
-                                                    <strong data-v-f2a183a6="">{{__('Ship To')}}:</strong>
-                                                    <p>
-                                                        {{!empty($vendor->shipping_name)?$vendor->shipping_name:''}}<br>
-                                                        {{!empty($vendor->shipping_phone)?$vendor->shipping_phone:''}}<br>
-                                                        {{!empty($vendor->shipping_address)?$vendor->shipping_address:''}}<br>
-                                                        {{!empty($vendor->shipping_zip)?$vendor->shipping_zip:''}}<br>
-                                                        {{!empty($vendor->shipping_city)?$vendor->shipping_city:'' . ', '}} {{!empty($vendor->shipping_state)?$vendor->shipping_state:'' .', '}},{{!empty($vendor->shipping_country)?$vendor->shipping_country:''}}
-                                                    </p>
-                                                </div>
-                                            @endif
                                     </div>
+
+                                    <hr>
+
                                     <div data-v-f2a183a6="" class="d-table">
                                         <div data-v-f2a183a6="" class="d-table">
 
-                                            <div data-v-f2a183a6="" class="d-table-tr" style="background: {{$color}};color:{{$font_color}}">
-                                                <div class="d-table-th w-4">{{__('Item')}}</div>
-                                                <div class="d-table-th w-3">{{__('Quantity')}}</div>
-                                                <div class="d-table-th w-4">{{__('Rate')}}</div>
-                                                <div class="d-table-th w-5">{{__('Tax')}} (%)</div>
-                                                    <div class="d-table-th w-4">{{__('Discount')}}</div>
-
-                                                <div class="d-table-th w-4">{{__('Price')}}<br><small class="text-danger">{{__('before tax & discount')}}</small>
-                                                </div>
-                                            </div>
-
                                             <div class="d-table-body">
-                                                @if(isset($bill->itemData) && count($bill->itemData) > 0)
-                                                    @foreach($bill->itemData as $key => $item)
+                                                @foreach($posProducts as $key => $item)
 
-                                                        <div class="d-table-tr" style="border-bottom:1px solid {{$color}};">
-                                                            <div class="d-table-td w-4">
-                                                                <pre data-v-f2a183a6="">{{$item->name}}</pre>
-                                                            </div>
-                                                            <div class="d-table-td w-3">
-                                                                <pre data-v-f2a183a6="">{{$item->quantity}}</pre>
-                                                            </div>
-                                                            <div class="d-table-td w-4">
-                                                                <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$item->price)}}</pre>
-                                                            </div>
-                                                            <div class="d-table-td w-5">
-                                                                <pre data-v-f2a183a6="">
-                                                                  @if(!empty($item->itemTax))
-                                                                        @foreach($item->itemTax as $taxes)
-                                                                            <span>{{$taxes['name']}}</span>  <span>({{$taxes['rate']}})</span> <span>{{$taxes['price']}}</span>
-                                                                        @endforeach
-                                                                    @else
-                                                                        -
-                                                                    @endif
-                                                                </pre>
-                                                            </div>
-                                                                <div class="d-table-td w-4">
-                                                                    <pre data-v-f2a183a6="">{{($item->discount!=0)?Utility::priceFormat($settings,$item->discount):'-'}}</pre>
-                                                                </div>
+                                                    @php
+                                                        $product = App\Models\ProductService::find($item->product_id);
 
+                                                        $totalQuantity = $totalQuantity + $item->quantity;
+                                                        $totalPrice = $totalPrice + $item->price;
+                                                    @endphp
 
-                                                            <div class="d-table-td w-4"><span>{{Utility::priceFormat($settings,$item->price * $item->quantity)}}</span></div>
-                                                        </div>
-                                                    @endforeach
-                                                @else
                                                     <div class="d-table-tr" style="border-bottom:1px solid {{$color}};">
-                                                        <div class="d-table-td w-2"><span>-</span></div>
-                                                        <div class="d-table-td w-7">
-                                                            <pre data-v-f2a183a6="">-</pre>
+                                                        <div class="d-table-td w-9">
+                                                            <pre data-v-f2a183a6="">{{$product->name }}</pre>
                                                         </div>
-                                                        <div class="d-table-td w-5">
-                                                            <pre data-v-f2a183a6="">-</pre>
+
+                                                        <div class="d-table-td w-3">
+                                                            <pre data-v-f2a183a6="">x{{$item->quantity}}</pre>
                                                         </div>
-                                                        <div class="d-table-td w-5">
-                                                            <pre data-v-f2a183a6="">-</pre>
+
+                                                        <div class="d-table-td w-6">
+                                                            <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$item->price)}}</pre>
                                                         </div>
-                                                        <div class="d-table-td w-4"><span>-</span></div>
+
+                                                        <div class="d-table-td w-6"><span>{{Utility::priceFormat($settings,$item->price * $item->quantity)}}</span></div>
                                                     </div>
-                                                @endif
+                                                @endforeach
                                             </div>
 
-                                            <div class="d-table-tr" style="border-bottom:1px solid {{$color}};">
-                                                <div class="d-table-td w-4">
-                                                    <pre data-v-f2a183a6="">{{__('Total')}}</pre>
-                                                </div>
-                                                <div class="d-table-td w-3">
-                                                    <pre data-v-f2a183a6="">{{$bill->totalQuantity}}</pre>
-                                                </div>
-                                                <div class="d-table-td w-4">
-                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$bill->totalRate)}}</pre>
-                                                </div>
-                                                <div class="d-table-td w-5">
-                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$bill->totalTaxPrice) }}</pre>
-                                                </div>
-
-                                                    <div class="d-table-td w-4">
-                                                        <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$bill->totalDiscount)}}</pre>
-                                                    </div>
-
-                                                <div class="d-table-td w-4">
-                                                    <span>{{Utility::priceFormat($settings,$bill->getSubTotal())}}
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            <hr>
 
                                             <div data-v-f2a183a6="" class="d-table-footer">
                                                 <div data-v-f2a183a6="" class="d-table-controls"></div>
                                                 <div data-v-f2a183a6="" class="d-table-summary">
                                                     <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Subtotal')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$bill->getSubTotal())}}</div>
-                                                    </div>
-                                                    @if($bill->getTotalDiscount())
-                                                        <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                            <div data-v-f2a183a6="" class="d-table-label">{{__('Discount')}}:</div>
-                                                            <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$bill->getTotalDiscount())}}</div>
-                                                        </div>
-                                                    @endif
-                                                    @if(!empty($bill->taxesData))
-                                                        @foreach($bill->taxesData as $taxName => $taxPrice)
-                                                            <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                                <div data-v-f2a183a6="" class="d-table-label">{{$taxName}} :</div>
-                                                                <div data-v-f2a183a6="" class="d-table-value">{{ Utility::priceFormat($settings,$taxPrice)  }}</div>
-                                                            </div>
-                                                        @endforeach
-                                                    @endif
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
                                                         <div data-v-f2a183a6="" class="d-table-label">{{__('Total')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$bill->getSubTotal()-$bill->getTotalDiscount()+$bill->getTotalTax())}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Paid')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,($bill->getTotal()-$bill->getDue())-($bill->billTotalDebitNote()))}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Debit Note')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,($bill->billTotalDebitNote()))}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Due Amount')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$bill->getDue())}}</div>
+                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$totalPrice)}}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -747,7 +720,7 @@
     </div>
 </div>
 @if(!isset($preview))
-    @include('bill.script');
+    @include('purchase.script');
 @endif
 </body>
 </html>
