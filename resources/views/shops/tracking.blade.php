@@ -49,8 +49,6 @@
                                         <th class="text-left">{{ __('Items') }}</th>
                                         <th>{{ __('Quantity') }}</th>
                                         <th class="text-right">{{ __('Price') }}</th>
-                                        <th class="text-right">{{ __('Tax') }}</th>
-                                        <th class="text-right">{{ __('Tax Amount') }}</th>
                                         <th class="text-right">{{ __('Total') }}</th>
                                     </tr>
                                 </thead>
@@ -66,15 +64,21 @@
                                                         @foreach(json_decode($product->parameters) as $key => $value)
 
                                                             @php
-                                                                $price = null;
+                                                                $additional = null;
 
-                                                                if (isset($product->parameters_prices[$product->product_id])) {
-                                                                    $i = array_search($key, array_column(json_decode($product->parameters_prices, true), 'name'));
-                                                                    $price = json_decode($product->parameters_prices[$product->product_id], true)[$i]['price'];
+                                                                if (in_array($value, array_column(json_decode($product->parameters_prices, true), 'name'))) {
+
+                                                                    $i = array_search(
+                                                                        $value,
+                                                                        array_column(json_decode($product->parameters_prices, true), 'name'),
+                                                                        $product->parameters_prices
+                                                                    );
+
+                                                                    $additional = json_decode($product->parameters_prices, true)[$i]['price'];
                                                                 }
                                                             @endphp
 
-                                                            <small>{{$key . ': ' . $value}} @if($price)(+ Bs. {{ $price }})@endif </small> |
+                                                            <small>{{$key . ': ' . $value}} @if($additional)(+ Bs. {{ $additional }})@endif </small> |
                                                         @endforeach
                                                     @endif
                                                 </div>
@@ -83,29 +87,28 @@
                                                 {{ $product->quantity }}
                                             </td>
                                             <td class="text-right cart-summary-table">
-                                                {{ $product->price }}
+                                                {{ isset($additional) ? $product->price + $additional : $product->price }}
                                             </td>
                                             <td class="text-right cart-summary-table">
-                                                {{ $product->tax }}
-                                            </td>
-                                            <td class="text-right cart-summary-table">
-                                                {{ number_format(($product->price * $product->tax) / 100, 2) }}
-                                            </td>
-                                            <td class="text-right cart-summary-table">
-                                                {{ number_format($product->price * $product->quantity, 2) }}
+                                                {{ isset($additional)
+                                                        ? number_format(($product->price * $product->quantity) + ($additional * $product->quantity), 2)
+                                                        : number_format($product->price * $product->quantity, 2)
+                                                }}
                                             </td>
                                         </tr>
 
                                         @php
-                                            $total = $total + ($product->price * $product->quantity);
+                                            if (isset($additional)) {
+                                                $total = $total + ($product->price * $product->quantity) + ($additional * $product->quantity);
+                                            } else {
+                                                $total = $total + ($product->price * $product->quantity);
+                                            }
                                         @endphp
                                     @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td class="text-left font-weight-bold">{{ __('Total') }}</td>
-                                        <td></td>
-                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td class="text-right font-weight-bold">{{ number_format($total, 2) }}</td>

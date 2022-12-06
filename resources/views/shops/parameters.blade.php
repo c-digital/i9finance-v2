@@ -5,10 +5,10 @@
 
 	@foreach($parameters as $parameter)
 		<div class="form-group">
-			<label for="{{ Str::slug($parameter->name) }}">{{ $parameter->name }}</label>
+			<label for="{{ Str::slug($parameter['name']) }}">{{ $parameter['name'] }}</label>
 
 			<div>
-				@foreach($parameter->options as $option)
+				@foreach($parameter['options'] as $option)
 					<label style="margin-right: 10px" for="{{ Str::slug($option['name']) }}">
 						<input
 							class="optionRadio"

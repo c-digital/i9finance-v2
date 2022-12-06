@@ -674,7 +674,7 @@
                                                         $product = App\Models\ProductService::find($item->product_id);
 
                                                         $totalQuantity = $totalQuantity + $item->quantity;
-                                                        $totalPrice = $totalPrice + $item->price;
+                                                        $totalPrice = $totalPrice + ($item->price * $item->quantity);
                                                     @endphp
 
                                                     <div class="d-table-tr" style="border-bottom:1px solid {{$color}};">

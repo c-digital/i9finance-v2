@@ -240,6 +240,8 @@ class ShopController extends Controller
             $data['parameters'][] = $productVariation;
         }
 
+        $data['parameters'] = array_filter($data['parameters']);
+
         /*return $data['parameters'];*/
 
         return view('shops.parameters', $data);

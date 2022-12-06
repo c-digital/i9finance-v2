@@ -45,6 +45,7 @@
 												$i = array_search($value, array_column(json_decode($prices[$product->id], true), 'name'));
 												$price = json_decode($prices[$product->id], true)[$i]['price'];
 												$additional = $additional + $price;
+												$total_order = $total_order + ($additional * $quantity);
 											}
 										@endphp
 
@@ -57,9 +58,9 @@
 
 					<th>{{ $quantity }}</th>
 
-					<th>{{ $additional ? number_format($product->sale_price + $additional, 2) : number_format($product->sale_price, 2) }}</th>
+					<th>{{ isset($additional) ? number_format($product->sale_price + $additional, 2) : number_format($product->sale_price, 2) }}</th>
 
-					<th>{{ $additional ? number_format($quantity * ($product->sale_price + $additional), 2) : number_format(($quantity * $product->sale_price), 2) }}</th>
+					<th>{{ isset($additional) ? number_format($quantity * ($product->sale_price + $additional), 2) : number_format(($quantity * $product->sale_price), 2) }}</th>
 
 					<td>
 						<button type="button" class="btn btn-danger" title="Eliminar" onclick="eliminarProducto({{ $key }})">
