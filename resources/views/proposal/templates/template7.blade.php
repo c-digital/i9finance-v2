@@ -531,7 +531,7 @@
                                         @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
                                     </div>
                                     <div data-v-1ad6e3b9="" class="col-33">&nbsp;</div>
-                                    <div data-v-1ad6e3b9="" class="col-33"><h1 data-v-1ad6e3b9="" class="fancy-title mb5">{{__('PROPOSAL')}}</h1> <br data-v-1ad6e3b9=""><br data-v-1ad6e3b9="">
+                                    <div data-v-1ad6e3b9="" class="col-33"><h1 data-v-1ad6e3b9="" class="fancy-title mb5">{{__('COTIZACION')}}</h1> <br data-v-1ad6e3b9=""><br data-v-1ad6e3b9="">
                                         <table data-v-1ad6e3b9="" class="summary-table">
                                             <tbody data-v-1ad6e3b9="">
                                             <tr data-v-363339a0="">

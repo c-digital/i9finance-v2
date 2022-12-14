@@ -543,7 +543,7 @@
                                         </p>
                                     </div>
                                     <div data-v-f2a183a6="" class="d-header-50 d-right">
-                                        <div data-v-f2a183a6="" class="d-title">{{__('PROPOSAL')}}</div>
+                                        <div data-v-f2a183a6="" class="d-title">{{__('COTIZACION')}}</div>
                                         <table data-v-f2a183a6="" class="summary-table">
                                             <tbody data-v-f2a183a6="">
                                             <tr>
