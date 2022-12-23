@@ -85,14 +85,14 @@
             </div>
         </div>
 
-        <div class="form-group col-md-6">
+        {{-- <div class="form-group col-md-6">
             {{ Form::label('variation_id', __('Variation'),['class'=>'form-label', 'style' => 'display: block']) }}<span class="text-danger">*</span>
             {{ Form::select('variation_id[]', $variations,null, array('class' => 'form-control select2','required'=>'required','multiple' => 'multiple','style'=>'width:100%')) }}
 
             <div class=" text-xs">
                 <a href="{{route('product-variation.index')}}"><b>{{__('Add Variation')}}</b></a>
             </div>
-        </div>
+        </div> --}}
 
     </div>
         @if(!$customFields->isEmpty())
