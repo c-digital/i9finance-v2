@@ -71,14 +71,6 @@
     $company_logo = Utility::getValByName('company_logo_dark');
     $settings_data = \App\Models\Utility::settingsById($purchase->created_by);
     $purchase_logo = $settings_data['purchase_logo'];
-
-    if(isset($purchase_logo) && !empty($purchase_logo))
-    {
-        $img = '/storage/purchase_logo/' . $purchase_logo;
-    }
-    else{
-        $img          = $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png');
-    }
 @endphp
     <!DOCTYPE html>
 <html lang="en" dir="{{$SITE_RTL == 'on'?'rtl':''}}">
@@ -599,13 +591,24 @@
             <div class="invoice-preview-inner">
                 <div class="editor-content">
                     <div class="preview-main client-preview">
-                        <div data-v-f2a183a6="" class="d" id="boxes" style="width:710px;margin-left: auto;margin-right: auto;">
+                        <div data-v-f2a183a6="" class="d" id="boxes" style="width:350px;margin-left: auto;margin-right: auto;">
                             <div data-v-f2a183a6="" class="d-header" style="background: {{$color}};color:{{$font_color}}">
                                 <div data-v-f2a183a6="" class="d-header-inner">
                                     <div data-v-f2a183a6="" class="d-header-50">
                                         <div data-v-f2a183a6="" class="d-header-brand">
-                                            
+                                            <img src="{{$img}}" style="max-width: 250px"/>
                                         </div>
+                                        <p data-v-f2a183a6="" style="margin-top: -30px">@if($shop->name){{$shop->name}}@endif</p>
+                                        <p data-v-f2a183a6="">
+                                            @if($shop->email){{$shop->email}}@endif<br>
+                                            @if($shop->phone){{$shop->phone}}@endif<br>
+                                            @if($shop->address){{$shop->address}}@endif
+                                            @if($settings['company_city']) <br> {{$settings['company_city']}}, @endif @if($settings['company_state']){{$settings['company_state']}}@endif @if($settings['company_zipcode']) - {{$settings['company_zipcode']}}@endif
+                                            @if($settings['company_country']) <br>{{$settings['company_country']}}@endif <br>
+                                            @if(!empty($settings['registration_number'])){{__('Registration Number')}} : {{$settings['registration_number']}} @endif<br>
+                                            @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
+
+                                        </p>
 
                                         <div data-v-f2a183a6="" class="d-header-50">
                                             <div data-v-f2a183a6="" class="d-title ">{{__('Venta')}}</div>
@@ -635,16 +638,16 @@
                                                 @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
                                         </p>
 
-                                        <div class="mt-5">
+                                        <div style="margin-top: -80px" class="">
                                             {!! DNS2D::getBarcodeHTML(route('purchase.link.copy',\Crypt::encrypt($purchase->purchase_id)), "QRCODE",2,2) !!}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div data-v-f2a183a6="" class="d-body">
+                            <div data-v-f2a183a6="" class="d-body" style="margin-top: -100px">
                                 <div data-v-f2a183a6="" class="d-bill-to">
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <div class="bill_to">
                                             <strong data-v-f2a183a6="">{{__('Customer')}}:</strong>
                                             <p>
@@ -655,11 +658,11 @@
                                                 {{!empty($customer->billing_city)?$customer->billing_city:'' .', '}} {{!empty($customer->billing_state)?$customer->billing_state:'',', '}} {{!empty($customer->billing_country)?$customer->billing_country:''}}
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <hr>
+                                    <hr style="margin-top: 30px">
 
-                                    <div data-v-f2a183a6="" class="d-table">
+                                    <div data-v-f2a183a6="" class="d-table" >
                                         <div data-v-f2a183a6="" class="d-table">
 
                                             <div class="d-table-body">
@@ -696,8 +699,7 @@
                                                 <div data-v-f2a183a6="" class="d-table-controls"></div>
                                                 <div data-v-f2a183a6="" class="d-table-summary">
                                                     <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Total')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$totalPrice)}}</div>
+                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Total')}}: {{Utility::priceFormat($settings,$totalPrice)}}</div>
                                                     </div>
                                                 </div>
                                             </div>

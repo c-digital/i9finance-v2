@@ -9,6 +9,7 @@ use App\Models\PosPayment;
 use App\Models\PosProduct;
 use App\Models\ProductService;
 use App\Models\Utility;
+use App\Models\Ecommerce;
 use App\Models\warehouse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -244,6 +245,7 @@ class PosController extends Controller
                         [
                             'code' => 200,
                             'success' => __('Payment completed successfully!'),
+                            'pos_id' => $pos->id
                         ]
                     );
                 }
@@ -293,11 +295,17 @@ class PosController extends Controller
         $posProducts = PosProduct::where('pos_id', $pos->id)->get();
         $posPayments = PosPayment::where('pos_id', $pos->id)->first();
 
+        $product_id = $posProducts->first()->product_id;
+        $user_id = ProductService::find($product_id)->created_by;
+        $shop = Ecommerce::where('id_user', $user_id)->first();
+
+        $img = ($shop->logo) ? '/storage/shops/logos/' . $shop->logo : '/storage/uploads/logo/logo-dark.png';
+
         if ($request->get('thermal')) {
-            return view('pos.thermal', compact('pos', 'posProducts', 'posPayments'));            
+            return view('pos.thermal', compact('pos', 'posProducts', 'posPayments', 'shop', 'img'));            
         }
 
-        return view('pos.print', compact('pos', 'posProducts', 'posPayments'));
+        return view('pos.print', compact('pos', 'posProducts', 'posPayments', 'shop', 'img'));
     }
 
 }

@@ -549,10 +549,10 @@
                     ele.remove();
                 },
                 success: function (data) {
-                    // console.log(data);
-                    // return false;
                     if (data.code == 200) {
-                        show_toastr('Success', data.success, 'success')
+                        show_toastr('Success', data.success, 'success');
+                        var win = window.open('https://i9finance.com/pos/'+data.pos_id+'?thermal=1', '_blank');
+                        win.focus();
                     }
                     setTimeout(function () {
                         window.location.reload();
