@@ -11,7 +11,7 @@
     $(window).on('load', function () {
         var element = document.getElementById('boxes');
         var opt = {
-            filename: '{{Utility::customerProposalNumberFormat($proposal->proposal_id)}}',
+            filename: '{{Utility::customerProposalNumberFormat($proposal->proposal_id)}}.pdf',
             image: {type: 'jpeg', quality: 1},
             html2canvas: {scale: 4, dpi: 72, letterRendering: true},
             jsPDF: {unit: 'in', format: 'A4'}

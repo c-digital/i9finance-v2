@@ -520,7 +520,7 @@
                         <div data-v-1ad6e3b9="" class="d" style="width:710px;margin-left: auto;margin-right: auto;" id="boxes">
                             <div data-v-1ad6e3b9="" class="d-inner d-no-pad" style="border-top: 15px solid {{$color}}; border-bottom: 15px solid {{$color}};">
                                 <div data-v-1ad6e3b9="" class="row grey-box">
-                                    <div data-v-1ad6e3b9="" class="col-33"><img data-v-1ad6e3b9="" src="{{$img}}" class="d-logo" style="max-width: 250px;"> <br data-v-1ad6e3b9=""><br data-v-1ad6e3b9="">
+                                    <div data-v-1ad6e3b9="" style="margin-top: -30px" class="col-33"><img data-v-1ad6e3b9="" src="{{$img}}" class="d-logo" style="max-width: 250px;"> <br data-v-1ad6e3b9=""><br data-v-1ad6e3b9="">
                                         <p data-v-1ad6e3b9="">@if($settings['company_name']){{$settings['company_name']}}@endif</p>
                                         @if($settings['company_email']){{$settings['company_email']}}@endif<br>
                                         @if($settings['company_telephone']){{$settings['company_telephone']}}@endif<br>
@@ -556,7 +556,7 @@
                                             {!! DNS2D::getBarcodeHTML( route('proposal.link.copy',Crypt::encrypt($proposal->proposal_id)), "QRCODE",2,2) !!}                                        </div>
                                     </div>
                                 </div>
-                                <div data-v-1ad6e3b9="" class="d-inner-2">
+                                <div data-v-1ad6e3b9="" style="margin-top: -120px" class="d-inner-2">
                                     <div class="row">
                                         <div class="bill_to">
                                             <strong data-v-f2a183a6="">{{__('Bill To')}}:</strong>
@@ -582,7 +582,7 @@
                                         @endif
                                     </div>
                                     <div data-v-1ad6e3b9="" class="break-25"></div>
-                                    <div data-v-1ad6e3b9="" class="d-table">
+                                    <div data-v-1ad6e3b9="" style="margin-top: -50px" class="d-table">
                                         <div data-v-1ad6e3b9="" class="d-table">
                                             <div data-v-f2a183a6="" class="d-table-tr" style="background: {{$color}};color:{{$font_color}}">
                                                 <div class="d-table-th w-4">{{__('Item')}}</div>
