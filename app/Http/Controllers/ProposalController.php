@@ -884,7 +884,7 @@ class ProposalController extends Controller
             $dir = 'proposal_logo/';
             $proposal_logo = \Auth::user()->id . '_proposal_logo.png';
             $validation =[
-                'mimes:'.'png',
+                'mimes:'.'png,jpg,jpeg',
                 'max:'.'20480',
             ];
             $path = Utility::upload_file($request,'proposal_logo',$proposal_logo,$dir,$validation);

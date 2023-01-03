@@ -753,12 +753,12 @@
                                     </li>
                                 @endif
 
-                                @if(Gate::check('manage product & service'))
+                                {{-- @if(Gate::check('manage product & service'))
                                     <li class="dash-item {{ (Request::segment(1) == 'variation')?'active':''}}">
                                         <a href="/product-variation" class="dash-link">{{__('Product Variation')}}
                                         </a>
                                     </li>
-                                @endif
+                                @endif --}}
 
                             </ul>
                         </li>

@@ -1,7 +1,5 @@
    @php
     $settings_data = \App\Models\Utility::settingsById($bill->created_by);
-
-    dd(123);
 @endphp
     <!DOCTYPE html>
 <html lang="en" dir="{{$settings_data['SITE_RTL'] == 'on'?'rtl':''}}">

@@ -939,7 +939,7 @@ class BillController extends Controller
 //            $img          = asset($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png'));
 //        }
 
-        $logo         = asset(Storage::url('uploads/logo/'));
+        $logo         = '/storage/uploads/logo/';
         $company_logo = Utility::getValByName('company_logo_dark');
         $bill_logo = Utility::getValByName('bill_logo');
         if(isset($bill_logo) && !empty($bill_logo))
