@@ -14,6 +14,10 @@ class Invoice extends Model
         'ref_number',
         'status',
         'category_id',
+        'recurring',
+        'recurring_registered',
+        'next_invoice_date',
+        'invoice_interval',
         'created_by',
     ];
 

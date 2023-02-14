@@ -24,12 +24,50 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use DateTime;
 
 class InvoiceController extends Controller
 {
     public function __construct()
     {
+        $items = Invoice::where('recurring', 1)
+            ->where('recurring_registered', 0)
+            ->get();
 
+        foreach ($items as $item) {
+
+            $next_invoice_date = new DateTime();
+            $next_invoice_date->modify($item->invoice_interval);
+
+            $invoice = Invoice::create([
+                'customer_id' => $item->customer_id,
+                'issue_date' => date('Y-m-d'),
+                'due_date' => date('Y-m-d'),
+                'category_id' => $item->category_id,
+                'ref_number' => $item->ref_number,
+                'status' => 0,
+                'shipping_display' => $item->shipping_display,
+                'discount_apply' => $item->discount_apply,
+                'recurring' => 1,
+                'next_invoice_date' => $next_invoice_date,
+                'interval' => $item->interval,
+                'created_by' => $item->created_by
+            ]);
+
+            foreach ($invoice->items as $invoiceProduct) {
+                InvoiceProduct::create([
+                    'invoice_id' => $invoiceProduct->invoice_id,
+                    'product_id' => $invoiceProduct->product_id,
+                    'quantity' => $invoiceProduct->quantity,
+                    'tax' => $invoiceProduct->tax,
+                    'discount' => $invoiceProduct->discount,
+                    'price' => $invoiceProduct->price,
+                    'description' => $invoiceProduct->description,
+                ]);
+            }
+
+            Invoice::find($item->id)->update(['recurring_registered' => 1]);
+        }
     }
 
     public function index(Request $request)
@@ -143,6 +181,17 @@ class InvoiceController extends Controller
             $invoice->ref_number     = $request->ref_number;
 //            $invoice->discount_apply = isset($request->discount_apply) ? 1 : 0;
             $invoice->created_by     = \Auth::user()->creatorId();
+
+            if ($request->recurring != 'No' && $request->recurring != 'Custom') {
+                $next_invoice_date = new DateTime();
+                $next_invoice_date->modify($interval);
+
+                $invoice->recurring = 1;
+                $invoice->recurring_registered = 0;
+                $invoice->invoice_interval = $request->recurring;
+                $invoice->next_invoice_date = $next_invoice_date;
+            }
+
             $invoice->save();
             CustomField::saveData($invoice, $request->customField);
             $products = $request->items;

@@ -96,6 +96,16 @@
             });
         });
 
+        $(document).on('change', '[name=recurring]', function () {
+            value = $(this).val();
+            
+            if (value == 'Custom') {
+                $('.inputs-recurring').attr('style', '');
+            } else {
+                $('.inputs-recurring').attr('style', 'display: none');
+            }
+        });
+
         $(document).on('click', '#remove', function () {
             $('#customer-box').removeClass('d-none');
             $('#customer-box').addClass('d-block');
@@ -356,6 +366,50 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-6"></div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ Form::label('recurring', __('Invoice recurring'),['class'=>'form-label']) }}
+                                        <div class="form-icon-user">
+                                            <span><i class="ti ti-joint"></i></span>
+                                            <select name="recurring" class="form-control">
+                                                <option value="No">{{ __('No') }}</option>
+                                                <option value="+1month">{{ __('Every 1 month') }}</option>
+                                                <option value="+2month">{{ __('Every 2 month') }}</option>
+                                                <option value="+3month">{{ __('Every 3 month') }}</option>
+                                                <option value="+4month">{{ __('Every 4 month') }}</option>
+                                                <option value="+5month">{{ __('Every 5 month') }}</option>
+                                                <option value="+6month">{{ __('Every 6 month') }}</option>
+                                                <option value="+7month">{{ __('Every 7 month') }}</option>
+                                                <option value="+8month">{{ __('Every 8 month') }}</option>
+                                                <option value="+9month">{{ __('Every 9 month') }}</option>
+                                                <option value="+10month">{{ __('Every 10 month') }}</option>
+                                                <option value="+11month">{{ __('Every 11 month') }}</option>
+                                                <option value="+12month">{{ __('Every 12 month') }}</option>
+                                                <option value="Custom">{{ __('Custom') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6"></div>
+
+                                <div style="display: none" class="inputs-recurring col-md-6">
+                                    <input type="text" class="form-control" name="number">
+                                </div>
+
+                                <div style="display: none" class="inputs-recurring col-md-6">
+                                    <select name="type" class="form-control">
+                                        <option value=""></option>
+                                        <option value="day">{{ __('Day') }}</option>
+                                        <option value="week">{{ __('Week') }}</option>
+                                        <option value="month">{{ __('Month') }}</option>
+                                        <option value="year">{{ __('Year') }}</option>
+                                    </select>
+                                </div>
+
 {{--                                <div class="col-md-6">--}}
 {{--                                    <div class="form-check custom-checkbox mt-4">--}}
 {{--                                        <input class="form-check-input" type="checkbox" name="discount_apply" id="discount_apply">--}}
