@@ -391,7 +391,7 @@
         }
 
         $(document).on('click', '.toacart', function () {
-             // alert('hey');
+             
             var sum = 0;
             $.ajax({
                 url: $(this).data('url'),

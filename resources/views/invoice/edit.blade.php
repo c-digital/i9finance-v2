@@ -100,6 +100,16 @@
             });
         });
 
+        $(document).on('change', '[name=recurring]', function () {
+            value = $(this).val();
+            
+            if (value == 'Custom') {
+                $('.inputs-recurring').attr('style', '');
+            } else {
+                $('.inputs-recurring').attr('style', 'display: none');
+            }
+        });
+
         $(document).on('click', '#remove', function () {
             $('#customer-box').removeClass('d-none');
             $('#customer-box').addClass('d-block');
@@ -445,6 +455,50 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-6"></div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ Form::label('recurring', __('Invoice recurring'),['class'=>'form-label']) }}
+                                        <div class="form-icon-user">
+                                            <span><i class="ti ti-joint"></i></span>
+                                            <select name="recurring" class="form-control">
+                                                <option value="No">{{ __('No') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+1month' ? 'selected' : '' }} value="+1month">{{ __('Every 1 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+2month' ? 'selected' : '' }} value="+2month">{{ __('Every 2 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+3month' ? 'selected' : '' }} value="+3month">{{ __('Every 3 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+4month' ? 'selected' : '' }} value="+4month">{{ __('Every 4 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+5month' ? 'selected' : '' }} value="+5month">{{ __('Every 5 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+6month' ? 'selected' : '' }} value="+6month">{{ __('Every 6 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+7month' ? 'selected' : '' }} value="+7month">{{ __('Every 7 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+8month' ? 'selected' : '' }} value="+8month">{{ __('Every 8 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+9month' ? 'selected' : '' }} value="+9month">{{ __('Every 9 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+10month' ? 'selected' : '' }} value="+10month">{{ __('Every 10 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+11month' ? 'selected' : '' }} value="+11month">{{ __('Every 11 month') }}</option>
+                                                <option {{ $invoice->recurring && $invoice->invoice_interval == '+12month' ? 'selected' : '' }} value="+12month">{{ __('Every 12 month') }}</option>
+                                                <option {{ $invoice->recurring && ($invoice->invoice_interval != '+1month' && $invoice->invoice_interval != '+2month'  && $invoice->invoice_interval != '+3month'  && $invoice->invoice_interval != '+4month' && $invoice->invoice_interval != '+5month'  && $invoice->invoice_interval != '+6month'  && $invoice->invoice_interval != '+7month'  && $invoice->invoice_interval != '+8month'  && $invoice->invoice_interval != '+9month'  && $invoice->invoice_interval != '+10month'  && $invoice->invoice_interval != '+11month'  && $invoice->invoice_interval != '+12month') ? 'selected' : '' }} value="Custom">{{ __('Custom') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6"></div>
+
+                                <div style="{{ $invoice->recurring && ($invoice->invoice_interval != '+1month' && $invoice->invoice_interval != '+2month'  && $invoice->invoice_interval != '+3month'  && $invoice->invoice_interval != '+4month' && $invoice->invoice_interval != '+5month'  && $invoice->invoice_interval != '+6month'  && $invoice->invoice_interval != '+7month'  && $invoice->invoice_interval != '+8month'  && $invoice->invoice_interval != '+9month'  && $invoice->invoice_interval != '+10month'  && $invoice->invoice_interval != '+11month'  && $invoice->invoice_interval != '+12month') ? '' : 'display: none' }}" class="inputs-recurring col-md-6">
+                                    <input type="number" class="form-control" value="{{ str_replace(['+', 'month', 'day', 'week', 'year'], '', $invoice->invoice_interval) }}" name="number">
+                                </div>
+
+                                <div style="{{ $invoice->recurring && ($invoice->invoice_interval != '+1month' && $invoice->invoice_interval != '+2month'  && $invoice->invoice_interval != '+3month'  && $invoice->invoice_interval != '+4month' && $invoice->invoice_interval != '+5month'  && $invoice->invoice_interval != '+6month'  && $invoice->invoice_interval != '+7month'  && $invoice->invoice_interval != '+8month'  && $invoice->invoice_interval != '+9month'  && $invoice->invoice_interval != '+10month'  && $invoice->invoice_interval != '+11month'  && $invoice->invoice_interval != '+12month') ? '' : 'display: none' }}" class="inputs-recurring col-md-6">
+                                    <select name="type" class="form-control">
+                                        <option value=""></option>
+                                        <option {{ strpos($invoice->invoice_interval, 'day') ? 'selected' : '' }} value="day">{{ __('Day') }}</option>
+                                        <option {{ strpos($invoice->invoice_interval, 'week') ? 'selected' : '' }} value="week">{{ __('Week') }}</option>
+                                        <option {{ strpos($invoice->invoice_interval, 'month') ? 'selected' : '' }} value="month">{{ __('Month') }}</option>
+                                        <option {{ strpos($invoice->invoice_interval, 'year') ? 'selected' : '' }} value="year">{{ __('Year') }}</option>
+                                    </select>
+                                </div>
+
 {{--                                <div class="col-md-6">--}}
 {{--                                    <div class="form-check custom-checkbox mt-4">--}}
 {{--                                        <input class="form-check-input" type="checkbox" name="discount_apply" id="discount_apply" {{$invoice->discount_apply==1?'checked':''}}>--}}

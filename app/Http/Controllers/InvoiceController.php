@@ -32,6 +32,7 @@ class InvoiceController extends Controller
     {
         $items = Invoice::where('recurring', 1)
             ->where('recurring_registered', 0)
+            ->whereDate('next_invoice_date', '<=', date('Y-m-d'))
             ->get();
 
         foreach ($items as $item) {
@@ -68,6 +69,12 @@ class InvoiceController extends Controller
 
             Invoice::find($item->id)->update(['recurring_registered' => 1]);
         }
+    }
+
+    public function disabledRecurring($id)
+    {
+        Invoice::find($id)->update(['recurring' => 0]);
+        return redirect()->route('invoice.index', $invoice->id)->with('success', __('Recurring invoice disabled.'));
     }
 
     public function index(Request $request)
@@ -184,11 +191,21 @@ class InvoiceController extends Controller
 
             if ($request->recurring != 'No' && $request->recurring != 'Custom') {
                 $next_invoice_date = new DateTime();
-                $next_invoice_date->modify($interval);
+                $next_invoice_date->modify($request->recurring);
 
                 $invoice->recurring = 1;
                 $invoice->recurring_registered = 0;
                 $invoice->invoice_interval = $request->recurring;
+                $invoice->next_invoice_date = $next_invoice_date;
+            }
+
+            if ($request->recurring == 'Custom') {
+                $next_invoice_date = new DateTime();
+                $next_invoice_date->modify('+' . $request->number . $request->type);
+
+                $invoice->recurring = 1;
+                $invoice->recurring_registered = 0;
+                $invoice->invoice_interval = '+' . $request->number . $request->type;
                 $invoice->next_invoice_date = $next_invoice_date;
             }
 
@@ -302,6 +319,28 @@ class InvoiceController extends Controller
                 $invoice->ref_number     = $request->ref_number;
 //                $invoice->discount_apply = isset($request->discount_apply) ? 1 : 0;
                 $invoice->category_id    = $request->category_id;
+
+                if ($request->recurring != 'No' && $request->recurring != 'Custom') {
+                    $next_invoice_date = new DateTime();
+                    $next_invoice_date->modify($request->recurring);
+
+                    $invoice->recurring = 1;
+                    $invoice->recurring_registered = 0;
+                    $invoice->invoice_interval = $request->recurring;
+                    $invoice->next_invoice_date = $next_invoice_date;
+                }
+
+                if ($request->recurring == 'Custom') {
+                    $next_invoice_date = new DateTime();
+                    $next_invoice_date->modify('+' . $request->number . $request->type);
+                    
+                    $invoice->recurring = 1;
+                    $invoice->recurring_registered = 0;
+                    $invoice->invoice_interval = '+' . $request->number . $request->type;
+                    $invoice->next_invoice_date = $next_invoice_date;
+                }
+                
+
                 $invoice->save();
 
                 Utility::starting_number( $invoice->invoice_id + 1, 'invoice');

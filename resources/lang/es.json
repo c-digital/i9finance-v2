@@ -1,4 +1,6 @@
 {
+  "Recurring": "Recurrente",
+  "Recurring invoice disabled": "Factura recurrente desactivada",
   "\tPaid Amount" : "\tImporte pagado ",
   " & allocated total " : " Y total asignado   ",
   " (Format h:m:s i.e 00:35:20 means 35 Minutes and 20 Sec)" : " (Formato h:m:s i.e 00:35:20 significa 35 minutos y 20 seg.) ",

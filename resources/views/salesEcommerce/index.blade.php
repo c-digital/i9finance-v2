@@ -83,6 +83,10 @@
                                         <td>{{$posPayment->order_status}}</td>
                                         <td>
                                             <a href="" data-bs-toggle="modal" data-bs-target="#change-status-{{$posPayment->id}}" class="btn btn-info">Cambiar estado</a>
+
+                                            {{--<a href="/salesEcommerce/{{ $posPayment->id }}/edit" class="btn btn-secondary">Editar</a>
+
+                                            <a href="/salesEcommerce/{{ $posPayment->id }}" class="btn btn-danger">Eliminar</a>--}}
                                         </td>
                                     </tr>
 
@@ -105,6 +109,7 @@
                                                     <option value="Aceptado">Aceptado</option>
                                                     <option value="Entregado">Entregado</option>
                                                     <option value="Finalizado">Finalizado</option>
+                                                    <option value="Finalizado">Cancelado</option>
                                                 </select>
                                               </div>
                                               <div class="modal-footer">

@@ -39,5 +39,4 @@ class SalesEcommerceController extends Controller
 
         return redirect()->route('salesEcommerce.index');
     }
-
 }

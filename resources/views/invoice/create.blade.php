@@ -397,7 +397,7 @@
                                 <div class="col-md-6"></div>
 
                                 <div style="display: none" class="inputs-recurring col-md-6">
-                                    <input type="text" class="form-control" name="number">
+                                    <input type="number" class="form-control" name="number">
                                 </div>
 
                                 <div style="display: none" class="inputs-recurring col-md-6">

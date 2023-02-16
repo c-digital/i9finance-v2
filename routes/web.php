@@ -308,6 +308,9 @@ Route::get('invoice/pdf/{id}', 'InvoiceController@invoice')->name('invoice.pdf')
         'revalidate',
     ]
 );
+
+Route::get('invoice/disabled-recurring/{id}', 'InvoiceController@disabledRecurring')->name('invoice.disabled-recurring');
+
 Route::group(
     [
         'middleware' => [
