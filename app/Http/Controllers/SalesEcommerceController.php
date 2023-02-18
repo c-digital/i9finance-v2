@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductServiceCategory;
 use App\Mail\SelledInvoice;
 use App\Models\Customer;
 use App\Models\Pos;
@@ -32,11 +33,27 @@ class SalesEcommerceController extends Controller
         return view('salesEcommerce.index',compact('posPayments'));
     }
 
+    public function edit($id)
+    {
+        $pos = Pos::find($id);
+
+        $customers      = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+        $category       = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
+        $product_services = ProductService::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+
+        return view('salesEcommerce.edit', compact('pos', 'customers', 'category', 'product_services'));
+    }
+
     public function status(Request $request)
     {
         $pos = Pos::find($request->id);
         $pos->update(['order_status' => $request->order_status]);
 
         return redirect()->route('salesEcommerce.index');
+    }
+
+    public function update(Request $request)
+    {
+        dd($request->all());
     }
 }

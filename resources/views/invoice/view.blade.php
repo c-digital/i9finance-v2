@@ -357,6 +357,7 @@
                                     <div class="col">
                                         <small class="font-style">
                                             <strong>{{__('Billed To')}} :</strong><br>
+                                            {{!empty($customer->name)?$customer->name:''}}<br>
                                             {{!empty($customer->billing_name)?$customer->billing_name:''}}<br>
                                             {{!empty($customer->billing_phone)?$customer->billing_phone:''}}<br>
                                             {{!empty($customer->billing_address)?$customer->billing_address:''}}<br>

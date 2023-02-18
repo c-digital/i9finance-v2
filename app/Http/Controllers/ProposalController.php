@@ -740,6 +740,7 @@ class ProposalController extends Controller
 
     public function proposal($proposal_id)
     {
+        $preview = 1;
         $settings   = Utility::settings();
         $proposalId = Crypt::decrypt($proposal_id);
         $proposal   = Proposal::where('id', $proposalId)->first();
@@ -768,7 +769,7 @@ class ProposalController extends Controller
             $item->tax         = $product->tax;
             $item->discount    = $product->discount;
             $item->price       = $product->price;
-            $item->description = $product->description;
+            $item->description = !empty($product->product) ? $product->product->description : '';
 
             $totalQuantity += $item->quantity;
             $totalRate     += $item->price;
@@ -847,7 +848,7 @@ class ProposalController extends Controller
             $color      = '#' . $settings['proposal_color'];
             $font_color = Utility::getFontColor($color);
 
-            return view('proposal.templates.' . $settings['proposal_template'], compact('proposal', 'color', 'settings', 'customer', 'img', 'font_color', 'customFields'));
+            return view('proposal.templates.' . $settings['proposal_template'], compact('preview', 'proposal', 'color', 'settings', 'customer', 'img', 'font_color', 'customFields'));
         }
         else
         {

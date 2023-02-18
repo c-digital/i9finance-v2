@@ -84,9 +84,9 @@
                                         <td>
                                             <a href="" data-bs-toggle="modal" data-bs-target="#change-status-{{$posPayment->id}}" class="btn btn-info">Cambiar estado</a>
 
-                                            {{--<a href="/salesEcommerce/{{ $posPayment->id }}/edit" class="btn btn-secondary">Editar</a>
+                                            <a href="/salesEcommerce/{{ $posPayment->id }}/edit" class="btn btn-secondary">Editar</a>
 
-                                            <a href="/salesEcommerce/{{ $posPayment->id }}" class="btn btn-danger">Eliminar</a>--}}
+                                            <a href="/salesEcommerce/{{ $posPayment->id }}" class="btn btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
 

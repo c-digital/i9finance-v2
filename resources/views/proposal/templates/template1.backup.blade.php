@@ -1,6 +1,6 @@
 
 @php
-    $settings_data = \App\Models\Utility::settingsById($invoice->created_by);
+    $settings_data = \App\Models\Utility::settingsById($proposal->created_by);
 
 @endphp
     <!DOCTYPE html>
@@ -504,11 +504,10 @@
         {
             float: right;
         }
-        .mb-5
+        .mt-5
         {
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
-
 
     </style>
     @if($settings_data['SITE_RTL']=='on')
@@ -534,61 +533,50 @@
                                         <p data-v-f2a183a6="">@if($settings['company_name']){{$settings['company_name']}}@endif</p>
                                         <p data-v-f2a183a6="">
                                             @if($settings['company_email']){{$settings['company_email']}}@endif<br>
-                                            @if($settings['company_telephone']){{$settings['company_telephone']}}@endif<br>
-                                            @if($settings['company_address']){{$settings['company_address']}}@endif
-                                            @if($settings['company_city']) <br> {{$settings['company_city']}}, @endif @if($settings['company_state']){{$settings['company_state']}}@endif @if($settings['company_zipcode']) - {{$settings['company_zipcode']}}@endif
-                                            @if($settings['company_country']) <br>{{$settings['company_country']}}@endif <br>
-                                            @if(!empty($settings['registration_number'])){{__('Registration Number')}} : {{$settings['registration_number']}} @endif<br>
-                                            @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
+                                                @if($settings['company_telephone']){{$settings['company_telephone']}}@endif<br>
+                                                @if($settings['company_address']){{$settings['company_address']}}@endif
+                                                @if($settings['company_city']) <br> {{$settings['company_city']}}, @endif @if($settings['company_state']){{$settings['company_state']}}@endif @if($settings['company_zipcode']) - {{$settings['company_zipcode']}}@endif
+                                            @if($settings['company_country']) <br>{{$settings['company_country']}}@endif
+                                                @if(!empty($settings['registration_number'])){{__('Registration Number')}} : {{$settings['registration_number']}} @endif<br>
 
+                                            @if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
                                         </p>
                                     </div>
-
                                     <div data-v-f2a183a6="" class="d-header-50 d-right">
-                                        <div data-v-f2a183a6="" class="d-title">{{__('INVOICE')}}</div>
-
-                                        <div class="float-right mb-5">
-                                            {!! DNS2D::getBarcodeHTML(route('invoice.link.copy',\Crypt::encrypt($invoice->invoice_id)), "QRCODE",2,2) !!}
-                                        </div>
-
+                                        <div data-v-f2a183a6="" class="d-title">{{__('COTIZACION')}}</div>
                                         <table data-v-f2a183a6="" class="summary-table">
                                             <tbody data-v-f2a183a6="">
                                             <tr>
                                                 <td>{{__('Number')}}:</td>
-                                                <td>{{Utility::invoiceNumberFormat($settings,$invoice->invoice_id)}}</td>
+                                                <td>{{Utility::proposalNumberFormat($settings,$proposal->proposal_id)}}</td>
                                             </tr>
                                             <tr>
                                                 <td>{{__('Issue Date')}}:</td>
-                                                <td>{{Utility::dateFormat($settings,$invoice->issue_date)}}</td>
+                                                <td>{{Utility::dateFormat($settings,$proposal->issue_date)}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>{{__('Due Date')}}:</td>
-                                                <td>{{Utility::dateFormat($settings,$invoice->due_date)}}</td>
-                                            </tr>
-                                            @if(!empty($customFields) && count($invoice->customField)>0)
+
+                                            @if(!empty($customFields) && count($proposal->customField)>0)
                                                 @foreach($customFields as $field)
                                                     <tr>
                                                         <td>{{$field->name}} :</td>
-                                                        <td> {{!empty($invoice->customField)?$invoice->customField[$field->id]:'-'}}</td>
+                                                        <td> {{!empty($proposal->customField)?$proposal->customField[$field->id]:'-'}}</td>
                                                     </tr>
                                                 @endforeach
                                             @endif
                                             </tbody>
                                         </table>
-
+                                        <div class="float-right mt-5">
+                                            {!! DNS2D::getBarcodeHTML( route('proposal.link.copy',Crypt::encrypt($proposal->proposal_id)), "QRCODE",2,2) !!}
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
                             <div data-v-f2a183a6="" class="d-body">
                                 <div data-v-f2a183a6="" class="d-bill-to">
                                     <div class="row">
                                         <div class="bill_to">
                                             <strong data-v-f2a183a6="">{{__('Bill To')}}:</strong>
                                             <p>
-                                                {{!empty($customer->name)?$customer->name:''}}<br>
                                                 {{!empty($customer->billing_name)?$customer->billing_name:''}}<br>
                                                 {{!empty($customer->billing_phone)?$customer->billing_phone:''}}<br>
                                                 {{!empty($customer->billing_address)?$customer->billing_address:''}}<br>
@@ -611,22 +599,20 @@
                                     </div>
                                     <div data-v-f2a183a6="" class="d-table">
                                         <div data-v-f2a183a6="" class="d-table">
-
                                             <div data-v-f2a183a6="" class="d-table-tr" style="background: {{$color}};color:{{$font_color}}">
                                                 <div class="d-table-th w-4">{{__('Item')}}</div>
                                                 <div class="d-table-th w-3">{{__('Quantity')}}</div>
                                                 <div class="d-table-th w-3">{{__('Rate')}}</div>
                                                 <div class="d-table-th w-6">{{__('Tax')}} (%)</div>
-                                                <div class="d-table-th w-4">{{__('Discount')}}</div>
+                                                    <div class="d-table-th w-4">{{__('Discount')}}</div>
 
-{{--                                                <div class="d-table-th w-3">{{__('Description')}}</div>--}}
-                                                <div class="d-table-th w-4 text-right">{{__('Price')}}<br><small class="text-danger">{{__('before tax & discount')}}</small>
+                                                <div class="d-table-th w-4 ">{{__('Price')}}<br><small class="text-danger">{{__('before tax & discount')}}</small>
                                                 </div>
                                             </div>
 
                                             <div class="d-table-body">
-                                                @if(isset($invoice->itemData) && count($invoice->itemData) > 0)
-                                                    @foreach($invoice->itemData as $key => $item)
+                                                @if(isset($proposal->itemData) && count($proposal->itemData) > 0)
+                                                    @foreach($proposal->itemData as $key => $item)
 
                                                         <div class="d-table-tr" style="border-bottom:1px solid {{$color}};">
                                                             <div class="d-table-td w-4">
@@ -645,19 +631,17 @@
                                                                             <span>{{$taxes['name']}}</span>  <span>({{$taxes['rate']}})</span> <span>{{$taxes['price']}}</span>
                                                                         @endforeach
                                                                     @else
-                                                                        -
+                                                                        <span>-</span>
                                                                     @endif
                                                                 </pre>
                                                             </div>
 
                                                                 <div class="d-table-td w-4">
-                                                                    <pre data-v-f2a183a6="">{{($item->discount!=0)?Utility::priceFormat($settings,$item->discount):'-'}}</pre>
+                                                                    <pre data-v-f2a183a6="">{{($item->discount!=0)? Utility::priceFormat($settings,$item->discount):'-'}}</pre>
                                                                 </div>
 
-{{--                                                            <div class="d-table-td w-3">--}}
-{{--                                                                <pre data-v-f2a183a6="">{{!empty($item->description)?$item->description:'-'}}</pre>--}}
-{{--                                                            </div>--}}
-                                                            <div class="d-table-td w-4 text-right"><span>{{Utility::priceFormat($settings,$item->price * $item->quantity)}}</span></div>
+
+                                                            <div class="d-table-td w-4 "><span>{{Utility::priceFormat($settings,$item->price * $item->quantity)}}</span></div>
                                                         </div>
                                                     @endforeach
                                                 @else
@@ -682,24 +666,21 @@
                                                     <pre data-v-f2a183a6="">{{__('Total')}}</pre>
                                                 </div>
                                                 <div class="d-table-td w-2">
-                                                    <pre data-v-f2a183a6="">{{$invoice->totalQuantity}}</pre>
+                                                    <pre data-v-f2a183a6="">{{$proposal->totalQuantity}}</pre>
                                                 </div>
                                                 <div class="d-table-td w-4">
-                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$invoice->totalRate)}}</pre>
+                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$proposal->totalRate)}}</pre>
                                                 </div>
                                                 <div class="d-table-td w-5">
-                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$invoice->totalTaxPrice) }}</pre>
+                                                    <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$proposal->totalTaxPrice) }}</pre>
                                                 </div>
-
-                                                    <div class="d-table-td w-4">
-                                                        <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$invoice->totalDiscount)}}</pre>
+                                                    <div class="d-table-td w-3">
+                                                        <pre data-v-f2a183a6="">{{Utility::priceFormat($settings,$proposal->totalDiscount)}}</pre>
                                                     </div>
 
-{{--                                                <div class="d-table-td w-3">--}}
-{{--                                                    <pre data-v-f2a183a6="">-</pre>--}}
-{{--                                                </div>--}}
+
                                                 <div class="d-table-td w-4 text-right">
-                                                    <span>{{Utility::priceFormat($settings,$invoice->getSubTotal())}}
+                                                    <span>{{Utility::priceFormat($settings,$proposal->getSubTotal())}}
                                                     </span>
                                                 </div>
                                             </div>
@@ -707,51 +688,37 @@
                                             <div data-v-f2a183a6="" class="d-table-footer">
                                                 <div data-v-f2a183a6="" class="d-table-controls"></div>
                                                 <div data-v-f2a183a6="" class="d-table-summary">
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Subtotal')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$invoice->getSubTotal())}}</div>
-                                                    </div>
-                                                    @if($invoice->getTotalDiscount())
-                                                        <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                            <div data-v-f2a183a6="" class="d-table-label">{{__('Discount')}}:</div>
-                                                            <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$invoice->getTotalDiscount())}}</div>
-                                                        </div>
-                                                    @endif
-                                                    @if(!empty($invoice->taxesData))
-                                                        @foreach($invoice->taxesData as $taxName => $taxPrice)
+
+                                                        @if($proposal->getTotalDiscount())
+                                                            <div data-v-f2a183a6="" class="d-table-summary-item">
+                                                                <div data-v-f2a183a6="" class="d-table-label">{{__('Discount')}}:</div>
+                                                                <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$proposal->getTotalDiscount())}}</div>
+                                                            </div>
+                                                        @endif
+
+                                                    @if(!empty($proposal->taxesData))
+                                                        @foreach($proposal->taxesData as $taxName => $taxPrice)
                                                             <div data-v-f2a183a6="" class="d-table-summary-item">
                                                                 <div data-v-f2a183a6="" class="d-table-label">{{$taxName}} :</div>
                                                                 <div data-v-f2a183a6="" class="d-table-value">{{ Utility::priceFormat($settings,$taxPrice)  }}</div>
                                                             </div>
                                                         @endforeach
                                                     @endif
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
+
+                                                    <div data-v-f2a183a6="" class="d-table-summary-item" style="border-top: 1px solid {{$color}}; border-bottom: 1px solid {{$color}};">
                                                         <div data-v-f2a183a6="" class="d-table-label">{{__('Total')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$invoice->getSubTotal()-$invoice->getTotalDiscount()+$invoice->getTotalTax())}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Paid')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,($invoice->getTotal()-$invoice->getDue())-($invoice->invoiceTotalCreditNote()))}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Credit Note')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,($invoice->invoiceTotalCreditNote()))}}</div>
-                                                    </div>
-                                                    <div data-v-f2a183a6="" class="d-table-summary-item">
-                                                        <div data-v-f2a183a6="" class="d-table-label">{{__('Due Amount')}}:</div>
-                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$invoice->getDue())}}</div>
+                                                        <div data-v-f2a183a6="" class="d-table-value">{{Utility::priceFormat($settings,$proposal->getSubTotal()-$proposal->getTotalDiscount()+$proposal->getTotalTax())}}</div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div data-v-f2a183a6="" class="d-header-50">
-                                                <p data-v-f2a183a6="">
-                                                    {{$settings['footer_title']}} <br>
-                                                    {{$settings['footer_notes']}}
-                                                </p>
-                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div data-v-f2a183a6="" class="d-header-50">
+                                    <p data-v-f2a183a6="">
+                                        {{$settings['footer_title']}} <br>
+                                        {{$settings['footer_notes']}}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -762,7 +729,7 @@
     </div>
 </div>
 @if(!isset($preview))
-    @include('invoice.script');
+    @include('proposal.script');
 @endif
 </body>
 </html>

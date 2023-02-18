@@ -3,6 +3,10 @@
 use App\Models\Utility;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/products/loadData', function (Request $request) {
+    return App\Models\ProductService::find($_GET['id']);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

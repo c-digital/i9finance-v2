@@ -632,6 +632,7 @@
                                         <div class="bill_to">
                                             <strong data-v-f2a183a6="">{{ __('Bill To') }}:</strong>
                                             <p>
+                                                {{ !empty($customer->name) ? $customer->name : '' }}<br>
                                                 {{ !empty($customer->billing_name) ? $customer->billing_name : '' }}<br>
                                                 {{ !empty($customer->billing_phone) ? $customer->billing_phone : '' }}<br>
                                                 {{ !empty($customer->billing_address) ? $customer->billing_address : '' }}<br>
