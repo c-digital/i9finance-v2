@@ -26,7 +26,7 @@ class SalesEcommerceController extends Controller
      */
     public function index()
     {
-        $posPayments = Pos::where('created_by', '=', \Auth::user()->creatorId())
+        $posPayments = Pos::where('created_by', '=', auth()->user()->creatorId())
             ->where('online', 1)
             ->get();
 
@@ -37,9 +37,9 @@ class SalesEcommerceController extends Controller
     {
         $pos = Pos::find($id);
 
-        $customers      = Customer::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
-        $category       = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
-        $product_services = ProductService::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+        $customers      = Customer::where('created_by', auth()->user()->creatorId())->get()->pluck('name', 'id');
+        $category       = ProductServiceCategory::where('created_by', auth()->user()->creatorId())->where('type', 1)->get()->pluck('name', 'id');
+        $product_services = ProductService::where('created_by', auth()->user()->creatorId())->get()->pluck('name', 'id');
 
         return view('salesEcommerce.edit', compact('pos', 'customers', 'category', 'product_services'));
     }
@@ -63,12 +63,25 @@ class SalesEcommerceController extends Controller
                 'product_id' => $item,
                 'pos_id' => $request->pos_id,
                 'quantity' => $request->quantity[$i],
-                'description' => $request->description[$i]
+                'description' => $request->description[$i],
+                'price' => $request->price[$i],
             ]);
 
             $i++;
         }
 
         return redirect("/salesEcommerce/{$request->pos_id}/edit");
+    }
+
+    public function delete($id)
+    {
+        Pos::find($id)->delete();
+        return redirect("/salesEcommerce");
+    }
+
+    public function pdf($id)
+    {
+        $pos = Pos::find($id);
+        return view('pos.print', compact('pos'));
     }
 }

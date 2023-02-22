@@ -27,6 +27,12 @@
             };
             html2pdf().set(opt).from(element).save();
         }
+
+        $('.btn-delete').on('click', function (event) {
+            if (!confirm('¿Está seguro que desea eliminar?')) {
+                event.preventDefault();
+            }
+        });
     </script>
 
 @endpush
@@ -84,9 +90,11 @@
                                         <td>
                                             <a href="" data-bs-toggle="modal" data-bs-target="#change-status-{{$posPayment->id}}" class="btn btn-info">Cambiar estado</a>
 
+                                            <a href="/salesEcommerce/{{ $posPayment->id }}/pdf" class="btn btn-secondary">Ver PDF</a>
+
                                             <a href="/salesEcommerce/{{ $posPayment->id }}/edit" class="btn btn-secondary">Editar</a>
 
-                                            <a href="/salesEcommerce/{{ $posPayment->id }}" class="btn btn-danger">Eliminar</a>
+                                            <a href="/salesEcommerce/{{ $posPayment->id }}/delete" class="btn btn-danger btn-delete">Eliminar</a>
                                         </td>
                                     </tr>
 
@@ -97,7 +105,7 @@
 
                                             <div class="modal-content">
                                               <div class="modal-header">
-                                                <h5 class="modal-title">Cambiar estado {{ AUth::user()->posNumberFormat($posPayment->pos_id) }}</h5>
+                                                <h5 class="modal-title">Cambiar estado {{ Auth::user()->posNumberFormat($posPayment->pos_id) }}</h5>
                                               </div>
                                               <div class="modal-body">
                                                 <input type="hidden" name="id" value="{{$posPayment->id}}">

@@ -3676,6 +3676,8 @@ Route::resource('salesEcommerce', 'SalesEcommerceController')->middleware(
     ]
 );
 
+Route::get('/salesEcommerce/{id}/pdf', 'SalesEcommerceController@pdf');
+
 Route::post('salesEcommerce/status', 'SalesEcommerceController@status');
 
 Route::post('/shop/order', 'ShopController@order');
