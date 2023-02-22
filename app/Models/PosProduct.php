@@ -10,9 +10,11 @@ class PosProduct extends Model
         'product_id',
         'pos_id',
         'quantity',
+        'price',
         'tax',
         'discount',
-        'total',
+        'description',
+        'parameters'
     ];
 
     public function name(){

@@ -403,39 +403,13 @@ class SystemController extends Controller
             $post = $request->all();
 
             $user = \Auth::user();
-            if($request->company_logo_dark)
+            if($request->company_logo_dark->getClientOriginalName())
             {
+                $request->file('company_logo_dark')->storeAs('uploads/logo', $request->company_logo_dark->getClientOriginalName());
 
-//                $request->validate(
-//                    [
-//                        'company_logo_dark' => 'image|mimes:png|max:20480',
-//                    ]
-//
-//                );
-                $validation =[
-                    'mimes:'.'png',
-                    'max:'.'20480',
-                ];
-
-//                $logoName     = $user->id . '-logo-dark.png';
-//                $path         = $request->file('company_logo_dark')->storeAs('uploads/logo/', $logoName);
-//                $company_logo = !empty($request->company_logo_dark) ? $logoName : 'logo-dark.png';
-
-                $logoName = 'logo-dark.png';
-                $dir = 'uploads/logo';
-                $path = Utility::upload_file($request,'company_logo_dark',$logoName,$dir,$validation);
-                if($path['flag'] == 1){
-                    $logo = $path['url'];
-                }else{
-                    return redirect()->back()->with('error', __($path['msg']));
-                }
-
-                \DB::insert(
-                    'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
-                                                                                                                                                 $logoName,
-                                                                                                                                                 'company_logo_dark',
-                                                                                                                                                 \Auth::user()->creatorId(),
-                                                                                                                                             ]
+                Utility::updateOrCreate(
+                    ['name' => 'company_logo_dark', 'created_by' => auth()->user()->id],
+                    ['value' => $request->company_logo_dark->getClientOriginalName()]
                 );
             }
 

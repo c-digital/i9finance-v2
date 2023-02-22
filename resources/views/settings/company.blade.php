@@ -17,6 +17,13 @@
    $EmailTemplates   = App\Models\EmailTemplate::all();
    $currantLang =  Utility::languages();
 
+   $db = DB::table('settings')
+        ->where('name', 'company_logo_dark')
+        ->where('created_by', auth()->user()->id)
+        ->first();
+
+    $logo_dark = $db ? $db->value : '';
+
 
 
 

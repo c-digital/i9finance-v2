@@ -17,11 +17,11 @@
 @push('script-page')
     <script>
         
-        function loadData(that) {
+        async function loadData(that) {
             item = $(that);
             tr = item.parent().parent();
 
-            $.ajax({
+            await $.ajax({
                 type: 'GET',
                 url: '/products/loadData',
                 data: {
@@ -36,67 +36,79 @@
                 error: function (error) {
                     console.log(error.responseText);
                 }
-            })
+            });
+
+            calcularTotales();
         }
 
-        function calculate()
+        function calculate(that)
         {
-            tr = $(this).parent().parent();
+            tr = $(that).parent().parent().parent();
 
-            quantity = tr.find('.quantity');
-            price = tr.find('.price');
-
-            console.log(quantity, price);
+            quantity = tr.find('.quantity').val();
+            price = tr.find('.price').val();
 
             amount = parseFloat(price) * parseFloat(quantity);
+            amount = amount.toFixed(2);
 
             tr.find('.amount').html(amount);
+
+            calcularTotales();
+        }
+
+        function calcularTotales() {
+            totalAmount = 0;
+
+            $('.trItems').each(function (key, value) {
+                price = $(value).find('.price').val();
+                quantity = $(value).find('.quantity').val();
+
+                if ($(value).find('.price')) {
+                    totalAmount = totalAmount + (price * quantity);
+                }
+            });
+
+            totalAmount = totalAmount.toFixed(2);
+
+            $('.totalAmount').html(totalAmount);
+        }
+
+        function deleteItem(that) {
+            if (confirm('¿Está seguro que desea eliminar?')) {
+                tr = $(that).parent().parent();
+                tr.remove();
+
+                calcularTotales();
+            }
         }
 
         $(document).ready(function () {
             $('.add-item').click(function () {
                 $('.ui-sortable').append(`
-                    <tr>
+                    <tr class="trItems">
                         <td width="25%" class="form-group pt-0">
-                            {{ Form::select('item[]', $product_services, null, array('onchange' => 'loadData(this)', 'class' => 'form-control item select','data-url'=>route('invoice.product'))) }}
+                            {{ Form::select('item[]', $product_services, null, array('onchange' => 'loadData(this)', 'class' => 'mt-2 form-control item select','data-url'=>route('invoice.product'))) }}
 
-                            {{ Form::textarea('description', null, ['class'=>'form-control pro_description','rows'=>'2','placeholder'=>__('Description')]) }}
+                            {{ Form::textarea('description[]', null, ['class'=>'mt-2 form-control pro_description','rows'=>'2','placeholder'=>__('Description')]) }}
                         </td>
                         <td>
 
                             <div class="form-group price-input input-group search-form">
-                                {{ Form::text('quantity[]',null, array('onchange' => 'calculate()', 'class' => 'form-control quantity','required'=>'required','placeholder'=>__('Qty'),'required'=>'required')) }}
+                                {{ Form::text('quantity[]',null, array('onkeyup' => 'calculate(this)', 'class' => 'form-control quantity','required'=>'required','placeholder'=>__('Qty'),'required'=>'required')) }}
                                 <span class="unit input-group-text bg-transparent"></span>
                             </div>
                         </td>
                         <td>
                             <div class="form-group price-input input-group search-form">
-                                {{ Form::text('price[]',null, array('onchange' => 'calculate()', 'class' => 'form-control price','required'=>'required','placeholder'=>__('Price'),'required'=>'required')) }}
+                                {{ Form::text('price[]',null, array('onkeyup' => 'calculate(this)', 'class' => 'form-control price','required'=>'required','placeholder'=>__('Price'),'required'=>'required')) }}
                                 <span class="input-group-text bg-transparent">{{\Auth::user()->currencySymbol()}}</span>
                             </div>
                         </td>
-                        <td>
-                            <div class="form-group">
-                                <div class="input-group colorpickerinput">
-                                    <div class="taxes">0.00</div>
-                                    {{ Form::hidden('tax','', array('class' => 'form-control tax')) }}
-                                    {{ Form::hidden('itemTaxPrice','', array('class' => 'form-control itemTaxPrice')) }}
-                                    {{ Form::hidden('itemTaxRate','', array('class' => 'form-control itemTaxRate')) }}
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group price-input input-group search-form">
-                                {{ Form::text('discount[]','0.00', array('class' => 'form-control discount','required'=>'required','placeholder'=>__('Discount'))) }}
-                                <span class="input-group-text bg-transparent">{{\Auth::user()->currencySymbol()}}</span>
-                            </div>
-                        </td>
+
                         <td class="text-end amount">0.00</td>
 
                         <td>
-                            @can('delete invoice product')
-                                <a href="#" class="ti ti-trash text-white text-danger delete_item" data-repeater-delete></a>
-                            @endcan
+                            <a href="#" class="ti ti-trash text-danger" onclick="deleteItem(this)">Eliminar</a>
                         </td>
                     </tr>
                 `)
@@ -170,8 +182,6 @@
                                 <th>{{__('Items')}}</th>
                                 <th>{{__('Quantity')}}</th>
                                 <th>{{__('Price')}} </th>
-                                <th>{{__('Tax')}}</th>
-                                <th>{{__('Discount')}}</th>
                                 <th class="text-end">{{__('Amount')}} </th>
                                 <th></th>
                             </tr>
@@ -183,100 +193,50 @@
                             	@endphp
 
                             	@foreach($posElements as $item)
-		                            <tr>
+		                            <tr class="trItems">
 		                                <td width="25%" class="form-group pt-0">
-		                                    {{ Form::select('item[]', $product_services, $item->product_id, array('class' => 'form-control item select','data-url'=>route('invoice.product'))) }}
+		                                    {{ Form::select('item[]', $product_services, $item->product_id, array('class' => 'mt-2 form-control item select','data-url'=>route('invoice.product'))) }}
+
+                                            {{ Form::textarea('description[]', $item->description ?? \App\Models\ProductService::find($item->product_id)->description, ['class'=>'form-control mt-2 pro_description','rows'=>'2','placeholder'=>__('Description')]) }}
+                                        </td>
 		                                </td>
 		                                <td>
 
 		                                    <div class="form-group price-input input-group search-form">
-		                                        {{ Form::text('quantity[]',$item->quantity, array('class' => 'form-control quantity','required'=>'required','placeholder'=>__('Qty'),'required'=>'required')) }}
+		                                        {{ Form::text('quantity[]',$item->quantity, array('onkeyup' => 'calculate(this)', 'class' => 'form-control quantity','required'=>'required','placeholder'=>__('Qty'),'required'=>'required')) }}
 		                                        <span class="unit input-group-text bg-transparent"></span>
 		                                    </div>
 		                                </td>
 		                                <td>
 		                                    <div class="form-group price-input input-group search-form">
-		                                        {{ Form::text('price[]',$item->price, array('class' => 'form-control price','required'=>'required','placeholder'=>__('Price'),'required'=>'required')) }}
+		                                        {{ Form::text('price[]',$item->price, array('onkeyup' => 'calculate(this)', 'class' => 'form-control price','required'=>'required','placeholder'=>__('Price'),'required'=>'required')) }}
 		                                        <span class="input-group-text bg-transparent">{{\Auth::user()->currencySymbol()}}</span>
 		                                    </div>
 		                                </td>
-		                                <td>
-		                                    <div class="form-group">
-		                                        <div class="input-group colorpickerinput">
-		                                            <div class="taxes">{{$item->tax}}</div>
-		                                            {{ Form::hidden('tax','', array('class' => 'form-control tax')) }}
-		                                            {{ Form::hidden('itemTaxPrice','', array('class' => 'form-control itemTaxPrice')) }}
-		                                            {{ Form::hidden('itemTaxRate','', array('class' => 'form-control itemTaxRate')) }}
-		                                        </div>
-		                                    </div>
-		                                </td>
-		                                <td>
-		                                    <div class="form-group price-input input-group search-form">
-		                                        {{ Form::text('discount[]',$item->discount, array('class' => 'form-control discount','required'=>'required','placeholder'=>__('Discount'))) }}
-		                                        <span class="input-group-text bg-transparent">{{\Auth::user()->currencySymbol()}}</span>
-		                                    </div>
-		                                </td>
-		                                <td class="text-end amount">{{number_format($item->price+$item->tax-$item->discount,2)}}</td>
+
+		                                <td class="text-end amount">{{number_format(($item->price*$item->quantity)-$item->discount,2)}}</td>
 
 		                                <td>
-		                                    @can('delete invoice product')
-		                                        <a href="#" class="ti ti-trash text-white text-danger delete_item" data-repeater-delete></a>
-		                                    @endcan
+		                                    <a href="#" class="ti ti-trash text-danger" onclick="deleteItem(this)">Eliminar</a>
 		                                </td>
-		                            </tr>
-		                            <tr>
-		                                <td colspan="2">
-		                                    <div class="form-group">
-		                                        {{ Form::textarea('description[]', $item->description ?? \App\Models\ProductService::find($item->product_id)->description, ['class'=>'form-control pro_description','rows'=>'2','placeholder'=>__('Description')]) }}
-		                                    </div>
-		                                </td>
-		                                <td colspan="5"></td>
 		                            </tr>
 
                                     @php
-                                        $subtotal = $subtotal + $item->price;
+                                        $subtotal = $subtotal + ($item->price * $item->quantity);
                                         $discount = $discount + $item->discount;
                                         $tax = $tax + $item->tax;
                                     @endphp
 	                            @endforeach
                             </tbody>
+
                             <tfoot>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td></td>
-                                <td><strong>{{__('Sub Total')}} ({{\Auth::user()->currencySymbol()}})</strong></td>
-                                <td class="text-end subTotal">{{number_format($subtotal, 2)}}</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td></td>
-                                <td><strong>{{__('Discount')}} ({{\Auth::user()->currencySymbol()}})</strong></td>
-                                <td class="text-end totalDiscount">{{number_format($discount, 2)}}</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td></td>
-                                <td><strong>{{__('Tax')}} ({{\Auth::user()->currencySymbol()}})</strong></td>
-                                <td class="text-end totalTax">{{number_format($tax, 2)}}</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td class="blue-text"><strong>{{__('Total Amount')}} ({{\Auth::user()->currencySymbol()}})</strong></td>
-                                <td class="text-end totalAmount blue-text">{{number_format($subtotal+$tax-$discount, 2)}}</td>
-                                <td></td>
-                            </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td class="blue-text"><strong>{{__('Total Amount')}} ({{\Auth::user()->currencySymbol()}})</strong></td>
+                                    <td class="text-end totalAmount blue-text">{{number_format($subtotal+$tax-$discount, 2)}}</td>
+                                </tr>
                             </tfoot>
                         </table>
                     </div>
@@ -287,6 +247,9 @@
             <input type="button" value="{{__('Cancel')}}" onclick="location.href = '{{route("invoice.index")}}';" class="btn btn-light">
             <input type="submit" value="{{__('Update')}}" class="btn  btn-primary">
         </div>
+
+        <input type="hidden" name="pos_id" value="{{ $pos->id }}">
+
         {{ Form::close() }}
     </div>
 @endsection

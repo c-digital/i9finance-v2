@@ -54,6 +54,21 @@ class SalesEcommerceController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        PosProduct::where('pos_id', $request->pos_id)->delete();
+
+        $i = 0;
+
+        foreach ($request->item as $item) {            
+            PosProduct::create([
+                'product_id' => $item,
+                'pos_id' => $request->pos_id,
+                'quantity' => $request->quantity[$i],
+                'description' => $request->description[$i]
+            ]);
+
+            $i++;
+        }
+
+        return redirect("/salesEcommerce/{$request->pos_id}/edit");
     }
 }

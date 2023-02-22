@@ -16,6 +16,10 @@ use Twilio\Rest\Client;
 
 class Utility extends Model
 {
+    protected $table = 'settings';
+
+    protected $fillable = ['name', 'value', 'created_by'];
+
     public static function settings()
     {
         $data = DB::table('settings');

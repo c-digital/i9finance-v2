@@ -2,10 +2,10 @@
 -- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 14-02-2023 a las 12:07:25
--- Versión del servidor: 5.7.41
--- Versión de PHP: 7.4.33
+-- Host: localhost:3306
+-- Generation Time: Feb 21, 2023 at 09:39 PM
+-- Server version: 5.7.41
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -13,13 +13,13 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `i9finance_app`
+-- Database: `i9finance_app`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `activity_logs`
+-- Table structure for table `activity_logs`
 --
 
 CREATE TABLE `activity_logs` (
@@ -35,7 +35,7 @@ CREATE TABLE `activity_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `activity_logs`
+-- Dumping data for table `activity_logs`
 --
 
 INSERT INTO `activity_logs` (`id`, `user_id`, `project_id`, `task_id`, `deal_id`, `log_type`, `remark`, `created_at`, `updated_at`) VALUES
@@ -52,12 +52,16 @@ INSERT INTO `activity_logs` (`id`, `user_id`, `project_id`, `task_id`, `deal_id`
 (11, 11, 5, 0, 0, 'Create Expense', '{\"title\":\"CRISTIAN BALDERRAMA\"}', '2022-12-29 08:41:36', '2022-12-29 08:41:36'),
 (12, 11, 4, 5, 0, 'Create Task', '{\"title\":\"instalar c\\u00e1maras\"}', '2023-01-14 22:09:13', '2023-01-14 22:09:13'),
 (13, 11, 4, 5, 0, 'Move Task', '{\"title\":\"instalar c\\u00e1maras\",\"old_stage\":\"NUEVO\",\"new_stage\":\"EN PROCESO\"}', '2023-01-14 22:10:05', '2023-01-14 22:10:05'),
-(14, 11, 4, 3, 0, 'Move Task', '{\"title\":\"Cableado cielo falso\",\"old_stage\":\"EN PROCESO\",\"new_stage\":\"REVICION\"}', '2023-01-14 22:10:51', '2023-01-14 22:10:51');
+(14, 11, 4, 3, 0, 'Move Task', '{\"title\":\"Cableado cielo falso\",\"old_stage\":\"EN PROCESO\",\"new_stage\":\"REVICION\"}', '2023-01-14 22:10:51', '2023-01-14 22:10:51'),
+(15, 21, 6, 6, 0, 'Create Task', '{\"title\":\"123\"}', '2023-02-14 14:27:56', '2023-02-14 14:27:56'),
+(16, 21, 6, 7, 0, 'Create Task', '{\"title\":\"321\"}', '2023-02-14 14:29:19', '2023-02-14 14:29:19'),
+(17, 2, 8, 8, 0, 'Create Task', '{\"title\":\"Tarea de prueba 1\"}', '2023-02-16 22:26:27', '2023-02-16 22:26:27'),
+(18, 2, 8, 9, 0, 'Create Task', '{\"title\":\"Tarea con fecha\"}', '2023-02-16 22:28:28', '2023-02-16 22:28:28');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admin_payment_settings`
+-- Table structure for table `admin_payment_settings`
 --
 
 CREATE TABLE `admin_payment_settings` (
@@ -70,7 +74,7 @@ CREATE TABLE `admin_payment_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `admin_payment_settings`
+-- Dumping data for table `admin_payment_settings`
 --
 
 INSERT INTO `admin_payment_settings` (`id`, `name`, `value`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -97,7 +101,7 @@ INSERT INTO `admin_payment_settings` (`id`, `name`, `value`, `created_by`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `allowances`
+-- Table structure for table `allowances`
 --
 
 CREATE TABLE `allowances` (
@@ -115,7 +119,7 @@ CREATE TABLE `allowances` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `allowance_options`
+-- Table structure for table `allowance_options`
 --
 
 CREATE TABLE `allowance_options` (
@@ -127,7 +131,7 @@ CREATE TABLE `allowance_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `allowance_options`
+-- Dumping data for table `allowance_options`
 --
 
 INSERT INTO `allowance_options` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -136,7 +140,7 @@ INSERT INTO `allowance_options` (`id`, `name`, `created_by`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `announcements`
+-- Table structure for table `announcements`
 --
 
 CREATE TABLE `announcements` (
@@ -156,7 +160,7 @@ CREATE TABLE `announcements` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `announcement_employees`
+-- Table structure for table `announcement_employees`
 --
 
 CREATE TABLE `announcement_employees` (
@@ -171,7 +175,7 @@ CREATE TABLE `announcement_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `appraisals`
+-- Table structure for table `appraisals`
 --
 
 CREATE TABLE `appraisals` (
@@ -195,7 +199,7 @@ CREATE TABLE `appraisals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `assets`
+-- Table structure for table `assets`
 --
 
 CREATE TABLE `assets` (
@@ -213,7 +217,7 @@ CREATE TABLE `assets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `attendance_employees`
+-- Table structure for table `attendance_employees`
 --
 
 CREATE TABLE `attendance_employees` (
@@ -233,18 +237,28 @@ CREATE TABLE `attendance_employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `attendance_employees`
+-- Dumping data for table `attendance_employees`
 --
 
 INSERT INTO `attendance_employees` (`id`, `employee_id`, `date`, `status`, `clock_in`, `clock_out`, `late`, `early_leaving`, `overtime`, `total_rest`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 0, '0000-00-00', 'Present', '00:00:00', '00:00:00', '-838:59:59', '838:59:59', '00:00:00', '00:00:00', 24, '2023-01-29 12:50:22', '2023-01-29 13:06:17'),
 (2, 6, '2023-02-11', 'Present', '14:54:33', '18:00:00', '05:54:33', '00:00:00', '00:00:00', '00:00:00', 27, '2023-02-11 17:54:33', '2023-02-13 19:17:00'),
-(3, 6, '2023-02-13', 'Present', '16:17:00', '00:00:00', '07:17:00', '00:00:00', '00:00:00', '00:00:00', 27, '2023-02-13 19:17:00', '2023-02-13 19:17:00');
+(3, 6, '2023-02-13', 'Present', '16:17:00', '18:00:00', '07:17:00', '00:00:00', '00:00:00', '00:00:00', 27, '2023-02-13 19:17:00', '2023-02-18 11:27:38'),
+(4, 0, '0000-00-00', 'Present', '00:00:00', '00:00:00', '-838:59:59', '838:59:59', '00:00:00', '00:00:00', 24, '2023-02-15 01:42:25', '2023-02-15 01:42:31'),
+(5, 0, '0000-00-00', 'Present', '00:00:00', '00:00:00', '-838:59:59', '838:59:59', '00:00:00', '00:00:00', 20, '2023-02-15 01:46:49', '2023-02-15 01:47:32'),
+(6, 4, '2023-02-14', 'Present', '23:08:52', '18:00:00', '15:08:52', '00:00:00', '00:00:00', '00:00:00', 20, '2023-02-15 02:08:52', '2023-02-15 09:16:14'),
+(7, 4, '2023-02-15', 'Present', '06:16:14', '18:00:00', '-00:00:02', '00:00:00', '00:00:00', '00:00:00', 20, '2023-02-15 09:16:14', '2023-02-16 09:42:08'),
+(8, 5, '2023-02-15', 'Present', '06:19:23', '00:00:00', '-00:00:02', '00:00:00', '00:00:00', '00:00:00', 24, '2023-02-15 09:19:23', '2023-02-15 09:19:23'),
+(9, 4, '2023-02-16', 'Present', '06:42:08', '18:00:00', '-00:00:02', '00:00:00', '00:00:00', '00:00:00', 20, '2023-02-16 09:42:08', '2023-02-17 09:25:51'),
+(10, 0, '0000-00-00', 'Present', '00:00:00', '00:00:00', '-838:59:59', '838:59:59', '00:00:00', '00:00:00', 20, '2023-02-17 09:25:51', '2023-02-18 00:34:45'),
+(11, 4, '2023-02-18', 'Present', '06:07:05', '16:00:00', '-00:00:02', '02:00:00', '00:00:00', '00:00:00', 20, '2023-02-18 09:07:05', '2023-02-19 10:45:07'),
+(12, 6, '2023-02-18', 'Present', '08:27:38', '00:00:00', '-00:00:01', '00:00:00', '00:00:00', '00:00:00', 27, '2023-02-18 11:27:38', '2023-02-18 11:27:38'),
+(13, 0, '0000-00-00', 'Present', '00:00:00', '00:00:00', '-838:59:59', '838:59:59', '00:00:00', '00:00:00', 20, '2023-02-19 10:42:37', '2023-02-19 10:49:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `awards`
+-- Table structure for table `awards`
 --
 
 CREATE TABLE `awards` (
@@ -262,7 +276,7 @@ CREATE TABLE `awards` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `award_types`
+-- Table structure for table `award_types`
 --
 
 CREATE TABLE `award_types` (
@@ -276,7 +290,7 @@ CREATE TABLE `award_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bank_accounts`
+-- Table structure for table `bank_accounts`
 --
 
 CREATE TABLE `bank_accounts` (
@@ -293,19 +307,19 @@ CREATE TABLE `bank_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bank_accounts`
+-- Dumping data for table `bank_accounts`
 --
 
 INSERT INTO `bank_accounts` (`id`, `holder_name`, `bank_name`, `account_number`, `opening_balance`, `contact_number`, `bank_address`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Efectivo', '', '-', 0.00, '-', '-', 2, '2022-10-26 17:37:55', '2022-10-26 17:37:55'),
+(1, 'Efectivo', '', '-', -120.00, '-', '-', 2, '2022-10-26 17:37:55', '2023-02-16 22:37:15'),
 (2, 'Caja Chica', 'Caja Chica', '01', 2657.00, '01', '01', 10, '2022-11-20 01:52:25', '2022-11-30 23:42:24'),
-(3, 'Ganadero', 'Ganadero', '010203', 0.00, '01', '01', 10, '2022-11-20 01:52:45', '2022-11-20 01:52:45'),
-(4, 'yanet moye guaji', 'banco union', '3562', -17325.95, '63852712', 'CENTRAL', 11, '2022-11-27 09:34:19', '2023-02-11 17:26:55');
+(3, 'Ganadero', 'Ganadero', '010203', -100.00, '01', '01', 21, '2022-11-20 01:52:45', '2023-02-14 14:57:21'),
+(4, 'yanet moye guaji', 'banco union', '3562', -19579.95, '63852712', 'CENTRAL', 11, '2022-11-27 09:34:19', '2023-02-17 23:29:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bank_transfers`
+-- Table structure for table `bank_transfers`
 --
 
 CREATE TABLE `bank_transfers` (
@@ -325,7 +339,7 @@ CREATE TABLE `bank_transfers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bills`
+-- Table structure for table `bills`
 --
 
 CREATE TABLE `bills` (
@@ -346,7 +360,7 @@ CREATE TABLE `bills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bills`
+-- Dumping data for table `bills`
 --
 
 INSERT INTO `bills` (`id`, `bill_id`, `vender_id`, `bill_date`, `due_date`, `order_number`, `status`, `shipping_display`, `send_date`, `discount_apply`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -371,12 +385,21 @@ INSERT INTO `bills` (`id`, `bill_id`, `vender_id`, `bill_date`, `due_date`, `ord
 (21, '20', 5, '2023-02-09', '2023-02-28', 520, 4, 1, '2023-02-09', 0, 19, 11, '2023-02-09 17:26:33', '2023-02-09 17:27:44'),
 (22, '21', 5, '2023-02-09', '2023-02-28', 544, 4, 1, '2023-02-09', 0, 19, 11, '2023-02-09 17:29:48', '2023-02-09 17:30:25'),
 (23, '22', 5, '2023-02-07', '2023-02-28', 410, 4, 1, '2023-02-09', 0, 19, 11, '2023-02-09 17:48:25', '2023-02-09 17:49:23'),
-(24, '23', 5, '2023-02-11', '2023-02-28', 710, 4, 1, '2023-02-11', 0, 19, 11, '2023-02-11 17:26:18', '2023-02-11 17:26:55');
+(24, '23', 5, '2023-02-11', '2023-02-28', 710, 4, 1, '2023-02-11', 0, 19, 11, '2023-02-11 17:26:18', '2023-02-11 17:26:55'),
+(25, '24', 3, '2023-02-14', '2023-02-28', 547, 4, 1, '2023-02-16', 0, 19, 11, '2023-02-17 00:42:26', '2023-02-17 00:43:40'),
+(26, '25', 13, '2023-02-14', '2023-02-28', 153, 4, 1, '2023-02-16', 0, 19, 11, '2023-02-17 00:45:02', '2023-02-17 00:45:56'),
+(27, '26', 13, '2023-02-09', '2023-02-28', 1132, 4, 1, '2023-02-16', 0, 19, 11, '2023-02-17 01:19:30', '2023-02-17 01:20:31'),
+(28, '27', 3, '2023-02-16', '2023-02-28', 562, 4, 1, '2023-02-16', 0, 19, 11, '2023-02-17 01:49:09', '2023-02-17 01:49:56'),
+(29, '28', 14, '2023-02-16', '2023-02-28', 12, 4, 1, '2023-02-17', 0, 19, 11, '2023-02-17 01:52:10', '2023-02-17 14:52:52'),
+(30, '29', 15, '2023-02-13', '2023-02-28', 234, 4, 1, '2023-02-17', 0, 19, 11, '2023-02-17 01:53:11', '2023-02-17 15:02:51'),
+(31, '30', 5, '2023-02-09', '2023-02-28', 729, 4, 1, '2023-02-17', 0, 19, 11, '2023-02-17 14:37:45', '2023-02-17 14:50:17'),
+(32, '31', 16, '2023-02-01', '2023-02-28', 641, 4, 1, '2023-02-17', 0, 19, 11, '2023-02-17 14:46:50', '2023-02-17 14:49:15'),
+(33, '32', 16, '2023-02-17', '2023-02-28', 736, 4, 1, '2023-02-17', 0, 19, 11, '2023-02-17 23:28:20', '2023-02-17 23:29:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bill_payments`
+-- Table structure for table `bill_payments`
 --
 
 CREATE TABLE `bill_payments` (
@@ -394,7 +417,7 @@ CREATE TABLE `bill_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bill_payments`
+-- Dumping data for table `bill_payments`
 --
 
 INSERT INTO `bill_payments` (`id`, `bill_id`, `date`, `amount`, `account_id`, `payment_method`, `reference`, `add_receipt`, `description`, `created_at`, `updated_at`) VALUES
@@ -419,12 +442,21 @@ INSERT INTO `bill_payments` (`id`, `bill_id`, `date`, `amount`, `account_id`, `p
 (21, 21, '2023-02-09', '1501.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-09 17:27:44', '2023-02-09 17:27:44'),
 (22, 22, '2023-02-09', '66.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-09 17:30:25', '2023-02-09 17:30:25'),
 (23, 23, '2023-02-07', '1368.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-09 17:49:23', '2023-02-09 17:49:23'),
-(24, 24, '2023-02-11', '752.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-11 17:26:55', '2023-02-11 17:26:55');
+(24, 24, '2023-02-11', '752.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-11 17:26:55', '2023-02-11 17:26:55'),
+(25, 25, '2023-02-14', '724.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 00:43:40', '2023-02-17 00:43:40'),
+(26, 26, '2023-02-14', '125.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 00:45:56', '2023-02-17 00:45:56'),
+(27, 27, '2023-02-09', '274.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 01:20:31', '2023-02-17 01:20:31'),
+(28, 28, '2023-02-16', '100.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 01:49:56', '2023-02-17 01:49:56'),
+(29, 32, '2023-02-01', '236.50', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 14:49:15', '2023-02-17 14:49:15'),
+(30, 31, '2023-02-09', '1099.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-17 14:50:17', '2023-02-17 14:50:17'),
+(31, 29, '2023-02-16', '15.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 14:52:52', '2023-02-17 14:52:52'),
+(33, 30, '2023-02-13', '1740.00', 4, 0, 'tranferencia', NULL, NULL, '2023-02-17 15:02:51', '2023-02-17 15:02:51'),
+(34, 33, '2023-02-17', '92.00', 4, 0, 'EFECTIVO', NULL, NULL, '2023-02-17 23:29:50', '2023-02-17 23:29:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bill_products`
+-- Table structure for table `bill_products`
 --
 
 CREATE TABLE `bill_products` (
@@ -441,7 +473,7 @@ CREATE TABLE `bill_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bill_products`
+-- Dumping data for table `bill_products`
 --
 
 INSERT INTO `bill_products` (`id`, `bill_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
@@ -474,12 +506,26 @@ INSERT INTO `bill_products` (`id`, `bill_id`, `product_id`, `quantity`, `tax`, `
 (30, 22, 75, 1, NULL, 0.00, '66.00', NULL, '2023-02-09 17:29:48', '2023-02-09 17:29:48'),
 (31, 23, 76, 6, NULL, 0.00, '228.00', NULL, '2023-02-09 17:48:25', '2023-02-09 17:48:25'),
 (32, 24, 19, 1, NULL, 0.00, '594.00', NULL, '2023-02-11 17:26:18', '2023-02-11 17:26:18'),
-(33, 24, 77, 2, NULL, 0.00, '79.00', NULL, '2023-02-11 17:26:18', '2023-02-11 17:26:18');
+(33, 24, 77, 2, NULL, 0.00, '79.00', NULL, '2023-02-11 17:26:18', '2023-02-11 17:26:18'),
+(34, 25, 86, 1, NULL, 0.00, '724.00', NULL, '2023-02-17 00:42:26', '2023-02-17 00:42:26'),
+(35, 26, 85, 25, NULL, 0.00, '5.00', NULL, '2023-02-17 00:45:02', '2023-02-17 00:45:02'),
+(36, 27, 67, 2, NULL, 0.00, '48.00', NULL, '2023-02-17 01:19:30', '2023-02-17 01:19:30'),
+(37, 27, 89, 2, NULL, 0.00, '76.00', NULL, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(38, 27, 87, 15, NULL, 0.00, '1.20', NULL, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(39, 27, 88, 4, NULL, 0.00, '2.00', NULL, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(40, 28, 47, 10, NULL, 0.00, '10.00', NULL, '2023-02-17 01:49:09', '2023-02-17 01:49:09'),
+(41, 29, 90, 100, NULL, 0.00, '0.06', NULL, '2023-02-17 01:52:10', '2023-02-17 01:52:10'),
+(42, 29, 91, 100, NULL, 0.00, '0.09', NULL, '2023-02-17 01:52:10', '2023-02-17 01:52:10'),
+(43, 30, 92, 1, NULL, 0.00, '1740.00', NULL, '2023-02-17 01:53:11', '2023-02-17 01:53:11'),
+(44, 31, 43, 1, NULL, 0.00, '1099.00', NULL, '2023-02-17 14:37:45', '2023-02-17 14:37:45'),
+(45, 32, 45, 1, NULL, 0.00, '236.50', NULL, '2023-02-17 14:46:50', '2023-02-17 14:46:50'),
+(46, 33, 95, 8, NULL, 0.00, '7.00', NULL, '2023-02-17 23:28:20', '2023-02-17 23:28:20'),
+(47, 33, 96, 9, NULL, 0.00, '4.00', NULL, '2023-02-17 23:28:20', '2023-02-17 23:28:20');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `branches`
+-- Table structure for table `branches`
 --
 
 CREATE TABLE `branches` (
@@ -491,7 +537,7 @@ CREATE TABLE `branches` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `branches`
+-- Dumping data for table `branches`
 --
 
 INSERT INTO `branches` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -501,7 +547,7 @@ INSERT INTO `branches` (`id`, `name`, `created_by`, `created_at`, `updated_at`) 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `budgets`
+-- Table structure for table `budgets`
 --
 
 CREATE TABLE `budgets` (
@@ -520,7 +566,7 @@ CREATE TABLE `budgets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bugs`
+-- Table structure for table `bugs`
 --
 
 CREATE TABLE `bugs` (
@@ -543,7 +589,7 @@ CREATE TABLE `bugs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_comments`
+-- Table structure for table `bug_comments`
 --
 
 CREATE TABLE `bug_comments` (
@@ -559,7 +605,7 @@ CREATE TABLE `bug_comments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_files`
+-- Table structure for table `bug_files`
 --
 
 CREATE TABLE `bug_files` (
@@ -578,7 +624,7 @@ CREATE TABLE `bug_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bug_statuses`
+-- Table structure for table `bug_statuses`
 --
 
 CREATE TABLE `bug_statuses` (
@@ -591,7 +637,7 @@ CREATE TABLE `bug_statuses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bug_statuses`
+-- Dumping data for table `bug_statuses`
 --
 
 INSERT INTO `bug_statuses` (`id`, `title`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -664,12 +710,17 @@ INSERT INTO `bug_statuses` (`id`, `title`, `created_by`, `order`, `created_at`, 
 (67, 'Resolved', 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (68, 'Unconfirmed', 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (69, 'In Progress', 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(70, 'Verified', 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(70, 'Verified', 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(71, 'Confirmed', 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(72, 'Resolved', 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Unconfirmed', 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'In Progress', 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'Verified', 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_accounts`
+-- Table structure for table `chart_of_accounts`
 --
 
 CREATE TABLE `chart_of_accounts` (
@@ -686,7 +737,7 @@ CREATE TABLE `chart_of_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_accounts`
+-- Dumping data for table `chart_of_accounts`
 --
 
 INSERT INTO `chart_of_accounts` (`id`, `name`, `code`, `type`, `sub_type`, `is_enabled`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1137,12 +1188,44 @@ INSERT INTO `chart_of_accounts` (`id`, `name`, `code`, `type`, `sub_type`, `is_e
 (445, 'Common Stock', 330, 70, 224, 1, NULL, 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (446, 'Owners Contribution', 300, 70, 224, 1, NULL, 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (447, 'Owners Draw', 310, 70, 224, 1, NULL, 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
-(448, 'Retained Earnings', 320, 70, 224, 1, NULL, 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(448, 'Retained Earnings', 320, 70, 224, 1, NULL, 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(449, 'Accounts Receivable', 120, 71, 225, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(450, 'Computer Equipment', 160, 71, 226, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(451, 'Office Equipment', 150, 71, 226, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(452, 'Inventory', 140, 71, 227, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(453, 'Budget - Finance Staff', 857, 71, 230, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(454, 'Accumulated Depreciation', 170, 71, 231, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(455, 'Accounts Payable', 200, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(456, 'Accruals', 205, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(457, 'Office Equipment', 150, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(458, 'Clearing Account', 855, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(459, 'Employee Benefits Payable', 235, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(460, 'Employee Deductions payable', 236, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(461, 'Historical Adjustments', 255, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(462, 'Revenue Received in Advance', 835, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(463, 'Rounding', 260, 72, 232, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(464, 'Costs of Goods Sold', 500, 73, 235, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(465, 'Advertising', 600, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(466, 'Automobile Expenses', 644, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(467, 'Bad Debts', 684, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(468, 'Bank Revaluations', 810, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(469, 'Bank Service Charges', 605, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(470, 'Consulting & Accounting', 615, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(471, 'Depreciation', 700, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(472, 'General Expenses', 628, 73, 236, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(473, 'Interest Income', 460, 74, 237, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(474, 'Other Revenue', 470, 74, 237, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(475, 'Purchase Discount', 475, 74, 237, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(476, 'Sales', 400, 74, 237, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(477, 'Common Stock', 330, 75, 240, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(478, 'Owners Contribution', 300, 75, 240, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(479, 'Owners Draw', 310, 75, 240, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(480, 'Retained Earnings', 320, 75, 240, 1, NULL, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_account_sub_types`
+-- Table structure for table `chart_of_account_sub_types`
 --
 
 CREATE TABLE `chart_of_account_sub_types` (
@@ -1154,7 +1237,7 @@ CREATE TABLE `chart_of_account_sub_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_account_sub_types`
+-- Dumping data for table `chart_of_account_sub_types`
 --
 
 INSERT INTO `chart_of_account_sub_types` (`id`, `name`, `type`, `created_at`, `updated_at`) VALUES
@@ -1381,12 +1464,28 @@ INSERT INTO `chart_of_account_sub_types` (`id`, `name`, `type`, `created_at`, `u
 (221, 'Revenue', 69, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (222, 'Sales', 69, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (223, 'Other Income', 69, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
-(224, 'Equity', 70, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(224, 'Equity', 70, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(225, 'Current Asset', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(226, 'Fixed Asset', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(227, 'Inventory', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(228, 'Non-current Asset', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(229, 'Prepayment', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(230, 'Bank & Cash', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(231, 'Depreciation', 71, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(232, 'Current Liability', 72, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(233, 'Liability', 72, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(234, 'Non-current Liability', 72, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(235, 'Direct Costs', 73, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(236, 'Expense', 73, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(237, 'Revenue', 74, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(238, 'Sales', 74, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(239, 'Other Income', 74, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(240, 'Equity', 75, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chart_of_account_types`
+-- Table structure for table `chart_of_account_types`
 --
 
 CREATE TABLE `chart_of_account_types` (
@@ -1398,7 +1497,7 @@ CREATE TABLE `chart_of_account_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `chart_of_account_types`
+-- Dumping data for table `chart_of_account_types`
 --
 
 INSERT INTO `chart_of_account_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1471,12 +1570,17 @@ INSERT INTO `chart_of_account_types` (`id`, `name`, `created_by`, `created_at`, 
 (67, 'Liabilities', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (68, 'Expenses', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (69, 'Income', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
-(70, 'Equity', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(70, 'Equity', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(71, 'Assets', 28, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(72, 'Liabilities', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Expenses', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'Income', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'Equity', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ch_favorites`
+-- Table structure for table `ch_favorites`
 --
 
 CREATE TABLE `ch_favorites` (
@@ -1490,7 +1594,7 @@ CREATE TABLE `ch_favorites` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ch_messages`
+-- Table structure for table `ch_messages`
 --
 
 CREATE TABLE `ch_messages` (
@@ -1506,7 +1610,7 @@ CREATE TABLE `ch_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `ch_messages`
+-- Dumping data for table `ch_messages`
 --
 
 INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment`, `seen`, `created_at`, `updated_at`) VALUES
@@ -1516,7 +1620,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `client_deals`
+-- Table structure for table `client_deals`
 --
 
 CREATE TABLE `client_deals` (
@@ -1530,7 +1634,7 @@ CREATE TABLE `client_deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `commissions`
+-- Table structure for table `commissions`
 --
 
 CREATE TABLE `commissions` (
@@ -1547,7 +1651,7 @@ CREATE TABLE `commissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `company_payment_settings`
+-- Table structure for table `company_payment_settings`
 --
 
 CREATE TABLE `company_payment_settings` (
@@ -1562,7 +1666,7 @@ CREATE TABLE `company_payment_settings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `company_policies`
+-- Table structure for table `company_policies`
 --
 
 CREATE TABLE `company_policies` (
@@ -1579,7 +1683,7 @@ CREATE TABLE `company_policies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `competencies`
+-- Table structure for table `competencies`
 --
 
 CREATE TABLE `competencies` (
@@ -1594,7 +1698,7 @@ CREATE TABLE `competencies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `complaints`
+-- Table structure for table `complaints`
 --
 
 CREATE TABLE `complaints` (
@@ -1612,7 +1716,7 @@ CREATE TABLE `complaints` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contracts`
+-- Table structure for table `contracts`
 --
 
 CREATE TABLE `contracts` (
@@ -1635,7 +1739,7 @@ CREATE TABLE `contracts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contracts`
+-- Dumping data for table `contracts`
 --
 
 INSERT INTO `contracts` (`id`, `client_name`, `subject`, `value`, `type`, `start_date`, `end_date`, `description`, `project_id`, `contract_description`, `status`, `client_signature`, `company_signature`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1644,7 +1748,7 @@ INSERT INTO `contracts` (`id`, `client_name`, `subject`, `value`, `type`, `start
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_attachment`
+-- Table structure for table `contract_attachment`
 --
 
 CREATE TABLE `contract_attachment` (
@@ -1659,7 +1763,7 @@ CREATE TABLE `contract_attachment` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_comment`
+-- Table structure for table `contract_comment`
 --
 
 CREATE TABLE `contract_comment` (
@@ -1674,7 +1778,7 @@ CREATE TABLE `contract_comment` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_notes`
+-- Table structure for table `contract_notes`
 --
 
 CREATE TABLE `contract_notes` (
@@ -1689,7 +1793,7 @@ CREATE TABLE `contract_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contract_types`
+-- Table structure for table `contract_types`
 --
 
 CREATE TABLE `contract_types` (
@@ -1701,7 +1805,7 @@ CREATE TABLE `contract_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `contract_types`
+-- Dumping data for table `contract_types`
 --
 
 INSERT INTO `contract_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1712,7 +1816,7 @@ INSERT INTO `contract_types` (`id`, `name`, `created_by`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `coupons`
+-- Table structure for table `coupons`
 --
 
 CREATE TABLE `coupons` (
@@ -1730,7 +1834,7 @@ CREATE TABLE `coupons` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `credit_notes`
+-- Table structure for table `credit_notes`
 --
 
 CREATE TABLE `credit_notes` (
@@ -1745,18 +1849,19 @@ CREATE TABLE `credit_notes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `credit_notes`
+-- Dumping data for table `credit_notes`
 --
 
 INSERT INTO `credit_notes` (`id`, `invoice`, `customer`, `amount`, `date`, `description`, `created_at`, `updated_at`) VALUES
 (1, 7, 13, 1800.00, '2022-11-30', 'pago parcial', '2022-12-01 02:04:22', '2022-12-01 02:04:22'),
 (2, 9, 17, 100.00, '2022-11-30', 'pago parcial', '2022-12-01 02:05:25', '2022-12-01 02:05:25'),
-(3, 27, 22, 250.00, '2023-01-21', 'transferencia por Alejandro rotman', '2023-01-27 17:45:38', '2023-01-27 17:45:38');
+(3, 27, 22, 250.00, '2023-01-21', 'transferencia por Alejandro rotman', '2023-01-27 17:45:38', '2023-01-27 17:45:38'),
+(4, 44, 2, 10.00, '2023-02-16', 'Nota de prueba', '2023-02-16 22:32:56', '2023-02-16 22:32:56');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -1793,12 +1898,12 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `customer_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 2, 'erick g. dos santos', 'dr.ericksantos@gmail.com', NULL, '', '71608981', '', 5, 1, NULL, 'brasil', 'brasil', 'brasil', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-02 18:52:58', '2022-11-12 01:41:37'),
-(2, 1, 'Erick Santos', 'Erick@erick.com', NULL, '', '71608981', '', 2, 1, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:38:40', '2022-11-10 06:38:40'),
+(2, 1, 'Erick Santos', 'Erick@erick.com', NULL, '', '71608981', '', 2, 1, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'Centro', 'Brasil', 'Ro', 'Vilhena', '71608981', NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:38:40', '2023-02-17 14:57:51'),
 (7, 43, 'Nisa Delgado', 'ndelgado@grupop.com.ve', NULL, NULL, '123', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'v', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-10 19:04:53', '2022-12-05 14:52:05'),
 (8, 43, 'Nisa Delgado', 'nisadelgado@gmail.com', NULL, NULL, '04246402701', '', 2, 1, NULL, 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'Nisa Delgado', 'Venezuela', 'Zulia', 'Maracaibo', '04246402701', '4001', 'Calle 90, Av. 16, Barrio Nueva Via, #16b-37', 'en', 0.00, NULL, '2022-11-11 03:59:05', '2022-12-21 00:31:49'),
 (9, 43, '123', '321', NULL, NULL, '321', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2022-11-16 20:36:39', '2022-11-25 17:59:29'),
@@ -1815,14 +1920,19 @@ INSERT INTO `customers` (`id`, `customer_id`, `name`, `email`, `tax_number`, `pa
 (22, 5, 'mi alegria srl', 'mialegria@gmail.com', '2323566', NULL, '22', '', 11, 1, NULL, 'Tuaalegria srl', 'bolivia', NULL, 'Cochabamba', NULL, NULL, NULL, 'Erika', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', -4050.00, NULL, '2023-01-06 20:19:27', '2023-02-08 00:08:31'),
 (23, 7, 'BRIAN', 'bhodin@gofarsrl.com', NULL, NULL, '3570057', '', 10, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2023-01-19 20:33:22', '2023-01-19 20:33:33'),
 (24, 6, 'AVENENCIA CONSTRUCCIONES SRL', 'avenencia@ gmail.com', '357658023', NULL, '1245', '', 11, 1, NULL, 'Avenencia construcciones SRL', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'Avenencia', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'es', 64.00, NULL, '2023-01-31 15:09:28', '2023-02-09 18:14:11'),
-(25, 7, 'Investimentos imoviliarios arl', 'Investimentos@gmail.com', '343084024', NULL, '25677', '', 11, 1, NULL, 'Investimentos', 'Bolivia', NULL, 'Cbba.', NULL, NULL, NULL, 'Investimentos', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'es', -963.00, NULL, '2023-02-01 00:29:44', '2023-02-09 18:46:18'),
+(25, 7, 'Investimentos imoviliarios arl', 'Investimentos@gmail.com', '343084024', NULL, '25677', '', 11, 1, NULL, 'Investimentos', 'Bolivia', NULL, 'Cbba.', NULL, NULL, NULL, 'Investimentos', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'es', -963.00, NULL, '2023-02-01 00:29:44', '2023-02-17 02:57:32'),
 (26, 4, 'Ecliptica Centro Médico & Estética Especializado', 'alejandrodiako@gmail.com', '0', NULL, '+59160912063', '', 21, 1, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz de la Sierra', '+59160912063', NULL, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz de la Sierra', '+59160912063', NULL, NULL, 'es', 0.00, NULL, '2023-02-02 00:25:12', '2023-02-02 00:25:12'),
-(27, 8, 'ILGELATO SRL', 'ILGELATO@gmail.con', '416494020', NULL, '1899', '', 11, 1, NULL, 'Ilgelato', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'Ilgelato', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-02 02:22:45', '2023-02-02 02:24:29');
+(27, 8, 'ILGELATO SRL', 'ILGELATO@gmail.con', '416494020', NULL, '1899', '', 11, 1, NULL, 'Ilgelato', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'Ilgelato', 'Bolivia', NULL, 'Cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-02 02:22:45', '2023-02-02 02:24:29'),
+(28, 1, 'Sulavitta Seguros', 'lucas.cabral@sulavitta.com.br', '44226059000178', NULL, '01176018835', '', 26, 1, NULL, 'Sulavitta Seguros', 'Brasil', 'SP', 'São Paulo', '01176018835', '04280030', 'Rua Marcos Portugal, 303 – apto 63, Vila Nair – São Paulo – SP – CEP: 04.280-030', 'Sulavitta Seguros', 'Brasil', 'SP', 'São Paulo', '01176018835', '04280030', 'Rua Marcos Portugal, 303 – apto 63, Vila Nair – São Paulo – SP – CEP: 04.280-030', 'es', 0.00, NULL, '2023-02-14 14:26:44', '2023-02-14 14:26:44'),
+(29, 12, 'Erick Santos', 'criativedigitalbo@gmail.com', NULL, NULL, '+59171608981', '', 10, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'en', 0.00, NULL, '2023-02-14 17:42:57', '2023-02-14 17:43:53'),
+(30, 9, 'BE SRL', 'be@gmail.com', '378330023', NULL, '63852712', '', 11, 1, NULL, 'cortijo pub', 'bolivia', NULL, 'Cochabamba', NULL, NULL, 'CALLE JUAN CAPRILES', 'cortijopub', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 300.00, NULL, '2023-02-16 10:02:28', '2023-02-17 02:56:11'),
+(31, 5, 'Ideas Web Bolivia', 'ivanmourinobernabe@gmail.com', '0', NULL, '591 69080601', '', 21, 1, NULL, 'Ivan Mourino', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 69080601', NULL, NULL, 'Ivan Mourino', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 69080601', NULL, NULL, 'es', 0.00, NULL, '2023-02-16 23:58:38', '2023-02-16 23:58:38'),
+(32, 10, 'EDUARDO VALDIVIA ZAMBRANA', 'eduardovaldivia@gmail.com', '5152044011', NULL, '15254821', '', 11, 1, NULL, 'EDUARDO VALDIVIA', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'EDUARDO VALDIVIA', 'EDUARDO VALDIVIA', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-17 23:36:39', '2023-02-17 23:36:39');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_fields`
+-- Table structure for table `custom_fields`
 --
 
 CREATE TABLE `custom_fields` (
@@ -1836,7 +1946,7 @@ CREATE TABLE `custom_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `custom_fields`
+-- Dumping data for table `custom_fields`
 --
 
 INSERT INTO `custom_fields` (`id`, `name`, `type`, `module`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -1846,7 +1956,7 @@ INSERT INTO `custom_fields` (`id`, `name`, `type`, `module`, `created_by`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_field_values`
+-- Table structure for table `custom_field_values`
 --
 
 CREATE TABLE `custom_field_values` (
@@ -1859,7 +1969,7 @@ CREATE TABLE `custom_field_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `custom_field_values`
+-- Dumping data for table `custom_field_values`
 --
 
 INSERT INTO `custom_field_values` (`id`, `record_id`, `field_id`, `value`, `created_at`, `updated_at`) VALUES
@@ -1869,7 +1979,7 @@ INSERT INTO `custom_field_values` (`id`, `record_id`, `field_id`, `value`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `custom_questions`
+-- Table structure for table `custom_questions`
 --
 
 CREATE TABLE `custom_questions` (
@@ -1884,7 +1994,7 @@ CREATE TABLE `custom_questions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deals`
+-- Table structure for table `deals`
 --
 
 CREATE TABLE `deals` (
@@ -1909,7 +2019,7 @@ CREATE TABLE `deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_calls`
+-- Table structure for table `deal_calls`
 --
 
 CREATE TABLE `deal_calls` (
@@ -1928,7 +2038,7 @@ CREATE TABLE `deal_calls` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_discussions`
+-- Table structure for table `deal_discussions`
 --
 
 CREATE TABLE `deal_discussions` (
@@ -1943,7 +2053,7 @@ CREATE TABLE `deal_discussions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_emails`
+-- Table structure for table `deal_emails`
 --
 
 CREATE TABLE `deal_emails` (
@@ -1959,7 +2069,7 @@ CREATE TABLE `deal_emails` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_files`
+-- Table structure for table `deal_files`
 --
 
 CREATE TABLE `deal_files` (
@@ -1974,7 +2084,7 @@ CREATE TABLE `deal_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deal_tasks`
+-- Table structure for table `deal_tasks`
 --
 
 CREATE TABLE `deal_tasks` (
@@ -1992,7 +2102,7 @@ CREATE TABLE `deal_tasks` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `debit_notes`
+-- Table structure for table `debit_notes`
 --
 
 CREATE TABLE `debit_notes` (
@@ -2009,7 +2119,7 @@ CREATE TABLE `debit_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `deduction_options`
+-- Table structure for table `deduction_options`
 --
 
 CREATE TABLE `deduction_options` (
@@ -2021,7 +2131,7 @@ CREATE TABLE `deduction_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `deduction_options`
+-- Dumping data for table `deduction_options`
 --
 
 INSERT INTO `deduction_options` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2030,7 +2140,7 @@ INSERT INTO `deduction_options` (`id`, `name`, `created_by`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `departments`
+-- Table structure for table `departments`
 --
 
 CREATE TABLE `departments` (
@@ -2043,7 +2153,7 @@ CREATE TABLE `departments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `departments`
+-- Dumping data for table `departments`
 --
 
 INSERT INTO `departments` (`id`, `branch_id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2052,7 +2162,7 @@ INSERT INTO `departments` (`id`, `branch_id`, `name`, `created_by`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `designations`
+-- Table structure for table `designations`
 --
 
 CREATE TABLE `designations` (
@@ -2065,7 +2175,7 @@ CREATE TABLE `designations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `designations`
+-- Dumping data for table `designations`
 --
 
 INSERT INTO `designations` (`id`, `department_id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2074,7 +2184,7 @@ INSERT INTO `designations` (`id`, `department_id`, `name`, `created_by`, `create
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `documents`
+-- Table structure for table `documents`
 --
 
 CREATE TABLE `documents` (
@@ -2087,7 +2197,7 @@ CREATE TABLE `documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `documents`
+-- Dumping data for table `documents`
 --
 
 INSERT INTO `documents` (`id`, `name`, `is_required`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2096,7 +2206,7 @@ INSERT INTO `documents` (`id`, `name`, `is_required`, `created_by`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ducument_uploads`
+-- Table structure for table `ducument_uploads`
 --
 
 CREATE TABLE `ducument_uploads` (
@@ -2113,7 +2223,7 @@ CREATE TABLE `ducument_uploads` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ecommerces`
+-- Table structure for table `ecommerces`
 --
 
 CREATE TABLE `ecommerces` (
@@ -2139,7 +2249,7 @@ CREATE TABLE `ecommerces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `ecommerces`
+-- Dumping data for table `ecommerces`
 --
 
 INSERT INTO `ecommerces` (`id`, `id_user`, `slug`, `name`, `logo`, `phone`, `address`, `title`, `description`, `type`, `type_company`, `nit`, `email`, `minimum_order`, `banner`, `facebook`, `instagram`, `google`, `youtube`) VALUES
@@ -2151,7 +2261,7 @@ INSERT INTO `ecommerces` (`id`, `id_user`, `slug`, `name`, `logo`, `phone`, `add
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `email_templates`
+-- Table structure for table `email_templates`
 --
 
 CREATE TABLE `email_templates` (
@@ -2165,7 +2275,7 @@ CREATE TABLE `email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `email_templates`
+-- Dumping data for table `email_templates`
 --
 
 INSERT INTO `email_templates` (`id`, `name`, `from`, `slug`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2196,7 +2306,7 @@ INSERT INTO `email_templates` (`id`, `name`, `from`, `slug`, `created_by`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `email_template_langs`
+-- Table structure for table `email_template_langs`
 --
 
 CREATE TABLE `email_template_langs` (
@@ -2210,7 +2320,7 @@ CREATE TABLE `email_template_langs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `email_template_langs`
+-- Dumping data for table `email_template_langs`
 --
 
 INSERT INTO `email_template_langs` (`id`, `parent_id`, `lang`, `subject`, `content`, `created_at`, `updated_at`) VALUES
@@ -2499,7 +2609,7 @@ INSERT INTO `email_template_langs` (`id`, `parent_id`, `lang`, `subject`, `conte
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `employees`
+-- Table structure for table `employees`
 --
 
 CREATE TABLE `employees` (
@@ -2533,21 +2643,21 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `employees`
+-- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id`, `user_id`, `name`, `dob`, `gender`, `phone`, `address`, `email`, `password`, `employee_id`, `branch_id`, `department_id`, `designation_id`, `company_doj`, `documents`, `account_holder_name`, `account_number`, `bank_name`, `bank_identifier_code`, `branch_location`, `tax_payer_id`, `salary_type`, `salary`, `is_active`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 3, 'accountant', NULL, NULL, NULL, NULL, 'accountant@example.com', '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, '2022-10-26 17:37:57', '2022-10-26 17:37:57'),
 (2, 12, 'Erick Santos', NULL, NULL, NULL, NULL, 'gerente@gerente.com', '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2022-11-21 17:05:26', '2022-11-21 17:05:26'),
 (3, 13, 'Usuario', NULL, NULL, NULL, NULL, 'usuario@i9finance.com', '$2y$10$7vkHTpLUOHigffikcz/c4ODe20.M/AQ79tiuESQXe.mGAeu3CTS42', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 10, '2022-11-22 13:59:49', '2022-11-22 13:59:49'),
-(4, 20, 'YANET MOYE', NULL, NULL, NULL, NULL, 'yanet.atlanta@gmail.com', '$2y$10$mI35Qs6svZpMXyq6duJrE.UkNTEgvfIlvaWmAkvJ60H0s/xDp1IvS', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 11, '2022-12-29 01:43:19', '2023-01-29 13:25:21'),
+(4, 20, 'YANET MOYE', NULL, NULL, NULL, NULL, 'yanet.atlanta@gmail.com', '$2y$10$mI35Qs6svZpMXyq6duJrE.UkNTEgvfIlvaWmAkvJ60H0s/xDp1IvS', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2500, 1, 11, '2022-12-29 01:43:19', '2023-02-15 02:06:01'),
 (5, 24, 'Elias Rosas', NULL, NULL, NULL, NULL, 'istelectric24@gmail.com', '$2y$10$NgItuV4DqWttQtyJ/RhrTOBg9jFKyoU9bCRuPCWCkxbu/gPwl4eue', '2', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 11, '2023-01-17 00:00:43', '2023-01-29 13:25:43'),
 (6, 27, 'Daiane Marques', NULL, NULL, NULL, NULL, 'dradaianemarques@gmail.com', '$2y$10$b8eFDCDYG7TZByHv.jq6muMlooux.ddD63HqJB0l4xtpStN4RJYcS', '1', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 21, '2023-02-11 17:51:50', '2023-02-11 17:51:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `employee_documents`
+-- Table structure for table `employee_documents`
 --
 
 CREATE TABLE `employee_documents` (
@@ -2563,7 +2673,7 @@ CREATE TABLE `employee_documents` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estimations`
+-- Table structure for table `estimations`
 --
 
 CREATE TABLE `estimations` (
@@ -2583,7 +2693,7 @@ CREATE TABLE `estimations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
@@ -2604,7 +2714,7 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `event_employees`
+-- Table structure for table `event_employees`
 --
 
 CREATE TABLE `event_employees` (
@@ -2619,7 +2729,7 @@ CREATE TABLE `event_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `expenses`
+-- Table structure for table `expenses`
 --
 
 CREATE TABLE `expenses` (
@@ -2637,7 +2747,7 @@ CREATE TABLE `expenses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `expenses`
+-- Dumping data for table `expenses`
 --
 
 INSERT INTO `expenses` (`id`, `name`, `date`, `description`, `amount`, `attachment`, `project_id`, `task_id`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2648,7 +2758,7 @@ INSERT INTO `expenses` (`id`, `name`, `date`, `description`, `amount`, `attachme
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `experience_certificates`
+-- Table structure for table `experience_certificates`
 --
 
 CREATE TABLE `experience_certificates` (
@@ -2661,7 +2771,7 @@ CREATE TABLE `experience_certificates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `experience_certificates`
+-- Dumping data for table `experience_certificates`
 --
 
 INSERT INTO `experience_certificates` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2849,12 +2959,25 @@ INSERT INTO `experience_certificates` (`id`, `lang`, `content`, `created_by`, `c
 (179, 'nl', '<h3 style=\"text-align: center;\">Ervaringsbrief</h3>\n\n\n            <p>{app_name}</p>\n\n            <p>VOOR WIE HET AANGAAT</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Diensttijd {duration} in {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Rollen en verantwoordelijkheden</p>\n\n\n\n            <p>Korte omschrijving van het dienstverband van de medewerker en een positieve verklaring van de leidinggevende of leidinggevende.</p>\n\n\n\n            <p>Eerlijk,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Handtekening</p>\n\n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (180, 'pl', '<h3 style=\"text-align: center;\">Doświadczenie List</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>DO TYCH KT&Oacute;RYCH MOŻE TO DOTYCZYĆ</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Okres świadczenia usług {duration} w aplikacji {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Role i obowiązki</p>\n\n\n\n            <p>Kr&oacute;tki opis przebiegu zatrudnienia pracownika oraz pozytywna opinia kierownika lub przełożonego.</p>\n\n\n\n            <p>Z poważaniem,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Podpis</p>\n\n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (181, 'pt', '<h3 style=\"text-align: center;\">Carta de Experi&ecirc;ncia</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>A QUEM POSSA INTERESSAR</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Tempo de servi&ccedil;o {duration} em {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Pap&eacute;is e responsabilidades</p>\n\n\n\n            <p>Breve descri&ccedil;&atilde;o do curso de emprego do funcion&aacute;rio e uma declara&ccedil;&atilde;o positiva do gerente ou supervisor.</p>\n\n\n\n            <p>Sinceramente,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Assinatura</p>\n\n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(182, 'ru', '<h3 style=\"text-align: center;\">Письмо об опыте</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>ДЛЯ ПРЕДЪЯВЛЕНИЯ ПО МЕСТУ ТРЕБОВАНИЯ</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Срок службы {duration} в {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Роли и обязанности</p>\n\n\n\n            <p>Краткое описание трудового стажа работника и положительное заключение руководителя или руководителя.</p>\n\n\n\n            <p>Искренне,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Подпись</p>\n\n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(182, 'ru', '<h3 style=\"text-align: center;\">Письмо об опыте</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>ДЛЯ ПРЕДЪЯВЛЕНИЯ ПО МЕСТУ ТРЕБОВАНИЯ</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Срок службы {duration} в {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Роли и обязанности</p>\n\n\n\n            <p>Краткое описание трудового стажа работника и положительное заключение руководителя или руководителя.</p>\n\n\n\n            <p>Искренне,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Подпись</p>\n\n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(183, 'ar', '<h3 style=\"text-align: center;\">بريد إلكتروني تجربة</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>إلي من يهمه الامر</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>مدة الخدمة {duration} في {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>الادوار والمسؤوليات</p>\n\n\n\n            <p>وصف موجز لمسار عمل الموظف وبيان إيجابي من المدير أو المشرف.</p>\n\n\n\n            <p>بإخلاص،</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>التوقيع</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(184, 'da', '<h3 style=\"text-align: center;\">Erfaringsbrev</h3>\n\n            <p>{app_name}</p>\n\n            <p>TIL HVEM DET M&Aring;TTE VEDR&Oslash;RE</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Tjenesteperiode {duration} i {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Roller og ansvar</p>\n\n\n\n            <p>Kort beskrivelse af medarbejderens ans&aelig;ttelsesforl&oslash;b og positiv udtalelse fra leder eller arbejdsleder.</p>\n\n\n\n            <p>Med venlig hilsen</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Underskrift</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(185, 'de', '<h3 style=\"text-align: center;\">Erfahrungsbrief</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>WEN ES ANGEHT</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Dienstzeit {duration} in {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Rollen und Verantwortlichkeiten</p>\n\n\n\n            <p>Kurze Beschreibung des beruflichen Werdegangs des Mitarbeiters und eine positive Stellungnahme des Vorgesetzten oder Vorgesetzten.</p>\n\n\n\n            <p>Aufrichtig,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Unterschrift</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(186, 'en', '<p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: center;\" align=\"center\"><span style=\"font-size: 18pt;\"><strong>Experience Letter</strong></span></p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">&nbsp;</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{app_name}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">TO WHOM IT MAY CONCERN</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{date}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{employee_name}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">Tenure of Service {duration} in {app_name}.</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{designation}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{payroll}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">Roles and Responsibilities</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">&nbsp;</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">Brief description of the employee&rsquo;s course of employment and a positive statement from the manager or supervisor.</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">&nbsp;</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">Sincerely,</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{employee_name}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{designation}</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">Signature</p>\n            <p lang=\"en-IN\" style=\"margin-bottom: 0cm; direction: ltr; line-height: 2; text-align: left;\" align=\"center\">{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(187, 'es', '<h3 style=\"text-align: center;\">Carta de experiencia</h3>\n\n\n            <p>{app_name}</p>\n\n            <p>A QUIEN LE INTERESE</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Duraci&oacute;n del servicio {duration} en {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Funciones y responsabilidades</p>\n\n\n\n            <p>Breve descripci&oacute;n del curso de empleo del empleado y una declaraci&oacute;n positiva del gerente o supervisor.</p>\n\n\n\n            <p>Sinceramente,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Firma</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(188, 'fr', '<h3 style=\"text-align: center;\">Lettre dexp&eacute;rience</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>&Agrave; QUI DE DROIT</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Dur&eacute;e du service {duration} dans {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>R&ocirc;les et responsabilit&eacute;s</p>\n\n\n\n            <p>Br&egrave;ve description de l&eacute;volution de lemploi de lemploy&eacute; et une d&eacute;claration positive du gestionnaire ou du superviseur.</p>\n\n\n\n            <p>Sinc&egrave;rement,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Signature</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(189, 'id', '<h3 style=\"text-align: center;\">Surat Pengalaman</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>UNTUK PERHATIAN</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Jangka Waktu Layanan {duration} di {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Peran dan Tanggung Jawab</p>\n\n\n\n            <p>Deskripsi singkat tentang pekerjaan karyawan dan pernyataan positif dari manajer atau supervisor.</p>\n\n\n\n            <p>Sungguh-sungguh,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Tanda tangan</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(190, 'it', '<h3 style=\"text-align: center;\">Lettera di esperienza</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>PER CHI &Egrave; COINVOLTO</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Durata del servizio {duration} in {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Ruoli e responsabilit&agrave;</p>\n\n\n\n            <p>Breve descrizione del percorso lavorativo del dipendente e dichiarazione positiva del manager o supervisore.</p>\n\n\n\n            <p>Cordiali saluti,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Firma</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(191, 'ja', '\n            <h3 style=\"text-align: center;\">体験談</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>ご担当者様</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>{app_name} のサービス {duration} の保有期間。</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>役割と責任</p>\n\n\n\n            <p>従業員の雇用コースの簡単な説明と、マネージャーまたはスーパーバイザーからの肯定的な声明。</p>\n\n\n\n            <p>心から、</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>サイン</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(192, 'nl', '<h3 style=\"text-align: center;\">Ervaringsbrief</h3>\n\n\n            <p>{app_name}</p>\n\n            <p>VOOR WIE HET AANGAAT</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Diensttijd {duration} in {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Rollen en verantwoordelijkheden</p>\n\n\n\n            <p>Korte omschrijving van het dienstverband van de medewerker en een positieve verklaring van de leidinggevende of leidinggevende.</p>\n\n\n\n            <p>Eerlijk,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Handtekening</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(193, 'pl', '<h3 style=\"text-align: center;\">Doświadczenie List</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>DO TYCH KT&Oacute;RYCH MOŻE TO DOTYCZYĆ</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Okres świadczenia usług {duration} w aplikacji {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Role i obowiązki</p>\n\n\n\n            <p>Kr&oacute;tki opis przebiegu zatrudnienia pracownika oraz pozytywna opinia kierownika lub przełożonego.</p>\n\n\n\n            <p>Z poważaniem,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Podpis</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(194, 'pt', '<h3 style=\"text-align: center;\">Carta de Experi&ecirc;ncia</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>A QUEM POSSA INTERESSAR</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Tempo de servi&ccedil;o {duration} em {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Pap&eacute;is e responsabilidades</p>\n\n\n\n            <p>Breve descri&ccedil;&atilde;o do curso de emprego do funcion&aacute;rio e uma declara&ccedil;&atilde;o positiva do gerente ou supervisor.</p>\n\n\n\n            <p>Sinceramente,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Assinatura</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(195, 'ru', '<h3 style=\"text-align: center;\">Письмо об опыте</h3>\n\n\n\n            <p>{app_name}</p>\n\n            <p>ДЛЯ ПРЕДЪЯВЛЕНИЯ ПО МЕСТУ ТРЕБОВАНИЯ</p>\n\n            <p>{date}</p>\n\n            <p>{employee_name}</p>\n\n            <p>Срок службы {duration} в {app_name}.</p>\n\n            <p>{designation}</p>\n\n            <p>{payroll}</p>\n\n            <p>Роли и обязанности</p>\n\n\n\n            <p>Краткое описание трудового стажа работника и положительное заключение руководителя или руководителя.</p>\n\n\n\n            <p>Искренне,</p>\n\n            <p>{employee_name}</p>\n\n            <p>{designation}</p>\n\n            <p>Подпись</p>\n\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -2869,7 +2992,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_builders`
+-- Table structure for table `form_builders`
 --
 
 CREATE TABLE `form_builders` (
@@ -2884,7 +3007,7 @@ CREATE TABLE `form_builders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `form_builders`
+-- Dumping data for table `form_builders`
 --
 
 INSERT INTO `form_builders` (`id`, `name`, `code`, `is_active`, `is_lead_active`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -2893,7 +3016,7 @@ INSERT INTO `form_builders` (`id`, `name`, `code`, `is_active`, `is_lead_active`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_fields`
+-- Table structure for table `form_fields`
 --
 
 CREATE TABLE `form_fields` (
@@ -2909,7 +3032,7 @@ CREATE TABLE `form_fields` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_field_responses`
+-- Table structure for table `form_field_responses`
 --
 
 CREATE TABLE `form_field_responses` (
@@ -2927,7 +3050,7 @@ CREATE TABLE `form_field_responses` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `form_responses`
+-- Table structure for table `form_responses`
 --
 
 CREATE TABLE `form_responses` (
@@ -2941,7 +3064,7 @@ CREATE TABLE `form_responses` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generate_offer_letters`
+-- Table structure for table `generate_offer_letters`
 --
 
 CREATE TABLE `generate_offer_letters` (
@@ -2954,7 +3077,7 @@ CREATE TABLE `generate_offer_letters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `generate_offer_letters`
+-- Dumping data for table `generate_offer_letters`
 --
 
 INSERT INTO `generate_offer_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -3145,12 +3268,25 @@ INSERT INTO `generate_offer_letters` (`id`, `lang`, `content`, `created_by`, `cr
 (179, 'nl', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Aanbiedingsbrief</strong></span></p>\n\n\n\n                    <p>Beste {applicant_name},</p>\n\n\n\n                    <p>{app_name} is verheugd je aan boord te mogen verwelkomen als {job_title}.</p>\n\n\n\n                    <p>Waren slechts een paar formaliteiten verwijderd om aan het werk te gaan. Neem de tijd om ons formele aanbod te bekijken. Het bevat belangrijke details over uw vergoeding, voordelen en de voorwaarden van uw verwachte dienstverband bij {app_name}.</p>\n\n\n\n                    <p>{app_name} biedt een {job_type} aan. functie voor jou als {job_title}, rapporterend aan directe manager/supervisor vanaf {start_date} op {workplace_location}. De verwachte werkuren zijn {days_of_week}.</p>\n\n\n\n                    <p>In deze functie biedt {app_name} aan om je te starten tegen een salaris van {salary} per {salary_type}. U wordt betaald op basis van {salary_duration}.</p>\n\n\n\n                    <p>Als onderdeel van uw vergoeding, die u, indien van toepassing, ook aanbiedt, beschrijft u hier uw bonus, winstdeling, commissiestructuur, aandelenopties en regels van het vergoedingscomit&eacute;.</p>\n\n\n\n                    <p>Als medewerker van {app_name} kom je in aanmerking voor korte naamvoordelen, zoals een ziektekostenverzekering, aandelenplan, tandartsverzekering, enz.</p>\n\n\n\n                    <p>Geef aan dat u akkoord gaat met deze voorwaarden en accepteer deze aanbieding door deze overeenkomst op of v&oacute;&oacute;r {offer_expiration_date} te ondertekenen en te dateren.</p>\n\n\n\n                    <p>Eerlijk,</p>\n\n                    <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (180, 'pl', '<p style=\"text-align: center;\"><strong><span style=\"font-size: 18pt;\">List ofertowy</span></strong></p>\n\n                    <p>Drogi {applicant_name},</p>\n\n                    <p>{app_name} z radością zaprasza Cię do wsp&oacute;łpracy jako {job_title}.</p>\n\n                    <p>Od rozpoczęcia pracy dzieliło mnie tylko kilka formalności. Prosimy o poświęcenie czasu na zapoznanie się z naszą oficjalną ofertą. Zawiera ważne szczeg&oacute;ły dotyczące Twojego wynagrodzenia, świadczeń oraz warunk&oacute;w Twojego przewidywanego zatrudnienia w {app_name}.</p>\n\n\n                    <p>{app_name} oferuje {job_type}. stanowisko dla Ciebie jako {job_title}, raportowanie do bezpośredniego przełożonego/przełożonego począwszy od {start_date} w {workplace_location}. Przewidywane godziny pracy to {days_of_week}.</p>\n\n\n                    <p>Na tym stanowisku {app_name} oferuje Ci rozpoczęcie pracy za stawkę {salary} za {salary_type}. Otrzymasz zapłatę na podstawie {salary_duration}.</p>\n\n\n                    <p>W ramach wynagrodzenia, kt&oacute;re oferowaliśmy, jeśli dotyczy, opiszesz tutaj swoją premię, podział zysk&oacute;w, strukturę prowizji, opcje na akcje i zasady komitetu ds. Wynagrodzeń.</p>\n\n\n                    <p>Jako pracownik {app_name} będziesz mieć prawo do kr&oacute;tkich imiennych świadczeń, takich jak ubezpieczenie zdrowotne, plan akcji, ubezpieczenie dentystyczne itp.</p>\n\n                    <p>Zaznacz, że zgadzasz się z tymi warunkami i zaakceptuj tę ofertę, podpisując i datując tę ​​umowę w dniu {offer_expiration_date} lub wcześniej.</p>\n\n                    <p>Z poważaniem,</p>\n\n                    <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (181, 'pt', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Carta de oferta</strong></span></p>\n\n\n                    <p>Prezado {applicant_name},</p>\n\n\n                    <p>{app_name} tem o prazer de trazer voc&ecirc; a bordo como {job_title}.</p>\n\n\n                    <p>Faltavam apenas algumas formalidades para come&ccedil;ar a trabalhar. Por favor, reserve um tempo para revisar nossa oferta formal. Ele inclui detalhes importantes sobre sua remunera&ccedil;&atilde;o, benef&iacute;cios e os termos e condi&ccedil;&otilde;es de seu emprego previsto com {app_name}.</p>\n\n\n                    <p>{app_name} est&aacute; oferecendo um {job_type}. posi&ccedil;&atilde;o para voc&ecirc; como {job_title}, reportando-se ao gerente/supervisor imediato a partir de {start_date} em {workplace_location}. As horas de trabalho previstas s&atilde;o {days_of_week}.</p>\n\n\n                    <p>Nesta posi&ccedil;&atilde;o, {app_name} est&aacute; oferecendo para voc&ecirc; come&ccedil;ar com uma taxa de pagamento de {salary} por {salary_type}. Voc&ecirc; ser&aacute; pago em uma base de {salary_duration}.</p>\n\n\n                    <p>Como parte de sua remunera&ccedil;&atilde;o, tamb&eacute;m oferecida, se aplic&aacute;vel, voc&ecirc; descrever&aacute; seu b&ocirc;nus, participa&ccedil;&atilde;o nos lucros, estrutura de comiss&otilde;es, op&ccedil;&otilde;es de a&ccedil;&otilde;es e regras do comit&ecirc; de remunera&ccedil;&atilde;o aqui.</p>\n\n\n                    <p>Como funcion&aacute;rio de {app_name} , voc&ecirc; se qualificar&aacute; para benef&iacute;cios de nome breve, como seguro sa&uacute;de, plano de a&ccedil;&otilde;es, seguro odontol&oacute;gico etc.</p>\n\n\n                    <p>Indique sua concord&acirc;ncia com estes termos e aceite esta oferta assinando e datando este contrato em ou antes de {offer_expiration_date}.</p>\n\n\n                    <p>Sinceramente,</p>\n\n                    <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(182, 'ru', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Письмо с предложением</strong></span></p>\n\n\n                    <p>Уважаемый {applicant_name!</p>\n\n\n                    <p>{app_name} рад предложить вам присоединиться к нам в качестве {job_title}.</p>\n\n\n                    <p>Осталось всего несколько формальностей, чтобы приступить к работе. Пожалуйста, найдите время, чтобы ознакомиться с нашим официальным предложением. В нем содержится важная информация о вашем вознаграждении, льготах и ​​условиях вашего предполагаемого трудоустройства в {app_name}.</p>\n\n\n                    <p>{app_name} предлагает {job_type}. должность для вас как {job_title}, подчинение непосредственному руководителю/руководителю начиная с {start_date} в {workplace_location}. Ожидаемое рабочее время: {days_of_week}.</p>\n\n\n                    <p>На этой должности {app_name} предлагает вам начать работу со ставкой заработной платы {salary} за {salary_type}. Вам будут платить на основе {salary_duration}.</p>\n\n\n                    <p>В рамках вашего вознаграждения мы также предлагаем, если это применимо, вы описываете свой бонус, распределение прибыли, структуру комиссионных, опционы на акции и правила компенсационного комитета здесь.</p>\n\n\n                    <p>Как сотрудник {app_name}, вы будете иметь право на краткосрочные льготы, такие как медицинская страховка, план акций, стоматологическая страховка и т. д.</p>\n\n\n                    <p>Пожалуйста, подтвердите свое согласие с этими условиями и примите это предложение, подписав и датировав это соглашение не позднее {offer_expiration_date}.</p>\n\n\n                    <p>Искренне,</p>\n                    <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(182, 'ru', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Письмо с предложением</strong></span></p>\n\n\n                    <p>Уважаемый {applicant_name!</p>\n\n\n                    <p>{app_name} рад предложить вам присоединиться к нам в качестве {job_title}.</p>\n\n\n                    <p>Осталось всего несколько формальностей, чтобы приступить к работе. Пожалуйста, найдите время, чтобы ознакомиться с нашим официальным предложением. В нем содержится важная информация о вашем вознаграждении, льготах и ​​условиях вашего предполагаемого трудоустройства в {app_name}.</p>\n\n\n                    <p>{app_name} предлагает {job_type}. должность для вас как {job_title}, подчинение непосредственному руководителю/руководителю начиная с {start_date} в {workplace_location}. Ожидаемое рабочее время: {days_of_week}.</p>\n\n\n                    <p>На этой должности {app_name} предлагает вам начать работу со ставкой заработной платы {salary} за {salary_type}. Вам будут платить на основе {salary_duration}.</p>\n\n\n                    <p>В рамках вашего вознаграждения мы также предлагаем, если это применимо, вы описываете свой бонус, распределение прибыли, структуру комиссионных, опционы на акции и правила компенсационного комитета здесь.</p>\n\n\n                    <p>Как сотрудник {app_name}, вы будете иметь право на краткосрочные льготы, такие как медицинская страховка, план акций, стоматологическая страховка и т. д.</p>\n\n\n                    <p>Пожалуйста, подтвердите свое согласие с этими условиями и примите это предложение, подписав и датировав это соглашение не позднее {offer_expiration_date}.</p>\n\n\n                    <p>Искренне,</p>\n                    <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(183, 'ar', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>رسالة عرض</strong></span></p>\n\n\n                    <p>عزيزي {applicationant_name} ،</p>\n\n\n                    <p>{app_name} متحمس لاصطحابك على متن الطائرة بصفتك {job_title}.</p>\n\n                    <p>كنت على بعد خطوات قليلة من الشروع في العمل. يرجى أخذ الوقت الكافي لمراجعة عرضنا الرسمي. يتضمن تفاصيل مهمة حول راتبك ومزاياك وبنود وشروط عملك المتوقع مع {app_name}.</p>\n\n\n                    <p>{app_name} يقدم {job_type}. المنصب بالنسبة لك كـ {job_title} ، تقديم التقارير إلى [المدير المباشر / المشرف] بدءًا من {start_date} في {workplace_location}. ساعات العمل المتوقعة هي {days_of_week}.</p>\n\n\n                    <p>في هذا المنصب ، يعرض عليك {app_name}&nbsp; {salary}أن تبدأ لك بمعدل دفع {salary_type} لكل {salary_duration}. سوف يتم الدفع لك على أساس.</p>\n\n\n                    <p>كجزء من تعويضك ، إذا كان ذلك ممكنًا ، ستصف مكافأتك ومشاركة الأرباح وهيكل العمولة وخيارات الأسهم وقواعد لجنة التعويضات هنا.</p>\n\n\n                    <p>بصفتك موظفًا في {app_name} ، ستكون مؤهلاً للحصول على مزايا الاسم المختصر ، مثل التأمين الصحي ، وخطة الأسهم ، والتأمين على الأسنان ، وما إلى ذلك.</p>\n\n\n                    <p>الرجاء توضيح موافقتك على هذه البنود وقبول هذا العرض عن طريق التوقيع على هذه الاتفاقية وتأريخها في أو قبل {offer_expiration_date}.</p>\n\n                    <p>بإخلاص،</p>\n\n                    <p>{app_name}</p>\n                    ', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(184, 'da', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Tilbudsbrev</strong></span></p>\n\n                    <p>K&aelig;re {applicant_name}</p>\n\n                    <p>{app_name} er glade for at f&aring; dig med som {job_title}.</p>\n\n                    <p>Der var kun et par formaliteter fra at komme p&aring; arbejde. Tag dig tid til at gennemg&aring; vores formelle tilbud. Den indeholder vigtige oplysninger om din kompensation, fordele og vilk&aring;rene og betingelserne for din forventede ans&aelig;ttelse hos {app_name}.</p>\n\n                    <p>{app_name} tilbyder en {job_type}. stilling til dig som {job_title}, der rapporterer til [n&aelig;rmeste leder/supervisor] fra og med {start_date} p&aring;{workplace_location}. Forventet arbejdstid er {days_of_week}.</p>\n\n\n                    <p>I denne stilling tilbyder {app_name} at starte dig med en l&oslash;nsats p&aring; {salary} pr. {salary_type}. Du vil blive betalt p&aring; {salary_duration}-basis.</p>\n\n                    <p>Som en del af din kompensation, du ogs&aring; tilbyder, hvis det er relevant, vil du beskrive din bonus, overskudsdeling, kommissionsstruktur, aktieoptioner og regler for kompensationsudvalget her.</p>\n\n\n                    <p>Som ansat hos {app_name} vil du v&aelig;re berettiget til kort navnefordele, s&aring;som sundhedsforsikring, aktieplan, tandforsikring osv.</p>\n\n                    <p>Angiv venligst din accept af disse vilk&aring;r og accepter dette tilbud ved at underskrive og datere denne aftale p&aring; eller f&oslash;r {offer_expiration_date}.</p>\n\n                    <p>Med venlig hilsen</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(185, 'de', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Angebotsschreiben</strong></span></p>\n\n\n                    <p>Sehr geehrter {applicant_name},</p>\n\n\n                    <p>{app_name} freut sich, Sie als {job_title} an Bord zu holen.</p>\n\n\n                    <p>Nur noch wenige Formalit&auml;ten bis zur Arbeit. Bitte nehmen Sie sich die Zeit, unser formelles Angebot zu pr&uuml;fen. Es enth&auml;lt wichtige Details zu Ihrer Verg&uuml;tung, Ihren Leistungen und den Bedingungen Ihrer voraussichtlichen Anstellung bei {app_name}.</p>\n\n\n                    <p>{app_name} bietet einen {job_type} an. Position f&uuml;r Sie als {job_title}, ab {start_date} am {workplace_location} unterstellt an unmittelbarer Manager/Vorgesetzter. Erwartete Arbeitszeiten sind {days_of_week}.</p>\n\n\n                    <p>In dieser Position bietet {app_name} Ihnen an, mit einem Gehaltssatz von {salary} pro {salary_type} zu beginnen. Sie werden auf Basis von {salary_duration} bezahlt.</p>\n\n\n                    <p>Als Teil Ihrer Verg&uuml;tung, die Sie gegebenenfalls auch anbieten, beschreiben Sie hier Ihren Bonus, Ihre Gewinnbeteiligung, Ihre Provisionsstruktur, Ihre Aktienoptionen und die Regeln des Verg&uuml;tungsausschusses.</p>\n\n\n                    <p>Als Mitarbeiter von {app_name} haben Sie Anspruch auf Kurznamenvorteile wie Krankenversicherung, Aktienplan, Zahnversicherung usw.</p>\n\n\n\n                    <p>Bitte erkl&auml;ren Sie Ihr Einverst&auml;ndnis mit diesen Bedingungen und nehmen Sie dieses Angebot an, indem Sie diese Vereinbarung am oder vor dem {offer_expiration_date} unterzeichnen und datieren.</p>\n\n\n                    <p>Aufrichtig,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(186, 'en', '<p style=\"text-align: center;\"><strong>Offer Letter</strong></p>\n\n                    <p>Dear {applicant_name},</p>\n\n                    <p>{app_name} is excited to bring you on board as {job_title}.</p>\n\n                    <p>Were just a few formalities away from getting down to work. Please take the time to review our formal offer. It includes important details about your compensation, benefits, and the terms and conditions of your anticipated employment with {app_name}.</p>\n\n                    <p>{app_name} is offering a {job_type}. position for you as {job_title}, reporting to [immediate manager/supervisor] starting on {start_date} at{workplace_location}. Expected hours of work are{days_of_week}.</p>\n\n                    <p>In this position, {app_name} is offering to start you at a pay rate of {salary} per {salary_type}. You will be paid on a{salary_duration} basis.&nbsp;</p>\n\n                    <p>As part of your compensation, were also offering [if applicable, youll describe your bonus, profit sharing, commission structure, stock options, and compensation committee rules here].</p>\n\n                    <p>As an employee of {app_name} , you will be eligible for briefly name benefits, such as health insurance, stock plan, dental insurance, etc.</p>\n\n                    <p>Please indicate your agreement with these terms and accept this offer by signing and dating this agreement on or before {offer_expiration_date}.</p>\n\n                    <p>Sincerely,</p>\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(187, 'es', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Carta de oferta</strong></span></p>\n\n\n                    <p>Estimado {applicant_name},</p>\n\n                    <p>{app_name} se complace en incorporarlo como {job_title}.</p>\n\n\n                    <p>Faltaban s&oacute;lo unos tr&aacute;mites para ponerse manos a la obra. T&oacute;mese el tiempo para revisar nuestra oferta formal. Incluye detalles importantes sobre su compensaci&oacute;n, beneficios y los t&eacute;rminos y condiciones de su empleo anticipado con {app_name}.</p>\n\n\n                    <p>{app_name} est&aacute; ofreciendo {job_type}. posici&oacute;n para usted como {job_title}, reportando al gerente/supervisor inmediato a partir del {start_date} en {workplace_location}. Las horas de trabajo esperadas son {days_of_week}.</p>\n\n\n                    <p>En este puesto, {app_name} te ofrece comenzar con una tarifa de pago de {salary} por {salary_type}. Se le pagar&aacute; sobre la base de {salary_duration}.</p>\n\n\n                    <p>Como parte de su compensaci&oacute;n, tambi&eacute;n ofrecemos, si corresponde, aqu&iacute; describir&aacute; su bonificaci&oacute;n, participaci&oacute;n en las ganancias, estructura de comisiones, opciones sobre acciones y reglas del comit&eacute; de compensaci&oacute;n.</p>\n\n\n                    <p>Como empleado de {app_name}, ser&aacute; elegible para beneficios de nombre breve, como seguro m&eacute;dico, plan de acciones, seguro dental, etc.</p>\n\n\n                    <p>Indique su acuerdo con estos t&eacute;rminos y acepte esta oferta firmando y fechando este acuerdo el {offer_expiration_date} o antes.</p>\n\n\n                    <p>Sinceramente,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(188, 'fr', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Lettre doffre</strong></span></p>\n\n\n                    <p>Cher {applicant_name},</p>\n\n\n                    <p>{app_name} est ravi de vous accueillir en tant que {job_title}.</p>\n\n\n                    <p>&Eacute;taient juste quelques formalit&eacute;s loin de se mettre au travail. Veuillez prendre le temps dexaminer notre offre formelle. Il comprend des d&eacute;tails importants sur votre r&eacute;mun&eacute;ration, vos avantages et les termes et conditions de votre emploi pr&eacute;vu avec {app_name}.</p>\n\n\n                    <p>{app_name} propose un {job_type}. poste pour vous en tant que {job_title}, relevant du directeur/superviseur imm&eacute;diat &agrave; partir du {start_date} &agrave; {workplace_location}. Les heures de travail pr&eacute;vues sont de {days_of_week}.</p>\n\n\n                    <p>&Agrave; ce poste, {app_name} vous propose de commencer avec un taux de r&eacute;mun&eacute;ration de {salary} par {salary_type}. Vous serez pay&eacute; sur une base de {salary_duration}.</p>\n\n\n                    <p>Dans le cadre de votre r&eacute;mun&eacute;ration, le cas &eacute;ch&eacute;ant, vous d&eacute;crivez ici votre bonus, votre participation aux b&eacute;n&eacute;fices, votre structure de commission, vos options sur actions et les r&egrave;gles du comit&eacute; de r&eacute;mun&eacute;ration.</p>\n\n\n                    <p>En tant quemploy&eacute; de {app_name}, vous aurez droit &agrave; des avantages bri&egrave;vement nomm&eacute;s, tels que lassurance maladie, le plan dactionnariat, lassurance dentaire, etc.</p>\n\n\n                    <p>Veuillez indiquer votre accord avec ces conditions et accepter cette offre en signant et en datant cet accord au plus tard le {offer_expiration_date}.</p>\n\n\n                    <p>Sinc&egrave;rement,</p>\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(189, 'id', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Surat penawaran</strong></span></p>\n\n\n                    <p>{applicant_name} yang terhormat,</p>\n\n\n                    <p>{app_name} dengan senang hati membawa Anda sebagai {job_title}.</p>\n\n\n                    <p>Tinggal beberapa formalitas lagi untuk mulai bekerja. Harap luangkan waktu untuk meninjau penawaran resmi kami. Ini mencakup detail penting tentang kompensasi, tunjangan, serta persyaratan dan ketentuan pekerjaan yang Anda harapkan dengan {app_name}.</p>\n\n\n                    <p>{app_name} menawarkan {job_type}. posisi untuk Anda sebagai {job_title}, melapor ke manajer/penyelia langsung mulai {start_date} di{workplace_location}. Jam kerja yang diharapkan adalah{days_of_week}.</p>\n\n\n                    <p>Di posisi ini, {app_name} menawarkan untuk memulai Anda dengan tarif pembayaran {salary} per {salary_type}. Anda akan dibayar berdasarkan {salary_duration}.</p>\n\n\n                    <p>Sebagai bagian dari kompensasi Anda, yang juga ditawarkan jika berlaku, Anda akan menjelaskan bonus, pembagian keuntungan, struktur komisi, opsi saham, dan aturan komite kompensasi Anda di sini.</p>\n\n\n                    <p>Sebagai karyawan {app_name} , Anda akan memenuhi syarat untuk mendapatkan manfaat singkat, seperti asuransi kesehatan, paket saham, asuransi gigi, dll.</p>\n\n\n                    <p>Harap tunjukkan persetujuan Anda dengan persyaratan ini dan terima penawaran ini dengan menandatangani dan memberi tanggal pada perjanjian ini pada atau sebelum {offer_expiration_date}.</p>\n\n\n                    <p>Sungguh-sungguh,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(190, 'it', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Lettera di offerta</strong></span></p>\n\n\n                    <p>Gentile {nome_richiedente},</p>\n\n\n                    <p>{app_name} &egrave; entusiasta di portarti a bordo come {job_title}.</p>\n\n\n                    <p>Mancavano solo poche formalit&agrave; per mettersi al lavoro. Per favore, prenditi del tempo per rivedere la nostra offerta formale. Include dettagli importanti sul compenso, i vantaggi e i termini e le condizioni del tuo impiego previsto con {app_name}.</p>\n\n\n                    <p>{app_name} offre un {job_type}. posizione per te come {job_title}, riportando al manager/supervisore immediato a partire da {start_date} a {workplace_location}. Lorario di lavoro previsto &egrave; di {days_of_week}.</p>\n\n\n                    <p>In questa posizione, {app_name} ti offre di iniziare con una paga di {salary} per {salary_type}. Sarai pagato su base {salary_duration}.</p>\n\n\n                    <p>Come parte del tuo compenso, se applicabile, descrivi anche il tuo bonus, la partecipazione agli utili, la struttura delle commissioni, le stock option e le regole del comitato di compensazione qui.</p>\n\n\n                    <p>In qualit&agrave; di dipendente di {app_name} , avrai diritto a vantaggi per nomi brevi, come assicurazione sanitaria, piano azionario, assicurazione dentale, ecc.</p>\n\n\n                    <p>Indica il tuo accordo con questi termini e accetta questa offerta firmando e datando questo accordo entro il {offer_expiration_date}.</p>\n\n\n                    <p>Cordiali saluti,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(191, 'ja', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>内定通知</strong></span></p>\n\n\n                    <p>{applicant_name} 様</p>\n\n                    <p>{app_name} は、あなたを {job_title} として迎えることに興奮しています。</p>\n\n                    <p>仕事に取り掛かる前に、ほんの少しの手続きがありました。時間をかけて正式なオファーを確認してください。これには、あなたの報酬、福利厚生、および {app_name} での予想される雇用条件に関する重要な詳細が含まれています。</p>\n\n                    <p>{app_name} が {job_type} を提供しています。 {job_title} として、{start_date} から {workplace_location} の直属のマネージャー/スーパーバイザーに報告します。予想される勤務時間は {days_of_week} です。</p>\n\n                    <p>このポジションでは、{app_name} は、{salary_type} あたり {salary} の賃金率であなたをスタートさせることを提案しています。 {salary_duration} 単位で支払われます。</p>\n\n                    <p>報酬の一部として、該当する場合は提供もしていました。ボーナス、利益分配、手数料体系、ストック オプション、および報酬委員会の規則についてここに説明します。</p>\n\n                    <p>{app_name} の従業員として、健康保険、ストック プラン、歯科保険などの簡単な名前の特典を受ける資格があります。</p>\n\n                    <p>{offer_expiration_date} 日までに本契約に署名し日付を記入して、これらの条件に同意し、このオファーを受け入れてください。</p>\n\n                    <p>心から、</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(192, 'nl', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Aanbiedingsbrief</strong></span></p>\n\n\n\n                    <p>Beste {applicant_name},</p>\n\n\n\n                    <p>{app_name} is verheugd je aan boord te mogen verwelkomen als {job_title}.</p>\n\n\n\n                    <p>Waren slechts een paar formaliteiten verwijderd om aan het werk te gaan. Neem de tijd om ons formele aanbod te bekijken. Het bevat belangrijke details over uw vergoeding, voordelen en de voorwaarden van uw verwachte dienstverband bij {app_name}.</p>\n\n\n\n                    <p>{app_name} biedt een {job_type} aan. functie voor jou als {job_title}, rapporterend aan directe manager/supervisor vanaf {start_date} op {workplace_location}. De verwachte werkuren zijn {days_of_week}.</p>\n\n\n\n                    <p>In deze functie biedt {app_name} aan om je te starten tegen een salaris van {salary} per {salary_type}. U wordt betaald op basis van {salary_duration}.</p>\n\n\n\n                    <p>Als onderdeel van uw vergoeding, die u, indien van toepassing, ook aanbiedt, beschrijft u hier uw bonus, winstdeling, commissiestructuur, aandelenopties en regels van het vergoedingscomit&eacute;.</p>\n\n\n\n                    <p>Als medewerker van {app_name} kom je in aanmerking voor korte naamvoordelen, zoals een ziektekostenverzekering, aandelenplan, tandartsverzekering, enz.</p>\n\n\n\n                    <p>Geef aan dat u akkoord gaat met deze voorwaarden en accepteer deze aanbieding door deze overeenkomst op of v&oacute;&oacute;r {offer_expiration_date} te ondertekenen en te dateren.</p>\n\n\n\n                    <p>Eerlijk,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(193, 'pl', '<p style=\"text-align: center;\"><strong><span style=\"font-size: 18pt;\">List ofertowy</span></strong></p>\n\n                    <p>Drogi {applicant_name},</p>\n\n                    <p>{app_name} z radością zaprasza Cię do wsp&oacute;łpracy jako {job_title}.</p>\n\n                    <p>Od rozpoczęcia pracy dzieliło mnie tylko kilka formalności. Prosimy o poświęcenie czasu na zapoznanie się z naszą oficjalną ofertą. Zawiera ważne szczeg&oacute;ły dotyczące Twojego wynagrodzenia, świadczeń oraz warunk&oacute;w Twojego przewidywanego zatrudnienia w {app_name}.</p>\n\n\n                    <p>{app_name} oferuje {job_type}. stanowisko dla Ciebie jako {job_title}, raportowanie do bezpośredniego przełożonego/przełożonego począwszy od {start_date} w {workplace_location}. Przewidywane godziny pracy to {days_of_week}.</p>\n\n\n                    <p>Na tym stanowisku {app_name} oferuje Ci rozpoczęcie pracy za stawkę {salary} za {salary_type}. Otrzymasz zapłatę na podstawie {salary_duration}.</p>\n\n\n                    <p>W ramach wynagrodzenia, kt&oacute;re oferowaliśmy, jeśli dotyczy, opiszesz tutaj swoją premię, podział zysk&oacute;w, strukturę prowizji, opcje na akcje i zasady komitetu ds. Wynagrodzeń.</p>\n\n\n                    <p>Jako pracownik {app_name} będziesz mieć prawo do kr&oacute;tkich imiennych świadczeń, takich jak ubezpieczenie zdrowotne, plan akcji, ubezpieczenie dentystyczne itp.</p>\n\n                    <p>Zaznacz, że zgadzasz się z tymi warunkami i zaakceptuj tę ofertę, podpisując i datując tę ​​umowę w dniu {offer_expiration_date} lub wcześniej.</p>\n\n                    <p>Z poważaniem,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(194, 'pt', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Carta de oferta</strong></span></p>\n\n\n                    <p>Prezado {applicant_name},</p>\n\n\n                    <p>{app_name} tem o prazer de trazer voc&ecirc; a bordo como {job_title}.</p>\n\n\n                    <p>Faltavam apenas algumas formalidades para come&ccedil;ar a trabalhar. Por favor, reserve um tempo para revisar nossa oferta formal. Ele inclui detalhes importantes sobre sua remunera&ccedil;&atilde;o, benef&iacute;cios e os termos e condi&ccedil;&otilde;es de seu emprego previsto com {app_name}.</p>\n\n\n                    <p>{app_name} est&aacute; oferecendo um {job_type}. posi&ccedil;&atilde;o para voc&ecirc; como {job_title}, reportando-se ao gerente/supervisor imediato a partir de {start_date} em {workplace_location}. As horas de trabalho previstas s&atilde;o {days_of_week}.</p>\n\n\n                    <p>Nesta posi&ccedil;&atilde;o, {app_name} est&aacute; oferecendo para voc&ecirc; come&ccedil;ar com uma taxa de pagamento de {salary} por {salary_type}. Voc&ecirc; ser&aacute; pago em uma base de {salary_duration}.</p>\n\n\n                    <p>Como parte de sua remunera&ccedil;&atilde;o, tamb&eacute;m oferecida, se aplic&aacute;vel, voc&ecirc; descrever&aacute; seu b&ocirc;nus, participa&ccedil;&atilde;o nos lucros, estrutura de comiss&otilde;es, op&ccedil;&otilde;es de a&ccedil;&otilde;es e regras do comit&ecirc; de remunera&ccedil;&atilde;o aqui.</p>\n\n\n                    <p>Como funcion&aacute;rio de {app_name} , voc&ecirc; se qualificar&aacute; para benef&iacute;cios de nome breve, como seguro sa&uacute;de, plano de a&ccedil;&otilde;es, seguro odontol&oacute;gico etc.</p>\n\n\n                    <p>Indique sua concord&acirc;ncia com estes termos e aceite esta oferta assinando e datando este contrato em ou antes de {offer_expiration_date}.</p>\n\n\n                    <p>Sinceramente,</p>\n\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(195, 'ru', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>Письмо с предложением</strong></span></p>\n\n\n                    <p>Уважаемый {applicant_name!</p>\n\n\n                    <p>{app_name} рад предложить вам присоединиться к нам в качестве {job_title}.</p>\n\n\n                    <p>Осталось всего несколько формальностей, чтобы приступить к работе. Пожалуйста, найдите время, чтобы ознакомиться с нашим официальным предложением. В нем содержится важная информация о вашем вознаграждении, льготах и ​​условиях вашего предполагаемого трудоустройства в {app_name}.</p>\n\n\n                    <p>{app_name} предлагает {job_type}. должность для вас как {job_title}, подчинение непосредственному руководителю/руководителю начиная с {start_date} в {workplace_location}. Ожидаемое рабочее время: {days_of_week}.</p>\n\n\n                    <p>На этой должности {app_name} предлагает вам начать работу со ставкой заработной платы {salary} за {salary_type}. Вам будут платить на основе {salary_duration}.</p>\n\n\n                    <p>В рамках вашего вознаграждения мы также предлагаем, если это применимо, вы описываете свой бонус, распределение прибыли, структуру комиссионных, опционы на акции и правила компенсационного комитета здесь.</p>\n\n\n                    <p>Как сотрудник {app_name}, вы будете иметь право на краткосрочные льготы, такие как медицинская страховка, план акций, стоматологическая страховка и т. д.</p>\n\n\n                    <p>Пожалуйста, подтвердите свое согласие с этими условиями и примите это предложение, подписав и датировав это соглашение не позднее {offer_expiration_date}.</p>\n\n\n                    <p>Искренне,</p>\n                    <p>{app_name}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `genrate_payslip_options`
+-- Table structure for table `genrate_payslip_options`
 --
 
 CREATE TABLE `genrate_payslip_options` (
@@ -3162,7 +3298,7 @@ CREATE TABLE `genrate_payslip_options` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goals`
+-- Table structure for table `goals`
 --
 
 CREATE TABLE `goals` (
@@ -3181,7 +3317,7 @@ CREATE TABLE `goals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goal_trackings`
+-- Table structure for table `goal_trackings`
 --
 
 CREATE TABLE `goal_trackings` (
@@ -3204,7 +3340,7 @@ CREATE TABLE `goal_trackings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `goal_types`
+-- Table structure for table `goal_types`
 --
 
 CREATE TABLE `goal_types` (
@@ -3216,7 +3352,7 @@ CREATE TABLE `goal_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `goal_types`
+-- Dumping data for table `goal_types`
 --
 
 INSERT INTO `goal_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -3225,7 +3361,7 @@ INSERT INTO `goal_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `holidays`
+-- Table structure for table `holidays`
 --
 
 CREATE TABLE `holidays` (
@@ -3241,7 +3377,7 @@ CREATE TABLE `holidays` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `indicators`
+-- Table structure for table `indicators`
 --
 
 CREATE TABLE `indicators` (
@@ -3265,7 +3401,7 @@ CREATE TABLE `indicators` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `interview_schedules`
+-- Table structure for table `interview_schedules`
 --
 
 CREATE TABLE `interview_schedules` (
@@ -3284,7 +3420,7 @@ CREATE TABLE `interview_schedules` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoices`
+-- Table structure for table `invoices`
 --
 
 CREATE TABLE `invoices` (
@@ -3309,30 +3445,36 @@ CREATE TABLE `invoices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `invoices`
+-- Dumping data for table `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `invoice_id`, `customer_id`, `issue_date`, `due_date`, `send_date`, `category_id`, `ref_number`, `status`, `shipping_display`, `discount_apply`, `recurring`, `recurring_registered`, `next_invoice_date`, `invoice_interval`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 1, 12, '2022-11-19', '2022-12-19', '2022-11-19', 8, NULL, 4, 1, 0, NULL, NULL, NULL, NULL, 10, '2022-11-20 01:59:45', '2022-11-20 02:02:17'),
 (2, 2, 12, '2022-11-19', '2022-11-20', '2022-11-19', 8, NULL, 4, 1, 0, NULL, NULL, NULL, NULL, 10, '2022-11-20 02:22:34', '2022-11-30 23:42:16'),
 (3, 3, 12, '2022-11-24', '2022-11-24', NULL, 8, NULL, 0, 1, 0, NULL, NULL, NULL, NULL, 10, '2022-11-24 15:23:29', '2022-11-24 15:23:29'),
-(25, 1, 18, '2023-01-06', '2023-01-06', '2023-01-06', 13, '076', 3, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-06 20:04:27', '2023-01-29 13:58:08'),
+(25, 1, 18, '2023-01-04', '2023-01-06', '2023-01-06', 13, '076', 3, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-06 20:04:27', '2023-02-17 02:16:05'),
 (26, 2, 22, '2023-01-04', '2023-01-06', '2023-01-06', 13, '073', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-06 20:22:05', '2023-01-29 13:57:06'),
-(29, 5, 22, '2023-01-20', '2023-01-20', '2023-01-20', 13, '084', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-21 02:40:57', '2023-01-29 13:59:45'),
+(29, 5, 22, '2023-01-21', '2023-01-20', '2023-01-20', 13, '084', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-21 02:40:57', '2023-02-17 02:13:27'),
 (30, 6, 22, '2023-01-30', '2023-01-30', '2023-01-30', 13, '257', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-01-30 19:33:30', '2023-01-30 23:59:58'),
 (31, 7, 25, '2023-02-01', '2023-02-01', '2023-02-01', 13, NULL, 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-02 02:14:59', '2023-02-02 02:16:11'),
 (32, 8, 27, '2023-02-01', '2023-02-28', '2023-02-01', 13, '090', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-02 02:23:59', '2023-02-02 02:24:29'),
 (33, 9, 24, '2023-02-01', '2023-02-01', '2023-02-01', 13, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-02 02:26:13', '2023-02-02 02:26:46'),
 (34, 10, 24, '2023-02-09', '2023-02-09', '2023-02-09', 13, NULL, 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-09 18:07:18', '2023-02-09 18:14:11'),
-(36, 11, 25, '2023-02-09', '2023-02-09', NULL, 13, NULL, 0, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-09 18:47:38', '2023-02-09 18:47:38'),
+(36, 11, 25, '2023-02-06', '2023-02-09', NULL, 13, NULL, 0, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-09 18:47:38', '2023-02-17 02:32:19'),
 (37, 1, 19, '2023-02-11', '2023-03-11', NULL, 16, NULL, 0, 1, 0, NULL, NULL, NULL, NULL, 21, '2023-02-11 15:35:52', '2023-02-11 15:35:52'),
 (38, 12, 24, '2023-02-11', '2023-02-11', NULL, 13, NULL, 0, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-11 17:29:20', '2023-02-11 17:29:20'),
-(43, 2, 19, '2023-02-14', '2023-02-14', NULL, 16, '123', 0, 1, 0, 1, 0, '2023-05-14 12:52:31', '+3month', 21, '2023-02-14 12:52:31', '2023-02-14 12:52:31');
+(43, 2, 19, '2023-02-14', '2023-02-14', NULL, 16, '123', 0, 1, 0, 1, 0, '2023-05-14 12:52:31', '+3month', 21, '2023-02-14 12:52:31', '2023-02-14 12:52:31'),
+(44, 1, 2, '2023-02-16', '2023-02-18', '2023-02-17', 3, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 2, '2023-02-16 22:31:58', '2023-02-17 14:57:51'),
+(45, 13, 25, '2023-02-01', '2023-02-28', '2023-02-16', 13, '088', 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-17 02:28:05', '2023-02-17 02:57:32'),
+(46, 14, 27, '2023-02-07', '2023-02-28', NULL, 13, '100', 0, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-17 02:37:45', '2023-02-17 02:40:03'),
+(47, 15, 30, '2023-02-16', '2023-02-16', '2023-02-16', 13, NULL, 4, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-17 02:41:41', '2023-02-17 02:43:00'),
+(48, 16, 30, '2023-02-16', '2023-02-16', '2023-02-16', 13, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-17 02:55:29', '2023-02-17 02:56:11'),
+(49, 17, 32, '2023-02-17', '2023-02-28', NULL, 13, '004', 0, 1, 0, NULL, NULL, NULL, NULL, 11, '2023-02-17 23:39:07', '2023-02-17 23:39:07');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoice_payments`
+-- Table structure for table `invoice_payments`
 --
 
 CREATE TABLE `invoice_payments` (
@@ -3355,7 +3497,7 @@ CREATE TABLE `invoice_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `invoice_payments`
+-- Dumping data for table `invoice_payments`
 --
 
 INSERT INTO `invoice_payments` (`id`, `invoice_id`, `date`, `amount`, `account_id`, `payment_method`, `receipt`, `payment_type`, `txn_id`, `currency`, `order_id`, `reference`, `add_receipt`, `description`, `created_at`, `updated_at`) VALUES
@@ -3369,12 +3511,14 @@ INSERT INTO `invoice_payments` (`id`, `invoice_id`, `date`, `amount`, `account_i
 (18, 30, '2023-01-30', '183.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'tranferencia', NULL, NULL, '2023-01-30 23:59:58', '2023-01-30 23:59:58'),
 (19, 31, '2023-02-01', '499.50', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'tranferencia', NULL, NULL, '2023-02-02 02:16:11', '2023-02-02 02:16:11'),
 (20, 32, '2023-02-01', '590.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'EFECTIVO', NULL, NULL, '2023-02-02 02:24:29', '2023-02-02 02:24:29'),
-(21, 34, '2023-02-09', '4352.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'tranferencia', NULL, NULL, '2023-02-09 18:14:11', '2023-02-09 18:14:11');
+(21, 34, '2023-02-09', '4352.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'tranferencia', NULL, NULL, '2023-02-09 18:14:11', '2023-02-09 18:14:11'),
+(22, 47, '2023-02-15', '1652.00', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'EFECTIVO', NULL, NULL, '2023-02-17 02:43:00', '2023-02-17 02:43:00'),
+(23, 45, '2023-02-01', '499.50', 4, 0, NULL, 'Manually', NULL, NULL, NULL, 'EFECTIVO', NULL, NULL, '2023-02-17 02:57:32', '2023-02-17 02:57:32');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `invoice_products`
+-- Table structure for table `invoice_products`
 --
 
 CREATE TABLE `invoice_products` (
@@ -3391,7 +3535,7 @@ CREATE TABLE `invoice_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `invoice_products`
+-- Dumping data for table `invoice_products`
 --
 
 INSERT INTO `invoice_products` (`id`, `invoice_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
@@ -3426,12 +3570,33 @@ INSERT INTO `invoice_products` (`id`, `invoice_id`, `product_id`, `quantity`, `t
 (58, 38, 77, 2, NULL, 0.00, '170.00', NULL, '2023-02-11 17:29:20', '2023-02-11 17:29:20'),
 (59, 39, 17, 1, '2', 0.00, '80.00', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '2023-02-14 12:49:46', '2023-02-14 12:49:46'),
 (60, 41, 17, 1, '2', 0.00, '80.00', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '2023-02-14 12:50:32', '2023-02-14 12:50:32'),
-(61, 43, 17, 1, '2', 0.00, '80.00', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '2023-02-14 12:52:31', '2023-02-14 12:52:31');
+(61, 43, 17, 1, '2', 0.00, '80.00', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '2023-02-14 12:52:31', '2023-02-14 12:52:31'),
+(62, 44, 2, 1, NULL, 0.00, '10.00', 'teste', '2023-02-16 22:31:58', '2023-02-16 22:31:58'),
+(63, 45, 46, 7, NULL, 0.00, '2.50', NULL, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(64, 45, 47, 1, NULL, 0.00, '12.00', NULL, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(65, 45, 48, 6, NULL, 0.00, '20.00', NULL, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(66, 45, 49, 3, NULL, 0.00, '20.00', NULL, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(67, 45, 45, 1, NULL, 0.00, '290.00', NULL, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(68, 46, 27, 6, NULL, 0.00, '350.00', NULL, '2023-02-17 02:37:45', '2023-02-17 02:37:45'),
+(69, 46, 29, 1, NULL, 0.00, '2600.00', NULL, '2023-02-17 02:37:45', '2023-02-17 02:37:45'),
+(70, 47, 81, 1, NULL, 0.00, '385.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(71, 47, 45, 1, NULL, 0.00, '270.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(72, 47, 83, 25, NULL, 0.00, '8.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(73, 47, 82, 24, NULL, 0.00, '12.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(74, 47, 47, 6, NULL, 0.00, '12.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(75, 47, 79, 5, NULL, 0.00, '75.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(76, 47, 84, 2, NULL, 0.00, '13.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(77, 47, 56, 1, NULL, 0.00, '16.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(78, 47, 48, 1, NULL, 0.00, '20.00', NULL, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(79, 48, 93, 3, NULL, 0.00, '18.00', NULL, '2023-02-17 02:55:29', '2023-02-17 02:55:29'),
+(80, 48, 82, 3, NULL, 0.00, '12.00', NULL, '2023-02-17 02:55:29', '2023-02-17 02:55:29'),
+(81, 48, 94, 70, NULL, 0.00, '3.00', NULL, '2023-02-17 02:55:29', '2023-02-17 02:55:29'),
+(82, 49, 95, 8, NULL, 0.00, '12.00', NULL, '2023-02-17 23:39:07', '2023-02-17 23:39:07');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ip_restricts`
+-- Table structure for table `ip_restricts`
 --
 
 CREATE TABLE `ip_restricts` (
@@ -3445,7 +3610,7 @@ CREATE TABLE `ip_restricts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `jobs`
+-- Table structure for table `jobs`
 --
 
 CREATE TABLE `jobs` (
@@ -3472,7 +3637,7 @@ CREATE TABLE `jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_applications`
+-- Table structure for table `job_applications`
 --
 
 CREATE TABLE `job_applications` (
@@ -3503,7 +3668,7 @@ CREATE TABLE `job_applications` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_application_notes`
+-- Table structure for table `job_application_notes`
 --
 
 CREATE TABLE `job_application_notes` (
@@ -3519,7 +3684,7 @@ CREATE TABLE `job_application_notes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_categories`
+-- Table structure for table `job_categories`
 --
 
 CREATE TABLE `job_categories` (
@@ -3533,7 +3698,7 @@ CREATE TABLE `job_categories` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_on_boards`
+-- Table structure for table `job_on_boards`
 --
 
 CREATE TABLE `job_on_boards` (
@@ -3555,7 +3720,7 @@ CREATE TABLE `job_on_boards` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `job_stages`
+-- Table structure for table `job_stages`
 --
 
 CREATE TABLE `job_stages` (
@@ -3568,7 +3733,7 @@ CREATE TABLE `job_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `job_stages`
+-- Dumping data for table `job_stages`
 --
 
 INSERT INTO `job_stages` (`id`, `title`, `order`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -3641,12 +3806,17 @@ INSERT INTO `job_stages` (`id`, `title`, `order`, `created_by`, `created_at`, `u
 (67, 'Phone Screen', 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (68, 'Interview', 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (69, 'Hired', 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(70, 'Rejected', 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(70, 'Rejected', 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(71, 'Applied', 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(72, 'Phone Screen', 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Interview', 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'Hired', 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'Rejected', 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `joining_letters`
+-- Table structure for table `joining_letters`
 --
 
 CREATE TABLE `joining_letters` (
@@ -3659,7 +3829,7 @@ CREATE TABLE `joining_letters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `joining_letters`
+-- Dumping data for table `joining_letters`
 --
 
 INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -3882,12 +4052,28 @@ INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_a
 (180, 'pl', '<h3 style=\"text-align: center;\">Dołączanie listu</h3>\n            \n            <p>{date }</p>\n            \n            <p>{employee_name }</p>\n            \n            <p>{address }</p>\n            \n            \n            <p>Dotyczy: mianowania na stanowisko {designation}</p>\n            \n            <p>Szanowny {employee_name },</p>\n            \n            <p>Mamy przyjemność zaoferować Państwu, stanowisko {designation} z {app_name } \"Sp&oacute;łka\" na poniższych warunkach i</p>\n            <p>warunki:</p>\n            \n            <p>1. Rozpoczęcie pracy</p>\n            \n            <p>Twoje zatrudnienie będzie skuteczne, jak na {start_date }</p>\n            \n            <p>2. Tytuł zadania</p>\n            <p>Tw&oacute;j tytuł pracy to {designation}.</p>\n            \n            <p>3. Salary</p>\n            \n            <p>Twoje wynagrodzenie i inne świadczenia będą określone w Zestawieniu 1, do niniejszego rozporządzenia.</p>\n            \n            \n            <p>4. Miejsce delegowania</p>\n            <p>Użytkownik zostanie opublikowany w {branch }. Użytkownik może jednak być zobowiązany do pracy w dowolnym miejscu prowadzenia działalności, kt&oacute;re Sp&oacute;łka posiada, lub może p&oacute;źniej nabyć.</p>\n            \n            <p>5. Godziny pracy</p>\n            <p>Normalne dni robocze są od poniedziałku do piątku. Będziesz zobowiązany do pracy na takie godziny, jakie są niezbędne do prawidłowego wywiązania się ze swoich obowiązk&oacute;w wobec Sp&oacute;łki. Normalne godziny pracy to {start_time } do {end_time }, a użytkownik oczekuje, że będzie pracować nie mniej niż {total_hours } godzin tygodniowo, a jeśli to konieczne, przez dodatkowe godziny w zależności od Twojego</p>\n            <p>odpowiedzialności.</p>\n            \n            <p>6. Urlop/Wakacje</p>\n            \n            <p>6.1 Przysługuje prawo do urlopu dorywczego w ciągu 12 dni.</p>\n            \n            <p>6.2 Użytkownik ma prawo do 12 dni roboczych od wypłatnego zwolnienia chorobowego.</p>\n            \n            <p>6.3 Sp&oacute;łka powiadamia na początku każdego roku wykaz ogłoszonych świąt.&nbsp;</p>\n            \n            \n            \n            <p>7. Rodzaj obowiązk&oacute;w</p>\n            \n            <p>Będziesz wykonywać na najlepsze ze swojej zdolności wszystkie obowiązki, jak są one nieodłączne w swoim poście i takie dodatkowe obowiązki, jak firma może zadzwonić do wykonania, od czasu do czasu. Państwa szczeg&oacute;lne obowiązki są określone w załączniku II do niniejszego rozporządzenia.</p>\n            \n            \n            \n            <p>8. Właściwość przedsiębiorstwa</p>\n            \n            <p>Zawsze będziesz utrzymywać w dobrej kondycji Firmy, kt&oacute;ra może być powierzona do użytku służbowego w trakcie trwania</p>\n            \n            <p>Twoje zatrudnienie, i zwr&oacute;ci wszystkie takie nieruchomości do Sp&oacute;łki przed zrzeczeniem się opłaty, w przeciwnym razie koszty te same będą odzyskane od Ciebie przez Sp&oacute;łkę.</p>\n            \n            <p>9. Wypożyczanie/akceptowanie prezent&oacute;w</p>\n            \n            <p>Nie będziesz pożyczał ani nie akceptować żadnych pieniędzy, dar&oacute;w, nagrody lub odszkodowania za swoje osobiste zyski z lub w inny spos&oacute;b złożyć się w ramach zobowiązania pieniężnego do jakiejkolwiek osoby/klienta, z kt&oacute;rym może być posiadanie oficjalne relacje.</p>\n            <p>10. Zakończenie</p>\n            \n            <p>10.1 Powołanie może zostać wypowiedziane przez Sp&oacute;łkę, bez względu na przyczynę, poprzez podanie nie mniej niż [ Zawiadomienie] miesięcy uprzedniego wypowiedzenia na piśmie lub wynagrodzenia w miejsce jego wystąpienia. Dla cel&oacute;w niniejszej klauzuli, wynagrodzenie oznacza wynagrodzenie podstawowe.</p>\n            \n            <p>10.2 Użytkownik może rozwiązać umowę o pracę ze Sp&oacute;łką, bez jakiejkolwiek przyczyny, podając nie mniej niż [ ogłoszenie o pracowniku] miesiące przed powiadomieniem lub wynagrodzeniem za niezaoszczędzony okres, pozostawiony po skorygowaniu oczekujących liści, jak na dzień.</p>\n            \n            <p>10.3 Sp&oacute;łka zastrzega sobie prawo do wypowiedzenia umowy o pracę bez okresu wypowiedzenia lub wypłaty z tytułu rozwiązania umowy, jeżeli ma on uzasadnione podstawy, aby sądzić, że jesteś winny wykroczenia lub niedbalstwa, lub popełnił jakiekolwiek istotne naruszenie umowy lub spowodował jakiekolwiek straty w Sp&oacute;łce.&nbsp;</p>\n            \n            <p>10. 4 W sprawie rozwiązania stosunku pracy z jakiegokolwiek powodu, powr&oacute;cisz do Sp&oacute;łki wszystkie nieruchomości; dokumenty, i&nbsp;</p>\n            \n            <p>papieru, zar&oacute;wno oryginału, jak i jego kopii, w tym wszelkich pr&oacute;bek, literatury, um&oacute;w, zapis&oacute;w, wykaz&oacute;w, rysunk&oacute;w, konspekt&oacute;w,</p>\n            \n            <p>listy, notatki, dane i podobne; informacje poufne, znajdujące się w posiadaniu lub pod Twoją kontrolą związane z zatrudnieniem lub sprawami biznesowymi klient&oacute;w.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Informacje poufne</p>\n            \n            <p>11. 1 Podczas swojego zatrudnienia z Firmą poświęcisz cały czas, uwagę i umiejętności na najlepszą z Twoich możliwości</p>\n            \n            <p>swojej działalności gospodarczej. Użytkownik nie może, bezpośrednio lub pośrednio, prowadzić lub wiązać się z, być związany z, dotyka, zatrudniony lub czas lub prowadzić jakikolwiek kierunek studi&oacute;w, bez uprzedniej zgody Company.zaangażował się w innej działalności gospodarczej lub działalności lub jakikolwiek inny post lub pracy w niepełnym wymiarze czasu lub prowadzić jakikolwiek kierunek studi&oacute;w, bez uprzedniej zgody</p>\n            \n            <p>Firma.</p>\n            \n            <p>11.2 Zawsze musisz zachować najwyższy stopień poufności i zachować jako poufny akt, dokumenty, i inne&nbsp;</p>\n            \n            <p>Informacje poufne dotyczące działalności Sp&oacute;łki, kt&oacute;re mogą być znane Państwu lub w dowolny spos&oacute;b zwierzyny, a Użytkownik będzie posługiwać się takimi zapisami, dokumentami i informacjami tylko w spos&oacute;b należycie autoryzowany w interesie Sp&oacute;łki. Do cel&oacute;w niniejszej klauzuli \"Informacje poufne\" oznaczają informacje o działalności Sp&oacute;łki oraz o jej klientach, kt&oacute;re nie są dostępne dla og&oacute;łu społeczeństwa i kt&oacute;re mogą być przez Państwa w trakcie zatrudnienia dowiedzione przez Państwa. Obejmuje to,</p>\n            \n            <p>ale nie ogranicza się do informacji związanych z organizacją, jej listami klient&oacute;w, politykami zatrudnienia, personelem oraz informacjami o produktach firmy, procesach, w tym pomysłach, koncepcjach, projekcjach, technikach, podręcznikach, rysunkach, projektach,&nbsp;</p>\n            \n            <p>specyfikacje, a także wszystkie dokumenty, życiorysy, zapisy i inne dokumenty zawierające takie informacje poufne.</p>\n            \n            <p>11.3 W żadnym momencie nie usunie Pan żadnych Informacji Poufnych z urzędu bez zezwolenia.</p>\n            \n            <p>11.4 Tw&oacute;j obowiązek ochrony a nie disclos</p>\n            \n            <p>Informacje poufne przetrwają wygaśnięcie lub rozwiązanie niniejszej Umowy i/lub Twoje zatrudnienie w Sp&oacute;łce.</p>\n            \n            <p>11.5 Naruszenie warunk&oacute;w niniejszej klauzuli spowoduje, że Użytkownik będzie zobowiązany do skr&oacute;conej umowy w ramach klauzuli powyżej, opr&oacute;cz wszelkich innych środk&oacute;w zaradcze, jakie Sp&oacute;łka może mieć przeciwko Państwu w prawie.</p>\n            \n            \n            \n            <p>12. Uwagi</p>\n            \n            <p>Ogłoszenia mogą być podane przez Państwa do Sp&oacute;łki pod adresem jej siedziby. Ogłoszenia mogą być podane przez Sp&oacute;łkę do Państwa na adres intymniony przez Państwa w ewidencji urzędowej.</p>\n            \n            \n            \n            <p>13. Stosowność polityki firmy</p>\n            \n            <p>Sp&oacute;łka jest uprawniona do składania deklaracji politycznych od czasu do czasu dotyczących spraw takich jak prawo do urlopu macierzyńskiego, macierzyństwo</p>\n            \n            <p>urlop&oacute;w, świadczeń pracowniczych, godzin pracy, polityki transferowej itp., a także mogą zmieniać to samo od czasu do czasu według własnego uznania.</p>\n            \n            <p>Wszystkie takie decyzje polityczne Sp&oacute;łki są wiążące dla Państwa i przesłaniają niniejszą Umowę w tym zakresie.</p>\n            \n            \n            \n            <p>14. Prawo właściwe/jurysdykcja</p>\n            \n            <p>Twoje zatrudnienie ze Sp&oacute;łką podlega prawu krajowi. Wszelkie spory podlegają właściwości Sądu Najwyższego</p>\n            \n            <p>Tylko Gujarat.</p>\n            \n            \n            \n            <p>15. Akceptacja naszej oferty</p>\n            \n            <p>Prosimy o potwierdzenie przyjęcia niniejszej Umowy o pracę poprzez podpisanie i zwr&oacute;cenie duplikatu.</p>\n            \n            \n            \n            <p>Zapraszamy Państwa i czekamy na Państwa przyjęcie i wsp&oacute;łpracę z Tobą.</p>\n            \n            \n            \n            <p>Z Państwa Sincerely,</p>\n            \n            <p>{app_name }</p>\n            \n            <p>{date }</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
 INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
 (181, 'pt', '<h3 style=\"text-align: center;\">Carta De Ades&atilde;o</h3>\n            \n            <p>{data}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            \n            <p>Assunto: Nomea&ccedil;&atilde;o para o cargo de {designation}</p>\n            \n            <p>Querido {employee_name},</p>\n            \n            \n            <p>Temos o prazer de oferec&ecirc;-lo, a posi&ccedil;&atilde;o de {designation} com {app_name} a Empresa nos seguintes termos e</p>\n            <p>condi&ccedil;&otilde;es:</p>\n            \n            \n            <p>1. Comentamento do emprego</p>\n            \n            <p>Seu emprego ser&aacute; efetivo, a partir de {start_date}</p>\n            \n            \n            <p>2. T&iacute;tulo do emprego</p>\n            \n            <p>Seu cargo de trabalho ser&aacute; {designation}.</p>\n            \n            <p>3. Sal&aacute;rio</p>\n            \n            <p>Seu sal&aacute;rio e outros benef&iacute;cios ser&atilde;o conforme estabelecido no Planejamento 1, hereto.</p>\n            \n            <p>4. Local de postagem</p>\n            \n            <p>Voc&ecirc; ser&aacute; postado em {branch}. Voc&ecirc; pode, no entanto, ser obrigado a trabalhar em qualquer local de neg&oacute;cios que a Empresa tenha, ou possa posteriormente adquirir.</p>\n            \n            <p>5. Horas de Trabalho</p>\n            \n            <p>Os dias normais de trabalho s&atilde;o de segunda a sexta-feira. Voc&ecirc; ser&aacute; obrigado a trabalhar por tais horas, conforme necess&aacute;rio para a quita&ccedil;&atilde;o adequada de suas fun&ccedil;&otilde;es para a Companhia. As horas de trabalho normais s&atilde;o de {start_time} para {end_time} e voc&ecirc; deve trabalhar n&atilde;o menos de {total_horas} horas semanais, e se necess&aacute;rio para horas adicionais dependendo do seu</p>\n            <p>responsabilidades.</p>\n            \n            <p>6. Leave / Holidays</p>\n            \n            <p>6,1 Voc&ecirc; tem direito a licen&ccedil;a casual de 12 dias.</p>\n            \n            <p>6,2 Voc&ecirc; tem direito a 12 dias &uacute;teis de licen&ccedil;a remunerada remunerada.</p>\n            \n            <p>6,3 Companhia notificar&aacute; uma lista de feriados declarados no in&iacute;cio de cada ano.&nbsp;</p>\n            \n            \n            \n            <p>7. Natureza dos deveres</p>\n            \n            <p>Voc&ecirc; ir&aacute; executar ao melhor da sua habilidade todos os deveres como s&atilde;o inerentes ao seu cargo e tais deveres adicionais como a empresa pode ligar sobre voc&ecirc; para executar, de tempos em tempos. Os seus deveres espec&iacute;ficos s&atilde;o estabelecidos no Hereto do Planejamento II.</p>\n            \n            \n            \n            <p>8. Propriedade da empresa</p>\n            \n            <p>Voc&ecirc; sempre manter&aacute; em bom estado propriedade Empresa, que poder&aacute; ser confiada a voc&ecirc; para uso oficial durante o curso de</p>\n            \n            <p>o seu emprego, e devolver&aacute; toda essa propriedade &agrave; Companhia antes de abdicar de sua acusa&ccedil;&atilde;o, falhando qual o custo do mesmo ser&aacute; recuperado de voc&ecirc; pela Companhia.</p>\n            \n            \n            \n            <p>9. Borremir / aceitar presentes</p>\n            \n            <p>Voc&ecirc; n&atilde;o vai pedir empr&eacute;stimo ou aceitar qualquer dinheiro, presente, recompensa ou indeniza&ccedil;&atilde;o por seus ganhos pessoais de ou de outra forma colocar-se sob obriga&ccedil;&atilde;o pecuni&aacute;ria a qualquer pessoa / cliente com quem voc&ecirc; pode estar tendo rela&ccedil;&otilde;es oficiais.</p>\n            \n            \n            \n            <p>10. Termina&ccedil;&atilde;o</p>\n            \n            <p>10,1 Sua nomea&ccedil;&atilde;o pode ser rescindida pela Companhia, sem qualquer raz&atilde;o, dando-lhe n&atilde;o menos do que [aviso] meses de aviso pr&eacute;vio por escrito ou de sal&aacute;rio em lieu deste. Para efeito da presente cl&aacute;usula, o sal&aacute;rio deve significar sal&aacute;rio base.</p>\n            \n            <p>10,2 Voc&ecirc; pode rescindir seu emprego com a Companhia, sem qualquer causa, ao dar nada menos que [Aviso de contrata&ccedil;&atilde;o] meses de aviso pr&eacute;vio ou sal&aacute;rio para o per&iacute;odo n&atilde;o salvo, deixado ap&oacute;s ajuste de folhas pendentes, conforme data de encontro.</p>\n            \n            <p>10,3 Empresa reserva-se o direito de rescindir o seu emprego sumariamente sem qualquer prazo de aviso ou de rescis&atilde;o se tiver terreno razo&aacute;vel para acreditar que voc&ecirc; &eacute; culpado de m&aacute; conduta ou neglig&ecirc;ncia, ou tenha cometido qualquer viola&ccedil;&atilde;o fundamental de contrato, ou tenha causado qualquer perda para a Empresa.&nbsp;</p>\n            \n            <p>10. 4 Sobre a rescis&atilde;o do seu emprego por qualquer motivo, voc&ecirc; retornar&aacute; para a Empresa todos os bens; documentos e&nbsp;</p>\n            \n            <p>papel, tanto originais como c&oacute;pias dos mesmos, incluindo quaisquer amostras, literatura, contratos, registros, listas, desenhos, plantas,</p>\n            \n            <p>cartas, notas, dados e semelhantes; e Informa&ccedil;&otilde;es Confidenciais, em sua posse ou sob seu controle relacionado ao seu emprego ou aos neg&oacute;cios de neg&oacute;cios dos clientes.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Informa&ccedil;&otilde;es Confidenciais</p>\n            \n            <p>11. 1 Durante o seu emprego com a Companhia voc&ecirc; ir&aacute; dedicar todo o seu tempo, aten&ccedil;&atilde;o e habilidade para o melhor de sua capacidade de</p>\n            \n            <p>o seu neg&oacute;cio. Voc&ecirc; n&atilde;o deve, direta ou indiretamente, se envolver ou associar-se com, estar conectado com, preocupado, empregado, ou tempo ou prosseguir qualquer curso de estudo, sem a permiss&atilde;o pr&eacute;via do Company.engajado em qualquer outro neg&oacute;cio ou atividades ou qualquer outro cargo ou trabalho parcial ou prosseguir qualquer curso de estudo, sem a permiss&atilde;o pr&eacute;via do</p>\n            \n            <p>Empresa.</p>\n            \n            <p>11,2 &Eacute; preciso manter sempre o mais alto grau de confidencialidade e manter como confidenciais os registros, documentos e outros&nbsp;</p>\n            \n            <p>Informa&ccedil;&otilde;es confidenciais relativas ao neg&oacute;cio da Companhia que possam ser conhecidas por voc&ecirc; ou confiadas em voc&ecirc; por qualquer meio e utilizar&atilde;o tais registros, documentos e informa&ccedil;&otilde;es apenas de forma devidamente autorizada no interesse da Companhia. Para efeitos da presente cl&aacute;usula \"Informa&ccedil;&otilde;es confidenciais\" significa informa&ccedil;&atilde;o sobre os neg&oacute;cios da Companhia e a dos seus clientes que n&atilde;o est&aacute; dispon&iacute;vel para o p&uacute;blico em geral e que poder&aacute; ser aprendida por voc&ecirc; no curso do seu emprego. Isso inclui,</p>\n            \n            <p>mas n&atilde;o se limita a, informa&ccedil;&otilde;es relativas &agrave; organiza&ccedil;&atilde;o, suas listas de clientes, pol&iacute;ticas de emprego, pessoal, e informa&ccedil;&otilde;es sobre os produtos da Companhia, processos incluindo ideias, conceitos, proje&ccedil;&otilde;es, tecnologia, manuais, desenho, desenhos,&nbsp;</p>\n            \n            <p>especifica&ccedil;&otilde;es, e todos os pap&eacute;is, curr&iacute;culos, registros e outros documentos que contenham tais Informa&ccedil;&otilde;es Confidenciais.</p>\n            \n            <p>11,3 Em nenhum momento, voc&ecirc; remover&aacute; quaisquer Informa&ccedil;&otilde;es Confidenciais do escrit&oacute;rio sem permiss&atilde;o.</p>\n            \n            <p>11,4 O seu dever de salvaguardar e n&atilde;o os desclos</p>\n            \n            <p>Informa&ccedil;&otilde;es Confidenciais sobreviver&atilde;o &agrave; expira&ccedil;&atilde;o ou &agrave; rescis&atilde;o deste Contrato e / ou do seu emprego com a Companhia.</p>\n            \n            <p>11,5 Viola&ccedil;&atilde;o das condi&ccedil;&otilde;es desta cl&aacute;usula ir&aacute; torn&aacute;-lo sujeito a demiss&atilde;o sum&aacute;ria sob a cl&aacute;usula acima, al&eacute;m de qualquer outro rem&eacute;dio que a Companhia possa ter contra voc&ecirc; em lei.</p>\n            \n            \n            \n            <p>12. Notices</p>\n            \n            <p>Os avisos podem ser conferidos por voc&ecirc; &agrave; Empresa em seu endere&ccedil;o de escrit&oacute;rio registrado. Os avisos podem ser conferidos pela Companhia a voc&ecirc; no endere&ccedil;o intimado por voc&ecirc; nos registros oficiais.</p>\n            \n            \n            \n            <p>13. Aplicabilidade da Pol&iacute;tica da Empresa</p>\n            \n            <p>A Companhia tem direito a fazer declara&ccedil;&otilde;es de pol&iacute;tica de tempos em tempos relativos a mat&eacute;rias como licen&ccedil;a de licen&ccedil;a, maternidade</p>\n            \n            <p>sair, benef&iacute;cios dos empregados, horas de trabalho, pol&iacute;ticas de transfer&ecirc;ncia, etc., e pode alterar o mesmo de vez em quando a seu exclusivo crit&eacute;rio.</p>\n            \n            <p>Todas essas decis&otilde;es de pol&iacute;tica da Companhia devem ser vinculativas para si e substituir&atilde;o este Acordo nessa medida.</p>\n            \n            \n            \n            <p>14. Direito / Jurisdi&ccedil;&atilde;o</p>\n            \n            <p>Seu emprego com a Companhia est&aacute; sujeito &agrave;s leis do Pa&iacute;s. Todas as disputas est&atilde;o sujeitas &agrave; jurisdi&ccedil;&atilde;o do Tribunal Superior</p>\n            \n            <p>Gujarat apenas.</p>\n            \n            \n            \n            <p>15. Aceita&ccedil;&atilde;o da nossa oferta</p>\n            \n            <p>Por favor, confirme sua aceita&ccedil;&atilde;o deste Contrato de Emprego assinando e retornando a c&oacute;pia duplicada.</p>\n            \n            \n            \n            <p>N&oacute;s acolhemos voc&ecirc; e estamos ansiosos para receber sua aceita&ccedil;&atilde;o e para trabalhar com voc&ecirc;.</p>\n            \n            \n            \n            <p>Seu Sinceramente,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{data}</p>\n            ', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(182, 'ru', '<h3 style=\"text-align: center;\">Присоединение к письму</h3>\n            \n            <p>{date}</p>\n            \n            <p>{ employee_name }</p>\n            <p>{address}</p>\n            \n            <p>Тема: Назначение на должность {designation}</p>\n            \n            <p>Уважаемый { employee_name },</p>\n            \n            <p>Мы рады предложить Вам, позицию {designation} с { app_name } Компания на следующих условиях и</p>\n            \n            <p>условия:</p>\n            \n            \n            <p>1. Начало работы</p>\n            \n            <p>Ваше трудоустройство будет эффективным, начиная с { start_date }</p>\n            \n            \n            <p>2. Название должности</p>\n            <p>Ваш заголовок задания будет {designation}.</p>\n            \n            <p>3. Зарплата</p>\n            <p>Ваши оклады и другие пособия будут установлены в соответствии с расписанием, изложенным в приложении 1 к настоящему.</p>\n            \n            <p>4. Место размещения</p>\n            <p>Вы будете работать в { branch }. Вы, однако, можете работать в любом месте, которое компания имеет или может впоследствии приобрести.</p>\n            \n            \n            \n            <p>5. Часы работы</p>\n            <p>Обычные рабочие дни-с понедельника по пятницу. Вы должны будете работать в течение таких часов, как это необходимо для надлежащего выполнения Ваших обязанностей перед компанией. Обычные рабочие часы-от { start_time } до { end_time }, и вы, как ожидается, будут работать не менее { total_hours } часов каждую неделю, и при необходимости в течение дополнительных часов в зависимости от вашего</p>\n            <p>ответственности.</p>\n            <p>6. Отпуск/Праздники</p>\n            \n            <p>6.1 Вы имеете право на случайный отпуск продолжительностью 12 дней.</p>\n            \n            <p>6.2 Вы имеете право на 12 рабочих дней оплачиваемого отпуска по болезни.</p>\n            \n            <p>6.3 Компания в начале каждого года уведомляет об объявленных праздниках.&nbsp;</p>\n            \n            \n            \n            <p>7. Характер обязанностей</p>\n            \n            <p>Вы будете выполнять все обязанности, присующие вам, и такие дополнительные обязанности, которые компания может призвать к вам, время от времени. Ваши конкретные обязанности изложены в приложении II к настоящему.</p>\n            \n            \n            \n            <p>8. Свойство компании</p>\n            \n            <p>Вы всегда будете поддерживать в хорошем состоянии имущество Компании, которое может быть доверено Вам для служебного пользования в течение</p>\n            \n            <p>вашей занятости, и возвратит все это имущество Компании до отказа от вашего заряда, при отсутствии которого стоимость одного и того же имущества будет взыскана с Вас компанией.</p>\n            \n            \n            \n            <p>9. Боровить/принять подарки</p>\n            \n            <p>Вы не будете брать взаймы или принимать какие-либо деньги, подарки, вознаграждение или компенсацию за ваши личные доходы от или в ином месте под денежный долг любому лицу/клиенту, с которым у вас могут быть официальные сделки.</p>\n            \n            \n            \n            <p>10. Прекращение</p>\n            \n            <p>10.1 Ваше назначение может быть прекращено компанией без каких бы то ни было оснований, предоставляя Вам не менее [ Уведомление] месяцев, предшея уведомлению в письменной форме или окладе вместо них. Для целей этого положения заработная плата означает базовый оклад.</p>\n            \n            <p>10.2 Вы можете прекратить свою трудовую деятельность с компанией без каких-либо причин, предоставляя не меньше, чем [ Employee Notice] months  предварительное уведомление или оклад за несохраненный период, оставатся после корректировки отложенных листьев, как на сегодняшний день.</p>\n            \n            <p>10.3 Компания оставляет за собой право прекратить вашу работу в суммарном порядке без какого-либо уведомления о сроке или увольнении, если у нее есть достаточные основания полагать, что вы виновны в проступке или халатности, или совершили какое-либо существенное нарушение договора, или причинило убытки Компании.&nbsp;</p>\n            \n            <p>10. 4 О прекращении вашей работы по какой бы то ни было причине вы вернетесь в Компании все имущество; документы, а&nbsp;</p>\n            \n            <p>бумаги, как оригинальные, так и их копии, включая любые образцы, литературу, контракты, записи, списки, чертежи, чертежи,</p>\n            \n            <p>письма, заметки, данные и тому подобное; и Конфиденциальная информация, в вашем распоряжении или под вашим контролем, связанным с вашей работой или деловыми делами клиентов.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Конфиденциальная информация</p>\n            \n            <p>11. 1 Во время вашего трудоустройства с компанией Вы посвяте все свое время, внимание, умение максимально</p>\n            \n            <p>Его бизнес. Вы не должны, прямо или косвенно, заниматься или ассоциировать себя с заинтересованными, занятым, занятым, или временем, или продолжать любой курс обучения, без предварительного разрешения Компани.заниматься каким-либо другим бизнесом или деятельностью или любой другой пост или работать неполный рабочий день или заниматься какой бы то ни было исследованием, без предварительного разрешения</p>\n            \n            <p>Компания.</p>\n            \n            <p>11.2 Вы всегда должны сохранять наивысшую степень конфиденциальности и хранить в качестве конфиденциальной записи, документы и другие&nbsp;</p>\n            \n            <p>Конфиденциальная информация, касающаяся бизнеса Компании, которая может быть вам известна или конфиденциальна любым способом, и Вы будете использовать такие записи, документы и информацию только в установленном порядке в интересах Компании. Для целей настоящей статьи \"Конфиденциальная информация\" означает информацию о бизнесе Компании и о ее клиентах, которая недоступна для широкой общественности и которая может быть изучилась Вами в ходе вашей работы. Это включает в себя:</p>\n            \n            <p>но не ограничивается информацией, касающейся организации, ее списков клиентов, политики в области занятости, персонала и информации о продуктах Компании, процессах, включая идеи, концепции, прогнозы, технологии, руководства, чертеж, чертеж,&nbsp;</p>\n            \n            <p>спецификации, и все бумаги, резюме, записи и другие документы, содержащие такую Конфиденциальную Информацию.</p>\n            \n            <p>11.3 В любое время вы не будете удалять конфиденциальную информацию из офиса без разрешения.</p>\n            \n            <p>11.4 Ваш долг защищать и не отсосать</p>\n            \n            <p>e Конфиденциальная информация выдержит срок действия или прекращения действия настоящего Соглашения и/или вашей работы с компанией.</p>\n            \n            <p>11.5 Нарушение условий, изложенных в настоящем положении, приведет к тому, что в дополнение к любым другим средствам правовой защиты, которые компания может иметь против вас, в соответствии с вышеприведенным положением, вы можете получить краткое увольнение в соответствии с этим положением.</p>\n            \n            \n            \n            <p>12. Замечания</p>\n            \n            <p>Уведомления могут быть даны Вами Компании по адресу ее зарегистрированного офиса. Извещения могут быть даны компанией Вам по адресу, с которым вы в официальных отчетах.</p>\n            \n            \n            \n            <p>13. Применимость политики компании</p>\n            \n            <p>Компания вправе время от времени делать политические заявления по таким вопросам, как право на отпуск, материнство</p>\n            \n            <p>отпуска, пособия для работников, продолжительность рабочего дня, трансферная политика и т.д. и время от времени могут изменяться исключительно по своему усмотрению.</p>\n            \n            <p>Все такие принципиальные решения Компании являются обязательными для Вас и переопределяют это Соглашение в такой степени.</p>\n            \n            \n            \n            <p>14. Регулирующий Право/юрисдикция</p>\n            \n            <p>Ваше трудоустройство с компанией подпадает под действие законов страны. Все споры подлежат юрисдикции Высокого суда</p>\n            \n            <p>Только Гуджарат.</p>\n            \n            \n            \n            <p>15. Принятие нашего предложения</p>\n            \n            <p>Пожалуйста, подтвердите свое согласие с этим Договором о занятости, подписав и возвращая дубликат копии.</p>\n            \n            \n            \n            <p>Мы приветствуем Вас и надеемся на то, что Вы принимаете свое согласие и работаете с Вами.</p>\n            \n            \n            \n            <p>Искренне Ваш,</p>\n            \n            <p>{ app_name }</p>\n            \n            <p>{date}</p>\n            ', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(182, 'ru', '<h3 style=\"text-align: center;\">Присоединение к письму</h3>\n            \n            <p>{date}</p>\n            \n            <p>{ employee_name }</p>\n            <p>{address}</p>\n            \n            <p>Тема: Назначение на должность {designation}</p>\n            \n            <p>Уважаемый { employee_name },</p>\n            \n            <p>Мы рады предложить Вам, позицию {designation} с { app_name } Компания на следующих условиях и</p>\n            \n            <p>условия:</p>\n            \n            \n            <p>1. Начало работы</p>\n            \n            <p>Ваше трудоустройство будет эффективным, начиная с { start_date }</p>\n            \n            \n            <p>2. Название должности</p>\n            <p>Ваш заголовок задания будет {designation}.</p>\n            \n            <p>3. Зарплата</p>\n            <p>Ваши оклады и другие пособия будут установлены в соответствии с расписанием, изложенным в приложении 1 к настоящему.</p>\n            \n            <p>4. Место размещения</p>\n            <p>Вы будете работать в { branch }. Вы, однако, можете работать в любом месте, которое компания имеет или может впоследствии приобрести.</p>\n            \n            \n            \n            <p>5. Часы работы</p>\n            <p>Обычные рабочие дни-с понедельника по пятницу. Вы должны будете работать в течение таких часов, как это необходимо для надлежащего выполнения Ваших обязанностей перед компанией. Обычные рабочие часы-от { start_time } до { end_time }, и вы, как ожидается, будут работать не менее { total_hours } часов каждую неделю, и при необходимости в течение дополнительных часов в зависимости от вашего</p>\n            <p>ответственности.</p>\n            <p>6. Отпуск/Праздники</p>\n            \n            <p>6.1 Вы имеете право на случайный отпуск продолжительностью 12 дней.</p>\n            \n            <p>6.2 Вы имеете право на 12 рабочих дней оплачиваемого отпуска по болезни.</p>\n            \n            <p>6.3 Компания в начале каждого года уведомляет об объявленных праздниках.&nbsp;</p>\n            \n            \n            \n            <p>7. Характер обязанностей</p>\n            \n            <p>Вы будете выполнять все обязанности, присующие вам, и такие дополнительные обязанности, которые компания может призвать к вам, время от времени. Ваши конкретные обязанности изложены в приложении II к настоящему.</p>\n            \n            \n            \n            <p>8. Свойство компании</p>\n            \n            <p>Вы всегда будете поддерживать в хорошем состоянии имущество Компании, которое может быть доверено Вам для служебного пользования в течение</p>\n            \n            <p>вашей занятости, и возвратит все это имущество Компании до отказа от вашего заряда, при отсутствии которого стоимость одного и того же имущества будет взыскана с Вас компанией.</p>\n            \n            \n            \n            <p>9. Боровить/принять подарки</p>\n            \n            <p>Вы не будете брать взаймы или принимать какие-либо деньги, подарки, вознаграждение или компенсацию за ваши личные доходы от или в ином месте под денежный долг любому лицу/клиенту, с которым у вас могут быть официальные сделки.</p>\n            \n            \n            \n            <p>10. Прекращение</p>\n            \n            <p>10.1 Ваше назначение может быть прекращено компанией без каких бы то ни было оснований, предоставляя Вам не менее [ Уведомление] месяцев, предшея уведомлению в письменной форме или окладе вместо них. Для целей этого положения заработная плата означает базовый оклад.</p>\n            \n            <p>10.2 Вы можете прекратить свою трудовую деятельность с компанией без каких-либо причин, предоставляя не меньше, чем [ Employee Notice] months  предварительное уведомление или оклад за несохраненный период, оставатся после корректировки отложенных листьев, как на сегодняшний день.</p>\n            \n            <p>10.3 Компания оставляет за собой право прекратить вашу работу в суммарном порядке без какого-либо уведомления о сроке или увольнении, если у нее есть достаточные основания полагать, что вы виновны в проступке или халатности, или совершили какое-либо существенное нарушение договора, или причинило убытки Компании.&nbsp;</p>\n            \n            <p>10. 4 О прекращении вашей работы по какой бы то ни было причине вы вернетесь в Компании все имущество; документы, а&nbsp;</p>\n            \n            <p>бумаги, как оригинальные, так и их копии, включая любые образцы, литературу, контракты, записи, списки, чертежи, чертежи,</p>\n            \n            <p>письма, заметки, данные и тому подобное; и Конфиденциальная информация, в вашем распоряжении или под вашим контролем, связанным с вашей работой или деловыми делами клиентов.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Конфиденциальная информация</p>\n            \n            <p>11. 1 Во время вашего трудоустройства с компанией Вы посвяте все свое время, внимание, умение максимально</p>\n            \n            <p>Его бизнес. Вы не должны, прямо или косвенно, заниматься или ассоциировать себя с заинтересованными, занятым, занятым, или временем, или продолжать любой курс обучения, без предварительного разрешения Компани.заниматься каким-либо другим бизнесом или деятельностью или любой другой пост или работать неполный рабочий день или заниматься какой бы то ни было исследованием, без предварительного разрешения</p>\n            \n            <p>Компания.</p>\n            \n            <p>11.2 Вы всегда должны сохранять наивысшую степень конфиденциальности и хранить в качестве конфиденциальной записи, документы и другие&nbsp;</p>\n            \n            <p>Конфиденциальная информация, касающаяся бизнеса Компании, которая может быть вам известна или конфиденциальна любым способом, и Вы будете использовать такие записи, документы и информацию только в установленном порядке в интересах Компании. Для целей настоящей статьи \"Конфиденциальная информация\" означает информацию о бизнесе Компании и о ее клиентах, которая недоступна для широкой общественности и которая может быть изучилась Вами в ходе вашей работы. Это включает в себя:</p>\n            \n            <p>но не ограничивается информацией, касающейся организации, ее списков клиентов, политики в области занятости, персонала и информации о продуктах Компании, процессах, включая идеи, концепции, прогнозы, технологии, руководства, чертеж, чертеж,&nbsp;</p>\n            \n            <p>спецификации, и все бумаги, резюме, записи и другие документы, содержащие такую Конфиденциальную Информацию.</p>\n            \n            <p>11.3 В любое время вы не будете удалять конфиденциальную информацию из офиса без разрешения.</p>\n            \n            <p>11.4 Ваш долг защищать и не отсосать</p>\n            \n            <p>e Конфиденциальная информация выдержит срок действия или прекращения действия настоящего Соглашения и/или вашей работы с компанией.</p>\n            \n            <p>11.5 Нарушение условий, изложенных в настоящем положении, приведет к тому, что в дополнение к любым другим средствам правовой защиты, которые компания может иметь против вас, в соответствии с вышеприведенным положением, вы можете получить краткое увольнение в соответствии с этим положением.</p>\n            \n            \n            \n            <p>12. Замечания</p>\n            \n            <p>Уведомления могут быть даны Вами Компании по адресу ее зарегистрированного офиса. Извещения могут быть даны компанией Вам по адресу, с которым вы в официальных отчетах.</p>\n            \n            \n            \n            <p>13. Применимость политики компании</p>\n            \n            <p>Компания вправе время от времени делать политические заявления по таким вопросам, как право на отпуск, материнство</p>\n            \n            <p>отпуска, пособия для работников, продолжительность рабочего дня, трансферная политика и т.д. и время от времени могут изменяться исключительно по своему усмотрению.</p>\n            \n            <p>Все такие принципиальные решения Компании являются обязательными для Вас и переопределяют это Соглашение в такой степени.</p>\n            \n            \n            \n            <p>14. Регулирующий Право/юрисдикция</p>\n            \n            <p>Ваше трудоустройство с компанией подпадает под действие законов страны. Все споры подлежат юрисдикции Высокого суда</p>\n            \n            <p>Только Гуджарат.</p>\n            \n            \n            \n            <p>15. Принятие нашего предложения</p>\n            \n            <p>Пожалуйста, подтвердите свое согласие с этим Договором о занятости, подписав и возвращая дубликат копии.</p>\n            \n            \n            \n            <p>Мы приветствуем Вас и надеемся на то, что Вы принимаете свое согласие и работаете с Вами.</p>\n            \n            \n            \n            <p>Искренне Ваш,</p>\n            \n            <p>{ app_name }</p>\n            \n            <p>{date}</p>\n            ', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(183, 'ar', '<h2 style=\"text-align: center;\"><strong>خطاب الانضمام</strong></h2>\n            <p>{date}</p>\n            <p>{employee_name}</p>\n            <p>{address}</p>\n            <p>الموضوع: موعد لوظيفة {designation}</p>\n            <p>عزيزي {employee_name} ،</p>\n            <p>يسعدنا أن نقدم لك منصب {designation} مع {app_name} \"الشركة\" وفقًا للشروط التالية و</p>\n            <p>الظروف:</p>\n            <p>1. بدء العمل</p>\n            <p>سيصبح عملك ساريًا اعتبارًا من {start_date}</p>\n            <p>2. المسمى الوظيفي</p>\n            <p>سيكون المسمى الوظيفي الخاص بك هو {designation}.</p>\n            <p>3. الراتب</p>\n            <p>سيكون راتبك والمزايا الأخرى على النحو المبين في الجدول 1 ، طيه.</p>\n            <p>4. مكان الإرسال</p>\n            <p>سيتم إرسالك إلى {branch}. ومع ذلك ، قد يُطلب منك العمل في أي مكان عمل تمتلكه الشركة ، أو</p>\n            <p>قد تحصل لاحقًا.</p>\n            <p>5. ساعات العمل</p>\n            <p>أيام العمل العادية هي من الاثنين إلى الجمعة. سيُطلب منك العمل لساعات حسب الضرورة لـ</p>\n            <p>أداء واجباتك على النحو الصحيح تجاه الشركة. ساعات العمل العادية من {start_time} إلى {end_time} وأنت</p>\n            <p>من المتوقع أن يعمل ما لا يقل عن {total_hours} ساعة كل أسبوع ، وإذا لزم الأمر لساعات إضافية اعتمادًا على</p>\n            <p>المسؤوليات.</p>\n            <p>6. الإجازة / العطل</p>\n            <p>6.1 يحق لك الحصول على إجازة غير رسمية مدتها 12 يومًا.</p>\n            <p>6.2 يحق لك الحصول على إجازة مرضية مدفوعة الأجر لمدة 12 يوم عمل.</p>\n            <p>6.3 تخطر الشركة بقائمة الإجازات المعلنة في بداية كل عام.</p>\n            <p>7. طبيعة الواجبات</p>\n            <p>ستقوم بأداء أفضل ما لديك من واجبات متأصلة في منصبك ومهام إضافية مثل الشركة</p>\n            <p>قد يدعوك لأداء ، من وقت لآخر. واجباتك المحددة منصوص عليها في الجدول الثاني بهذه الرسالة.</p>\n            <p>8. ممتلكات الشركة</p>\n            <p>ستحافظ دائمًا على ممتلكات الشركة في حالة جيدة ، والتي قد يتم تكليفك بها للاستخدام الرسمي خلال فترة عملها</p>\n            <p>عملك ، ويجب أن تعيد جميع هذه الممتلكات إلى الشركة قبل التخلي عن الرسوم الخاصة بك ، وإلا فإن التكلفة</p>\n            <p>نفس الشيء سوف تسترده منك الشركة.</p>\n            <p>9. الاقتراض / قبول الهدايا</p>\n            <p>لن تقترض أو تقبل أي أموال أو هدية أو مكافأة أو تعويض مقابل مكاسبك الشخصية من أو تضع نفسك بأي طريقة أخرى</p>\n            <p>بموجب التزام مالي تجاه أي شخص / عميل قد تكون لديك تعاملات رسمية معه.</p>\n            <p>10. الإنهاء</p>\n            <p>10.1 يمكن للشركة إنهاء موعدك ، دون أي سبب ، من خلال إعطائك ما لا يقل عن [إشعار] قبل أشهر</p>\n            <p>إشعار خطي أو راتب بدلاً منه. لغرض هذا البند ، يقصد بالراتب المرتب الأساسي.</p>\n            <p>10.2 إنهاء عملك مع الشركة ، دون أي سبب ، من خلال تقديم ما لا يقل عن إشعار الموظف</p>\n            <p>أشهر الإخطار أو الراتب عن الفترة غير المحفوظة ، المتبقية بعد تعديل الإجازات المعلقة ، كما في التاريخ.</p>\n            <p>10.3 تحتفظ الشركة بالحق في إنهاء عملك بإيجاز دون أي فترة إشعار أو مدفوعات إنهاء</p>\n            <p>إذا كان لديه سبب معقول للاعتقاد بأنك مذنب بسوء السلوك أو الإهمال ، أو ارتكبت أي خرق جوهري لـ</p>\n            <p>العقد ، أو تسبب في أي خسارة للشركة.</p>\n            <p>10. 4 عند إنهاء عملك لأي سبب من الأسباب ، ستعيد إلى الشركة جميع ممتلكاتك ؛ المستندات و</p>\n            <p>الأوراق الأصلية ونسخها ، بما في ذلك أي عينات ، وأدبيات ، وعقود ، وسجلات ، وقوائم ، ورسومات ، ومخططات ،</p>\n            <p>الرسائل والملاحظات والبيانات وما شابه ذلك ؛ والمعلومات السرية التي بحوزتك أو تحت سيطرتك والمتعلقة بك</p>\n            <p>التوظيف أو الشؤون التجارية للعملاء.</p>\n            <p>11. المعلومات السرية</p>\n            <p>11. 1 أثناء عملك في الشركة ، سوف تكرس وقتك واهتمامك ومهارتك كلها بأفضل ما لديك من قدرات</p>\n            <p>عملها. لا يجوز لك ، بشكل مباشر أو غير مباشر ، الانخراط أو الارتباط بنفسك ، أو الارتباط به ، أو القلق ، أو التوظيف ، أو</p>\n            <p>الوقت أو متابعة أي دورة دراسية على الإطلاق ، دون الحصول على إذن مسبق من الشركة أو الانخراط في أي عمل آخر أو</p>\n            <p>الأنشطة أو أي وظيفة أخرى أو العمل بدوام جزئي أو متابعة أي دورة دراسية على الإطلاق ، دون إذن مسبق من</p>\n            <p>شركة.</p>\n            <p>11. المعلومات السرية</p>\n            <p>11. 1 أثناء عملك في الشركة ، سوف تكرس وقتك واهتمامك ومهارتك كلها بأفضل ما لديك من قدرات</p>\n            <p>عملها. لا يجوز لك ، بشكل مباشر أو غير مباشر ، الانخراط أو الارتباط بنفسك ، أو الارتباط به ، أو القلق ، أو التوظيف ، أو</p>\n            <p>الوقت أو متابعة أي دورة دراسية على الإطلاق ، دون الحصول على إذن مسبق من الشركة أو الانخراط في أي عمل آخر أو</p>\n            <p>الأنشطة أو أي وظيفة أخرى أو العمل بدوام جزئي أو متابعة أي دورة دراسية على الإطلاق ، دون إذن مسبق من</p>\n            <p>شركة.</p>\n            <p>11.2 يجب عليك دائمًا الحفاظ على أعلى درجة من السرية والحفاظ على سرية السجلات والوثائق وغيرها</p>\n            <p>المعلومات السرية المتعلقة بأعمال الشركة والتي قد تكون معروفة لك أو مخولة لك بأي وسيلة</p>\n            <p>ولن تستخدم هذه السجلات والمستندات والمعلومات إلا بالطريقة المصرح بها حسب الأصول لصالح الشركة. إلى عن على</p>\n            <p>أغراض هذا البند \"المعلومات السرية\" تعني المعلومات المتعلقة بأعمال الشركة وعملائها</p>\n            <p>التي لا تتوفر لعامة الناس والتي قد تتعلمها أثناء عملك. هذا يشمل،</p>\n            <p>على سبيل المثال لا الحصر ، المعلومات المتعلقة بالمنظمة وقوائم العملاء وسياسات التوظيف والموظفين والمعلومات</p>\n            <p>حول منتجات الشركة وعملياتها بما في ذلك الأفكار والمفاهيم والإسقاطات والتكنولوجيا والكتيبات والرسم والتصاميم ،</p>\n            <p>المواصفات وجميع الأوراق والسير الذاتية والسجلات والمستندات الأخرى التي تحتوي على هذه المعلومات السرية.</p>\n            <p>11.3 لن تقوم في أي وقت بإزالة أي معلومات سرية من المكتب دون إذن.</p>\n            <p>11.4 واجبك في الحماية وعدم الإفشاء</p>\n            <p>تظل المعلومات السرية سارية بعد انتهاء أو إنهاء هذه الاتفاقية و / أو عملك مع الشركة.</p>\n            <p>11.5 سوف يجعلك خرق شروط هذا البند عرضة للفصل بإجراءات موجزة بموجب الفقرة أعلاه بالإضافة إلى أي</p>\n            <p>أي تعويض آخر قد يكون للشركة ضدك في القانون.</p>\n            <p>12. الإخطارات</p>\n            <p>يجوز لك إرسال إخطارات إلى الشركة على عنوان مكتبها المسجل. يمكن أن ترسل لك الشركة إشعارات على</p>\n            <p>العنوان الذي أشرت إليه في السجلات الرسمية.</p>\n            <p>13. تطبيق سياسة الشركة</p>\n            <p>يحق للشركة تقديم إعلانات السياسة من وقت لآخر فيما يتعلق بمسائل مثل استحقاق الإجازة والأمومة</p>\n            <p>الإجازة ، ومزايا الموظفين ، وساعات العمل ، وسياسات النقل ، وما إلى ذلك ، ويمكن تغييرها من وقت لآخر وفقًا لتقديرها الخاص.</p>\n            <p>جميع قرارات سياسة الشركة هذه ملزمة لك ويجب أن تلغي هذه الاتفاقية إلى هذا الحد.</p>\n            <p>14. القانون الحاكم / الاختصاص القضائي</p>\n            <p>يخضع عملك في الشركة لقوانين الدولة. تخضع جميع النزاعات للاختصاص القضائي للمحكمة العليا</p>\n            <p>غوجارات فقط.</p>\n            <p>15. قبول عرضنا</p>\n            <p>يرجى تأكيد قبولك لعقد العمل هذا من خلال التوقيع وإعادة النسخة المكررة.</p>\n            <p>نرحب بكم ونتطلع إلى تلقي موافقتكم والعمل معكم.</p>\n            <p>تفضلوا بقبول فائق الاحترام،</p>\n            <p>{app_name}</p>\n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(184, 'da', '<h3 style=\"text-align: center;\"><strong>Tilslutningsbrev</strong></h3>\n            \n            <p>{date}</p>\n            <p>{employee_name}</p>\n            <p>{address}</p>\n            <p>Emne: Udn&aelig;vnelse til stillingen som {designation}</p>\n            <p>K&aelig;re {employee_name}</p>\n            <p>Vi er glade for at kunne tilbyde dig stillingen som {designation} hos {app_name} \"Virksomheden\" p&aring; f&oslash;lgende vilk&aring;r og</p>\n            <p>betingelser:</p>\n            <p>1. P&aring;begyndelse af ans&aelig;ttelse</p>\n            <p>Din ans&aelig;ttelse tr&aelig;der i kraft fra {start_date}</p>\n            <p>2. Jobtitel</p>\n            <p>Din jobtitel vil v&aelig;re {designation}.</p>\n            <p>3. L&oslash;n</p>\n            <p>Din l&oslash;n og andre goder vil v&aelig;re som angivet i skema 1, hertil.</p>\n            <p>4. Udstationeringssted</p>\n            <p>Du vil blive sl&aring;et op p&aring; {branch}. Du kan dog blive bedt om at arbejde p&aring; ethvert forretningssted, som virksomheden har, eller</p>\n            <p>senere kan erhverve.</p>\n            \n            \n            <p>5. Arbejdstimer</p>\n            \n            <p>De normale arbejdsdage er mandag til fredag. Du vil blive forpligtet til at arbejde i de timer, som er n&oslash;dvendige for</p>\n            \n            <p>beh&oslash;rig varetagelse af dine pligter over for virksomheden. Den normale arbejdstid er fra {start_time} til {end_time}, og det er du</p>\n            \n            <p>forventes at arbejde ikke mindre end {total_hours} timer hver uge, og om n&oslash;dvendigt yderligere timer afh&aelig;ngigt af din</p>\n            \n            <p>ansvar.</p>\n            \n            \n            \n            <p>6. Orlov/Ferie</p>\n            \n            <p>6.1 Du har ret til tilf&aelig;ldig ferie p&aring; 12 dage.</p>\n            \n            <p>6.2 Du har ret til 12 arbejdsdages sygefrav&aelig;r med l&oslash;n.</p>\n            \n            <p>6.3 Virksomheden skal meddele en liste over erkl&aelig;rede helligdage i begyndelsen af ​​hvert &aring;r.</p>\n            \n            \n            \n            <p>7. Arbejdsopgavernes art</p>\n            \n            <p>Du vil efter bedste evne udf&oslash;re alle de opgaver, der er iboende i din stilling og s&aring;danne yderligere opgaver som virksomheden</p>\n            \n            <p>kan opfordre dig til at optr&aelig;de, fra tid til anden. Dine specifikke pligter er beskrevet i skema II hertil.</p>\n            \n            \n            <p>8. Firmaejendom</p>\n            \n            <p>Du vil altid vedligeholde virksomhedens ejendom i god stand, som kan blive overdraget til dig til officiel brug i l&oslash;bet af</p>\n            \n            <p>din ans&aelig;ttelse, og skal returnere al s&aring;dan ejendom til virksomheden, f&oslash;r du opgiver din afgift, i modsat fald vil omkostningerne</p>\n            \n            <p>af samme vil blive inddrevet fra dig af virksomheden.</p>\n            \n            \n            \n            <p>9. L&aring;n/modtagelse af gaver</p>\n            \n            <p>Du vil ikke l&aring;ne eller acceptere nogen penge, gave, bel&oslash;nning eller kompensation for dine personlige gevinster fra eller p&aring; anden m&aring;de placere dig selv</p>\n            \n            <p>under en &oslash;konomisk forpligtelse over for enhver person/kunde, som du m&aring;tte have officielle forbindelser med.</p>\n            \n            <p>10. Opsigelse</p>\n            \n            <p>10.1 Din ans&aelig;ttelse kan opsiges af virksomheden uden nogen grund ved at give dig mindst [varsel] m&aring;neder f&oslash;r</p>\n            \n            <p>skriftligt varsel eller l&oslash;n i stedet herfor. Ved l&oslash;n forst&aring;s i denne paragraf grundl&oslash;n.</p>\n            \n            <p>10.2 Du kan opsige dit ans&aelig;ttelsesforhold i virksomheden uden nogen grund ved at give mindst [Medarbejdermeddelelse]</p>\n            \n            <p>m&aring;neders forudg&aring;ende varsel eller l&oslash;n for den ikke-opsparede periode, tilbage efter regulering af afventende orlov, som p&aring; dato.</p>\n            \n            <p>10.3 Virksomheden forbeholder sig retten til at opsige dit ans&aelig;ttelsesforhold midlertidigt uden opsigelsesfrist eller opsigelsesbetaling</p>\n            \n            <p>hvis den har rimelig grund til at tro, at du er skyldig i forseelse eller uagtsomhed, eller har beg&aring;et et grundl&aelig;ggende brud p&aring;</p>\n            \n            <p>kontrakt, eller for&aring;rsaget tab for virksomheden.</p>\n            \n            <p>10. 4 Ved oph&oslash;r af din ans&aelig;ttelse uanset &aring;rsag, vil du returnere al ejendom til virksomheden; dokumenter, og</p>\n            \n            <p>papir, b&aring;de originale og kopier heraf, inklusive pr&oslash;ver, litteratur, kontrakter, optegnelser, lister, tegninger, tegninger,</p>\n            \n            <p>breve, notater, data og lignende; og fortrolige oplysninger, i din besiddelse eller under din kontrol vedr&oslash;rende din</p>\n            \n            <p>ans&aelig;ttelse eller til kunders forretningsforhold.</p>\n            <p>11. Fortrolige oplysninger</p>\n            \n            <p>11. 1 Under din ans&aelig;ttelse i virksomheden vil du bruge al din tid, opm&aelig;rksomhed og dygtighed efter bedste evne til</p>\n            \n            <p>sin virksomhed. Du m&aring; ikke, direkte eller indirekte, engagere eller associere dig med, v&aelig;re forbundet med, bekymret, ansat eller</p>\n            \n            <p>tid eller forf&oslash;lge et hvilket som helst studieforl&oslash;b uden forudg&aring;ende tilladelse fra virksomheden. involveret i anden virksomhed eller</p>\n            \n            <p>aktiviteter eller enhver anden stilling eller arbejde p&aring; deltid eller forf&oslash;lge ethvert studieforl&oslash;b uden forudg&aring;ende tilladelse fra</p>\n            \n            <p>Selskab.</p>\n            <p>11.2 Du skal altid opretholde den h&oslash;jeste grad af fortrolighed og opbevare optegnelser, dokumenter og andre fortrolige oplysninger.</p>\n            \n            <p>Fortrolige oplysninger vedr&oslash;rende virksomhedens virksomhed, som kan v&aelig;re kendt af dig eller betroet dig p&aring; nogen m&aring;de</p>\n            \n            <p>og du vil kun bruge s&aring;danne optegnelser, dokumenter og oplysninger p&aring; en beh&oslash;rigt autoriseret m&aring;de i virksomhedens interesse. Til</p>\n            \n            <p>form&aring;lene med denne paragraf \"Fortrolige oplysninger\" betyder oplysninger om virksomhedens og dets kunders forretning</p>\n            \n            <p>som ikke er tilg&aelig;ngelig for offentligheden, og som du kan l&aelig;re i l&oslash;bet af din ans&aelig;ttelse. Dette inkluderer,</p>\n            \n            <p>men er ikke begr&aelig;nset til information vedr&oslash;rende organisationen, dens kundelister, ans&aelig;ttelsespolitikker, personale og information</p>\n            \n            <p>om virksomhedens produkter, processer, herunder ideer, koncepter, projektioner, teknologi, manualer, tegning, design,</p>\n            \n            <p>specifikationer og alle papirer, CVer, optegnelser og andre dokumenter, der indeholder s&aring;danne fortrolige oplysninger.</p>\n            \n            <p>11.3 Du vil p&aring; intet tidspunkt fjerne fortrolige oplysninger fra kontoret uden tilladelse.</p>\n            \n            <p>11.4 Din pligt til at beskytte og ikke oplyse</p>\n            \n            <p>e Fortrolige oplysninger vil overleve udl&oslash;bet eller opsigelsen af ​​denne aftale og/eller din ans&aelig;ttelse hos virksomheden.</p>\n            \n            <p>11.5 Overtr&aelig;delse af betingelserne i denne klausul vil g&oslash;re dig ansvarlig for midlertidig afskedigelse i henhold til klausulen ovenfor ud over evt.</p>\n            \n            <p>andre retsmidler, som virksomheden m&aring;tte have mod dig i henhold til loven.</p>\n            <p>12. Meddelelser</p>\n            \n            <p>Meddelelser kan gives af dig til virksomheden p&aring; dets registrerede kontoradresse. Meddelelser kan gives af virksomheden til dig p&aring;</p>\n            \n            <p>den adresse, du har angivet i de officielle optegnelser.</p>\n            \n            \n            \n            <p>13. Anvendelse af virksomhedens politik</p>\n            \n            <p>Virksomheden er berettiget til fra tid til anden at afgive politiske erkl&aelig;ringer vedr&oslash;rende sager som ret til orlov, barsel</p>\n            \n            <p>orlov, ansattes ydelser, arbejdstider, overf&oslash;rselspolitikker osv., og kan &aelig;ndre det samme fra tid til anden efter eget sk&oslash;n.</p>\n            \n            <p>Alle s&aring;danne politiske beslutninger fra virksomheden er bindende for dig og tilsides&aelig;tter denne aftale i det omfang.</p>\n            \n            \n            \n            <p>14. G&aelig;ldende lov/Jurisdiktion</p>\n            \n            <p>Din ans&aelig;ttelse hos virksomheden er underlagt landets love. Alle tvister er underlagt High Courts jurisdiktion</p>\n            \n            <p>Kun Gujarat.</p>\n            \n            \n            \n            <p>15. Accept af vores tilbud</p>\n            \n            <p>Bekr&aelig;ft venligst din accept af denne ans&aelig;ttelseskontrakt ved at underskrive og returnere kopien.</p>\n            \n            \n            \n            <p>Vi byder dig velkommen og ser frem til at modtage din accept og til at arbejde sammen med dig.</p>\n            \n            \n            \n            <p>Venlig hilsen,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(185, 'de', '<h3 style=\"text-align: center;\"><strong>Beitrittsbrief</strong></h3>\n            \n            <p>{date}</p>\n            <p>{employee_name}</p>\n            <p>{address}</p>\n            \n            \n            \n            <p>Betreff: Ernennung f&uuml;r die Stelle von {designation}</p>\n            \n            \n            \n            \n            \n            \n            \n            <p>Sehr geehrter {employee_name},</p>\n            \n            \n            \n            <p>Wir freuen uns, Ihnen die Position von {designation} bei {app_name} dem &bdquo;Unternehmen&ldquo; zu den folgenden Bedingungen anbieten zu k&ouml;nnen</p>\n            \n            <p>Bedingungen:</p>\n            \n            \n            <p>1. Aufnahme des Arbeitsverh&auml;ltnisses</p>\n            \n            <p>Ihre Anstellung gilt ab dem {start_date}</p>\n            \n            \n            <p>2. Berufsbezeichnung</p>\n            \n            <p>Ihre Berufsbezeichnung lautet {designation}.</p>\n            \n            \n            <p>3. Gehalt</p>\n            \n            <p>Ihr Gehalt und andere Leistungen sind in Anhang 1 zu diesem Dokument aufgef&uuml;hrt.</p>\n            \n            \n            <p>4. Postort</p>\n            \n            <p>Sie werden bei {branch} eingestellt. Es kann jedoch erforderlich sein, dass Sie an jedem Gesch&auml;ftssitz arbeiten, den das Unternehmen hat, oder</p>\n            \n            <p>sp&auml;ter erwerben kann.</p>\n            \n            \n            <p>5. Arbeitszeit</p>\n            <p>Die normalen Arbeitstage sind Montag bis Freitag. Sie m&uuml;ssen so viele Stunden arbeiten, wie es f&uuml;r die erforderlich ist</p>\n            <p>ordnungsgem&auml;&szlig;e Erf&uuml;llung Ihrer Pflichten gegen&uuml;ber dem Unternehmen. Die normalen Arbeitszeiten sind von {start_time} bis {end_time} und Sie sind es</p>\n            <p>voraussichtlich nicht weniger als {total_hours} Stunden pro Woche arbeiten, und falls erforderlich, abh&auml;ngig von Ihren zus&auml;tzlichen Stunden</p>\n            <p>Verantwortlichkeiten.</p>\n            \n            \n            \n            <p>6. Urlaub/Urlaub</p>\n            \n            <p>6.1 Sie haben Anspruch auf Freizeiturlaub von 12 Tagen.</p>\n            \n            <p>6.2 Sie haben Anspruch auf 12 Arbeitstage bezahlten Krankenurlaub.</p>\n            \n            <p>6.3 Das Unternehmen teilt zu Beginn jedes Jahres eine Liste der erkl&auml;rten Feiertage mit.</p>\n            \n            \n            \n            <p>7. Art der Pflichten</p>\n            \n            <p>Sie werden alle Aufgaben, die mit Ihrer Funktion verbunden sind, sowie alle zus&auml;tzlichen Aufgaben als Unternehmen nach besten Kr&auml;ften erf&uuml;llen</p>\n            \n            <p>kann Sie von Zeit zu Zeit zur Leistung auffordern. Ihre spezifischen Pflichten sind in Anhang II zu diesem Dokument aufgef&uuml;hrt.</p>\n            \n            \n            \n            <p>8. Firmeneigentum</p>\n            \n            <p>Sie werden das Firmeneigentum, das Ihnen im Laufe der Zeit f&uuml;r offizielle Zwecke anvertraut werden kann, stets in gutem Zustand halten</p>\n            \n            <p>Ihrer Anstellung und muss all dieses Eigentum an das Unternehmen zur&uuml;ckgeben, bevor Sie Ihre Geb&uuml;hr aufgeben, andernfalls die Kosten</p>\n            \n            <p>derselben werden von der Gesellschaft von Ihnen zur&uuml;ckgefordert.</p>\n            \n            \n            \n            <p>9. Leihen/Annehmen von Geschenken</p>\n            \n            <p>Sie werden kein Geld, Geschenk, keine Belohnung oder Entsch&auml;digung f&uuml;r Ihre pers&ouml;nlichen Gewinne von sich leihen oder annehmen oder sich anderweitig platzieren</p>\n            \n            <p>unter finanzieller Verpflichtung gegen&uuml;ber Personen/Kunden, mit denen Sie m&ouml;glicherweise dienstliche Beziehungen unterhalten.</p>\n            \n            <p>10. K&uuml;ndigung</p>\n            \n            <p>10.1 Ihre Ernennung kann vom Unternehmen ohne Angabe von Gr&uuml;nden gek&uuml;ndigt werden, indem es Ihnen mindestens [K&uuml;ndigung] Monate im Voraus mitteilt</p>\n            \n            <p>schriftliche K&uuml;ndigung oder Gehalt statt dessen. Gehalt im Sinne dieser Klausel bedeutet Grundgehalt.</p>\n            \n            <p>10.2 Sie k&ouml;nnen Ihre Anstellung beim Unternehmen ohne Angabe von Gr&uuml;nden k&uuml;ndigen, indem Sie mindestens [Mitarbeitermitteilung]</p>\n            \n            <p>K&uuml;ndigungsfrist von Monaten oder Gehalt f&uuml;r den nicht angesparten Zeitraum, der nach Anpassung der anstehenden Urlaubstage &uuml;brig bleibt, zum Stichtag.</p>\n            \n            <p>10.3 Das Unternehmen beh&auml;lt sich das Recht vor, Ihr Arbeitsverh&auml;ltnis ohne K&uuml;ndigungsfrist oder Abfindungszahlung fristlos zu k&uuml;ndigen</p>\n            \n            <p>wenn es begr&uuml;ndeten Anlass zu der Annahme gibt, dass Sie sich eines Fehlverhaltens oder einer Fahrl&auml;ssigkeit schuldig gemacht haben oder einen wesentlichen Versto&szlig; begangen haben</p>\n            \n            <p>oder dem Unternehmen Verluste verursacht haben.</p>\n            \n            <p>10. 4 Bei Beendigung Ihres Besch&auml;ftigungsverh&auml;ltnisses, aus welchem ​​Grund auch immer, werden Sie s&auml;mtliches Eigentum an das Unternehmen zur&uuml;ckgeben; Dokumente und</p>\n            \n            <p>Papier, sowohl Original als auch Kopien davon, einschlie&szlig;lich aller Muster, Literatur, Vertr&auml;ge, Aufzeichnungen, Listen, Zeichnungen, Blaupausen,</p>\n            \n            <p>Briefe, Notizen, Daten und dergleichen; und vertrauliche Informationen, die sich in Ihrem Besitz oder unter Ihrer Kontrolle befinden und sich auf Sie beziehen</p>\n            \n            <p>Besch&auml;ftigung oder f&uuml;r die gesch&auml;ftlichen Angelegenheiten der Kunden.</p>\n            \n            <p>11. Confidential Information</p>\n            \n            <p>11. 1 During your employment with the Company you will devote your whole time, attention, and skill to the best of your ability for</p>\n            \n            <p>its business. You shall not, directly or indirectly, engage or associate yourself with, be connected with, concerned, employed, or</p>\n            \n            <p>time or pursue any course of study whatsoever, without the prior permission of the Company.engaged in any other business or</p>\n            \n            <p>activities or any other post or work part-time or pursue any course of study whatsoever, without the prior permission of the</p>\n            \n            <p>Company.</p>\n            \n            <p>11.2 You must always maintain the highest degree of confidentiality and keep as confidential the records, documents, and other&nbsp;</p>\n            \n            <p>Confidential Information relating to the business of the Company which may be known to you or confided in you by any means</p>\n            \n            <p>and you will use such records, documents and information only in a duly authorized manner in the interest of the Company. For</p>\n            \n            <p>the purposes of this clause &lsquo;Confidential Information&rsquo; means information about the Company&rsquo;s business and that of its customers</p>\n            \n            <p>which is not available to the general public and which may be learned by you in the course of your employment. This includes,</p>\n            \n            <p>but is not limited to, information relating to the organization, its customer lists, employment policies, personnel, and information</p>\n            \n            <p>about the Company&rsquo;s products, processes including ideas, concepts, projections, technology, manuals, drawing, designs,&nbsp;</p>\n            \n            <p>specifications, and all papers, resumes, records and other documents containing such Confidential Information.</p>\n            \n            <p>11.3 At no time, will you remove any Confidential Information from the office without permission.</p>\n            \n            <p>11.4 Your duty to safeguard and not disclos</p>\n            \n            <p>e Confidential Information will survive the expiration or termination of this Agreement and/or your employment with the Company.</p>\n            \n            <p>11.5 Breach of the conditions of this clause will render you liable to summary dismissal under the clause above in addition to any</p>\n            \n            <p>other remedy the Company may have against you in law.</p>\n            <p>12. Notices</p>\n            \n            <p>Notices may be given by you to the Company at its registered office address. Notices may be given by the Company to you at</p>\n            \n            <p>the address intimated by you in the official records.</p>\n            \n            \n            \n            <p>13. Applicability of Company Policy</p>\n            \n            <p>The Company shall be entitled to make policy declarations from time to time pertaining to matters like leave entitlement,maternity</p>\n            \n            <p>leave, employees&rsquo; benefits, working hours, transfer policies, etc., and may alter the same from time to time at its sole discretion.</p>\n            \n            <p>All such policy decisions of the Company shall be binding on you and shall override this Agreement to that&nbsp; extent.</p>\n            \n            \n            \n            <p>14. Governing Law/Jurisdiction</p>\n            \n            <p>Your employment with the Company is subject to Country laws. All disputes shall be subject to the jurisdiction of High Court</p>\n            \n            <p>Gujarat only.</p>\n            \n            \n            \n            <p>15. Acceptance of our offer</p>\n            \n            <p>Please confirm your acceptance of this Contract of Employment by signing and returning the duplicate copy.</p>\n            \n            \n            \n            <p>We welcome you and look forward to receiving your acceptance and to working with you.</p>\n            \n            \n            \n            <p>Yours Sincerely,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
+INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
+(186, 'en', '<h3 style=\"text-align: center;\">Joining Letter</h3>\n            <p>{date}</p>\n            <p>{employee_name}</p>\n            <p>{address}</p>\n            <p>Subject: Appointment for the post of {designation}</p>\n            <p>Dear {employee_name},</p>\n            <p>We are pleased to offer you the position of {designation} with {app_name} theCompany on the following terms and</p>\n            <p>conditions:</p>\n            <p>1. Commencement of employment</p>\n            <p>Your employment will be effective, as of {start_date}</p>\n            <p>2. Job title</p>\n            <p>Your job title will be{designation}.</p>\n            <p>3. Salary</p>\n            <p>Your salary and other benefits will be as set out in Schedule 1, hereto.</p>\n            <p>4. Place of posting</p>\n            <p>You will be posted at {branch}. You may however be required to work at any place of business which the Company has, or</p>\n            <p>may later acquire.</p>\n            <p>5. Hours of Work</p>\n            <p>The normal working days are Monday through Friday. You will be required to work for such hours as necessary for the</p>\n            <p>proper discharge of your duties to the Company. The normal working hours are from {start_time} to {end_time} and you are</p>\n            <p>expected to work not less than {total_hours} hours each week, and if necessary for additional hours depending on your</p>\n            <p>responsibilities.</p>\n            <p>6. Leave/Holidays</p>\n            <p>6.1 You are entitled to casual leave of 12 days.</p>\n            <p>6.2 You are entitled to 12 working days of paid sick leave.</p>\n            <p>6.3 The Company shall notify a list of declared holidays at the beginning of each year.</p>\n            <p>7. Nature of duties</p>\n            <p>You will perform to the best of your ability all the duties as are inherent in your post and such additional duties as the company</p>\n            <p>may call upon you to perform, from time to time. Your specific duties are set out in Schedule II hereto.</p>\n            <p>8. Company property</p>\n            <p>You will always maintain in good condition Company property, which may be entrusted to you for official use during the course of</p>\n            <p>your employment, and shall return all such property to the Company prior to relinquishment of your charge, failing which the cost</p>\n            <p>of the same will be recovered from you by the Company.</p>\n            <p>9. Borrowing/accepting gifts</p>\n            <p>You will not borrow or accept any money, gift, reward, or compensation for your personal gains from or otherwise place yourself</p>\n            <p>under pecuniary obligation to any person/client with whom you may be having official dealings.</p>\n            <p>10. Termination</p>\n            <p>10.1 Your appointment can be terminated by the Company, without any reason, by giving you not less than [Notice] months prior</p>\n            <p>notice in writing or salary in lieu thereof. For the purpose of this clause, salary shall mean basic salary.</p>\n            <p>10.2 You may terminate your employment with the Company, without any cause, by giving no less than [Employee Notice]</p>\n            <p>months prior notice or salary for the unsaved period, left after adjustment of pending leaves, as on date.</p>\n            <p>10.3 The Company reserves the right to terminate your employment summarily without any notice period or termination payment</p>\n            <p>if it has reasonable ground to believe you are guilty of misconduct or negligence, or have committed any fundamental breach of</p>\n            <p>contract, or caused any loss to the Company.</p>\n            <p>10. 4 On the termination of your employment for whatever reason, you will return to the Company all property; documents, and</p>\n            <p>paper, both original and copies thereof, including any samples, literature, contracts, records, lists, drawings, blueprints,</p>\n            <p>letters, notes, data and the like; and Confidential Information, in your possession or under your control relating to your</p>\n            <p>employment or to clients business affairs.</p>\n            <p>11. Confidential Information</p>\n            <p>11. 1 During your employment with the Company you will devote your whole time, attention, and skill to the best of your ability for</p>\n            <p>its business. You shall not, directly or indirectly, engage or associate yourself with, be connected with, concerned, employed, or</p>\n            <p>time or pursue any course of study whatsoever, without the prior permission of the Company.engaged in any other business or</p>\n            <p>activities or any other post or work part-time or pursue any course of study whatsoever, without the prior permission of the</p>\n            <p>Company.</p>\n            <p>11.2 You must always maintain the highest degree of confidentiality and keep as confidential the records, documents, and other</p>\n            <p>Confidential Information relating to the business of the Company which may be known to you or confided in you by any means</p>\n            <p>and you will use such records, documents and information only in a duly authorized manner in the interest of the Company. For</p>\n            <p>the purposes of this clauseConfidential Information means information about the Companys business and that of its customers</p>\n            <p>which is not available to the general public and which may be learned by you in the course of your employment. This includes,</p>\n            <p>but is not limited to, information relating to the organization, its customer lists, employment policies, personnel, and information</p>\n            <p>about the Companys products, processes including ideas, concepts, projections, technology, manuals, drawing, designs,</p>\n            <p>specifications, and all papers, resumes, records and other documents containing such Confidential Information.</p>\n            <p>11.3 At no time, will you remove any Confidential Information from the office without permission.</p>\n            <p>11.4 Your duty to safeguard and not disclos</p>\n            <p>e Confidential Information will survive the expiration or termination of this Agreement and/or your employment with the Company.</p>\n            <p>11.5 Breach of the conditions of this clause will render you liable to summary dismissal under the clause above in addition to any</p>\n            <p>other remedy the Company may have against you in law.</p>\n            <p>12. Notices</p>\n            <p>Notices may be given by you to the Company at its registered office address. Notices may be given by the Company to you at</p>\n            <p>the address intimated by you in the official records.</p>\n            <p>13. Applicability of Company Policy</p>\n            <p>The Company shall be entitled to make policy declarations from time to time pertaining to matters like leave entitlement,maternity</p>\n            <p>leave, employees benefits, working hours, transfer policies, etc., and may alter the same from time to time at its sole discretion.</p>\n            <p>All such policy decisions of the Company shall be binding on you and shall override this Agreement to that extent.</p>\n            <p>14. Governing Law/Jurisdiction</p>\n            <p>Your employment with the Company is subject to Country laws. All disputes shall be subject to the jurisdiction of High Court</p>\n            <p>Gujarat only.</p>\n            <p>15. Acceptance of our offer</p>\n            <p>Please confirm your acceptance of this Contract of Employment by signing and returning the duplicate copy.</p>\n            <p>We welcome you and look forward to receiving your acceptance and to working with you.</p>\n            <p>Yours Sincerely,</p>\n            <p>{app_name}</p>\n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(187, 'es', '<h3 style=\"text-align: center;\"><strong>Carta de uni&oacute;n</strong></h3>\n            \n            \n            <p>{date}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            \n            \n            <p>Asunto: Nombramiento para el puesto de {designation}</p>\n            \n            \n            \n            <p>Estimado {employee_name},</p>\n            \n            <p>Nos complace ofrecerle el puesto de {designation} con {app_name}, la Compa&ntilde;&iacute;a en los siguientes t&eacute;rminos y</p>\n            \n            <p>condiciones:</p>\n            \n            \n            <p>1. Comienzo del empleo</p>\n            \n            <p>Su empleo ser&aacute; efectivo a partir del {start_date}</p>\n            \n            \n            <p>2. T&iacute;tulo del trabajo</p>\n            <p>El t&iacute;tulo de su trabajo ser&aacute; {designation}.</p>\n            \n            <p>3. Salario</p>\n            \n            <p>Su salario y otros beneficios ser&aacute;n los establecidos en el Anexo 1 del presente.</p>\n            \n            \n            <p>4. Lugar de destino</p>\n            <p>Se le publicar&aacute; en {branch}. Sin embargo, es posible que deba trabajar en cualquier lugar de negocios que tenga la Compa&ntilde;&iacute;a, o</p>\n            \n            <p>puede adquirir posteriormente.</p>\n            \n            \n            \n            <p>5. Horas de trabajo</p>\n            \n            <p>Los d&iacute;as normales de trabajo son de lunes a viernes. Se le pedir&aacute; que trabaje las horas que sean necesarias para el</p>\n            \n            <p>cumplimiento adecuado de sus deberes para con la Compa&ntilde;&iacute;a. El horario normal de trabajo es de {start_time} a {end_time} y usted est&aacute;</p>\n            \n            <p>se espera que trabaje no menos de {total_hours} horas cada semana y, si es necesario, horas adicionales dependiendo de su</p>\n            \n            <p>responsabilidades.</p>\n            \n            \n            \n            <p>6. Licencia/Vacaciones</p>\n            \n            <p>6.1 Tiene derecho a un permiso eventual de 12 d&iacute;as.</p>\n            \n            <p>6.2 Tiene derecho a 12 d&iacute;as laborables de baja por enfermedad remunerada.</p>\n            \n            <p>6.3 La Compa&ntilde;&iacute;a deber&aacute; notificar una lista de d&iacute;as festivos declarados al comienzo de cada a&ntilde;o.</p>\n            \n            \n            \n            <p>7. Naturaleza de los deberes</p>\n            \n            <p>Desempe&ntilde;ar&aacute; lo mejor que pueda todas las funciones inherentes a su puesto y aquellas funciones adicionales que la empresa</p>\n            \n            <p>puede pedirte que act&uacute;es, de vez en cuando. Sus deberes espec&iacute;ficos se establecen en el Anexo II del presente.</p>\n            \n            \n            \n            <p>8. Propiedad de la empresa</p>\n            \n            <p>Siempre mantendr&aacute; en buenas condiciones la propiedad de la Compa&ntilde;&iacute;a, que se le puede confiar para uso oficial durante el curso de</p>\n            \n            <p>su empleo, y devolver&aacute; todos esos bienes a la Compa&ntilde;&iacute;a antes de renunciar a su cargo, en caso contrario, el costo</p>\n            \n            <p>de la misma ser&aacute; recuperada de usted por la Compa&ntilde;&iacute;a.</p>\n            \n            \n            \n            <p>9. Tomar prestado/aceptar regalos</p>\n            \n            <p>No pedir&aacute; prestado ni aceptar&aacute; dinero, obsequios, recompensas o compensaciones por sus ganancias personales o se colocar&aacute; de otra manera</p>\n            \n            <p>bajo obligaci&oacute;n pecuniaria a cualquier persona/cliente con quien pueda tener tratos oficiales.</p>\n            <p>10. Terminaci&oacute;n</p>\n            \n            <p>10.1 Su nombramiento puede ser rescindido por la Compa&ntilde;&iacute;a, sin ning&uacute;n motivo, al darle no menos de [Aviso] meses antes</p>\n            \n            <p>aviso por escrito o salario en su lugar. Para los efectos de esta cl&aacute;usula, se entender&aacute; por salario el salario base.</p>\n            \n            <p>10.2 Puede rescindir su empleo con la Compa&ntilde;&iacute;a, sin ninguna causa, dando no menos de [Aviso al empleado]</p>\n            \n            <p>meses de preaviso o salario por el per&iacute;odo no ahorrado, remanente despu&eacute;s del ajuste de licencias pendientes, a la fecha.</p>\n            \n            <p>10.3 La Compa&ntilde;&iacute;a se reserva el derecho de rescindir su empleo sumariamente sin ning&uacute;n per&iacute;odo de preaviso o pago por rescisi&oacute;n</p>\n            \n            <p>si tiene motivos razonables para creer que usted es culpable de mala conducta o negligencia, o ha cometido una violaci&oacute;n fundamental de</p>\n            \n            <p>contrato, o causado cualquier p&eacute;rdida a la Compa&ntilde;&iacute;a.</p>\n            \n            <p>10. 4 A la terminaci&oacute;n de su empleo por cualquier motivo, devolver&aacute; a la Compa&ntilde;&iacute;a todos los bienes; documentos, y</p>\n            \n            <p>papel, tanto en original como en copia del mismo, incluyendo cualquier muestra, literatura, contratos, registros, listas, dibujos, planos,</p>\n            \n            <p>cartas, notas, datos y similares; e Informaci&oacute;n confidencial, en su posesi&oacute;n o bajo su control en relaci&oacute;n con su</p>\n            \n            <p>empleo o a los asuntos comerciales de los clientes.</p>\n            <p>11. Informaci&oacute;n confidencial</p>\n            \n            <p>11. 1 Durante su empleo en la Compa&ntilde;&iacute;a, dedicar&aacute; todo su tiempo, atenci&oacute;n y habilidad lo mejor que pueda para</p>\n            \n            <p>son negocios. Usted no deber&aacute;, directa o indirectamente, comprometerse o asociarse con, estar conectado, interesado, empleado o</p>\n            \n            <p>tiempo o seguir cualquier curso de estudio, sin el permiso previo de la Compa&ntilde;&iacute;a. participar en cualquier otro negocio o</p>\n            \n            <p>actividades o cualquier otro puesto o trabajo a tiempo parcial o seguir cualquier curso de estudio, sin el permiso previo de la</p>\n            \n            <p>Compa&ntilde;&iacute;a.</p>\n            \n            <p>11.2 Siempre debe mantener el m&aacute;s alto grado de confidencialidad y mantener como confidenciales los registros, documentos y otros</p>\n            \n            <p>Informaci&oacute;n confidencial relacionada con el negocio de la Compa&ntilde;&iacute;a que usted pueda conocer o confiarle por cualquier medio</p>\n            \n            <p>y utilizar&aacute; dichos registros, documentos e informaci&oacute;n solo de manera debidamente autorizada en inter&eacute;s de la Compa&ntilde;&iacute;a. Para</p>\n            \n            <p>A los efectos de esta cl&aacute;usula, \"Informaci&oacute;n confidencial\" significa informaci&oacute;n sobre el negocio de la Compa&ntilde;&iacute;a y el de sus clientes.</p>\n            \n            <p>que no est&aacute; disponible para el p&uacute;blico en general y que usted puede aprender en el curso de su empleo. Esto incluye,</p>\n            \n            <p>pero no se limita a, informaci&oacute;n relacionada con la organizaci&oacute;n, sus listas de clientes, pol&iacute;ticas de empleo, personal e informaci&oacute;n</p>\n            \n            <p>sobre los productos de la Compa&ntilde;&iacute;a, procesos que incluyen ideas, conceptos, proyecciones, tecnolog&iacute;a, manuales, dibujos, dise&ntilde;os,</p>\n            \n            <p>especificaciones, y todos los papeles, curr&iacute;culos, registros y otros documentos que contengan dicha Informaci&oacute;n Confidencial.</p>\n            \n            <p>11.3 En ning&uacute;n momento, sacar&aacute; ninguna Informaci&oacute;n Confidencial de la oficina sin permiso.</p>\n            \n            <p>11.4 Su deber de salvaguardar y no divulgar</p>\n            \n            <p>La Informaci&oacute;n Confidencial sobrevivir&aacute; a la expiraci&oacute;n o terminaci&oacute;n de este Acuerdo y/o su empleo con la Compa&ntilde;&iacute;a.</p>\n            \n            <p>11.5 El incumplimiento de las condiciones de esta cl&aacute;usula le har&aacute; pasible de despido sumario en virtud de la cl&aacute;usula anterior adem&aacute;s de cualquier</p>\n            \n            <p>otro recurso que la Compa&ntilde;&iacute;a pueda tener contra usted por ley.</p>\n            <p>12. Avisos</p>\n            \n            <p>Usted puede enviar notificaciones a la Compa&ntilde;&iacute;a a su domicilio social. La Compa&ntilde;&iacute;a puede enviarle notificaciones a usted en</p>\n            \n            <p>la direcci&oacute;n indicada por usted en los registros oficiales.</p>\n            \n            \n            \n            <p>13. Aplicabilidad de la pol&iacute;tica de la empresa</p>\n            \n            <p>La Compa&ntilde;&iacute;a tendr&aacute; derecho a hacer declaraciones de pol&iacute;tica de vez en cuando relacionadas con asuntos como el derecho a licencia, maternidad</p>\n            \n            <p>licencia, beneficios de los empleados, horas de trabajo, pol&iacute;ticas de transferencia, etc., y puede modificarlas de vez en cuando a su sola discreci&oacute;n.</p>\n            \n            <p>Todas las decisiones pol&iacute;ticas de la Compa&ntilde;&iacute;a ser&aacute;n vinculantes para usted y anular&aacute;n este Acuerdo en esa medida.</p>\n            \n            \n            \n            <p>14. Ley aplicable/Jurisdicci&oacute;n</p>\n            \n            <p>Su empleo con la Compa&ntilde;&iacute;a est&aacute; sujeto a las leyes del Pa&iacute;s. Todas las disputas estar&aacute;n sujetas a la jurisdicci&oacute;n del Tribunal Superior</p>\n            \n            <p>S&oacute;lo Gujarat.</p>\n            \n            \n            \n            <p>15. Aceptaci&oacute;n de nuestra oferta</p>\n            \n            <p>Por favor, confirme su aceptaci&oacute;n de este Contrato de Empleo firmando y devolviendo el duplicado.</p>\n            \n            \n            \n            <p>Le damos la bienvenida y esperamos recibir su aceptaci&oacute;n y trabajar con usted.</p>\n            \n            \n            \n            <p>Tuyo sinceramente,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>\n            ', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(188, 'fr', '<h3 style=\"text-align: center;\">Lettre dadh&eacute;sion</h3>\n            \n            \n            <p>{date}</p>\n            \n            <p>{employee_name}</p>\n            <p>{address}</p>\n            \n            \n            <p>Objet : Nomination pour le poste de {designation}</p>\n            \n            \n            \n            <p>Cher {employee_name},</p>\n            \n            \n            <p>Nous sommes heureux de vous proposer le poste de {designation} avec {app_name} la \"Soci&eacute;t&eacute;\" selon les conditions suivantes et</p>\n            \n            <p>les conditions:</p>\n            \n            <p>1. Entr&eacute;e en fonction</p>\n            \n            <p>Votre emploi sera effectif &agrave; partir du {start_date}</p>\n            \n            \n            \n            <p>2. Intitul&eacute; du poste</p>\n            \n            <p>Votre titre de poste sera {designation}.</p>\n            \n            \n            \n            <p>3. Salaire</p>\n            \n            <p>Votre salaire et vos autres avantages seront tels quindiqu&eacute;s &agrave; lannexe 1 ci-jointe.</p>\n            \n            \n            <p>4. Lieu de d&eacute;tachement</p>\n            <p>Vous serez affect&eacute; &agrave; {branch}. Vous pouvez cependant &ecirc;tre tenu de travailler dans nimporte quel lieu daffaires que la Soci&eacute;t&eacute; a, ou</p>\n            \n            <p>pourra acqu&eacute;rir plus tard.</p>\n            \n            \n            \n            <p>5. Heures de travail</p>\n            \n            <p>Les jours ouvrables normaux sont du lundi au vendredi. Vous devrez travailler les heures n&eacute;cessaires &agrave; la</p>\n            \n            <p>lexercice correct de vos fonctions envers la Soci&eacute;t&eacute;. Les heures normales de travail vont de {start_time} &agrave; {end_time} et vous &ecirc;tes</p>\n            \n            <p>devrait travailler au moins {total_hours} heures par semaine, et si n&eacute;cessaire des heures suppl&eacute;mentaires en fonction de votre</p>\n            \n            <p>responsabilit&eacute;s.</p>\n            \n            <p>6. Cong&eacute;s/Vacances</p>\n            \n            <p>6.1 Vous avez droit &agrave; un cong&eacute; occasionnel de 12 jours.</p>\n            \n            <p>6.2 Vous avez droit &agrave; 12 jours ouvrables de cong&eacute; de maladie pay&eacute;.</p>\n            \n            <p>6.3 La Soci&eacute;t&eacute; communiquera une liste des jours f&eacute;ri&eacute;s d&eacute;clar&eacute;s au d&eacute;but de chaque ann&eacute;e.</p>\n            \n            \n            \n            <p>7. Nature des fonctions</p>\n            \n            <p>Vous ex&eacute;cuterez au mieux de vos capacit&eacute;s toutes les t&acirc;ches inh&eacute;rentes &agrave; votre poste et les t&acirc;ches suppl&eacute;mentaires que lentreprise</p>\n            \n            <p>peut faire appel &agrave; vous pour effectuer, de temps &agrave; autre. Vos fonctions sp&eacute;cifiques sont &eacute;nonc&eacute;es &agrave; lannexe II ci-jointe.</p>\n            \n            \n            \n            <p>8. Biens sociaux</p>\n            \n            <p>Vous maintiendrez toujours en bon &eacute;tat les biens de la Soci&eacute;t&eacute;, qui peuvent vous &ecirc;tre confi&eacute;s pour un usage officiel au cours de votre</p>\n            \n            <p>votre emploi, et doit restituer tous ces biens &agrave; la Soci&eacute;t&eacute; avant labandon de votre charge, &agrave; d&eacute;faut de quoi le co&ucirc;t</p>\n            \n            <p>de m&ecirc;me seront r&eacute;cup&eacute;r&eacute;s aupr&egrave;s de vous par la Soci&eacute;t&eacute;.</p>\n            \n            \n            \n            <p>9. Emprunter/accepter des cadeaux</p>\n            \n            <p>Vous nemprunterez ni naccepterez dargent, de cadeau, de r&eacute;compense ou de compensation pour vos gains personnels ou vous placerez autrement</p>\n            \n            <p>sous obligation p&eacute;cuniaire envers toute personne/client avec qui vous pourriez avoir des relations officielles.</p>\n            <p>10. R&eacute;siliation</p>\n            \n            <p>10.1 Votre nomination peut &ecirc;tre r&eacute;sili&eacute;e par la Soci&eacute;t&eacute;, sans aucune raison, en vous donnant au moins [Pr&eacute;avis] mois avant</p>\n            \n            <p>un pr&eacute;avis &eacute;crit ou un salaire en tenant lieu. Aux fins de la pr&eacute;sente clause, salaire sentend du salaire de base.</p>\n            \n            <p>10.2 Vous pouvez r&eacute;silier votre emploi au sein de la Soci&eacute;t&eacute;, sans motif, en donnant au moins [Avis &agrave; lemploy&eacute;]</p>\n            \n            <p>mois de pr&eacute;avis ou de salaire pour la p&eacute;riode non &eacute;pargn&eacute;e, restant apr&egrave;s r&eacute;gularisation des cong&eacute;s en attente, &agrave; la date.</p>\n            \n            <p>10.3 La Soci&eacute;t&eacute; se r&eacute;serve le droit de r&eacute;silier votre emploi sans pr&eacute;avis ni indemnit&eacute; de licenciement.</p>\n            \n            <p>sil a des motifs raisonnables de croire que vous &ecirc;tes coupable dinconduite ou de n&eacute;gligence, ou que vous avez commis une violation fondamentale de</p>\n            \n            <p>contrat, ou caus&eacute; une perte &agrave; la Soci&eacute;t&eacute;.</p>\n            \n            <p>10. 4 &Agrave; la fin de votre emploi pour quelque raison que ce soit, vous restituerez &agrave; la Soci&eacute;t&eacute; tous les biens ; document, et</p>\n            \n            <p>papier, &agrave; la fois loriginal et les copies de celui-ci, y compris les &eacute;chantillons, la litt&eacute;rature, les contrats, les dossiers, les listes, les dessins, les plans,</p>\n            \n            <p>lettres, notes, donn&eacute;es et similaires; et Informations confidentielles, en votre possession ou sous votre contr&ocirc;le relatives &agrave; votre</p>\n            \n            <p>lemploi ou aux affaires commerciales des clients.</p>\n            <p>11. Informations confidentielles</p>\n            \n            <p>11. 1 Au cours de votre emploi au sein de la Soci&eacute;t&eacute;, vous consacrerez tout votre temps, votre attention et vos comp&eacute;tences au mieux de vos capacit&eacute;s pour</p>\n            \n            <p>son affaire. Vous ne devez pas, directement ou indirectement, vous engager ou vous associer &agrave;, &ecirc;tre li&eacute; &agrave;, concern&eacute;, employ&eacute; ou</p>\n            \n            <p>temps ou poursuivre quelque programme d&eacute;tudes que ce soit, sans lautorisation pr&eacute;alable de la Soci&eacute;t&eacute;. engag&eacute; dans toute autre entreprise ou</p>\n            \n            <p>activit&eacute;s ou tout autre poste ou travail &agrave; temps partiel ou poursuivre des &eacute;tudes quelconques, sans lautorisation pr&eacute;alable du</p>\n            \n            <p>Compagnie.</p>\n            \n            <p>11.2 Vous devez toujours maintenir le plus haut degr&eacute; de confidentialit&eacute; et garder confidentiels les dossiers, documents et autres</p>\n            \n            <p>Informations confidentielles relatives &agrave; lactivit&eacute; de la Soci&eacute;t&eacute; dont vous pourriez avoir connaissance ou qui vous seraient confi&eacute;es par tout moyen</p>\n            \n            <p>et vous nutiliserez ces registres, documents et informations que dune mani&egrave;re d&ucirc;ment autoris&eacute;e dans lint&eacute;r&ecirc;t de la Soci&eacute;t&eacute;. Pour</p>\n            \n            <p>aux fins de la pr&eacute;sente clause &laquo; Informations confidentielles &raquo; d&eacute;signe les informations sur les activit&eacute;s de la Soci&eacute;t&eacute; et celles de ses clients</p>\n            \n            <p>qui nest pas accessible au grand public et dont vous pourriez avoir connaissance dans le cadre de votre emploi. Ceci comprend,</p>\n            \n            <p>mais sans sy limiter, les informations relatives &agrave; lorganisation, ses listes de clients, ses politiques demploi, son personnel et les informations</p>\n            \n            <p>sur les produits, les processus de la Soci&eacute;t&eacute;, y compris les id&eacute;es, les concepts, les projections, la technologie, les manuels, les dessins, les conceptions,</p>\n            \n            <p>sp&eacute;cifications, et tous les papiers, curriculum vitae, dossiers et autres documents contenant de telles informations confidentielles.</p>\n            \n            <p>11.3 &Agrave; aucun moment, vous ne retirerez des informations confidentielles du bureau sans autorisation.</p>\n            \n            <p>11.4 Votre devoir de prot&eacute;ger et de ne pas divulguer</p>\n            \n            <p>Les Informations confidentielles survivront &agrave; lexpiration ou &agrave; la r&eacute;siliation du pr&eacute;sent Contrat et/ou &agrave; votre emploi au sein de la Soci&eacute;t&eacute;.</p>\n            \n            <p>11.5 La violation des conditions de cette clause vous rendra passible dun renvoi sans pr&eacute;avis en vertu de la clause ci-dessus en plus de tout</p>\n            \n            <p>autre recours que la Soci&eacute;t&eacute; peut avoir contre vous en droit.</p>\n            <p>12. Avis</p>\n            \n            <p>Des avis peuvent &ecirc;tre donn&eacute;s par vous &agrave; la Soci&eacute;t&eacute; &agrave; ladresse de son si&egrave;ge social. Des avis peuvent vous &ecirc;tre donn&eacute;s par la Soci&eacute;t&eacute; &agrave;</p>\n            \n            <p>ladresse que vous avez indiqu&eacute;e dans les registres officiels.</p>\n            \n            \n            \n            <p>13. Applicabilit&eacute; de la politique de lentreprise</p>\n            \n            <p>La Soci&eacute;t&eacute; est autoris&eacute;e &agrave; faire des d&eacute;clarations de politique de temps &agrave; autre concernant des questions telles que le droit aux cong&eacute;s, la maternit&eacute;</p>\n            \n            <p>les cong&eacute;s, les avantages sociaux des employ&eacute;s, les heures de travail, les politiques de transfert, etc., et peut les modifier de temps &agrave; autre &agrave; sa seule discr&eacute;tion.</p>\n            \n            <p>Toutes ces d&eacute;cisions politiques de la Soci&eacute;t&eacute; vous lieront et pr&eacute;vaudront sur le pr&eacute;sent Contrat dans cette mesure.</p>\n            \n            \n            \n            <p>14. Droit applicable/juridiction</p>\n            \n            <p>Votre emploi au sein de la Soci&eacute;t&eacute; est soumis aux lois du pays. Tous les litiges seront soumis &agrave; la comp&eacute;tence du tribunal de grande instance</p>\n            \n            <p>Gujarat uniquement.</p>\n            \n            \n            \n            <p>15. Acceptation de notre offre</p>\n            \n            <p>Veuillez confirmer votre acceptation de ce contrat de travail en signant et en renvoyant le duplicata.</p>\n            \n            \n            \n            <p>Nous vous souhaitons la bienvenue et nous nous r&eacute;jouissons de recevoir votre acceptation et de travailler avec vous.</p>\n            \n            \n            \n            <p>Cordialement,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(189, 'id', '<h3 style=\"text-align: center;\">Surat Bergabung</h3>\n            \n            \n            <p>{date}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            \n            \n            <p>Perihal: Pengangkatan untuk jabatan {designation}</p>\n            \n            \n            <p>{employee_name} yang terhormat,</p>\n            \n            <p>Kami dengan senang hati menawarkan kepada Anda, posisi {designation} dengan {app_name} sebagai Perusahaan dengan persyaratan dan</p>\n            \n            <p>kondisi:</p>\n            \n            \n            \n            <p>1. Mulai bekerja</p>\n            \n            <p>Pekerjaan Anda akan efektif, mulai {start_date}</p>\n            \n            \n            <p>2. Jabatan</p>\n            <p>Jabatan Anda adalah {designation}.</p>\n            \n            <p>3. Gaji</p>\n            <p>Gaji Anda dan tunjangan lainnya akan diatur dalam Jadwal 1, di sini.</p>\n            \n            \n            <p>4. Tempat posting</p>\n            \n            <p>Anda akan diposkan di {branch}. Namun Anda mungkin diminta untuk bekerja di tempat bisnis mana pun yang dimiliki Perusahaan, atau</p>\n            \n            <p>nantinya dapat memperoleh.</p>\n            \n            \n            \n            <p>5. Jam Kerja</p>\n            \n            <p>Hari kerja normal adalah Senin sampai Jumat. Anda akan diminta untuk bekerja selama jam-jam yang diperlukan untuk</p>\n            \n            <p>pelaksanaan tugas Anda dengan benar di Perusahaan. Jam kerja normal adalah dari {start_time} hingga {end_time} dan Anda</p>\n            \n            <p>diharapkan bekerja tidak kurang dari {total_hours} jam setiap minggu, dan jika perlu untuk jam tambahan tergantung pada</p>\n            \n            <p>tanggung jawab.</p>\n            \n            \n            \n            <p>6. Cuti/Libur</p>\n            \n            <p>6.1 Anda berhak atas cuti biasa selama 12 hari.</p>\n            \n            <p>6.2 Anda berhak atas 12 hari kerja cuti sakit berbayar.</p>\n            \n            <p>6.3 Perusahaan akan memberitahukan daftar hari libur yang diumumkan pada awal setiap tahun.</p>\n            \n            \n            \n            <p>7. Sifat tugas</p>\n            \n            <p>Anda akan melakukan yang terbaik dari kemampuan Anda semua tugas yang melekat pada jabatan Anda dan tugas tambahan seperti perusahaan</p>\n            \n            <p>dapat memanggil Anda untuk tampil, dari waktu ke waktu. Tugas khusus Anda ditetapkan dalam Jadwal II di sini.</p>\n            \n            \n            \n            <p>8. Properti perusahaan</p>\n            \n            <p>Anda akan selalu menjaga properti Perusahaan dalam kondisi baik, yang dapat dipercayakan kepada Anda untuk penggunaan resmi selama</p>\n            \n            <p>pekerjaan Anda, dan akan mengembalikan semua properti tersebut kepada Perusahaan sebelum melepaskan biaya Anda, jika tidak ada biayanya</p>\n            \n            <p>yang sama akan dipulihkan dari Anda oleh Perusahaan.</p>\n            \n            \n            \n            <p>9. Meminjam/menerima hadiah</p>\n            \n            <p>Anda tidak akan meminjam atau menerima uang, hadiah, hadiah, atau kompensasi apa pun untuk keuntungan pribadi Anda dari atau dengan cara lain menempatkan diri Anda sendiri</p>\n            \n            <p>di bawah kewajiban uang kepada setiap orang/klien dengan siapa Anda mungkin memiliki hubungan resmi.</p>\n            <p>10. Penghentian</p>\n            \n            <p>10.1 Penunjukan Anda dapat diakhiri oleh Perusahaan, tanpa alasan apa pun, dengan memberi Anda tidak kurang dari [Pemberitahuan] bulan sebelumnya</p>\n            \n            <p>pemberitahuan secara tertulis atau gaji sebagai penggantinya. Untuk maksud pasal ini, gaji berarti gaji pokok.</p>\n            \n            <p>10.2 Anda dapat memutuskan hubungan kerja Anda dengan Perusahaan, tanpa alasan apa pun, dengan memberikan tidak kurang dari [Pemberitahuan Karyawan]</p>\n            \n            <p>pemberitahuan atau gaji bulan sebelumnya untuk periode yang belum disimpan, yang tersisa setelah penyesuaian cuti yang tertunda, pada tanggal.</p>\n            \n            <p>10.3 Perusahaan berhak untuk mengakhiri hubungan kerja Anda dengan segera tanpa pemberitahuan jangka waktu atau pembayaran pemutusan hubungan kerja</p>\n            \n            <p>jika memiliki alasan yang masuk akal untuk meyakini bahwa Anda bersalah atas kesalahan atau kelalaian, atau telah melakukan pelanggaran mendasar apa pun terhadap</p>\n            \n            <p>kontrak, atau menyebabkan kerugian bagi Perusahaan.</p>\n            \n            <p>10. 4 Pada pemutusan hubungan kerja Anda karena alasan apa pun, Anda akan mengembalikan semua properti kepada Perusahaan; dokumen, dan</p>\n            \n            <p>kertas, baik asli maupun salinannya, termasuk contoh, literatur, kontrak, catatan, daftar, gambar, cetak biru,</p>\n            \n            <p>surat, catatan, data dan sejenisnya; dan Informasi Rahasia, yang Anda miliki atau di bawah kendali Anda terkait dengan</p>\n            \n            <p>pekerjaan atau untuk urusan bisnis klien.</p>\n            <p>11. Informasi Rahasia</p>\n            \n            <p>11. 1 Selama bekerja di Perusahaan, Anda akan mencurahkan seluruh waktu, perhatian, dan keterampilan Anda sebaik mungkin untuk</p>\n            \n            <p>bisnisnya. Anda tidak boleh, secara langsung atau tidak langsung, terlibat atau mengasosiasikan diri Anda dengan, terhubung dengan, terkait, dipekerjakan, atau</p>\n            \n            <p>waktu atau mengikuti program studi apapun, tanpa izin sebelumnya dari Perusahaan.terlibat dalam bisnis lain atau</p>\n            \n            <p>kegiatan atau pos atau pekerjaan paruh waktu lainnya atau mengejar program studi apa pun, tanpa izin sebelumnya dari</p>\n            \n            <p>Perusahaan.</p>\n            \n            <p>11.2 Anda harus selalu menjaga tingkat kerahasiaan tertinggi dan merahasiakan catatan, dokumen, dan lainnya</p>\n            \n            <p>Informasi Rahasia yang berkaitan dengan bisnis Perusahaan yang mungkin Anda ketahui atau rahasiakan kepada Anda dengan cara apa pun</p>\n            \n            <p>dan Anda akan menggunakan catatan, dokumen, dan informasi tersebut hanya dengan cara yang sah untuk kepentingan Perusahaan. Untuk</p>\n            \n            <p>tujuan klausul ini Informasi Rahasia berarti informasi tentang bisnis Perusahaan dan pelanggannya</p>\n            \n            <p>yang tidak tersedia untuk masyarakat umum dan yang mungkin Anda pelajari selama masa kerja Anda. Ini termasuk,</p>\n            \n            <p>tetapi tidak terbatas pada, informasi yang berkaitan dengan organisasi, daftar pelanggannya, kebijakan ketenagakerjaan, personel, dan informasi</p>\n            \n            <p>tentang produk Perusahaan, proses termasuk ide, konsep, proyeksi, teknologi, manual, gambar, desain,</p>\n            \n            <p>spesifikasi, dan semua makalah, resume, catatan dan dokumen lain yang berisi Informasi Rahasia tersebut.</p>\n            \n            <p>11.3 Kapan pun Anda akan menghapus Informasi Rahasia apa pun dari kantor tanpa izin.</p>\n            \n            <p>11.4 Kewajiban Anda untuk melindungi dan tidak mengungkapkan</p>\n            \n            <p>e Informasi Rahasia akan tetap berlaku setelah berakhirnya atau pengakhiran Perjanjian ini dan/atau hubungan kerja Anda dengan Perusahaan.</p>\n            \n            <p>11.5 Pelanggaran terhadap ketentuan klausul ini akan membuat Anda bertanggung jawab atas pemecatan singkat berdasarkan klausul di atas selain dari:</p>\n            \n            <p>upaya hukum lain yang mungkin dimiliki Perusahaan terhadap Anda secara hukum.</p>\n            <p>12. Pemberitahuan</p>\n            \n            <p>Pemberitahuan dapat diberikan oleh Anda kepada Perusahaan di alamat kantor terdaftarnya. Pemberitahuan dapat diberikan oleh Perusahaan kepada Anda di</p>\n            \n            <p>alamat yang diberitahukan oleh Anda dalam catatan resmi.</p>\n            \n            \n            \n            <p>13. Keberlakuan Kebijakan Perusahaan</p>\n            \n            <p>Perusahaan berhak untuk membuat pernyataan kebijakan dari waktu ke waktu berkaitan dengan hal-hal seperti hak cuti, persalinan</p>\n            \n            <p>cuti, tunjangan karyawan, jam kerja, kebijakan transfer, dll., dan dapat mengubahnya dari waktu ke waktu atas kebijakannya sendiri.</p>\n            \n            <p>Semua keputusan kebijakan Perusahaan tersebut akan mengikat Anda dan akan mengesampingkan Perjanjian ini sejauh itu.</p>\n            \n            \n            \n            <p>14. Hukum/Yurisdiksi yang Mengatur</p>\n            \n            <p>Pekerjaan Anda dengan Perusahaan tunduk pada undang-undang Negara. Semua perselisihan akan tunduk pada yurisdiksi Pengadilan Tinggi</p>\n            \n            <p>Gujarat saja.</p>\n            \n            \n            \n            <p>15. Penerimaan penawaran kami</p>\n            \n            <p>Harap konfirmasikan penerimaan Anda atas Kontrak Kerja ini dengan menandatangani dan mengembalikan salinan duplikatnya.</p>\n            \n            \n            \n            <p>Kami menyambut Anda dan berharap untuk menerima penerimaan Anda dan bekerja sama dengan Anda.</p>\n            \n            \n            \n            <p>Dengan hormat,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
+INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
+(190, 'it', '<h3 style=\"text-align: center;\">Lettera di adesione</h3>\n            \n            \n            <p>{date}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            <p>Oggetto: Appuntamento alla carica di {designation}</p>\n            \n            \n            <p>Gentile {employee_name},</p>\n            \n            <p>Siamo lieti di offrirti la posizione di {designation} con {app_name} la \"Societ&agrave;\" alle seguenti condizioni e</p>\n            \n            <p>condizioni:</p>\n            \n            \n            <p>1. Inizio del rapporto di lavoro</p>\n            \n            <p>Il tuo impiego sar&agrave; effettivo a partire da {start_date}</p>\n            \n            \n            \n            <p>2. Titolo di lavoro</p>\n            \n            <p>Il tuo titolo di lavoro sar&agrave; {designation}.</p>\n            \n            <p>3. Stipendio</p>\n            \n            <p>Il tuo stipendio e altri benefici saranno come indicato nellAllegato 1, qui di seguito.</p>\n            \n            \n            \n            <p>4. Luogo di invio</p>\n            \n            <p>Sarai inviato a {branch}. Tuttavia, potrebbe essere richiesto di lavorare in qualsiasi luogo di attivit&agrave; che la Societ&agrave; ha, o</p>\n            \n            <p>potr&agrave; successivamente acquisire.</p>\n            \n            \n            \n            <p>5. Orario di lavoro</p>\n            \n            <p>I normali giorni lavorativi sono dal luned&igrave; al venerd&igrave;. Ti verr&agrave; richiesto di lavorare per le ore necessarie per il</p>\n            \n            <p>corretto adempimento dei propri doveri nei confronti della Societ&agrave;. Lorario di lavoro normale va da {start_time} a {end_time} e tu lo sei</p>\n            \n            <p>dovrebbe lavorare non meno di {total_hours} ore ogni settimana e, se necessario, per ore aggiuntive a seconda del tuo</p>\n            \n            <p>responsabilit&agrave;.</p>\n            \n            \n            \n            <p>6. Permessi/Festivit&agrave;</p>\n            \n            <p>6.1 Hai diritto a un congedo occasionale di 12 giorni.</p>\n            \n            <p>6.2 Hai diritto a 12 giorni lavorativi di congedo per malattia retribuito.</p>\n            \n            <p>6.3 La Societ&agrave; comunica allinizio di ogni anno un elenco delle festivit&agrave; dichiarate.</p>\n            \n            \n            \n            <p>7. Natura degli incarichi</p>\n            \n            <p>Eseguirai al meglio delle tue capacit&agrave; tutti i compiti inerenti al tuo incarico e compiti aggiuntivi come lazienda</p>\n            \n            <p>pu&ograve; invitarti a esibirti, di tanto in tanto. I tuoi doveri specifici sono stabiliti nellAllegato II del presente documento.</p>\n            \n            \n            \n            <p>8. Propriet&agrave; aziendale</p>\n            \n            <p>Manterrete sempre in buono stato i beni dellAzienda, che nel corso dellanno potrebbero esservi affidati per uso ufficiale</p>\n            \n            <p>il tuo impiego, e restituir&agrave; tutte queste propriet&agrave; alla Societ&agrave; prima della rinuncia al tuo addebito, in caso contrario il costo</p>\n            \n            <p>degli stessi saranno da voi recuperati dalla Societ&agrave;.</p>\n            \n            \n            \n            <p>9. Prendere in prestito/accettare regali</p>\n            \n            <p>Non prenderai in prestito n&eacute; accetterai denaro, dono, ricompensa o compenso per i tuoi guadagni personali da o altrimenti collocato te stesso</p>\n            \n            <p>sotto obbligazione pecuniaria nei confronti di qualsiasi persona/cliente con cui potresti avere rapporti ufficiali.</p>\n            <p>10. Cessazione</p>\n            \n            <p>10.1 Il tuo incarico pu&ograve; essere risolto dalla Societ&agrave;, senza alcun motivo, dandoti non meno di [Avviso] mesi prima</p>\n            \n            <p>avviso scritto o stipendio in sostituzione di esso. Ai fini della presente clausola, per stipendio si intende lo stipendio base.</p>\n            \n            <p>10.2 &Egrave; possibile terminare il proprio rapporto di lavoro con la Societ&agrave;, senza alcuna causa, fornendo non meno di [Avviso per il dipendente]</p>\n            \n            <p>mesi di preavviso o stipendio per il periodo non risparmiato, lasciato dopo ladeguamento delle ferie pendenti, come alla data.</p>\n            \n            <p>10.3 La Societ&agrave; si riserva il diritto di terminare il rapporto di lavoro sommariamente senza alcun periodo di preavviso o pagamento di cessazione</p>\n            \n            <p>se ha fondati motivi per ritenere che tu sia colpevole di cattiva condotta o negligenza, o abbia commesso una violazione fondamentale</p>\n            \n            <p>contratto, o ha causato danni alla Societ&agrave;.</p>\n            \n            <p>10. 4 Alla cessazione del rapporto di lavoro per qualsiasi motivo, restituirete alla Societ&agrave; tutti i beni; documenti, e</p>\n            \n            <p>carta, sia in originale che in copia, inclusi eventuali campioni, letteratura, contratti, registrazioni, elenchi, disegni, progetti,</p>\n            \n            <p>lettere, note, dati e simili; e Informazioni Riservate, in tuo possesso o sotto il tuo controllo, relative alla tua</p>\n            \n            <p>lavoro o agli affari dei clienti.</p>\n            <p>11. Confidential Information</p>\n            \n            <p>11. 1 During your employment with the Company you will devote your whole time, attention, and skill to the best of your ability for</p>\n            \n            <p>its business. You shall not, directly or indirectly, engage or associate yourself with, be connected with, concerned, employed, or</p>\n            \n            <p>time or pursue any course of study whatsoever, without the prior permission of the Company.engaged in any other business or</p>\n            \n            <p>activities or any other post or work part-time or pursue any course of study whatsoever, without the prior permission of the</p>\n            \n            <p>Company.</p>\n            \n            <p>11.2 You must always maintain the highest degree of confidentiality and keep as confidential the records, documents, and other&nbsp;</p>\n            \n            <p>Confidential Information relating to the business of the Company which may be known to you or confided in you by any means</p>\n            \n            <p>and you will use such records, documents and information only in a duly authorized manner in the interest of the Company. For</p>\n            \n            <p>the purposes of this clause &lsquo;Confidential Information&rsquo; means information about the Company&rsquo;s business and that of its customers</p>\n            \n            <p>which is not available to the general public and which may be learned by you in the course of your employment. This includes,</p>\n            \n            <p>but is not limited to, information relating to the organization, its customer lists, employment policies, personnel, and information</p>\n            \n            <p>about the Company&rsquo;s products, processes including ideas, concepts, projections, technology, manuals, drawing, designs,&nbsp;</p>\n            \n            <p>specifications, and all papers, resumes, records and other documents containing such Confidential Information.</p>\n            \n            <p>11.3 At no time, will you remove any Confidential Information from the office without permission.</p>\n            \n            <p>11.4 Your duty to safeguard and not disclos</p>\n            \n            <p>e Confidential Information will survive the expiration or termination of this Agreement and/or your employment with the Company.</p>\n            \n            <p>11.5 Breach of the conditions of this clause will render you liable to summary dismissal under the clause above in addition to any</p>\n            \n            <p>other remedy the Company may have against you in law.</p>\n            <p>12. Notices</p>\n            \n            <p>Notices may be given by you to the Company at its registered office address. Notices may be given by the Company to you at</p>\n            \n            <p>the address intimated by you in the official records.</p>\n            \n            \n            \n            <p>13. Applicability of Company Policy</p>\n            \n            <p>The Company shall be entitled to make policy declarations from time to time pertaining to matters like leave entitlement,maternity</p>\n            \n            <p>leave, employees&rsquo; benefits, working hours, transfer policies, etc., and may alter the same from time to time at its sole discretion.</p>\n            \n            <p>All such policy decisions of the Company shall be binding on you and shall override this Agreement to that&nbsp; extent.</p>\n            \n            \n            \n            <p>14. Governing Law/Jurisdiction</p>\n            \n            <p>Your employment with the Company is subject to Country laws. All disputes shall be subject to the jurisdiction of High Court</p>\n            \n            <p>Gujarat only.</p>\n            \n            \n            \n            <p>15. Acceptance of our offer</p>\n            \n            <p>Please confirm your acceptance of this Contract of Employment by signing and returning the duplicate copy.</p>\n            \n            \n            \n            <p>We welcome you and look forward to receiving your acceptance and to working with you.</p>\n            \n            \n            \n            <p>Yours Sincerely,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>\n            ', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(191, 'ja', '<h3 style=\"text-align: center;\">入会の手紙</h3>\n            \n            <p>{date}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            \n            \n            <p>件名: {designation} の役職への任命</p>\n            \n            \n            \n            <p>{employee_name} 様</p>\n            \n            \n            <p>{app_name} の {designation} の地位を以下の条件で「会社」として提供できることをうれしく思います。</p>\n            \n            <p>条件：</p>\n            \n            \n            <p>1. 雇用開始</p>\n            \n            <p>あなたの雇用は {start_date} から有効になります</p>\n            \n            \n            <p>2. 役職</p>\n            \n            <p>あなたの役職は{designation}になります。</p>\n            \n            \n            <p>3. 給与</p>\n            \n            <p>あなたの給与およびその他の福利厚生は、本明細書のスケジュール 1 に記載されているとおりです。</p>\n            \n            \n            <p>4. 掲示場所</p>\n            \n            <p>{branch} に掲載されます。ただし、会社が所有する事業所で働く必要がある場合があります。</p>\n            \n            <p>後で取得する場合があります。</p>\n            \n            \n            \n            <p>5. 労働時間</p>\n            \n            <p>通常の営業日は月曜日から金曜日です。あなたは、そのために必要な時間働く必要があります。</p>\n            \n            <p>会社に対するあなたの義務の適切な遂行。通常の勤務時間は {start_time} から {end_time} までで、あなたは</p>\n            \n            <p>毎週 {total_hours} 時間以上の勤務が期待される</p>\n            \n            <p>責任。</p>\n            \n            \n            \n            <p>6.休暇・休日</p>\n            \n            <p>6.1 12 日間の臨時休暇を取得する権利があります。</p>\n            \n            <p>6.2 12 日間の有給病気休暇を取る権利があります。</p>\n            \n            <p>6.3 当社は、毎年の初めに宣言された休日のリストを通知するものとします。</p>\n            \n            \n            \n            <p>7. 職務内容</p>\n            \n            <p>あなたは、自分のポストに固有のすべての義務と、会社としての追加の義務を最大限に遂行します。</p>\n            \n            <p>時々あなたに演奏を依頼するかもしれません。あなたの特定の義務は、本明細書のスケジュール II に記載されています。</p>\n            \n            \n            \n            <p>8. 会社財産</p>\n            \n            <p>あなたは、会社の所有物を常に良好な状態に維持するものとします。</p>\n            \n            <p>あなたの雇用を放棄し、あなたの料金を放棄する前に、そのようなすべての財産を会社に返還するものとします。</p>\n            \n            <p>同じのは、会社によってあなたから回収されます。</p>\n            \n            \n            \n            <p>9. 貸出・贈答品の受け取り</p>\n            \n            <p>あなたは、あなた自身から、または他の方法であなた自身の場所から個人的な利益を得るための金銭、贈り物、報酬、または補償を借りたり、受け取ったりしません。</p>\n            \n            <p>あなたが公式の取引をしている可能性のある人物/クライアントに対する金銭的義務の下で。</p>\n            <p>10. 終了</p>\n            \n            <p>10.1 少なくとも [通知] か月前に通知することにより、理由のいかんを問わず、会社はあなたの任命を終了することができます。</p>\n            \n            <p>書面による通知またはその代わりの給与。この条項の目的上、給与とは基本給を意味するものとします。</p>\n            \n            <p>10.2 あなたは、少なくとも [従業員通知] を提出することにより、理由のいかんを問わず、会社での雇用を終了することができます。</p>\n            \n            <p>保留中の休暇の調整後に残された、保存されていない期間の数か月前の通知または給与は、日付のとおりです。</p>\n            \n            <p>10.3 当社は、通知期間や解雇補償金なしに、あなたの雇用を即座に終了させる権利を留保します。</p>\n            \n            <p>あなたが不正行為または過失で有罪であると信じる合理的な根拠がある場合、または基本的な違反を犯した場合</p>\n            \n            <p>契約、または当社に損害を与えた。</p>\n            \n            <p>10. 4 何らかの理由で雇用が終了した場合、あなたは会社にすべての財産を返還するものとします。ドキュメント、および</p>\n            \n            <p>サンプル、文献、契約書、記録、リスト、図面、青写真を含む、原本とコピーの両方の紙、</p>\n            \n            <p>手紙、メモ、データなど。あなたが所有する、またはあなたの管理下にある機密情報。</p>\n            \n            <p>雇用またはクライアントの業務に。</p>\n            <p>11. 機密情報</p>\n            \n            <p>11. 1 当社での雇用期間中、あなたは自分の全時間、注意、およびスキルを、自分の能力の限りを尽くして捧げます。</p>\n            \n            <p>そのビジネス。あなたは、直接的または間接的に、関与したり、関連付けたり、接続したり、関係したり、雇用したり、または</p>\n            \n            <p>会社の事前の許可なしに、時間や学習コースを追求すること。他のビジネスに従事すること、または</p>\n            \n            <p>の事前の許可なしに、活動またはその他の投稿またはアルバイトをしたり、何らかの研究コースを追求したりすること。</p>\n            \n            <p>会社。</p>\n            \n            <p>11.2 常に最高度の機密性を維持し、記録、文書、およびその他の情報を機密として保持する必要があります。</p>\n            \n            <p>お客様が知っている、または何らかの方法でお客様に内密にされている可能性がある、当社の事業に関連する機密情報</p>\n            \n            <p>また、あなたは、会社の利益のために正当に承認された方法でのみ、そのような記録、文書、および情報を使用するものとします。為に</p>\n            \n            <p>この条項の目的 「機密情報」とは、会社の事業および顧客の事業に関する情報を意味します。</p>\n            \n            <p>これは一般には公開されておらず、雇用の過程で学習する可能性があります。これも、</p>\n            \n            <p>組織、その顧客リスト、雇用方針、人事、および情報に関連する情報に限定されません</p>\n            \n            <p>当社の製品、アイデアを含むプロセス、コンセプト、予測、技術、マニュアル、図面、デザイン、</p>\n            \n            <p>仕様、およびそのような機密情報を含むすべての書類、履歴書、記録、およびその他の文書。</p>\n            \n            <p>11.3 いかなる時も、許可なくオフィスから機密情報を削除しないでください。</p>\n            \n            <p>11.4 保護し、開示しないというあなたの義務</p>\n            \n            <p>e 機密情報は、本契約および/または当社との雇用の満了または終了後も存続します。</p>\n            \n            <p>11.5 この条項の条件に違反した場合、上記の条項に基づく略式解雇の対象となります。</p>\n            \n            <p>会社が法律であなたに対して持つことができるその他の救済。</p>\n            <p>12. 通知</p>\n            \n            <p>通知は、登録された事務所の住所で会社に提出することができます。通知は、当社からお客様に提供される場合があります。</p>\n            \n            <p>公式記録であなたがほのめかした住所。</p>\n            \n            \n            \n            <p>13. 会社方針の適用性</p>\n            \n            <p>会社は、休暇の資格、出産などの事項に関して、随時方針を宣言する権利を有するものとします。</p>\n            \n            <p>休暇、従業員の福利厚生、勤務時間、異動ポリシーなどであり、独自の裁量により随時変更される場合があります。</p>\n            \n            <p>当社のそのようなポリシー決定はすべて、あなたを拘束し、その範囲で本契約を無効にするものとします。</p>\n            \n            \n            \n            <p>14. 準拠法・裁判管轄</p>\n            \n            <p>当社でのあなたの雇用は、国の法律の対象となります。すべての紛争は、高等裁判所の管轄に服するものとします</p>\n            \n            <p>グジャラートのみ。</p>\n            \n            \n            \n            <p>15. オファーの受諾</p>\n            \n            <p>副本に署名して返送することにより、この雇用契約に同意したことを確認してください。</p>\n            \n            \n            \n            <p>私たちはあなたを歓迎し、あなたの受け入れを受け取り、あなたと一緒に働くことを楽しみにしています.</p>\n            \n            \n            \n            <p>敬具、</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(192, 'nl', '<h3 style=\"text-align: center;\">Deelnemende brief</h3>\n            \n            <p>{date}</p>\n            \n            <p>{employee}</p>\n            \n            <p>{address}</p>\n            \n            <p>Onderwerp: Benoeming voor de functie van {designation}</p>\n            \n            <p>Beste {employee_name},</p>\n            \n            <p>We zijn verheugd u de positie van {designation} bij {app_name} het Bedrijf aan te bieden onder de volgende voorwaarden en</p>\n            \n            <p>conditie:</p>\n            \n            \n            <p>1. Indiensttreding</p>\n            <p>Uw dienstverband gaat in op {start_date}</p>\n            \n            \n            <p>2. Functietitel</p>\n            \n            <p>Uw functietitel wordt {designation}.</p>\n            \n            <p>3. Salaris</p>\n            \n            <p>Uw salaris en andere voordelen zijn zoals uiteengezet in Schema 1 hierbij.</p>\n            \n            <p>4. Plaats van detachering</p>\n            \n            <p>Je wordt geplaatst op {branch}. Het kan echter zijn dat u moet werken op een bedrijfslocatie die het Bedrijf heeft, of</p>\n            \n            <p>later kan verwerven.</p>\n            \n            \n            \n            <p>5. Werkuren</p>\n            \n            <p>De normale werkdagen zijn van maandag tot en met vrijdag. Je zal de uren moeten werken die nodig zijn voor de</p>\n            \n            <p>correcte uitvoering van uw taken jegens het bedrijf. De normale werkuren zijn van {start_time} tot {end_time} en jij bent</p>\n            \n            <p>naar verwachting niet minder dan {total_hours} uur per week werken, en indien nodig voor extra uren, afhankelijk van uw</p>\n            \n            <p>verantwoordelijkheden.</p>\n            \n            \n            \n            <p>6. Verlof/Vakantie</p>\n            \n            <p>6.1 Je hebt recht op tijdelijk verlof van 12 dagen.</p>\n            \n            <p>6.2 U heeft recht op 12 werkdagen betaald ziekteverlof.</p>\n            \n            <p>6.3 De Maatschappij stelt aan het begin van elk jaar een lijst van verklaarde feestdagen op.</p>\n            \n            \n            \n            <p>7. Aard van de taken</p>\n            \n            <p>Je voert alle taken die inherent zijn aan je functie en bijkomende taken zoals het bedrijf naar beste vermogen uit;</p>\n            \n            <p>kan van tijd tot tijd een beroep op u doen om op te treden. Uw specifieke taken zijn uiteengezet in Bijlage II hierbij.</p>\n            \n            \n            \n            <p>8. Bedrijfseigendommen</p>\n            \n            <p>U onderhoudt bedrijfseigendommen, die u in de loop van</p>\n            \n            <p>uw dienstverband, en zal al deze eigendommen aan het Bedrijf teruggeven voordat afstand wordt gedaan van uw kosten, bij gebreke waarvan de kosten</p>\n            \n            <p>hiervan zal door het Bedrijf van u worden verhaald.</p>\n            \n            \n            \n            <p>9. Geschenken lenen/aannemen</p>\n            \n            <p>U zult geen geld, geschenken, beloningen of vergoedingen voor uw persoonlijk gewin lenen of accepteren van uzelf of uzelf op een andere manier plaatsen</p>\n            \n            <p>onder geldelijke verplichting jegens een persoon/klant met wie u mogelijk offici&euml;le betrekkingen heeft.</p>\n            <p>10. Be&euml;indiging</p>\n            \n            <p>10.1 Uw aanstelling kan door het Bedrijf zonder opgaaf van reden worden be&euml;indigd door u minimaal [Opzegging] maanden van tevoren</p>\n            \n            <p>schriftelijke opzegging of daarvoor in de plaats komend salaris. In dit artikel wordt onder salaris verstaan ​​het basissalaris.</p>\n            \n            <p>10.2 U kunt uw dienstverband bij het Bedrijf be&euml;indigen, zonder enige reden, door niet minder dan [Mededeling van de werknemer]</p>\n            \n            <p>maanden opzegtermijn of salaris voor de niet gespaarde periode, overgebleven na aanpassing van hangende verlofdagen, zoals op datum.</p>\n            \n            <p>10.3 Het bedrijf behoudt zich het recht voor om uw dienstverband op staande voet te be&euml;indigen zonder enige opzegtermijn of be&euml;indigingsvergoeding</p>\n            \n            <p>als het redelijke grond heeft om aan te nemen dat u zich schuldig heeft gemaakt aan wangedrag of nalatigheid, of een fundamentele schending van</p>\n            \n            <p>contract, of enig verlies voor het Bedrijf veroorzaakt.</p>\n            \n            <p>10. 4 Bij be&euml;indiging van uw dienstverband om welke reden dan ook, geeft u alle eigendommen terug aan het Bedrijf; documenten, en</p>\n            \n            <p>papier, zowel origineel als kopie&euml;n daarvan, inclusief eventuele monsters, literatuur, contracten, bescheiden, lijsten, tekeningen, blauwdrukken,</p>\n            \n            <p>brieven, notities, gegevens en dergelijke; en Vertrouwelijke informatie, in uw bezit of onder uw controle met betrekking tot uw</p>\n            \n            <p>werkgelegenheid of de zakelijke aangelegenheden van klanten.</p>\n            <p>11. Vertrouwelijke informatie</p>\n            \n            <p>11. 1 Tijdens uw dienstverband bij het Bedrijf besteedt u al uw tijd, aandacht en vaardigheden naar uw beste vermogen aan:</p>\n            \n            <p>zijn zaken. U mag zich niet, direct of indirect, inlaten met of verbonden zijn met, betrokken zijn bij, betrokken zijn bij, in dienst zijn van of</p>\n            \n            <p>tijd doorbrengen of een studie volgen, zonder voorafgaande toestemming van het bedrijf.bezig met een ander bedrijf of</p>\n            \n            <p>werkzaamheden of enige andere functie of werk in deeltijd of het volgen van welke opleiding dan ook, zonder voorafgaande toestemming van de</p>\n            \n            <p>Bedrijf.</p>\n            \n            <p>11.2 U moet altijd de hoogste graad van vertrouwelijkheid handhaven en de records, documenten en andere</p>\n            \n            <p>Vertrouwelijke informatie met betrekking tot het bedrijf van het bedrijf die u op enigerlei wijze bekend is of in vertrouwen is genomen</p>\n            \n            <p>en u zult dergelijke records, documenten en informatie alleen gebruiken op een naar behoren gemachtigde manier in het belang van het bedrijf. Voor</p>\n            \n            <p>de doeleinden van deze clausule Vertrouwelijke informatiebetekent informatie over het bedrijf van het bedrijf en dat van zijn klanten</p>\n            \n            <p>die niet beschikbaar is voor het grote publiek en die u tijdens uw dienstverband kunt leren. Dit bevat,</p>\n            \n            <p>maar is niet beperkt tot informatie met betrekking tot de organisatie, haar klantenlijsten, werkgelegenheidsbeleid, personeel en informatie</p>\n            \n            <p>over de producten, processen van het bedrijf, inclusief idee&euml;n, concepten, projecties, technologie, handleidingen, tekeningen, ontwerpen,</p>\n            \n            <p>specificaties, en alle papieren, cvs, dossiers en andere documenten die dergelijke vertrouwelijke informatie bevatten.</p>\n            \n            <p>11.3 U verwijdert nooit vertrouwelijke informatie van het kantoor zonder toestemming.</p>\n            \n            <p>11.4 Uw plicht om te beschermen en niet openbaar te maken</p>\n            \n            <p>e Vertrouwelijke informatie blijft van kracht na het verstrijken of be&euml;indigen van deze Overeenkomst en/of uw dienstverband bij het Bedrijf.</p>\n            \n            <p>11.5 Schending van de voorwaarden van deze clausule maakt u aansprakelijk voor ontslag op staande voet op grond van de bovenstaande clausule, naast eventuele:</p>\n            \n            <p>ander rechtsmiddel dat het Bedrijf volgens de wet tegen u heeft.</p>\n            <p>12. Kennisgevingen</p>\n            \n            <p>Kennisgevingen kunnen door u aan het Bedrijf worden gedaan op het adres van de maatschappelijke zetel. Kennisgevingen kunnen door het bedrijf aan u worden gedaan op:</p>\n            \n            <p>het door u opgegeven adres in de offici&euml;le administratie.</p>\n            \n            \n            \n            <p>13. Toepasselijkheid van het bedrijfsbeleid</p>\n            \n            <p>Het bedrijf heeft het recht om van tijd tot tijd beleidsverklaringen af ​​te leggen met betrekking tot zaken als verlofrecht, moederschap</p>\n            \n            <p>verlof, werknemersvoordelen, werkuren, transferbeleid, enz., en kan deze van tijd tot tijd naar eigen goeddunken wijzigen.</p>\n            \n            <p>Al dergelijke beleidsbeslissingen van het Bedrijf zijn bindend voor u en hebben voorrang op deze Overeenkomst in die mate.</p>\n            \n            \n            \n            <p>14. Toepasselijk recht/jurisdictie</p>\n            \n            <p>Uw dienstverband bij het bedrijf is onderworpen aan de landelijke wetgeving. Alle geschillen zijn onderworpen aan de jurisdictie van de High Court</p>\n            \n            <p>Alleen Gujarat.</p>\n            \n            \n            \n            <p>15. Aanvaarding van ons aanbod</p>\n            \n            <p>Bevestig uw aanvaarding van deze arbeidsovereenkomst door het duplicaat te ondertekenen en terug te sturen.</p>\n            \n            \n            \n            <p>Wij heten u van harte welkom en kijken ernaar uit uw acceptatie te ontvangen en met u samen te werken.</p>\n            \n            \n            \n            <p>Hoogachtend,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{date}</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(193, 'pl', '<h3 style=\"text-align: center;\">Dołączanie listu</h3>\n            \n            <p>{date }</p>\n            \n            <p>{employee_name }</p>\n            \n            <p>{address }</p>\n            \n            \n            <p>Dotyczy: mianowania na stanowisko {designation}</p>\n            \n            <p>Szanowny {employee_name },</p>\n            \n            <p>Mamy przyjemność zaoferować Państwu, stanowisko {designation} z {app_name } \"Sp&oacute;łka\" na poniższych warunkach i</p>\n            <p>warunki:</p>\n            \n            <p>1. Rozpoczęcie pracy</p>\n            \n            <p>Twoje zatrudnienie będzie skuteczne, jak na {start_date }</p>\n            \n            <p>2. Tytuł zadania</p>\n            <p>Tw&oacute;j tytuł pracy to {designation}.</p>\n            \n            <p>3. Salary</p>\n            \n            <p>Twoje wynagrodzenie i inne świadczenia będą określone w Zestawieniu 1, do niniejszego rozporządzenia.</p>\n            \n            \n            <p>4. Miejsce delegowania</p>\n            <p>Użytkownik zostanie opublikowany w {branch }. Użytkownik może jednak być zobowiązany do pracy w dowolnym miejscu prowadzenia działalności, kt&oacute;re Sp&oacute;łka posiada, lub może p&oacute;źniej nabyć.</p>\n            \n            <p>5. Godziny pracy</p>\n            <p>Normalne dni robocze są od poniedziałku do piątku. Będziesz zobowiązany do pracy na takie godziny, jakie są niezbędne do prawidłowego wywiązania się ze swoich obowiązk&oacute;w wobec Sp&oacute;łki. Normalne godziny pracy to {start_time } do {end_time }, a użytkownik oczekuje, że będzie pracować nie mniej niż {total_hours } godzin tygodniowo, a jeśli to konieczne, przez dodatkowe godziny w zależności od Twojego</p>\n            <p>odpowiedzialności.</p>\n            \n            <p>6. Urlop/Wakacje</p>\n            \n            <p>6.1 Przysługuje prawo do urlopu dorywczego w ciągu 12 dni.</p>\n            \n            <p>6.2 Użytkownik ma prawo do 12 dni roboczych od wypłatnego zwolnienia chorobowego.</p>\n            \n            <p>6.3 Sp&oacute;łka powiadamia na początku każdego roku wykaz ogłoszonych świąt.&nbsp;</p>\n            \n            \n            \n            <p>7. Rodzaj obowiązk&oacute;w</p>\n            \n            <p>Będziesz wykonywać na najlepsze ze swojej zdolności wszystkie obowiązki, jak są one nieodłączne w swoim poście i takie dodatkowe obowiązki, jak firma może zadzwonić do wykonania, od czasu do czasu. Państwa szczeg&oacute;lne obowiązki są określone w załączniku II do niniejszego rozporządzenia.</p>\n            \n            \n            \n            <p>8. Właściwość przedsiębiorstwa</p>\n            \n            <p>Zawsze będziesz utrzymywać w dobrej kondycji Firmy, kt&oacute;ra może być powierzona do użytku służbowego w trakcie trwania</p>\n            \n            <p>Twoje zatrudnienie, i zwr&oacute;ci wszystkie takie nieruchomości do Sp&oacute;łki przed zrzeczeniem się opłaty, w przeciwnym razie koszty te same będą odzyskane od Ciebie przez Sp&oacute;łkę.</p>\n            \n            <p>9. Wypożyczanie/akceptowanie prezent&oacute;w</p>\n            \n            <p>Nie będziesz pożyczał ani nie akceptować żadnych pieniędzy, dar&oacute;w, nagrody lub odszkodowania za swoje osobiste zyski z lub w inny spos&oacute;b złożyć się w ramach zobowiązania pieniężnego do jakiejkolwiek osoby/klienta, z kt&oacute;rym może być posiadanie oficjalne relacje.</p>\n            <p>10. Zakończenie</p>\n            \n            <p>10.1 Powołanie może zostać wypowiedziane przez Sp&oacute;łkę, bez względu na przyczynę, poprzez podanie nie mniej niż [ Zawiadomienie] miesięcy uprzedniego wypowiedzenia na piśmie lub wynagrodzenia w miejsce jego wystąpienia. Dla cel&oacute;w niniejszej klauzuli, wynagrodzenie oznacza wynagrodzenie podstawowe.</p>\n            \n            <p>10.2 Użytkownik może rozwiązać umowę o pracę ze Sp&oacute;łką, bez jakiejkolwiek przyczyny, podając nie mniej niż [ ogłoszenie o pracowniku] miesiące przed powiadomieniem lub wynagrodzeniem za niezaoszczędzony okres, pozostawiony po skorygowaniu oczekujących liści, jak na dzień.</p>\n            \n            <p>10.3 Sp&oacute;łka zastrzega sobie prawo do wypowiedzenia umowy o pracę bez okresu wypowiedzenia lub wypłaty z tytułu rozwiązania umowy, jeżeli ma on uzasadnione podstawy, aby sądzić, że jesteś winny wykroczenia lub niedbalstwa, lub popełnił jakiekolwiek istotne naruszenie umowy lub spowodował jakiekolwiek straty w Sp&oacute;łce.&nbsp;</p>\n            \n            <p>10. 4 W sprawie rozwiązania stosunku pracy z jakiegokolwiek powodu, powr&oacute;cisz do Sp&oacute;łki wszystkie nieruchomości; dokumenty, i&nbsp;</p>\n            \n            <p>papieru, zar&oacute;wno oryginału, jak i jego kopii, w tym wszelkich pr&oacute;bek, literatury, um&oacute;w, zapis&oacute;w, wykaz&oacute;w, rysunk&oacute;w, konspekt&oacute;w,</p>\n            \n            <p>listy, notatki, dane i podobne; informacje poufne, znajdujące się w posiadaniu lub pod Twoją kontrolą związane z zatrudnieniem lub sprawami biznesowymi klient&oacute;w.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Informacje poufne</p>\n            \n            <p>11. 1 Podczas swojego zatrudnienia z Firmą poświęcisz cały czas, uwagę i umiejętności na najlepszą z Twoich możliwości</p>\n            \n            <p>swojej działalności gospodarczej. Użytkownik nie może, bezpośrednio lub pośrednio, prowadzić lub wiązać się z, być związany z, dotyka, zatrudniony lub czas lub prowadzić jakikolwiek kierunek studi&oacute;w, bez uprzedniej zgody Company.zaangażował się w innej działalności gospodarczej lub działalności lub jakikolwiek inny post lub pracy w niepełnym wymiarze czasu lub prowadzić jakikolwiek kierunek studi&oacute;w, bez uprzedniej zgody</p>\n            \n            <p>Firma.</p>\n            \n            <p>11.2 Zawsze musisz zachować najwyższy stopień poufności i zachować jako poufny akt, dokumenty, i inne&nbsp;</p>\n            \n            <p>Informacje poufne dotyczące działalności Sp&oacute;łki, kt&oacute;re mogą być znane Państwu lub w dowolny spos&oacute;b zwierzyny, a Użytkownik będzie posługiwać się takimi zapisami, dokumentami i informacjami tylko w spos&oacute;b należycie autoryzowany w interesie Sp&oacute;łki. Do cel&oacute;w niniejszej klauzuli \"Informacje poufne\" oznaczają informacje o działalności Sp&oacute;łki oraz o jej klientach, kt&oacute;re nie są dostępne dla og&oacute;łu społeczeństwa i kt&oacute;re mogą być przez Państwa w trakcie zatrudnienia dowiedzione przez Państwa. Obejmuje to,</p>\n            \n            <p>ale nie ogranicza się do informacji związanych z organizacją, jej listami klient&oacute;w, politykami zatrudnienia, personelem oraz informacjami o produktach firmy, procesach, w tym pomysłach, koncepcjach, projekcjach, technikach, podręcznikach, rysunkach, projektach,&nbsp;</p>\n            \n            <p>specyfikacje, a także wszystkie dokumenty, życiorysy, zapisy i inne dokumenty zawierające takie informacje poufne.</p>\n            \n            <p>11.3 W żadnym momencie nie usunie Pan żadnych Informacji Poufnych z urzędu bez zezwolenia.</p>\n            \n            <p>11.4 Tw&oacute;j obowiązek ochrony a nie disclos</p>\n            \n            <p>Informacje poufne przetrwają wygaśnięcie lub rozwiązanie niniejszej Umowy i/lub Twoje zatrudnienie w Sp&oacute;łce.</p>\n            \n            <p>11.5 Naruszenie warunk&oacute;w niniejszej klauzuli spowoduje, że Użytkownik będzie zobowiązany do skr&oacute;conej umowy w ramach klauzuli powyżej, opr&oacute;cz wszelkich innych środk&oacute;w zaradcze, jakie Sp&oacute;łka może mieć przeciwko Państwu w prawie.</p>\n            \n            \n            \n            <p>12. Uwagi</p>\n            \n            <p>Ogłoszenia mogą być podane przez Państwa do Sp&oacute;łki pod adresem jej siedziby. Ogłoszenia mogą być podane przez Sp&oacute;łkę do Państwa na adres intymniony przez Państwa w ewidencji urzędowej.</p>\n            \n            \n            \n            <p>13. Stosowność polityki firmy</p>\n            \n            <p>Sp&oacute;łka jest uprawniona do składania deklaracji politycznych od czasu do czasu dotyczących spraw takich jak prawo do urlopu macierzyńskiego, macierzyństwo</p>\n            \n            <p>urlop&oacute;w, świadczeń pracowniczych, godzin pracy, polityki transferowej itp., a także mogą zmieniać to samo od czasu do czasu według własnego uznania.</p>\n            \n            <p>Wszystkie takie decyzje polityczne Sp&oacute;łki są wiążące dla Państwa i przesłaniają niniejszą Umowę w tym zakresie.</p>\n            \n            \n            \n            <p>14. Prawo właściwe/jurysdykcja</p>\n            \n            <p>Twoje zatrudnienie ze Sp&oacute;łką podlega prawu krajowi. Wszelkie spory podlegają właściwości Sądu Najwyższego</p>\n            \n            <p>Tylko Gujarat.</p>\n            \n            \n            \n            <p>15. Akceptacja naszej oferty</p>\n            \n            <p>Prosimy o potwierdzenie przyjęcia niniejszej Umowy o pracę poprzez podpisanie i zwr&oacute;cenie duplikatu.</p>\n            \n            \n            \n            <p>Zapraszamy Państwa i czekamy na Państwa przyjęcie i wsp&oacute;łpracę z Tobą.</p>\n            \n            \n            \n            <p>Z Państwa Sincerely,</p>\n            \n            <p>{app_name }</p>\n            \n            <p>{date }</p>', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(194, 'pt', '<h3 style=\"text-align: center;\">Carta De Ades&atilde;o</h3>\n            \n            <p>{data}</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{address}</p>\n            \n            \n            <p>Assunto: Nomea&ccedil;&atilde;o para o cargo de {designation}</p>\n            \n            <p>Querido {employee_name},</p>\n            \n            \n            <p>Temos o prazer de oferec&ecirc;-lo, a posi&ccedil;&atilde;o de {designation} com {app_name} a Empresa nos seguintes termos e</p>\n            <p>condi&ccedil;&otilde;es:</p>\n            \n            \n            <p>1. Comentamento do emprego</p>\n            \n            <p>Seu emprego ser&aacute; efetivo, a partir de {start_date}</p>\n            \n            \n            <p>2. T&iacute;tulo do emprego</p>\n            \n            <p>Seu cargo de trabalho ser&aacute; {designation}.</p>\n            \n            <p>3. Sal&aacute;rio</p>\n            \n            <p>Seu sal&aacute;rio e outros benef&iacute;cios ser&atilde;o conforme estabelecido no Planejamento 1, hereto.</p>\n            \n            <p>4. Local de postagem</p>\n            \n            <p>Voc&ecirc; ser&aacute; postado em {branch}. Voc&ecirc; pode, no entanto, ser obrigado a trabalhar em qualquer local de neg&oacute;cios que a Empresa tenha, ou possa posteriormente adquirir.</p>\n            \n            <p>5. Horas de Trabalho</p>\n            \n            <p>Os dias normais de trabalho s&atilde;o de segunda a sexta-feira. Voc&ecirc; ser&aacute; obrigado a trabalhar por tais horas, conforme necess&aacute;rio para a quita&ccedil;&atilde;o adequada de suas fun&ccedil;&otilde;es para a Companhia. As horas de trabalho normais s&atilde;o de {start_time} para {end_time} e voc&ecirc; deve trabalhar n&atilde;o menos de {total_horas} horas semanais, e se necess&aacute;rio para horas adicionais dependendo do seu</p>\n            <p>responsabilidades.</p>\n            \n            <p>6. Leave / Holidays</p>\n            \n            <p>6,1 Voc&ecirc; tem direito a licen&ccedil;a casual de 12 dias.</p>\n            \n            <p>6,2 Voc&ecirc; tem direito a 12 dias &uacute;teis de licen&ccedil;a remunerada remunerada.</p>\n            \n            <p>6,3 Companhia notificar&aacute; uma lista de feriados declarados no in&iacute;cio de cada ano.&nbsp;</p>\n            \n            \n            \n            <p>7. Natureza dos deveres</p>\n            \n            <p>Voc&ecirc; ir&aacute; executar ao melhor da sua habilidade todos os deveres como s&atilde;o inerentes ao seu cargo e tais deveres adicionais como a empresa pode ligar sobre voc&ecirc; para executar, de tempos em tempos. Os seus deveres espec&iacute;ficos s&atilde;o estabelecidos no Hereto do Planejamento II.</p>\n            \n            \n            \n            <p>8. Propriedade da empresa</p>\n            \n            <p>Voc&ecirc; sempre manter&aacute; em bom estado propriedade Empresa, que poder&aacute; ser confiada a voc&ecirc; para uso oficial durante o curso de</p>\n            \n            <p>o seu emprego, e devolver&aacute; toda essa propriedade &agrave; Companhia antes de abdicar de sua acusa&ccedil;&atilde;o, falhando qual o custo do mesmo ser&aacute; recuperado de voc&ecirc; pela Companhia.</p>\n            \n            \n            \n            <p>9. Borremir / aceitar presentes</p>\n            \n            <p>Voc&ecirc; n&atilde;o vai pedir empr&eacute;stimo ou aceitar qualquer dinheiro, presente, recompensa ou indeniza&ccedil;&atilde;o por seus ganhos pessoais de ou de outra forma colocar-se sob obriga&ccedil;&atilde;o pecuni&aacute;ria a qualquer pessoa / cliente com quem voc&ecirc; pode estar tendo rela&ccedil;&otilde;es oficiais.</p>\n            \n            \n            \n            <p>10. Termina&ccedil;&atilde;o</p>\n            \n            <p>10,1 Sua nomea&ccedil;&atilde;o pode ser rescindida pela Companhia, sem qualquer raz&atilde;o, dando-lhe n&atilde;o menos do que [aviso] meses de aviso pr&eacute;vio por escrito ou de sal&aacute;rio em lieu deste. Para efeito da presente cl&aacute;usula, o sal&aacute;rio deve significar sal&aacute;rio base.</p>\n            \n            <p>10,2 Voc&ecirc; pode rescindir seu emprego com a Companhia, sem qualquer causa, ao dar nada menos que [Aviso de contrata&ccedil;&atilde;o] meses de aviso pr&eacute;vio ou sal&aacute;rio para o per&iacute;odo n&atilde;o salvo, deixado ap&oacute;s ajuste de folhas pendentes, conforme data de encontro.</p>\n            \n            <p>10,3 Empresa reserva-se o direito de rescindir o seu emprego sumariamente sem qualquer prazo de aviso ou de rescis&atilde;o se tiver terreno razo&aacute;vel para acreditar que voc&ecirc; &eacute; culpado de m&aacute; conduta ou neglig&ecirc;ncia, ou tenha cometido qualquer viola&ccedil;&atilde;o fundamental de contrato, ou tenha causado qualquer perda para a Empresa.&nbsp;</p>\n            \n            <p>10. 4 Sobre a rescis&atilde;o do seu emprego por qualquer motivo, voc&ecirc; retornar&aacute; para a Empresa todos os bens; documentos e&nbsp;</p>\n            \n            <p>papel, tanto originais como c&oacute;pias dos mesmos, incluindo quaisquer amostras, literatura, contratos, registros, listas, desenhos, plantas,</p>\n            \n            <p>cartas, notas, dados e semelhantes; e Informa&ccedil;&otilde;es Confidenciais, em sua posse ou sob seu controle relacionado ao seu emprego ou aos neg&oacute;cios de neg&oacute;cios dos clientes.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Informa&ccedil;&otilde;es Confidenciais</p>\n            \n            <p>11. 1 Durante o seu emprego com a Companhia voc&ecirc; ir&aacute; dedicar todo o seu tempo, aten&ccedil;&atilde;o e habilidade para o melhor de sua capacidade de</p>\n            \n            <p>o seu neg&oacute;cio. Voc&ecirc; n&atilde;o deve, direta ou indiretamente, se envolver ou associar-se com, estar conectado com, preocupado, empregado, ou tempo ou prosseguir qualquer curso de estudo, sem a permiss&atilde;o pr&eacute;via do Company.engajado em qualquer outro neg&oacute;cio ou atividades ou qualquer outro cargo ou trabalho parcial ou prosseguir qualquer curso de estudo, sem a permiss&atilde;o pr&eacute;via do</p>\n            \n            <p>Empresa.</p>\n            \n            <p>11,2 &Eacute; preciso manter sempre o mais alto grau de confidencialidade e manter como confidenciais os registros, documentos e outros&nbsp;</p>\n            \n            <p>Informa&ccedil;&otilde;es confidenciais relativas ao neg&oacute;cio da Companhia que possam ser conhecidas por voc&ecirc; ou confiadas em voc&ecirc; por qualquer meio e utilizar&atilde;o tais registros, documentos e informa&ccedil;&otilde;es apenas de forma devidamente autorizada no interesse da Companhia. Para efeitos da presente cl&aacute;usula \"Informa&ccedil;&otilde;es confidenciais\" significa informa&ccedil;&atilde;o sobre os neg&oacute;cios da Companhia e a dos seus clientes que n&atilde;o est&aacute; dispon&iacute;vel para o p&uacute;blico em geral e que poder&aacute; ser aprendida por voc&ecirc; no curso do seu emprego. Isso inclui,</p>\n            \n            <p>mas n&atilde;o se limita a, informa&ccedil;&otilde;es relativas &agrave; organiza&ccedil;&atilde;o, suas listas de clientes, pol&iacute;ticas de emprego, pessoal, e informa&ccedil;&otilde;es sobre os produtos da Companhia, processos incluindo ideias, conceitos, proje&ccedil;&otilde;es, tecnologia, manuais, desenho, desenhos,&nbsp;</p>\n            \n            <p>especifica&ccedil;&otilde;es, e todos os pap&eacute;is, curr&iacute;culos, registros e outros documentos que contenham tais Informa&ccedil;&otilde;es Confidenciais.</p>\n            \n            <p>11,3 Em nenhum momento, voc&ecirc; remover&aacute; quaisquer Informa&ccedil;&otilde;es Confidenciais do escrit&oacute;rio sem permiss&atilde;o.</p>\n            \n            <p>11,4 O seu dever de salvaguardar e n&atilde;o os desclos</p>\n            \n            <p>Informa&ccedil;&otilde;es Confidenciais sobreviver&atilde;o &agrave; expira&ccedil;&atilde;o ou &agrave; rescis&atilde;o deste Contrato e / ou do seu emprego com a Companhia.</p>\n            \n            <p>11,5 Viola&ccedil;&atilde;o das condi&ccedil;&otilde;es desta cl&aacute;usula ir&aacute; torn&aacute;-lo sujeito a demiss&atilde;o sum&aacute;ria sob a cl&aacute;usula acima, al&eacute;m de qualquer outro rem&eacute;dio que a Companhia possa ter contra voc&ecirc; em lei.</p>\n            \n            \n            \n            <p>12. Notices</p>\n            \n            <p>Os avisos podem ser conferidos por voc&ecirc; &agrave; Empresa em seu endere&ccedil;o de escrit&oacute;rio registrado. Os avisos podem ser conferidos pela Companhia a voc&ecirc; no endere&ccedil;o intimado por voc&ecirc; nos registros oficiais.</p>\n            \n            \n            \n            <p>13. Aplicabilidade da Pol&iacute;tica da Empresa</p>\n            \n            <p>A Companhia tem direito a fazer declara&ccedil;&otilde;es de pol&iacute;tica de tempos em tempos relativos a mat&eacute;rias como licen&ccedil;a de licen&ccedil;a, maternidade</p>\n            \n            <p>sair, benef&iacute;cios dos empregados, horas de trabalho, pol&iacute;ticas de transfer&ecirc;ncia, etc., e pode alterar o mesmo de vez em quando a seu exclusivo crit&eacute;rio.</p>\n            \n            <p>Todas essas decis&otilde;es de pol&iacute;tica da Companhia devem ser vinculativas para si e substituir&atilde;o este Acordo nessa medida.</p>\n            \n            \n            \n            <p>14. Direito / Jurisdi&ccedil;&atilde;o</p>\n            \n            <p>Seu emprego com a Companhia est&aacute; sujeito &agrave;s leis do Pa&iacute;s. Todas as disputas est&atilde;o sujeitas &agrave; jurisdi&ccedil;&atilde;o do Tribunal Superior</p>\n            \n            <p>Gujarat apenas.</p>\n            \n            \n            \n            <p>15. Aceita&ccedil;&atilde;o da nossa oferta</p>\n            \n            <p>Por favor, confirme sua aceita&ccedil;&atilde;o deste Contrato de Emprego assinando e retornando a c&oacute;pia duplicada.</p>\n            \n            \n            \n            <p>N&oacute;s acolhemos voc&ecirc; e estamos ansiosos para receber sua aceita&ccedil;&atilde;o e para trabalhar com voc&ecirc;.</p>\n            \n            \n            \n            <p>Seu Sinceramente,</p>\n            \n            <p>{app_name}</p>\n            \n            <p>{data}</p>\n            ', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
+INSERT INTO `joining_letters` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
+(195, 'ru', '<h3 style=\"text-align: center;\">Присоединение к письму</h3>\n            \n            <p>{date}</p>\n            \n            <p>{ employee_name }</p>\n            <p>{address}</p>\n            \n            <p>Тема: Назначение на должность {designation}</p>\n            \n            <p>Уважаемый { employee_name },</p>\n            \n            <p>Мы рады предложить Вам, позицию {designation} с { app_name } Компания на следующих условиях и</p>\n            \n            <p>условия:</p>\n            \n            \n            <p>1. Начало работы</p>\n            \n            <p>Ваше трудоустройство будет эффективным, начиная с { start_date }</p>\n            \n            \n            <p>2. Название должности</p>\n            <p>Ваш заголовок задания будет {designation}.</p>\n            \n            <p>3. Зарплата</p>\n            <p>Ваши оклады и другие пособия будут установлены в соответствии с расписанием, изложенным в приложении 1 к настоящему.</p>\n            \n            <p>4. Место размещения</p>\n            <p>Вы будете работать в { branch }. Вы, однако, можете работать в любом месте, которое компания имеет или может впоследствии приобрести.</p>\n            \n            \n            \n            <p>5. Часы работы</p>\n            <p>Обычные рабочие дни-с понедельника по пятницу. Вы должны будете работать в течение таких часов, как это необходимо для надлежащего выполнения Ваших обязанностей перед компанией. Обычные рабочие часы-от { start_time } до { end_time }, и вы, как ожидается, будут работать не менее { total_hours } часов каждую неделю, и при необходимости в течение дополнительных часов в зависимости от вашего</p>\n            <p>ответственности.</p>\n            <p>6. Отпуск/Праздники</p>\n            \n            <p>6.1 Вы имеете право на случайный отпуск продолжительностью 12 дней.</p>\n            \n            <p>6.2 Вы имеете право на 12 рабочих дней оплачиваемого отпуска по болезни.</p>\n            \n            <p>6.3 Компания в начале каждого года уведомляет об объявленных праздниках.&nbsp;</p>\n            \n            \n            \n            <p>7. Характер обязанностей</p>\n            \n            <p>Вы будете выполнять все обязанности, присующие вам, и такие дополнительные обязанности, которые компания может призвать к вам, время от времени. Ваши конкретные обязанности изложены в приложении II к настоящему.</p>\n            \n            \n            \n            <p>8. Свойство компании</p>\n            \n            <p>Вы всегда будете поддерживать в хорошем состоянии имущество Компании, которое может быть доверено Вам для служебного пользования в течение</p>\n            \n            <p>вашей занятости, и возвратит все это имущество Компании до отказа от вашего заряда, при отсутствии которого стоимость одного и того же имущества будет взыскана с Вас компанией.</p>\n            \n            \n            \n            <p>9. Боровить/принять подарки</p>\n            \n            <p>Вы не будете брать взаймы или принимать какие-либо деньги, подарки, вознаграждение или компенсацию за ваши личные доходы от или в ином месте под денежный долг любому лицу/клиенту, с которым у вас могут быть официальные сделки.</p>\n            \n            \n            \n            <p>10. Прекращение</p>\n            \n            <p>10.1 Ваше назначение может быть прекращено компанией без каких бы то ни было оснований, предоставляя Вам не менее [ Уведомление] месяцев, предшея уведомлению в письменной форме или окладе вместо них. Для целей этого положения заработная плата означает базовый оклад.</p>\n            \n            <p>10.2 Вы можете прекратить свою трудовую деятельность с компанией без каких-либо причин, предоставляя не меньше, чем [ Employee Notice] months  предварительное уведомление или оклад за несохраненный период, оставатся после корректировки отложенных листьев, как на сегодняшний день.</p>\n            \n            <p>10.3 Компания оставляет за собой право прекратить вашу работу в суммарном порядке без какого-либо уведомления о сроке или увольнении, если у нее есть достаточные основания полагать, что вы виновны в проступке или халатности, или совершили какое-либо существенное нарушение договора, или причинило убытки Компании.&nbsp;</p>\n            \n            <p>10. 4 О прекращении вашей работы по какой бы то ни было причине вы вернетесь в Компании все имущество; документы, а&nbsp;</p>\n            \n            <p>бумаги, как оригинальные, так и их копии, включая любые образцы, литературу, контракты, записи, списки, чертежи, чертежи,</p>\n            \n            <p>письма, заметки, данные и тому подобное; и Конфиденциальная информация, в вашем распоряжении или под вашим контролем, связанным с вашей работой или деловыми делами клиентов.&nbsp; &nbsp;</p>\n            \n            \n            \n            <p>11. Конфиденциальная информация</p>\n            \n            <p>11. 1 Во время вашего трудоустройства с компанией Вы посвяте все свое время, внимание, умение максимально</p>\n            \n            <p>Его бизнес. Вы не должны, прямо или косвенно, заниматься или ассоциировать себя с заинтересованными, занятым, занятым, или временем, или продолжать любой курс обучения, без предварительного разрешения Компани.заниматься каким-либо другим бизнесом или деятельностью или любой другой пост или работать неполный рабочий день или заниматься какой бы то ни было исследованием, без предварительного разрешения</p>\n            \n            <p>Компания.</p>\n            \n            <p>11.2 Вы всегда должны сохранять наивысшую степень конфиденциальности и хранить в качестве конфиденциальной записи, документы и другие&nbsp;</p>\n            \n            <p>Конфиденциальная информация, касающаяся бизнеса Компании, которая может быть вам известна или конфиденциальна любым способом, и Вы будете использовать такие записи, документы и информацию только в установленном порядке в интересах Компании. Для целей настоящей статьи \"Конфиденциальная информация\" означает информацию о бизнесе Компании и о ее клиентах, которая недоступна для широкой общественности и которая может быть изучилась Вами в ходе вашей работы. Это включает в себя:</p>\n            \n            <p>но не ограничивается информацией, касающейся организации, ее списков клиентов, политики в области занятости, персонала и информации о продуктах Компании, процессах, включая идеи, концепции, прогнозы, технологии, руководства, чертеж, чертеж,&nbsp;</p>\n            \n            <p>спецификации, и все бумаги, резюме, записи и другие документы, содержащие такую Конфиденциальную Информацию.</p>\n            \n            <p>11.3 В любое время вы не будете удалять конфиденциальную информацию из офиса без разрешения.</p>\n            \n            <p>11.4 Ваш долг защищать и не отсосать</p>\n            \n            <p>e Конфиденциальная информация выдержит срок действия или прекращения действия настоящего Соглашения и/или вашей работы с компанией.</p>\n            \n            <p>11.5 Нарушение условий, изложенных в настоящем положении, приведет к тому, что в дополнение к любым другим средствам правовой защиты, которые компания может иметь против вас, в соответствии с вышеприведенным положением, вы можете получить краткое увольнение в соответствии с этим положением.</p>\n            \n            \n            \n            <p>12. Замечания</p>\n            \n            <p>Уведомления могут быть даны Вами Компании по адресу ее зарегистрированного офиса. Извещения могут быть даны компанией Вам по адресу, с которым вы в официальных отчетах.</p>\n            \n            \n            \n            <p>13. Применимость политики компании</p>\n            \n            <p>Компания вправе время от времени делать политические заявления по таким вопросам, как право на отпуск, материнство</p>\n            \n            <p>отпуска, пособия для работников, продолжительность рабочего дня, трансферная политика и т.д. и время от времени могут изменяться исключительно по своему усмотрению.</p>\n            \n            <p>Все такие принципиальные решения Компании являются обязательными для Вас и переопределяют это Соглашение в такой степени.</p>\n            \n            \n            \n            <p>14. Регулирующий Право/юрисдикция</p>\n            \n            <p>Ваше трудоустройство с компанией подпадает под действие законов страны. Все споры подлежат юрисдикции Высокого суда</p>\n            \n            <p>Только Гуджарат.</p>\n            \n            \n            \n            <p>15. Принятие нашего предложения</p>\n            \n            <p>Пожалуйста, подтвердите свое согласие с этим Договором о занятости, подписав и возвращая дубликат копии.</p>\n            \n            \n            \n            <p>Мы приветствуем Вас и надеемся на то, что Вы принимаете свое согласие и работаете с Вами.</p>\n            \n            \n            \n            <p>Искренне Ваш,</p>\n            \n            <p>{ app_name }</p>\n            \n            <p>{date}</p>\n            ', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `journal_entries`
+-- Table structure for table `journal_entries`
 --
 
 CREATE TABLE `journal_entries` (
@@ -3904,7 +4090,7 @@ CREATE TABLE `journal_entries` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `journal_items`
+-- Table structure for table `journal_items`
 --
 
 CREATE TABLE `journal_items` (
@@ -3921,7 +4107,7 @@ CREATE TABLE `journal_items` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `labels`
+-- Table structure for table `labels`
 --
 
 CREATE TABLE `labels` (
@@ -3935,7 +4121,7 @@ CREATE TABLE `labels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `labels`
+-- Dumping data for table `labels`
 --
 
 INSERT INTO `labels` (`id`, `name`, `color`, `pipeline_id`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -4011,12 +4197,17 @@ INSERT INTO `labels` (`id`, `name`, `color`, `pipeline_id`, `created_by`, `creat
 (70, 'New', 'info', 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (71, 'Pending', 'warning', 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (72, 'Loss', 'danger', 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(73, 'Win', 'success', 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(73, 'Win', 'success', 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(74, 'On Hold', 'primary', 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'New', 'info', 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(76, 'Pending', 'warning', 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(77, 'Loss', 'danger', 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(78, 'Win', 'success', 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `landing_page_sections`
+-- Table structure for table `landing_page_sections`
 --
 
 CREATE TABLE `landing_page_sections` (
@@ -4035,7 +4226,7 @@ CREATE TABLE `landing_page_sections` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leads`
+-- Table structure for table `leads`
 --
 
 CREATE TABLE `leads` (
@@ -4061,7 +4252,7 @@ CREATE TABLE `leads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `leads`
+-- Dumping data for table `leads`
 --
 
 INSERT INTO `leads` (`id`, `name`, `email`, `phone`, `subject`, `user_id`, `pipeline_id`, `stage_id`, `sources`, `products`, `notes`, `labels`, `order`, `created_by`, `is_active`, `is_converted`, `date`, `created_at`, `updated_at`) VALUES
@@ -4070,7 +4261,7 @@ INSERT INTO `leads` (`id`, `name`, `email`, `phone`, `subject`, `user_id`, `pipe
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_activity_logs`
+-- Table structure for table `lead_activity_logs`
 --
 
 CREATE TABLE `lead_activity_logs` (
@@ -4086,7 +4277,7 @@ CREATE TABLE `lead_activity_logs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_calls`
+-- Table structure for table `lead_calls`
 --
 
 CREATE TABLE `lead_calls` (
@@ -4105,7 +4296,7 @@ CREATE TABLE `lead_calls` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_discussions`
+-- Table structure for table `lead_discussions`
 --
 
 CREATE TABLE `lead_discussions` (
@@ -4120,7 +4311,7 @@ CREATE TABLE `lead_discussions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_emails`
+-- Table structure for table `lead_emails`
 --
 
 CREATE TABLE `lead_emails` (
@@ -4136,7 +4327,7 @@ CREATE TABLE `lead_emails` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_files`
+-- Table structure for table `lead_files`
 --
 
 CREATE TABLE `lead_files` (
@@ -4151,7 +4342,7 @@ CREATE TABLE `lead_files` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lead_stages`
+-- Table structure for table `lead_stages`
 --
 
 CREATE TABLE `lead_stages` (
@@ -4165,7 +4356,7 @@ CREATE TABLE `lead_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `lead_stages`
+-- Dumping data for table `lead_stages`
 --
 
 INSERT INTO `lead_stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -4238,12 +4429,17 @@ INSERT INTO `lead_stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `
 (67, 'Sent', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (68, 'Open', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (69, 'Revised', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(70, 'Declined', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(70, 'Declined', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(71, 'Draft', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(72, 'Sent', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Open', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'Revised', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'Declined', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leaves`
+-- Table structure for table `leaves`
 --
 
 CREATE TABLE `leaves` (
@@ -4265,7 +4461,7 @@ CREATE TABLE `leaves` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `leave_types`
+-- Table structure for table `leave_types`
 --
 
 CREATE TABLE `leave_types` (
@@ -4278,7 +4474,7 @@ CREATE TABLE `leave_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `leave_types`
+-- Dumping data for table `leave_types`
 --
 
 INSERT INTO `leave_types` (`id`, `title`, `days`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -4287,7 +4483,7 @@ INSERT INTO `leave_types` (`id`, `title`, `days`, `created_by`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `loans`
+-- Table structure for table `loans`
 --
 
 CREATE TABLE `loans` (
@@ -4308,7 +4504,7 @@ CREATE TABLE `loans` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `loan_options`
+-- Table structure for table `loan_options`
 --
 
 CREATE TABLE `loan_options` (
@@ -4320,7 +4516,7 @@ CREATE TABLE `loan_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `loan_options`
+-- Dumping data for table `loan_options`
 --
 
 INSERT INTO `loan_options` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -4329,7 +4525,7 @@ INSERT INTO `loan_options` (`id`, `name`, `created_by`, `created_at`, `updated_a
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `log_activities`
+-- Table structure for table `log_activities`
 --
 
 CREATE TABLE `log_activities` (
@@ -4348,7 +4544,7 @@ CREATE TABLE `log_activities` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `meetings`
+-- Table structure for table `meetings`
 --
 
 CREATE TABLE `meetings` (
@@ -4368,7 +4564,7 @@ CREATE TABLE `meetings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `meeting_employees`
+-- Table structure for table `meeting_employees`
 --
 
 CREATE TABLE `meeting_employees` (
@@ -4383,7 +4579,7 @@ CREATE TABLE `meeting_employees` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -4393,7 +4589,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -4608,7 +4804,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `milestones`
+-- Table structure for table `milestones`
 --
 
 CREATE TABLE `milestones` (
@@ -4628,7 +4824,7 @@ CREATE TABLE `milestones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `model_has_permissions`
+-- Table structure for table `model_has_permissions`
 --
 
 CREATE TABLE `model_has_permissions` (
@@ -4640,7 +4836,7 @@ CREATE TABLE `model_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `model_has_roles`
+-- Table structure for table `model_has_roles`
 --
 
 CREATE TABLE `model_has_roles` (
@@ -4650,7 +4846,7 @@ CREATE TABLE `model_has_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `model_has_roles`
+-- Dumping data for table `model_has_roles`
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
@@ -4677,9 +4873,14 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (4, 'App\\Models\\User', 11),
 (3, 'App\\Models\\Vender', 11),
 (7, 'App\\Models\\User', 12),
+(3, 'App\\Models\\Vender', 12),
 (8, 'App\\Models\\User', 13),
+(3, 'App\\Models\\Vender', 13),
 (6, 'App\\Models\\User', 14),
+(3, 'App\\Models\\Vender', 14),
 (6, 'App\\Models\\User', 15),
+(3, 'App\\Models\\Vender', 15),
+(3, 'App\\Models\\Vender', 16),
 (4, 'App\\Models\\User', 17),
 (4, 'App\\Models\\User', 18),
 (6, 'App\\Models\\User', 19),
@@ -4690,12 +4891,13 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (10, 'App\\Models\\User', 24),
 (4, 'App\\Models\\User', 25),
 (4, 'App\\Models\\User', 26),
-(12, 'App\\Models\\User', 27);
+(12, 'App\\Models\\User', 27),
+(4, 'App\\Models\\User', 28);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `noc_certificates`
+-- Table structure for table `noc_certificates`
 --
 
 CREATE TABLE `noc_certificates` (
@@ -4708,7 +4910,7 @@ CREATE TABLE `noc_certificates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `noc_certificates`
+-- Dumping data for table `noc_certificates`
 --
 
 INSERT INTO `noc_certificates` (`id`, `lang`, `content`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -4896,12 +5098,25 @@ INSERT INTO `noc_certificates` (`id`, `lang`, `content`, `created_by`, `created_
 (179, 'nl', '<h3 style=\"text-align: center;\">Geen bezwaarcertificaat</h3>\n            \n            \n            \n            <p>Datum: {date}</p>\n            \n            \n            \n            <p>Aan wie het ook aangaat</p>\n            \n            \n            \n            <p>Dit certificaat is bedoeld om aanspraak te maken op een Geen Bezwaarcertificaat (NoC) voor mevrouw/dhr. {employee_name} als zij/hij lid wordt en haar/zijn diensten verleent aan een andere organisatie. Het wordt ge&iuml;nformeerd als zij/hij al haar/zijn saldos heeft gewist en haar/zijn zekerheid heeft ontvangen van {app_name} Company.</p>\n            \n            \n            \n            <p>We wensen haar/hem veel succes in de toekomst.</p>\n            \n            \n            \n            <p>Eerlijk,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Handtekening</p>\n            \n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (180, 'pl', '<h3 style=\"text-align: center;\">Certyfikat braku sprzeciwu</h3>\n            \n            \n            \n            <p>Data: {date}</p>\n            \n            \n            \n            <p>Do kogo to może dotyczyć</p>\n            \n            \n            \n            <p>Ten certyfikat służy do ubiegania się o Certyfikat No Objection Certificate (NoC) dla Pani/Pana {employee_name}, jeśli ona/ona dołącza i świadczy swoje usługi na rzecz jakiejkolwiek innej organizacji. Jest o tym informowany, ponieważ wyczyścił wszystkie swoje salda i otrzymał swoje zabezpieczenie od firmy {app_name}.</p>\n            \n            \n            \n            <p>Życzymy jej/jej powodzenia w przyszłości.</p>\n            \n            \n            \n            <p>Z poważaniem,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Podpis</p>\n            \n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (181, 'pt', '<h3 style=\"text-align: center;\">Certificado de n&atilde;o obje&ccedil;&atilde;o</h3>\n            \n            \n            \n            <p>Data: {date}</p>\n            \n            \n            \n            <p>A quem interessar</p>\n            \n            \n            \n            <p>Este certificado &eacute; para reivindicar um Certificado de N&atilde;o Obje&ccedil;&atilde;o (NoC) para a Sra. / Sr. {employee_name} se ela ingressar e fornecer seus servi&ccedil;os a qualquer outra organiza&ccedil;&atilde;o. &Eacute; informado que ela cancelou todos os seus saldos e recebeu sua garantia da empresa {app_name}.</p>\n            \n            \n            \n            <p>Desejamos-lhe boa sorte no futuro.</p>\n            \n            \n            \n            <p>Sinceramente,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Assinatura</p>\n            \n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(182, 'ru', '<h3 style=\"text-align: center;\">Сертификат об отсутствии возражений</h3>\n            \n            \n            \n            <p>Дата: {date}</p>\n            \n            \n            \n            <p>Кого бы это ни касалось</p>\n            \n            \n            \n            <p>Этот сертификат предназначен для получения Сертификата об отсутствии возражений (NoC) для г-жи / г-на {employee_name}, если она / он присоединяется и предоставляет свои услуги любой другой организации. Сообщается, что она/он очистила все свои балансы и получила свою безопасность от компании {app_name}.</p>\n            \n            \n            \n            <p>Мы желаем ей/ему удачи в будущем.</p>\n            \n            \n            \n            <p>Искренне,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Подпись</p>\n            \n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(182, 'ru', '<h3 style=\"text-align: center;\">Сертификат об отсутствии возражений</h3>\n            \n            \n            \n            <p>Дата: {date}</p>\n            \n            \n            \n            <p>Кого бы это ни касалось</p>\n            \n            \n            \n            <p>Этот сертификат предназначен для получения Сертификата об отсутствии возражений (NoC) для г-жи / г-на {employee_name}, если она / он присоединяется и предоставляет свои услуги любой другой организации. Сообщается, что она/он очистила все свои балансы и получила свою безопасность от компании {app_name}.</p>\n            \n            \n            \n            <p>Мы желаем ей/ему удачи в будущем.</p>\n            \n            \n            \n            <p>Искренне,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Подпись</p>\n            \n            <p>{app_name}</p>', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(183, 'ar', '<h3 style=\"text-align: center;\">شهادة عدم ممانعة</h3>\n            \n            \n            \n            <p>التاريخ: {date}</p>\n            \n            \n            \n            <p>إلى من يهمه الأمر</p>\n            \n            \n            \n            <p>هذه الشهادة مخصصة للمطالبة بشهادة عدم ممانعة (NoC) للسيدة / السيد {employee_name} إذا انضمت إلى أي مؤسسة أخرى وقدمت خدماتها / خدماتها. يتم إبلاغه لأنه قام بتصفية جميع أرصدته واستلام أمانه من شركة {app_name}.</p>\n            \n            \n            \n            <p>نتمنى لها / لها التوفيق في المستقبل.</p>\n            \n            \n            \n            <p>بإخلاص،</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>التوقيع</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(184, 'da', '<h3 style=\"text-align: center;\">Ingen indsigelsesattest</h3>\n            \n            \n            \n            <p>Dato: {date}</p>\n            \n            \n            \n            <p>Til hvem det m&aring;tte vedr&oslash;re</p>\n            \n            \n            \n            <p>Dette certifikat er for at g&oslash;re krav p&aring; et No Objection Certificate (NoC) for Ms. / Mr. {employee_name}, hvis hun/han tilslutter sig og leverer sine tjenester til enhver anden organisation. Det informeres, da hun/han har udlignet alle sine saldi og modtaget sin sikkerhed fra {app_name}-virksomheden.</p>\n            \n            \n            \n            <p>Vi &oslash;nsker hende/ham held og lykke i fremtiden.</p>\n            \n            \n            \n            <p>Med venlig hilsen</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Underskrift</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(185, 'de', '<h3 style=\"text-align: center;\">Kein Einwand-Zertifikat</h3>\n            \n            \n            \n            <p>Datum {date}</p>\n            \n            \n            \n            <p>Wen auch immer es betrifft</p>\n            \n            \n            \n            <p>Dieses Zertifikat soll ein Unbedenklichkeitszertifikat (NoC) f&uuml;r Frau / Herrn {employee_name} beanspruchen, wenn sie/er einer anderen Organisation beitritt und ihre/seine Dienste anbietet. Sie wird informiert, da sie/er alle ihre/seine Guthaben ausgeglichen und ihre/seine Sicherheit von der Firma {app_name} erhalten hat.</p>\n            \n            \n            \n            <p>Wir w&uuml;nschen ihr/ihm viel Gl&uuml;ck f&uuml;r die Zukunft.</p>\n            \n            \n            \n            <p>Aufrichtig,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Unterschrift</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(186, 'en', '<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><strong>No Objection Certificate</strong></span></p>\n            \n            <p>Date: {date}</p>\n            \n            <p>To Whomsoever It May Concern</p>\n            \n            <p>This certificate is to claim a No Objection Certificate (NoC) for Ms. / Mr. {employee_name} if she/he joins and provides her/his services to any other organization. It is informed as she/he has cleared all her/his balances and received her/his security from {app_name} Company.</p>\n            \n            <p>We wish her/him good luck in the future.</p>\n            \n            <p>Sincerely,</p>\n            <p>{employee_name}</p>\n            <p>{designation}</p>\n            <p>Signature</p>\n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(187, 'es', '<h3 style=\"text-align: center;\">Certificado de conformidad</h3>\n            \n            \n            \n            <p>Fecha: {date}</p>\n            \n            \n            \n            <p>A quien corresponda</p>\n            \n            \n            \n            <p>Este certificado es para reclamar un Certificado de No Objeci&oacute;n (NoC) para la Sra. / Sr. {employee_name} si ella / &eacute;l se une y brinda sus servicios a cualquier otra organizaci&oacute;n. Se informa que &eacute;l/ella ha liquidado todos sus saldos y recibido su seguridad de {app_name} Company.</p>\n            \n            \n            \n            <p>Le deseamos buena suerte en el futuro.</p>\n            \n            \n            \n            <p>Sinceramente,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Firma</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(188, 'fr', '<h3 style=\"text-align: center;\">Aucun certificat dopposition</h3>\n            \n            \n            <p>Date : {date}</p>\n            \n            \n            <p>&Agrave; toute personne concern&eacute;e</p>\n            \n            \n            <p>Ce certificat sert &agrave; r&eacute;clamer un certificat de non-objection (NoC) pour Mme / M. {employee_name} sil rejoint et fournit ses services &agrave; toute autre organisation. Il est inform&eacute; quil a sold&eacute; tous ses soldes et re&ccedil;u sa garantie de la part de la soci&eacute;t&eacute; {app_name}.</p>\n            \n            \n            <p>Nous lui souhaitons bonne chance pour lavenir.</p>\n            \n            \n            <p>Sinc&egrave;rement,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Signature</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(189, 'id', '<h3 style=\"text-align: center;\">Sertifikat Tidak Keberatan</h3>\n            \n            \n            \n            <p>Tanggal: {date}</p>\n            \n            \n            \n            <p>Kepada Siapa Pun Yang Memprihatinkan</p>\n            \n            \n            \n            <p>Sertifikat ini untuk mengklaim No Objection Certificate (NoC) untuk Ibu / Bapak {employee_name} jika dia bergabung dan memberikan layanannya ke organisasi lain mana pun. Diberitahukan karena dia telah melunasi semua saldonya dan menerima jaminannya dari Perusahaan {app_name}.</p>\n            \n            \n            \n            <p>Kami berharap dia sukses di masa depan.</p>\n            \n            \n            \n            <p>Sungguh-sungguh,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Tanda tangan</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(190, 'it', '<h3 style=\"text-align: center;\">Certificato di nulla osta</h3>\n            \n            \n            \n            <p>Data: {date}</p>\n            \n            \n            \n            <p>A chi pu&ograve; interessare</p>\n            \n            \n            \n            <p>Questo certificato serve a richiedere un certificato di non obiezione (NoC) per la signora / il signor {employee_name} se si unisce e fornisce i suoi servizi a qualsiasi altra organizzazione. Viene informato in quanto ha liquidato tutti i suoi saldi e ricevuto la sua sicurezza dalla societ&agrave; {app_name}.</p>\n            \n            \n            \n            <p>Le auguriamo buona fortuna per il futuro.</p>\n            \n            \n            \n            <p>Cordiali saluti,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Firma</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(191, 'ja', '<h3 style=\"text-align: center;\">異議なし証明書</h3>\n            \n            \n            \n            <p>日付: {date}</p>\n            \n            \n            \n            <p>関係者各位</p>\n            \n            \n            \n            <p>この証明書は、Ms. / Mr. {employee_name} が他の組織に参加してサービスを提供する場合に、異議なし証明書 (NoC) を請求するためのものです。彼女/彼/彼がすべての残高を清算し、{app_name} 会社から彼女/彼のセキュリティを受け取ったことが通知されます。</p>\n            \n            \n            \n            <p>彼女/彼の今後の幸運を祈っています。</p>\n            \n            \n            \n            <p>心から、</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>サイン</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(192, 'nl', '<h3 style=\"text-align: center;\">Geen bezwaarcertificaat</h3>\n            \n            \n            \n            <p>Datum: {date}</p>\n            \n            \n            \n            <p>Aan wie het ook aangaat</p>\n            \n            \n            \n            <p>Dit certificaat is bedoeld om aanspraak te maken op een Geen Bezwaarcertificaat (NoC) voor mevrouw/dhr. {employee_name} als zij/hij lid wordt en haar/zijn diensten verleent aan een andere organisatie. Het wordt ge&iuml;nformeerd als zij/hij al haar/zijn saldos heeft gewist en haar/zijn zekerheid heeft ontvangen van {app_name} Company.</p>\n            \n            \n            \n            <p>We wensen haar/hem veel succes in de toekomst.</p>\n            \n            \n            \n            <p>Eerlijk,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Handtekening</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(193, 'pl', '<h3 style=\"text-align: center;\">Certyfikat braku sprzeciwu</h3>\n            \n            \n            \n            <p>Data: {date}</p>\n            \n            \n            \n            <p>Do kogo to może dotyczyć</p>\n            \n            \n            \n            <p>Ten certyfikat służy do ubiegania się o Certyfikat No Objection Certificate (NoC) dla Pani/Pana {employee_name}, jeśli ona/ona dołącza i świadczy swoje usługi na rzecz jakiejkolwiek innej organizacji. Jest o tym informowany, ponieważ wyczyścił wszystkie swoje salda i otrzymał swoje zabezpieczenie od firmy {app_name}.</p>\n            \n            \n            \n            <p>Życzymy jej/jej powodzenia w przyszłości.</p>\n            \n            \n            \n            <p>Z poważaniem,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Podpis</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(194, 'pt', '<h3 style=\"text-align: center;\">Certificado de n&atilde;o obje&ccedil;&atilde;o</h3>\n            \n            \n            \n            <p>Data: {date}</p>\n            \n            \n            \n            <p>A quem interessar</p>\n            \n            \n            \n            <p>Este certificado &eacute; para reivindicar um Certificado de N&atilde;o Obje&ccedil;&atilde;o (NoC) para a Sra. / Sr. {employee_name} se ela ingressar e fornecer seus servi&ccedil;os a qualquer outra organiza&ccedil;&atilde;o. &Eacute; informado que ela cancelou todos os seus saldos e recebeu sua garantia da empresa {app_name}.</p>\n            \n            \n            \n            <p>Desejamos-lhe boa sorte no futuro.</p>\n            \n            \n            \n            <p>Sinceramente,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Assinatura</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53'),
+(195, 'ru', '<h3 style=\"text-align: center;\">Сертификат об отсутствии возражений</h3>\n            \n            \n            \n            <p>Дата: {date}</p>\n            \n            \n            \n            <p>Кого бы это ни касалось</p>\n            \n            \n            \n            <p>Этот сертификат предназначен для получения Сертификата об отсутствии возражений (NoC) для г-жи / г-на {employee_name}, если она / он присоединяется и предоставляет свои услуги любой другой организации. Сообщается, что она/он очистила все свои балансы и получила свою безопасность от компании {app_name}.</p>\n            \n            \n            \n            <p>Мы желаем ей/ему удачи в будущем.</p>\n            \n            \n            \n            <p>Искренне,</p>\n            \n            <p>{employee_name}</p>\n            \n            <p>{designation}</p>\n            \n            <p>Подпись</p>\n            \n            <p>{app_name}</p>', 28, '2023-02-15 20:45:53', '2023-02-15 20:45:53');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `notifications`
+-- Table structure for table `notifications`
 --
 
 CREATE TABLE `notifications` (
@@ -4917,7 +5132,7 @@ CREATE TABLE `notifications` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -4942,7 +5157,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `order_id`, `name`, `email`, `card_number`, `card_exp_month`, `card_exp_year`, `plan_name`, `plan_id`, `price`, `price_currency`, `txn_id`, `payment_status`, `payment_type`, `receipt`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -4954,7 +5169,7 @@ INSERT INTO `orders` (`id`, `order_id`, `name`, `email`, `card_number`, `card_ex
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `other_payments`
+-- Table structure for table `other_payments`
 --
 
 CREATE TABLE `other_payments` (
@@ -4971,7 +5186,7 @@ CREATE TABLE `other_payments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `overtimes`
+-- Table structure for table `overtimes`
 --
 
 CREATE TABLE `overtimes` (
@@ -4990,7 +5205,7 @@ CREATE TABLE `overtimes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -5000,7 +5215,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `password_resets`
+-- Dumping data for table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -5009,7 +5224,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `payments`
+-- Table structure for table `payments`
 --
 
 CREATE TABLE `payments` (
@@ -5030,17 +5245,19 @@ CREATE TABLE `payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `payments`
+-- Dumping data for table `payments`
 --
 
 INSERT INTO `payments` (`id`, `date`, `amount`, `account_id`, `vender_id`, `description`, `category_id`, `recurring`, `payment_method`, `reference`, `add_receipt`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, '2022-11-27', '400.00', 4, 3, NULL, 12, NULL, 0, 'GAD DMN', '1669546570_#INVO00004.pdf', 11, '2022-11-27 09:56:11', '2022-11-27 09:56:11'),
-(2, '2022-11-30', '200.00', 4, 3, 'pagado', 12, NULL, 0, '23254', '1669864178_img100.jpg', 11, '2022-12-01 02:09:38', '2022-12-01 02:09:38');
+(2, '2022-11-30', '200.00', 4, 3, 'pagado', 12, NULL, 0, '23254', '1669864178_img100.jpg', 11, '2022-12-01 02:09:38', '2022-12-01 02:09:38'),
+(3, '2023-02-13', '100.00', 3, 0, NULL, 16, NULL, 0, NULL, '1676390241_Farmacia Ya - Tierra Negra (13-10-22).xlsx', 21, '2023-02-14 14:57:21', '2023-02-14 14:57:21'),
+(4, '2023-02-16', '120.00', 1, 0, NULL, 4, NULL, 0, NULL, '1676590634_238399063_2294705550665260_1438721422253792741_n.jpg', 2, '2023-02-16 22:37:15', '2023-02-16 22:37:15');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `payslip_types`
+-- Table structure for table `payslip_types`
 --
 
 CREATE TABLE `payslip_types` (
@@ -5052,16 +5269,17 @@ CREATE TABLE `payslip_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `payslip_types`
+-- Dumping data for table `payslip_types`
 --
 
 INSERT INTO `payslip_types` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Holerite-01', 21, '2023-02-11 17:08:19', '2023-02-11 17:08:19');
+(1, 'Holerite-01', 21, '2023-02-11 17:08:19', '2023-02-11 17:08:19'),
+(2, 'YANET MOYE', 11, '2023-02-15 02:05:20', '2023-02-15 02:05:20');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pay_slips`
+-- Table structure for table `pay_slips`
 --
 
 CREATE TABLE `pay_slips` (
@@ -5085,7 +5303,7 @@ CREATE TABLE `pay_slips` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `performance_types`
+-- Table structure for table `performance_types`
 --
 
 CREATE TABLE `performance_types` (
@@ -5099,7 +5317,7 @@ CREATE TABLE `performance_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -5111,7 +5329,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
@@ -5617,7 +5835,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -5635,7 +5853,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pipelines`
+-- Table structure for table `pipelines`
 --
 
 CREATE TABLE `pipelines` (
@@ -5647,7 +5865,7 @@ CREATE TABLE `pipelines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pipelines`
+-- Dumping data for table `pipelines`
 --
 
 INSERT INTO `pipelines` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -5665,12 +5883,13 @@ INSERT INTO `pipelines` (`id`, `name`, `created_by`, `created_at`, `updated_at`)
 (12, 'Sales', 22, '2023-01-03 19:38:57', '2023-01-03 19:38:57'),
 (13, 'Sales', 23, '2023-01-12 18:33:15', '2023-01-12 18:33:15'),
 (14, 'Sales', 25, '2023-01-27 17:11:20', '2023-01-27 17:11:20'),
-(15, 'Sales', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(15, 'Sales', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(16, 'Sales', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `plans`
+-- Table structure for table `plans`
 --
 
 CREATE TABLE `plans` (
@@ -5693,7 +5912,7 @@ CREATE TABLE `plans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `plans`
+-- Dumping data for table `plans`
 --
 
 INSERT INTO `plans` (`id`, `name`, `price`, `duration`, `max_users`, `max_customers`, `max_venders`, `max_clients`, `crm`, `hrm`, `account`, `project`, `description`, `image`, `created_at`, `updated_at`) VALUES
@@ -5704,7 +5923,7 @@ INSERT INTO `plans` (`id`, `name`, `price`, `duration`, `max_users`, `max_custom
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `plan_requests`
+-- Table structure for table `plan_requests`
 --
 
 CREATE TABLE `plan_requests` (
@@ -5720,7 +5939,7 @@ CREATE TABLE `plan_requests` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos`
+-- Table structure for table `pos`
 --
 
 CREATE TABLE `pos` (
@@ -5740,7 +5959,7 @@ CREATE TABLE `pos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pos`
+-- Dumping data for table `pos`
 --
 
 INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `category_id`, `status`, `shipping_display`, `created_by`, `created_at`, `updated_at`, `online`, `order_status`) VALUES
@@ -5856,12 +6075,18 @@ INSERT INTO `pos` (`id`, `pos_id`, `customer_id`, `warehouse_id`, `pos_date`, `c
 (140, 17, 23, 0, '2023-01-19', 0, 0, 1, 10, '2023-01-19 20:33:22', '2023-01-19 20:33:22', 1, 'Abierto'),
 (141, 18, 23, 0, '2023-01-19', 0, 0, 1, 10, '2023-01-19 20:33:25', '2023-01-19 20:33:25', 1, 'Abierto'),
 (142, 19, 23, 0, '2023-01-19', 0, 0, 1, 10, '2023-01-19 20:33:32', '2023-01-19 20:33:32', 1, 'Abierto'),
-(143, 20, 23, 0, '2023-01-19', 0, 0, 1, 10, '2023-01-19 20:33:33', '2023-01-19 20:33:33', 1, 'Abierto');
+(143, 20, 23, 0, '2023-01-19', 0, 0, 1, 10, '2023-01-19 20:33:33', '2023-01-19 20:33:33', 1, 'Abierto'),
+(144, 1, 0, 14, NULL, 0, 0, 1, 21, '2023-02-14 16:05:27', '2023-02-14 16:05:27', 0, 'Abierto'),
+(145, 21, 29, 0, '2023-02-14', 0, 0, 1, 10, '2023-02-14 17:42:57', '2023-02-14 17:42:57', 1, 'Abierto'),
+(146, 22, 29, 0, '2023-02-14', 0, 0, 1, 10, '2023-02-14 17:43:04', '2023-02-14 17:43:04', 1, 'Abierto'),
+(147, 23, 29, 0, '2023-02-14', 0, 0, 1, 10, '2023-02-14 17:43:26', '2023-02-14 17:43:26', 1, 'Abierto'),
+(148, 24, 29, 0, '2023-02-14', 0, 0, 1, 10, '2023-02-14 17:43:31', '2023-02-14 17:43:31', 1, 'Abierto'),
+(149, 25, 29, 0, '2023-02-14', 0, 0, 1, 10, '2023-02-14 17:43:53', '2023-02-14 17:43:53', 1, 'Abierto');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos_payments`
+-- Table structure for table `pos_payments`
 --
 
 CREATE TABLE `pos_payments` (
@@ -5875,7 +6100,7 @@ CREATE TABLE `pos_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pos_payments`
+-- Dumping data for table `pos_payments`
 --
 
 INSERT INTO `pos_payments` (`id`, `pos_id`, `date`, `amount`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -5974,12 +6199,13 @@ INSERT INTO `pos_payments` (`id`, `pos_id`, `date`, `amount`, `created_by`, `cre
 (103, 135, NULL, 'Bs200.0', 0, '2022-12-29 01:55:12', '2022-12-29 01:55:12'),
 (104, 136, NULL, 'Bs400.0', 0, '2022-12-30 09:43:07', '2022-12-30 09:43:07'),
 (105, 137, NULL, 'Bs200.0', 0, '2022-12-30 09:45:29', '2022-12-30 09:45:29'),
-(106, 138, NULL, 'Bs1,515.0', 0, '2023-01-06 21:32:45', '2023-01-06 21:32:45');
+(106, 138, NULL, 'Bs1,515.0', 0, '2023-01-06 21:32:45', '2023-01-06 21:32:45'),
+(107, 144, NULL, 'Bs.90.40', 0, '2023-02-14 16:05:27', '2023-02-14 16:05:27');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pos_products`
+-- Table structure for table `pos_products`
 --
 
 CREATE TABLE `pos_products` (
@@ -5998,7 +6224,7 @@ CREATE TABLE `pos_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pos_products`
+-- Dumping data for table `pos_products`
 --
 
 INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `parameters`, `parameters_prices`, `created_at`, `updated_at`) VALUES
@@ -6033,12 +6259,13 @@ INSERT INTO `pos_products` (`id`, `pos_id`, `product_id`, `quantity`, `tax`, `di
 (40, 136, 13, 2, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-30 09:43:07', '2022-12-30 09:43:07'),
 (41, 137, 13, 1, 0.00, 0.00, 200.00, NULL, NULL, NULL, '2022-12-30 09:45:29', '2022-12-30 09:45:29'),
 (42, 138, 22, 1, 0.00, 0.00, 1400.00, NULL, NULL, NULL, '2023-01-06 21:32:45', '2023-01-06 21:32:45'),
-(43, 138, 23, 1, 0.00, 0.00, 115.00, NULL, NULL, NULL, '2023-01-06 21:32:45', '2023-01-06 21:32:45');
+(43, 138, 23, 1, 0.00, 0.00, 115.00, NULL, NULL, NULL, '2023-01-06 21:32:45', '2023-01-06 21:32:45'),
+(44, 144, 17, 1, 13.00, 0.00, 80.00, NULL, NULL, NULL, '2023-02-14 16:05:27', '2023-02-14 16:05:27');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_services`
+-- Table structure for table `product_services`
 --
 
 CREATE TABLE `product_services` (
@@ -6061,12 +6288,12 @@ CREATE TABLE `product_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_services`
+-- Dumping data for table `product_services`
 --
 
 INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_price`, `quantity`, `tax_id`, `category_id`, `unit_id`, `type`, `description`, `pro_image`, `variation_id`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'Produto 01', '0987', '10.00', '5.00', 99, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 5, '2022-11-02 19:03:07', '2022-11-12 01:41:37'),
-(2, 'Camisa', '765', '10.00', '5.00', -824, '', 2, 2, 'product', 'teste', '1667404986_Logo.png', '[\"5\",\"6\"]', 2, '2022-11-02 19:03:07', '2022-12-28 19:34:30'),
+(2, 'Camisa', '765', '10.00', '5.00', -825, '', 2, 2, 'product', 'teste', '1667404986_Logo.png', '[\"5\",\"6\"]', 2, '2022-11-02 19:03:07', '2023-02-16 22:31:58'),
 (3, 'Produto 02', '12345', '10.00', '5.00', -4167, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-12-05 14:52:05'),
 (4, 'Produto 03', '12345', '10.00', '5.00', -515, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-10 19:39:26'),
 (5, 'Produto 04', '12345', '10.00', '5.00', 200, '', 1, 1, 'product', 'teste', '1667404986_Logo.png', NULL, 2, '2022-11-02 19:03:07', '2022-11-11 04:39:40'),
@@ -6075,19 +6302,19 @@ INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_pri
 (9, 'Taladro atornillador', '020202', '410.00', '188.00', 1096, '1', 5, 3, 'product', 'Taladro atornillador 13mm, 18v con 1 batería', '1669057754_Taladro-atornillador-13mm-18v-con-1-bater-a-1-35837.jpg', '0', 10, '2022-11-20 01:21:33', '2022-11-24 22:47:18'),
 (11, 'Carbón Brush (cb-100) 2(piezas)', 'P/6906', '25.00', '12.00', 10096, '1', 7, 3, 'product', 'Carbón Brush', '1669057832_Carb-n-Brush-cb-100-2-piezas-P-6906-1-34835.jpg', '0', 10, '2022-11-20 01:36:04', '2022-11-24 22:47:18'),
 (12, 'Juego de Brocas para Hormigón 4pzas', '040404', '24.90', '11.00', 10093, '1', 5, 3, 'product', 'Juego de Brocas para Hormigón 4pzas', '1669057848_Ganchos-transparentes-medianos-2pz-3M-1-15174.jpg', '0', 10, '2022-11-20 01:39:01', '2022-11-24 22:47:18'),
-(17, 'Desarrollo de Sistemas y App\'s', '01', '80.00', '20.00', 996, '2', 16, 12, 'service', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '1672706328_Novo Logo Corel.png', NULL, 21, '2023-01-02 23:38:48', '2023-02-14 12:52:31'),
+(17, 'Desarrollo de Sistemas y App\'s', '01', '80.00', '20.00', 995, '2', 16, 12, 'service', 'Desarrollo de Sistemas y App\'s  Web - Android - IOs', '1672706328_Novo Logo Corel.png', NULL, 21, '2023-01-02 23:38:48', '2023-02-14 16:05:27'),
 (18, 'Módulos', '02', '80.00', '20.00', 10000, '2', 16, 12, 'service', 'Modulo', NULL, NULL, 21, '2023-01-03 00:22:59', '2023-01-03 00:22:59'),
 (19, 'CABLE UTP CAT5E 305 METROD 99.99% COBRE (DAHUA)', 'DH-PFM920I-5EUN', '760.00', '594.00', 0, '', 15, 7, 'product', 'CABLE UTP CAT5E 305 METROD 99.99% COBRE (DAHUA', '1672878910_UTP DAHUA.jpeg', NULL, 11, '2023-01-04 23:35:11', '2023-02-11 17:29:20'),
-(20, 'AIRE ACONDICIONADO DE 220V 12BTU', '23338', '3800.00', '2850.00', 0, '', 15, 8, 'product', 'AIRE ACONDICIONADO DE 220V 12BTU LONDON', NULL, NULL, 11, '2023-01-04 23:59:01', '2023-01-30 00:15:49'),
-(21, 'AIRE ACONDICIONADO DE 220V 09BTU', '33358', '3600.00', '2600.00', 0, '', 15, 8, 'product', 'AIRE ACONDICIONADO DE 220V 09BTU LONDON', NULL, NULL, 11, '2023-01-05 00:00:15', '2023-01-30 00:16:36'),
+(20, 'AIRE ACONDICIONADO DE 220V 12BTU', '23338', '3800.00', '2850.00', 0, '', 15, 8, 'product', 'AIRE ACONDICIONADO DE 220V 12BTU LONDON', NULL, NULL, 11, '2023-01-04 23:59:01', '2023-02-17 02:16:05'),
+(21, 'AIRE ACONDICIONADO DE 220V 09BTU', '33358', '3600.00', '2600.00', 0, '', 15, 8, 'product', 'AIRE ACONDICIONADO DE 220V 09BTU LONDON', NULL, NULL, 11, '2023-01-05 00:00:15', '2023-02-17 02:16:05'),
 (22, 'MOTOR DESLIZANTE KDZ SPEED HASTA 500 Kgs', 'F0995-G', '1400.00', '869.00', 0, '', 15, 16, 'product', 'MOTOR PARA PUERTA CORREDIZA DE 1/3 HP MARCA GAREN CON 2 CONTROLES Y CREMALLERA DE 3METROS', NULL, NULL, 11, '2023-01-06 20:53:45', '2023-01-30 00:17:15'),
 (23, 'BARRA CREMALLERA DOMICILIARIADE 1,5 MTS', 'P00196', '115.00', '65.00', 1, '', 15, 15, 'product', NULL, NULL, NULL, 11, '2023-01-06 20:57:06', '2023-01-29 14:17:12'),
 (24, 'INSTALACION ELECTRICA MI ALEGRIA PLANILLAS DE AVANCE', '9414', '0.00', '0.00', -2, '', 14, 16, 'service', 'PLANILLAS Y DETALLES DE AVENCE', NULL, NULL, 11, '2023-01-14 19:51:13', '2023-01-14 20:14:47'),
-(25, 'Cable utp dimax 100% cobre 100m cat-5e', '23yz', '385.00', '299.00', 0, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-01-20 15:36:19', '2023-01-29 15:07:11'),
-(26, 'Perfil U 8x10 alum. 6m.', '3487', '43.00', '34.00', 0, '', 15, 15, 'product', NULL, NULL, NULL, 11, '2023-01-20 15:38:44', '2023-01-29 13:59:45'),
-(27, 'Parlante de techo 8 pulgadas 100v-30w ITC', 'JM0015', '350.00', '249.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 09:23:26', '2023-01-26 09:31:49'),
+(25, 'Cable utp dimax 100% cobre 100m cat-5e', '23yz', '385.00', '299.00', 0, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-01-20 15:36:19', '2023-02-17 02:13:27'),
+(26, 'Perfil U 8x10 alum. 6m.', '3487', '43.00', '34.00', 0, '', 15, 15, 'product', NULL, NULL, NULL, 11, '2023-01-20 15:38:44', '2023-02-17 02:13:27'),
+(27, 'Parlante de techo 8 pulgadas 100v-30w ITC', 'JM0015', '350.00', '249.00', -6, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 09:23:26', '2023-02-17 02:40:03'),
 (28, 'Parlante techo 6.5 pulgadas 70/100v 10w DSPPA', 'DSP124', '170.00', '52.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 09:36:10', '2023-01-26 09:36:10'),
-(29, 'Amplificador mezclador de 150w ITC 70-100v', 'Jm0061', '2600.00', '2199.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 09:43:30', '2023-01-26 09:43:30'),
+(29, 'Amplificador mezclador de 150w ITC 70-100v', 'Jm0061', '2600.00', '2199.00', -1, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 09:43:30', '2023-02-17 02:40:03'),
 (30, 'Estaca exterior de 6w/220v lampara GU10', 'T47009352', '81.00', '63.00', 12, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-26 12:35:33', '2023-01-30 00:05:08'),
 (31, 'CABLE CANAL PVC 20X10MM', 'DJ1-2010N-P25', '8.00', '4.44', 25, '', 15, 15, 'product', NULL, NULL, NULL, 11, '2023-01-29 14:23:54', '2023-01-30 00:19:10'),
 (32, 'CANAL U 10X13  ALUMINIO', 'U10X13', '43.00', '34.00', 26, '', 14, 15, 'product', NULL, NULL, NULL, 11, '2023-01-29 14:43:02', '2023-01-30 00:11:14'),
@@ -6101,20 +6328,20 @@ INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_pri
 (40, 'DIODO PARA CINTA LED', 'D452', '25.00', '21.00', 4, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-01-30 01:23:15', '2023-01-30 01:23:15'),
 (41, 'TDMI - 300*TERMINAL ANALOGICO*BLANCO', 'NW0058', '126.00', '79.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-30 12:18:27', '2023-02-09 18:07:18'),
 (42, 'TELEFONO PLENO ANALOGICO *UNIVERSAL', 'NW0024', '138.00', '89.00', -1, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-30 12:21:22', '2023-02-09 18:07:18'),
-(43, 'CENTRAL CONDOMINAL CP 112', 'NW0060', '1645.00', '1099.00', -1, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-30 12:25:45', '2023-02-09 18:07:18'),
+(43, 'CENTRAL CONDOMINAL CP 112', 'NW0060', '1645.00', '1099.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-01-30 12:25:45', '2023-02-17 14:37:45'),
 (44, 'BOTON DE COMANDO AZUL PLASTICO NP2-EAG1 1NA', '574087', '26.00', '12.18', 0, '', 14, 13, 'product', NULL, NULL, NULL, 11, '2023-01-31 15:16:23', '2023-01-31 15:24:08'),
-(45, 'CABLE FLEXIBLE 750V- 2.5MM. ROLLO REVAIS', '7522', '290.00', '236.50', -2, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-01-31 23:48:34', '2023-02-09 18:47:38'),
-(46, 'CAJA RECTANGULAR TRAMONTINA 4X2\" AMARILLO', 'C2513', '2.50', '1.20', 3, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:11:15', '2023-02-02 02:14:59'),
-(47, 'CINTA AISLANTE 3M GRANDE', '4587', '12.00', '10.00', -1, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:13:36', '2023-02-02 02:14:59'),
-(48, 'TOMA  CORRIENTE DOBLE C/TIERRA POWERTRON INOX', '6983', '20.00', '14.00', -9, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:16:35', '2023-02-09 18:47:38'),
-(49, 'INTERRUPTOR DOBLE POWERTRON INOX', '7458', '20.00', '14.00', -4, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:22:01', '2023-02-09 18:47:38'),
+(45, 'CABLE FLEXIBLE 750V- 2.5MM. ROLLO REVAIS', '7522', '290.00', '236.50', -3, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-01-31 23:48:34', '2023-02-17 14:46:50'),
+(46, 'CAJA RECTANGULAR TRAMONTINA 4X2\" AMARILLO', 'C2513', '2.50', '1.20', -4, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:11:15', '2023-02-17 02:28:05'),
+(47, 'CINTA AISLANTE 3M GRANDE', '4587', '12.00', '10.00', 2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:13:36', '2023-02-17 02:41:41'),
+(48, 'TOMA  CORRIENTE DOBLE C/TIERRA POWERTRON INOX', '6983', '20.00', '14.00', -16, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:16:35', '2023-02-17 02:41:41'),
+(49, 'INTERRUPTOR DOBLE POWERTRON INOX', '7458', '20.00', '14.00', -7, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-01 00:22:01', '2023-02-17 02:32:19'),
 (50, 'PULSADOR NA AAZUL NP2-EA61 574087', 'CNTBOT-NP2.EA6', '26.00', '12.18', 0, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-02-02 01:14:39', '2023-02-02 02:26:13'),
 (51, 'VENTILADOR ELGIN  32W', '5986', '210.00', '120.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-02 01:27:56', '2023-02-02 02:23:59'),
 (52, 'REFRIGERANTE FREON 134  PEQUEÑO', '1245', '380.00', '340.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-02 01:30:58', '2023-02-02 02:23:59'),
 (53, 'CABLE UTP*CATEGORIA 5E*100M*ALEACCION', 'DC1-5E-100W24CCA', '160.00', '79.00', 1, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-02 02:10:01', '2023-02-02 02:12:08'),
 (54, 'PATCH CORD*COLOR ROJO*1.0METRO*CAT6', 'PC6-1.0M', '16.00', '8.50', 4, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-03 10:30:07', '2023-02-03 10:39:02'),
 (55, 'PATCH CORD 3.0  METRO*CAT6 AZUL', 'PC6-3.0M', '32.00', '19.00', 2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-03 10:33:33', '2023-02-03 10:39:02'),
-(56, 'INTERRUPTOR SIMPLE POWERTRON INOX', 'MG101', '16.00', '11.00', -2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-03 18:36:05', '2023-02-09 18:47:38'),
+(56, 'INTERRUPTOR SIMPLE POWERTRON INOX', 'MG101', '16.00', '11.00', -3, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-03 18:36:05', '2023-02-17 02:41:41'),
 (57, 'DICROICO LED ZOCALO GU-10', '802', '4.00', '1.88', 6, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-02-04 14:14:50', '2023-02-04 14:51:56'),
 (58, 'LAMPARA LUZ CALIDA GU10 6W 38 LUXUS', '328', '21.00', '17.27', 4, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-02-04 14:17:19', '2023-02-04 14:51:56'),
 (59, 'CONMUTADOR  SIMPLE POWERTRON', 'M010-2', '16.00', '14.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-04 14:19:33', '2023-02-04 14:19:33'),
@@ -6125,7 +6352,7 @@ INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_pri
 (64, 'SOCKET DE  TELEFONOS', 'M-TEL', '18.00', '14.00', 0, '', 14, 16, 'product', NULL, NULL, NULL, 11, '2023-02-04 14:29:38', '2023-02-04 14:29:38'),
 (65, 'SOCKET DE TV', 'M-TV', '18.00', '14.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-04 14:31:28', '2023-02-04 14:31:28'),
 (66, 'ROLLO ALAMBRE', '1253', '450.00', '419.00', 1, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-08 00:25:43', '2023-02-08 00:52:24'),
-(67, 'PLAFON .PANEL LED 24W 3000K REDONDO SOBREPONER.300MMONER', 'P120', '125.00', '100.00', -4, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-08 00:33:57', '2023-02-09 18:45:03'),
+(67, 'PLAFON .PANEL LED 24W 3000K REDONDO SOBREPONER.300MMONER', 'P120', '125.00', '100.00', -2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-08 00:33:57', '2023-02-17 01:19:31'),
 (68, 'PLAFON ULTRALED. 24W.3K EMP', 'P458', '88.00', '70.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-08 00:36:29', '2023-02-09 18:45:03'),
 (69, 'ID Visual Bronze', 'IDV-B', '500.00', '400.00', 10, '3', 21, 18, 'service', '1-Logotipo Principal\r\n2-Logotipo Secundária (Sublogo) \r\n3-Logotipo Monocromático (Preto e Branco)\r\n4-Marca D\'agua logotipo principal\r\n5- Marca D\'agua logotipo secundário\r\n6-Paleta de Cores\r\n7-Pattern (estampa digital)\r\n8-Tipografia (letras)\r\n9-1 Mockup (aplicação do logo)\r\n10-Arquivos em PDF, SVG, PNG e JPG', '1675950583_BRONZE.png', NULL, 26, '2023-02-09 12:49:47', '2023-02-09 12:49:47'),
 (70, 'ID Visual Prata', 'IDV-P', '750.00', '600.00', 10, '3', 21, 18, 'service', '-Logotipo Principal\r\n2-Logotipo Secundária (Sublogo) \r\n3-Logotipo Monocromático (Preto e Branco)\r\n4-Marca D\'agua logotipo principal\r\n5- Marca D\'agua logotipo secundário\r\n6-Paleta de Cores\r\n7-Pattern (estampa digital)\r\n8-Tipografia (letras)\r\n9-1 Mockup (aplicação do logo)\r\n10-Arquivos em PDF, SVG, PNG e JPG\r\n11-Brand Book (manual)\r\n12-Arte para Cartão de Visitas\r\n13-Arte para Papel Timbrado\r\n14-Assinatura de E-mail\r\n15-Cartão Digital Interativo', '1675950689_PRATA.png', NULL, 26, '2023-02-09 12:51:29', '2023-02-09 12:51:29'),
@@ -6135,12 +6362,31 @@ INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_pri
 (74, 'Arte para Cartão de Visitas', 'ART-CTV', '80.00', '64.00', 10, '3', 24, 18, 'service', NULL, NULL, NULL, 26, '2023-02-09 12:57:03', '2023-02-09 12:57:03'),
 (75, 'ALICATE CRIMPADOR PARA CABLE', '38054', '85.00', '66.00', 1, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-09 17:23:04', '2023-02-09 17:29:48'),
 (76, 'PARLANTE DE TECHO 3.75-7.5-15W.1', 'T-108L', '350.00', '228.00', 6, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-09 17:46:27', '2023-02-09 17:48:25'),
-(77, 'CABLE UTP *CATEGORIA 5E 100M*ALEACCION', 'JE0027', '170.00', '79.00', 0, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-10 20:14:33', '2023-02-11 17:29:20');
+(77, 'CABLE UTP *CATEGORIA 5E 100M*ALEACCION', 'JE0027', '170.00', '79.00', 0, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-10 20:14:33', '2023-02-11 17:29:20'),
+(78, 'Producto 1', '123', '100.00', '80.00', 300, '', 17, 9, 'product', NULL, NULL, NULL, 21, '2023-02-14 15:29:39', '2023-02-14 15:30:00'),
+(79, 'REFLECTOR LED 30W MINI KH 400K', 'T4800062', '93.00', '40.00', 0, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:45:41', '2023-02-17 02:41:41'),
+(80, 'TUBO DE LUZ 5/8\"', 'T58L', '6.00', '4.40', 10, '', 15, 15, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:50:07', '2023-02-16 09:50:07'),
+(81, 'ALAMBRE # 12 AWG', 'AL12', '385.00', '370.00', 0, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:52:50', '2023-02-17 02:41:41'),
+(82, 'FOCO BULBO CALIDO DE 9W TRAMONTINA', 'F900K', '12.00', '7.00', -3, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:54:31', '2023-02-17 02:55:29'),
+(83, 'ZOQUET HERMETICO PARA EXTERIOR', 'Z650N', '8.00', '5.00', -1, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:55:35', '2023-02-17 02:41:41'),
+(84, 'CAJA CHUKY IMEC BLANCO', '72544', '13.00', '10.00', 0, '', 15, 13, 'product', NULL, NULL, NULL, 11, '2023-02-16 09:58:51', '2023-02-17 02:41:41'),
+(85, 'SOQUET DE COLGAR', '1452', '8.00', '5.00', 25, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 00:13:00', '2023-02-17 00:45:02'),
+(86, 'ROLLO CABLE', '5487', '868.00', '724.00', 1, '', 15, 7, 'product', NULL, NULL, NULL, 11, '2023-02-17 00:24:27', '2023-02-17 00:42:26'),
+(87, 'TAPA CIEGA', '2669', '2.00', '1.20', 15, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 00:32:39', '2023-02-17 01:19:31'),
+(88, 'PLUG RJ-45', '1244', '3.00', '2.00', 4, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 00:34:12', '2023-02-17 01:19:31'),
+(89, 'panel led  de 48w', '1254', '96.00', '76.00', 2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 01:15:19', '2023-02-17 01:19:31'),
+(90, 'TARUGO #6', 'TR112', '0.10', '0.06', 100, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 01:26:41', '2023-02-17 01:52:10'),
+(91, 'TORNILLO # 4X30', 'TO365', '0.10', '0.08', 100, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 01:30:04', '2023-02-17 01:52:10'),
+(92, 'DSPPA MP120UB AMPLIFDICADOR', 'AM458', '2088.00', '1740.00', 2, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 01:33:29', '2023-02-17 15:01:37'),
+(93, 'FOCO BULBO CALIDO DE 15W TRAMONTINA', 'F458', '18.00', '15.00', -3, '', 15, 16, 'product', NULL, NULL, NULL, 11, '2023-02-17 02:50:15', '2023-02-17 02:55:29'),
+(94, 'METRO CABLE UTP CAT 5E ALEACION', 'M1244', '3.00', '7.90', -70, '', 15, 8, 'product', NULL, NULL, NULL, 11, '2023-02-17 02:52:43', '2023-02-17 02:55:29'),
+(95, 'CABLE ENGOMADO 3X1.5MM', 'C1452', '12.00', '7.00', 0, '', 15, 8, 'product', NULL, NULL, NULL, 11, '2023-02-17 16:36:57', '2023-02-17 23:39:07'),
+(96, 'CABLE DE MANDO ENGOMADO 2X1MM', 'C458', '8.00', '4.00', 9, '', 15, 8, 'product', NULL, NULL, NULL, 11, '2023-02-17 23:25:41', '2023-02-17 23:28:20');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_service_categories`
+-- Table structure for table `product_service_categories`
 --
 
 CREATE TABLE `product_service_categories` (
@@ -6154,7 +6400,7 @@ CREATE TABLE `product_service_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_service_categories`
+-- Dumping data for table `product_service_categories`
 --
 
 INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6170,7 +6416,7 @@ INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `create
 (13, 'VENTAS PRODUCTOS', '1', '5857FF', 11, '2022-11-23 14:41:12', '2023-01-06 20:47:29'),
 (14, 'SERVICIOS', '0', 'FFFFFF', 11, '2022-12-09 13:16:22', '2023-01-06 20:48:10'),
 (15, 'DIGICORP', '0', '1BFF32', 11, '2022-12-14 14:59:07', '2023-01-06 20:30:51'),
-(16, 'Criative Digital', '1', 'F2994A', 21, '2023-01-02 22:58:54', '2023-01-03 00:37:09'),
+(16, 'Criative Digital', '2', 'F2994A', 21, '2023-01-02 22:58:54', '2023-01-03 00:37:09'),
 (17, 'Cirugía Plastica', '0', 'A530FF', 21, '2023-01-02 23:03:13', '2023-01-02 23:03:13'),
 (18, 'Corpo Leve', '0', '0E711F', 21, '2023-01-02 23:03:13', '2023-01-02 23:04:15'),
 (19, 'COMPRAS', '2', '3B43FF', 11, '2023-01-05 00:15:41', '2023-01-05 00:17:15'),
@@ -6178,12 +6424,14 @@ INSERT INTO `product_service_categories` (`id`, `name`, `type`, `color`, `create
 (21, 'ID Visual', '0', '575385', 26, '2023-02-09 12:40:35', '2023-02-09 12:40:35'),
 (22, 'Webdesign', '0', '545454', 26, '2023-02-09 12:41:14', '2023-02-09 12:41:14'),
 (23, 'Design Digital', '0', 'F9A91D', 26, '2023-02-09 12:41:47', '2023-02-09 12:41:47'),
-(24, 'Design Gráfico', '0', 'F5F3F1', 26, '2023-02-09 12:42:06', '2023-02-09 12:42:06');
+(24, 'Design Gráfico', '0', 'F5F3F1', 26, '2023-02-09 12:42:06', '2023-02-09 12:42:06'),
+(25, 'Botas', '0', 'FFFFFF', 18, '2023-02-21 00:45:08', '2023-02-21 00:45:08'),
+(26, 'Guantes', '0', 'FFFFFF', 18, '2023-02-21 00:45:22', '2023-02-21 00:45:22');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_service_units`
+-- Table structure for table `product_service_units`
 --
 
 CREATE TABLE `product_service_units` (
@@ -6195,7 +6443,7 @@ CREATE TABLE `product_service_units` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `product_service_units`
+-- Dumping data for table `product_service_units`
 --
 
 INSERT INTO `product_service_units` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6221,7 +6469,7 @@ INSERT INTO `product_service_units` (`id`, `name`, `created_by`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `product_variations`
+-- Table structure for table `product_variations`
 --
 
 CREATE TABLE `product_variations` (
@@ -6231,7 +6479,7 @@ CREATE TABLE `product_variations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `product_variations`
+-- Dumping data for table `product_variations`
 --
 
 INSERT INTO `product_variations` (`id`, `name`, `options`) VALUES
@@ -6242,7 +6490,7 @@ INSERT INTO `product_variations` (`id`, `name`, `options`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projects`
+-- Table structure for table `projects`
 --
 
 CREATE TABLE `projects` (
@@ -6263,7 +6511,7 @@ CREATE TABLE `projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `projects`
+-- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`id`, `project_name`, `start_date`, `end_date`, `project_image`, `budget`, `client_id`, `description`, `status`, `estimated_hrs`, `tags`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6271,12 +6519,15 @@ INSERT INTO `projects` (`id`, `project_name`, `start_date`, `end_date`, `project
 (2, 'Limpieza de Galpon', '2022-11-22', '2022-11-23', 'projects/1669129358.jpg', 100, 14, NULL, 'on_hold', NULL, NULL, 10, '2022-11-22 14:02:43', '2022-11-22 14:02:43'),
 (3, 'Heladeria mi alegria', '2022-11-23', '2022-11-30', 'projects/1669204249.jpg', 2000, 15, 'Instalacion eléctrica  en general', 'in_progress', '50', '2378', 11, '2022-11-23 10:50:53', '2022-11-23 10:50:53'),
 (4, 'Helavderia mi alegria', '2022-11-23', '2022-12-22', 'projects/1669371422.png', 2000, 15, 'Instalación  electrica en general', 'in_progress', '250', '23679', 11, '2022-11-23 11:24:23', '2022-11-25 09:17:03'),
-(5, 'PLANTA BAJA DONAL CENTRAL', '2022-12-01', '2023-01-08', 'projects/1672281955.png', 13000, 19, 'picar entubar cablear y colocar luminarias', 'in_progress', '300', '213345', 11, '2022-12-29 01:45:55', '2022-12-29 08:38:09');
+(5, 'PLANTA BAJA DONAL CENTRAL', '2022-12-01', '2023-01-08', 'projects/1672281955.png', 13000, 19, 'picar entubar cablear y colocar luminarias', 'in_progress', '300', '213345', 11, '2022-12-29 01:45:55', '2022-12-29 08:38:09'),
+(6, 'Proyecto 1', '1969-12-31', '1969-12-31', 'projects/1676387643.jpg', 0, 15, NULL, 'in_progress', NULL, NULL, 21, '2023-02-14 14:14:04', '2023-02-14 14:14:04'),
+(7, 'Proyecto de prueba', '1969-12-31', '1969-12-31', 'projects/1676589816.jpg', 0, 4, NULL, 'in_progress', NULL, NULL, 2, '2023-02-16 22:23:40', '2023-02-16 22:23:40'),
+(8, 'Proyecto de prueba 2', '1969-12-31', '1969-12-31', 'projects/1676589947.jpg', 0, 4, NULL, 'in_progress', NULL, NULL, 2, '2023-02-16 22:25:48', '2023-02-16 22:25:48');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `projectstages`
+-- Table structure for table `projectstages`
 --
 
 CREATE TABLE `projectstages` (
@@ -6292,7 +6543,7 @@ CREATE TABLE `projectstages` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_email_templates`
+-- Table structure for table `project_email_templates`
 --
 
 CREATE TABLE `project_email_templates` (
@@ -6307,7 +6558,7 @@ CREATE TABLE `project_email_templates` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_invoices`
+-- Table structure for table `project_invoices`
 --
 
 CREATE TABLE `project_invoices` (
@@ -6326,7 +6577,7 @@ CREATE TABLE `project_invoices` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_tasks`
+-- Table structure for table `project_tasks`
 --
 
 CREATE TABLE `project_tasks` (
@@ -6353,7 +6604,7 @@ CREATE TABLE `project_tasks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `project_tasks`
+-- Dumping data for table `project_tasks`
 --
 
 INSERT INTO `project_tasks` (`id`, `name`, `description`, `estimated_hrs`, `start_date`, `end_date`, `priority`, `priority_color`, `assign_to`, `project_id`, `milestone_id`, `stage_id`, `order`, `created_by`, `is_favourite`, `is_complete`, `marked_at`, `progress`, `created_at`, `updated_at`) VALUES
@@ -6361,12 +6612,16 @@ INSERT INTO `project_tasks` (`id`, `name`, `description`, `estimated_hrs`, `star
 (2, 'Entubar y cablear', 'Cableado', 20, '2022-11-23', '2022-11-23', 'critical', NULL, '11,16', 3, 0, 25, 0, 11, 0, 0, NULL, '0', '2022-11-23 10:57:39', '2022-11-23 10:57:39'),
 (3, 'Cableado cielo falso', 'Cableadoventubado', 48, '2022-11-25', '2022-11-29', 'medium', NULL, NULL, 4, 0, 27, 0, 11, 0, 0, NULL, '0', '2022-11-23 11:28:47', '2023-01-14 22:10:50'),
 (4, 'colocado de chispas cinta led y dicroicos', 'luminarias', 48, '2022-12-22', '2022-12-31', 'high', NULL, NULL, 5, 0, 26, 0, 11, 0, 0, NULL, '0', '2022-12-29 01:50:06', '2022-12-29 01:50:56'),
-(5, 'instalar cámaras', 'cablear y colocar las camaras en sus respectivos puntos', 48, '2023-01-16', '2023-01-21', 'high', NULL, '11', 4, 0, 26, 1, 11, 0, 0, NULL, '0', '2023-01-14 22:09:13', '2023-01-14 22:10:10');
+(5, 'instalar cámaras', 'cablear y colocar las camaras en sus respectivos puntos', 48, '2023-01-16', '2023-01-21', 'high', NULL, '11', 4, 0, 26, 1, 11, 0, 0, NULL, '0', '2023-01-14 22:09:13', '2023-01-14 22:10:10'),
+(6, '123', NULL, 12, '1969-12-31', '1969-12-31', 'critical', NULL, NULL, 6, 0, 37, 0, 21, 0, 0, NULL, '0', '2023-02-14 14:27:56', '2023-02-14 14:27:56'),
+(7, '321', NULL, 123, '2023-02-16', '2023-03-02', 'critical', NULL, NULL, 6, 0, 37, 0, 21, 0, 0, NULL, '0', '2023-02-14 14:29:19', '2023-02-14 14:29:19'),
+(8, 'Tarea de prueba 1', NULL, 12, '2023-02-16', '2023-02-17', 'critical', NULL, NULL, 8, 0, 1, 0, 2, 0, 0, '2023-02-16', '0', '2023-02-16 22:26:27', '2023-02-16 22:29:40'),
+(9, 'Tarea con fecha', NULL, 12, '2023-02-20', '2023-02-28', 'critical', NULL, NULL, 8, 0, 1, 0, 2, 0, 0, '2023-02-16', '0', '2023-02-16 22:28:28', '2023-02-16 22:28:28');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project_users`
+-- Table structure for table `project_users`
 --
 
 CREATE TABLE `project_users` (
@@ -6379,7 +6634,7 @@ CREATE TABLE `project_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `project_users`
+-- Dumping data for table `project_users`
 --
 
 INSERT INTO `project_users` (`id`, `project_id`, `user_id`, `invited_by`, `created_at`, `updated_at`) VALUES
@@ -6391,12 +6646,18 @@ INSERT INTO `project_users` (`id`, `project_id`, `user_id`, `invited_by`, `creat
 (7, 4, 11, 0, '2022-11-23 11:24:23', '2022-11-23 11:24:23'),
 (8, 4, 16, 0, '2022-11-23 11:24:23', '2022-11-23 11:24:23'),
 (9, 5, 11, 0, '2022-12-29 01:45:55', '2022-12-29 01:45:55'),
-(10, 5, 20, 0, '2022-12-29 01:45:55', '2022-12-29 01:45:55');
+(10, 5, 20, 0, '2022-12-29 01:45:55', '2022-12-29 01:45:55'),
+(11, 6, 21, 0, '2023-02-14 14:14:04', '2023-02-14 14:14:04'),
+(12, 6, 27, 0, '2023-02-14 14:14:04', '2023-02-14 14:14:04'),
+(13, 7, 2, 0, '2023-02-16 22:23:40', '2023-02-16 22:23:40'),
+(14, 7, 3, 0, '2023-02-16 22:23:40', '2023-02-16 22:23:40'),
+(15, 8, 2, 0, '2023-02-16 22:25:48', '2023-02-16 22:25:48'),
+(16, 8, 3, 0, '2023-02-16 22:25:48', '2023-02-16 22:25:48');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `promotions`
+-- Table structure for table `promotions`
 --
 
 CREATE TABLE `promotions` (
@@ -6414,7 +6675,7 @@ CREATE TABLE `promotions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proposals`
+-- Table structure for table `proposals`
 --
 
 CREATE TABLE `proposals` (
@@ -6434,7 +6695,7 @@ CREATE TABLE `proposals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `proposals`
+-- Dumping data for table `proposals`
 --
 
 INSERT INTO `proposals` (`id`, `proposal_id`, `customer_id`, `issue_date`, `send_date`, `category_id`, `status`, `discount_apply`, `converted_invoice_id`, `is_convert`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6443,7 +6704,7 @@ INSERT INTO `proposals` (`id`, `proposal_id`, `customer_id`, `issue_date`, `send
 (27, 1, 18, '2023-01-04', '2023-01-06', 13, 2, 0, 25, 1, 11, '2023-01-06 20:03:07', '2023-01-06 20:04:27'),
 (28, 2, 22, '2023-01-04', '2023-01-06', 13, 2, 0, 26, 1, 11, '2023-01-06 20:20:56', '2023-01-06 20:22:05'),
 (29, 3, 22, '2023-01-20', '2023-01-20', 13, 2, 0, 29, 1, 11, '2023-01-20 15:40:13', '2023-01-21 02:40:57'),
-(31, 4, 14, '2023-01-26', '2023-01-26', 13, 1, 0, 0, 0, 11, '2023-01-26 09:46:17', '2023-01-26 09:47:42'),
+(31, 4, 14, '2023-01-26', '2023-01-26', 13, 1, 0, 46, 1, 11, '2023-01-26 09:46:17', '2023-02-17 02:37:45'),
 (32, 5, 14, '2023-01-26', '2023-01-26', 13, 1, 0, 0, 0, 11, '2023-01-26 09:47:24', '2023-01-26 09:48:03'),
 (33, 6, 14, '2023-01-26', '2023-01-26', 13, 1, 0, 0, 0, 11, '2023-01-26 12:39:03', '2023-01-26 12:39:21'),
 (35, 7, 22, '2023-01-30', '2023-01-29', 13, 2, 0, 0, 0, 11, '2023-01-30 01:14:51', '2023-01-30 23:56:31'),
@@ -6451,12 +6712,16 @@ INSERT INTO `proposals` (`id`, `proposal_id`, `customer_id`, `issue_date`, `send
 (39, 9, 24, '2023-01-31', '2023-01-31', 13, 1, 0, 33, 1, 11, '2023-01-31 15:26:18', '2023-02-02 02:26:13'),
 (40, 10, 25, '2023-01-31', '2023-01-31', 13, 1, 0, 31, 1, 11, '2023-02-01 00:37:47', '2023-02-02 02:14:59'),
 (42, 11, 25, '2023-02-03', '2023-02-03', 13, 2, 0, 36, 1, 11, '2023-02-03 18:41:04', '2023-02-09 18:55:05'),
-(44, 12, 24, '2023-02-11', '2023-02-11', 13, 1, 0, 38, 1, 11, '2023-02-11 10:32:00', '2023-02-11 17:29:20');
+(44, 12, 24, '2023-02-11', '2023-02-11', 13, 1, 0, 38, 1, 11, '2023-02-11 10:32:00', '2023-02-11 17:29:20'),
+(45, 13, 30, '2023-02-16', '2023-02-16', 13, 2, 0, 47, 1, 11, '2023-02-16 10:10:55', '2023-02-17 02:41:41'),
+(46, 1, 2, '2023-02-16', '2023-02-16', 3, 1, 0, 0, 0, 2, '2023-02-16 22:35:14', '2023-02-16 22:35:43'),
+(47, 14, 30, '2023-02-16', NULL, 13, 0, 0, 48, 1, 11, '2023-02-17 02:55:02', '2023-02-17 02:55:29'),
+(48, 15, 14, '2023-02-17', '2023-02-17', 13, 1, 0, 0, 0, 11, '2023-02-17 16:46:47', '2023-02-17 16:47:15');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proposal_products`
+-- Table structure for table `proposal_products`
 --
 
 CREATE TABLE `proposal_products` (
@@ -6473,7 +6738,7 @@ CREATE TABLE `proposal_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `proposal_products`
+-- Dumping data for table `proposal_products`
 --
 
 INSERT INTO `proposal_products` (`id`, `proposal_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
@@ -6508,12 +6773,26 @@ INSERT INTO `proposal_products` (`id`, `proposal_id`, `product_id`, `quantity`, 
 (84, 42, 48, 3, NULL, 0.00, '20.00', NULL, '2023-02-03 18:41:04', '2023-02-03 20:30:33'),
 (85, 42, 49, 1, NULL, 0.00, '20.00', NULL, '2023-02-03 18:41:04', '2023-02-03 20:30:33'),
 (88, 44, 19, 1, NULL, 0.00, '810.00', NULL, '2023-02-11 10:32:00', '2023-02-11 10:32:00'),
-(89, 44, 77, 2, NULL, 0.00, '170.00', NULL, '2023-02-11 10:32:00', '2023-02-11 10:32:00');
+(89, 44, 77, 2, NULL, 0.00, '170.00', NULL, '2023-02-11 10:32:00', '2023-02-11 10:32:00'),
+(90, 45, 81, 1, NULL, 0.00, '385.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(91, 45, 45, 1, NULL, 0.00, '270.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(92, 45, 83, 25, NULL, 0.00, '8.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(93, 45, 82, 24, NULL, 0.00, '12.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(94, 45, 47, 6, NULL, 0.00, '12.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(95, 45, 79, 5, NULL, 0.00, '75.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(96, 45, 84, 2, NULL, 0.00, '13.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(97, 45, 56, 1, NULL, 0.00, '16.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(98, 45, 48, 1, NULL, 0.00, '20.00', NULL, '2023-02-16 10:10:55', '2023-02-16 10:10:55'),
+(99, 46, 2, 1, NULL, 0.00, '10.00', NULL, '2023-02-16 22:35:14', '2023-02-16 22:35:14'),
+(100, 47, 93, 3, NULL, 0.00, '18.00', NULL, '2023-02-17 02:55:02', '2023-02-17 02:55:02'),
+(101, 47, 82, 3, NULL, 0.00, '12.00', NULL, '2023-02-17 02:55:02', '2023-02-17 02:55:02'),
+(102, 47, 94, 70, NULL, 0.00, '3.00', NULL, '2023-02-17 02:55:02', '2023-02-17 02:55:02'),
+(103, 48, 95, 8, NULL, 0.00, '12.00', NULL, '2023-02-17 16:46:47', '2023-02-17 16:46:47');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchases`
+-- Table structure for table `purchases`
 --
 
 CREATE TABLE `purchases` (
@@ -6535,7 +6814,7 @@ CREATE TABLE `purchases` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `purchases`
+-- Dumping data for table `purchases`
 --
 
 INSERT INTO `purchases` (`id`, `purchase_id`, `vender_id`, `warehouse_id`, `purchase_date`, `purchase_number`, `status`, `shipping_display`, `send_date`, `online`, `discount_apply`, `category_id`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6549,7 +6828,7 @@ INSERT INTO `purchases` (`id`, `purchase_id`, `vender_id`, `warehouse_id`, `purc
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchase_payments`
+-- Table structure for table `purchase_payments`
 --
 
 CREATE TABLE `purchase_payments` (
@@ -6567,7 +6846,7 @@ CREATE TABLE `purchase_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `purchase_payments`
+-- Dumping data for table `purchase_payments`
 --
 
 INSERT INTO `purchase_payments` (`id`, `purchase_id`, `date`, `amount`, `account_id`, `payment_method`, `reference`, `description`, `add_receipt`, `created_at`, `updated_at`) VALUES
@@ -6580,7 +6859,7 @@ INSERT INTO `purchase_payments` (`id`, `purchase_id`, `date`, `amount`, `account
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchase_products`
+-- Table structure for table `purchase_products`
 --
 
 CREATE TABLE `purchase_products` (
@@ -6597,7 +6876,7 @@ CREATE TABLE `purchase_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `purchase_products`
+-- Dumping data for table `purchase_products`
 --
 
 INSERT INTO `purchase_products` (`id`, `purchase_id`, `product_id`, `quantity`, `tax`, `discount`, `price`, `description`, `created_at`, `updated_at`) VALUES
@@ -6618,7 +6897,7 @@ INSERT INTO `purchase_products` (`id`, `purchase_id`, `product_id`, `quantity`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resignations`
+-- Table structure for table `resignations`
 --
 
 CREATE TABLE `resignations` (
@@ -6635,7 +6914,7 @@ CREATE TABLE `resignations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `revenues`
+-- Table structure for table `revenues`
 --
 
 CREATE TABLE `revenues` (
@@ -6655,7 +6934,7 @@ CREATE TABLE `revenues` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `revenues`
+-- Dumping data for table `revenues`
 --
 
 INSERT INTO `revenues` (`id`, `date`, `amount`, `account_id`, `customer_id`, `category_id`, `payment_method`, `reference`, `add_receipt`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6667,7 +6946,7 @@ INSERT INTO `revenues` (`id`, `date`, `amount`, `account_id`, `customer_id`, `ca
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -6680,7 +6959,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -6700,7 +6979,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_by`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `role_has_permissions`
+-- Table structure for table `role_has_permissions`
 --
 
 CREATE TABLE `role_has_permissions` (
@@ -6709,7 +6988,7 @@ CREATE TABLE `role_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `role_has_permissions`
+-- Dumping data for table `role_has_permissions`
 --
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
@@ -7991,6 +8270,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (496, 10),
 (497, 10),
 (498, 10),
+(1, 11),
 (3, 11),
 (4, 11),
 (22, 11),
@@ -8087,17 +8367,206 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (197, 11),
 (198, 11),
 (199, 11),
+(200, 11),
+(201, 11),
 (202, 11),
 (203, 11),
 (204, 11),
+(205, 11),
 (206, 11),
+(207, 11),
+(208, 11),
+(209, 11),
+(210, 11),
 (211, 11),
+(212, 11),
+(213, 11),
+(214, 11),
+(215, 11),
+(216, 11),
+(217, 11),
+(218, 11),
+(219, 11),
+(220, 11),
+(221, 11),
+(222, 11),
+(223, 11),
+(224, 11),
+(225, 11),
+(226, 11),
+(227, 11),
+(228, 11),
+(229, 11),
+(230, 11),
+(231, 11),
+(232, 11),
+(233, 11),
+(234, 11),
+(235, 11),
+(236, 11),
+(237, 11),
+(238, 11),
+(239, 11),
+(240, 11),
+(241, 11),
+(242, 11),
+(243, 11),
+(244, 11),
+(245, 11),
+(246, 11),
+(247, 11),
+(248, 11),
+(249, 11),
+(250, 11),
+(251, 11),
+(252, 11),
+(253, 11),
+(254, 11),
+(255, 11),
+(256, 11),
+(257, 11),
+(258, 11),
+(259, 11),
 (260, 11),
 (261, 11),
+(262, 11),
 (263, 11),
+(264, 11),
+(265, 11),
+(266, 11),
+(267, 11),
+(268, 11),
+(269, 11),
+(270, 11),
+(271, 11),
+(272, 11),
+(273, 11),
+(274, 11),
+(275, 11),
+(276, 11),
+(277, 11),
+(278, 11),
+(279, 11),
+(280, 11),
+(281, 11),
+(282, 11),
+(283, 11),
+(284, 11),
+(285, 11),
+(286, 11),
+(287, 11),
+(288, 11),
+(289, 11),
+(290, 11),
+(291, 11),
+(292, 11),
+(293, 11),
+(294, 11),
+(295, 11),
+(296, 11),
+(297, 11),
+(298, 11),
+(299, 11),
+(300, 11),
+(301, 11),
+(302, 11),
+(303, 11),
+(304, 11),
+(305, 11),
+(306, 11),
+(307, 11),
+(308, 11),
+(309, 11),
+(310, 11),
+(311, 11),
+(312, 11),
+(313, 11),
+(314, 11),
+(315, 11),
+(316, 11),
+(317, 11),
+(318, 11),
+(319, 11),
+(320, 11),
+(321, 11),
+(322, 11),
+(323, 11),
+(324, 11),
+(325, 11),
+(326, 11),
+(327, 11),
+(328, 11),
+(329, 11),
+(330, 11),
+(331, 11),
+(332, 11),
+(333, 11),
+(334, 11),
+(335, 11),
+(336, 11),
+(337, 11),
+(338, 11),
+(339, 11),
+(341, 11),
+(342, 11),
+(343, 11),
+(344, 11),
+(345, 11),
+(346, 11),
+(347, 11),
+(348, 11),
+(349, 11),
+(350, 11),
+(351, 11),
+(352, 11),
+(353, 11),
+(354, 11),
+(355, 11),
+(356, 11),
+(361, 11),
+(362, 11),
+(363, 11),
+(364, 11),
+(365, 11),
+(366, 11),
+(367, 11),
+(368, 11),
+(369, 11),
+(370, 11),
+(371, 11),
+(372, 11),
+(373, 11),
+(374, 11),
+(375, 11),
+(376, 11),
+(378, 11),
+(379, 11),
+(380, 11),
+(381, 11),
+(382, 11),
+(383, 11),
+(384, 11),
+(385, 11),
+(386, 11),
+(387, 11),
+(388, 11),
+(389, 11),
+(390, 11),
+(391, 11),
+(392, 11),
+(393, 11),
+(394, 11),
+(395, 11),
+(396, 11),
+(397, 11),
+(398, 11),
+(399, 11),
+(400, 11),
+(401, 11),
 (402, 11),
 (403, 11),
 (404, 11),
+(405, 11),
 (406, 11),
 (408, 11),
 (409, 11),
@@ -8450,7 +8919,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `saturation_deductions`
+-- Table structure for table `saturation_deductions`
 --
 
 CREATE TABLE `saturation_deductions` (
@@ -8468,7 +8937,7 @@ CREATE TABLE `saturation_deductions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -8481,7 +8950,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -8708,7 +9177,7 @@ INSERT INTO `settings` (`id`, `name`, `value`, `created_by`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `set_salaries`
+-- Table structure for table `set_salaries`
 --
 
 CREATE TABLE `set_salaries` (
@@ -8720,7 +9189,7 @@ CREATE TABLE `set_salaries` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sources`
+-- Table structure for table `sources`
 --
 
 CREATE TABLE `sources` (
@@ -8732,7 +9201,7 @@ CREATE TABLE `sources` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `sources`
+-- Dumping data for table `sources`
 --
 
 INSERT INTO `sources` (`id`, `name`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -8805,12 +9274,17 @@ INSERT INTO `sources` (`id`, `name`, `created_by`, `created_at`, `updated_at`) V
 (67, 'Facebook', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (68, 'Naukari.com', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (69, 'Phone', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(70, 'LinkedIn', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(70, 'LinkedIn', 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(71, 'Websites', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(72, 'Facebook', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Naukari.com', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'Phone', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'LinkedIn', 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stages`
+-- Table structure for table `stages`
 --
 
 CREATE TABLE `stages` (
@@ -8824,7 +9298,7 @@ CREATE TABLE `stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `stages`
+-- Dumping data for table `stages`
 --
 
 INSERT INTO `stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `created_at`, `updated_at`) VALUES
@@ -8897,12 +9371,17 @@ INSERT INTO `stages` (`id`, `name`, `pipeline_id`, `created_by`, `order`, `creat
 (67, 'Sent', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (68, 'Open', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (69, 'Revised', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(70, 'Declined', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(70, 'Declined', 15, 26, 0, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(71, 'Draft', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(72, 'Sent', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(73, 'Open', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(74, 'Revised', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(75, 'Declined', 16, 28, 0, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stock_reports`
+-- Table structure for table `stock_reports`
 --
 
 CREATE TABLE `stock_reports` (
@@ -8918,7 +9397,7 @@ CREATE TABLE `stock_reports` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `stock_reports`
+-- Dumping data for table `stock_reports`
 --
 
 INSERT INTO `stock_reports` (`id`, `product_id`, `quantity`, `type`, `type_id`, `description`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -8992,19 +9471,37 @@ INSERT INTO `stock_reports` (`id`, `product_id`, `quantity`, `type`, `type_id`, 
 (82, 76, 6, 'bill', 23, '6   Cantidad Comprada en factura  #BILL00022', 11, '2023-02-09 17:48:25', '2023-02-09 17:48:25'),
 (85, 43, 1, 'invoice', 34, '1 cantidad vendida en  COT.00008 Propuesta convertida en factura  FACTURA00010', 11, '2023-02-09 18:07:18', '2023-02-09 18:07:18'),
 (87, 68, 1, 'invoice', 35, '1 cantidad vendida en  COT.00012 Propuesta convertida en factura  FACTURA00011', 11, '2023-02-09 18:45:03', '2023-02-09 18:45:03'),
-(91, 49, 1, 'invoice', 36, '1 cantidad vendida en  COT.00011 Propuesta convertida en factura  FACTURA00011', 11, '2023-02-09 18:47:38', '2023-02-09 18:47:38'),
 (92, 17, 1, 'invoice', 37, '1   quantidade vendida na fatura  #FAC00001', 21, '2023-02-11 15:35:52', '2023-02-11 15:35:52'),
 (93, 19, 1, 'bill', 24, '1   Cantidad Comprada en factura  #BILL00023', 11, '2023-02-11 17:26:18', '2023-02-11 17:26:18'),
 (94, 77, 2, 'bill', 24, '2   Cantidad Comprada en factura  #BILL00023', 11, '2023-02-11 17:26:18', '2023-02-11 17:26:18'),
 (96, 77, 2, 'invoice', 38, '2 cantidad vendida en  COT.00012 Propuesta convertida en factura  FACTURA00012', 11, '2023-02-11 17:29:20', '2023-02-11 17:29:20'),
 (97, 17, 1, 'invoice', 39, '1   cantidad vendida en factura  #FAC00002', 21, '2023-02-14 12:49:46', '2023-02-14 12:49:46'),
 (98, 17, 1, 'invoice', 41, '1   cantidad vendida en factura  #FAC00002', 21, '2023-02-14 12:50:32', '2023-02-14 12:50:32'),
-(99, 17, 1, 'invoice', 43, '1   cantidad vendida en factura  #FAC00002', 21, '2023-02-14 12:52:31', '2023-02-14 12:52:31');
+(99, 17, 1, 'invoice', 43, '1   cantidad vendida en factura  #FAC00002', 21, '2023-02-14 12:52:31', '2023-02-14 12:52:31'),
+(100, 78, 200, 'manually', 0, '200  cantidad añadida manualmente ', 21, '2023-02-14 15:30:00', '2023-02-14 15:30:00'),
+(101, 2, 1, 'invoice', 44, '1   cantidad vendida en factura  #INVO00001', 2, '2023-02-16 22:31:58', '2023-02-16 22:31:58'),
+(102, 86, 1, 'bill', 25, '1   Cantidad Comprada en factura  #BILL00024', 11, '2023-02-17 00:42:26', '2023-02-17 00:42:26'),
+(103, 85, 25, 'bill', 26, '25   Cantidad Comprada en factura  #BILL00025', 11, '2023-02-17 00:45:02', '2023-02-17 00:45:02'),
+(104, 67, 2, 'bill', 27, '2   Cantidad Comprada en factura  #BILL00026', 11, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(105, 89, 2, 'bill', 27, '2   Cantidad Comprada en factura  #BILL00026', 11, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(106, 87, 15, 'bill', 27, '15   Cantidad Comprada en factura  #BILL00026', 11, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(107, 88, 4, 'bill', 27, '4   Cantidad Comprada en factura  #BILL00026', 11, '2023-02-17 01:19:31', '2023-02-17 01:19:31'),
+(108, 47, 10, 'bill', 28, '10   Cantidad Comprada en factura  #BILL00027', 11, '2023-02-17 01:49:09', '2023-02-17 01:49:09'),
+(109, 90, 100, 'bill', 29, '100   Cantidad Comprada en factura  #BILL00028', 11, '2023-02-17 01:52:10', '2023-02-17 01:52:10'),
+(110, 91, 100, 'bill', 29, '100   Cantidad Comprada en factura  #BILL00028', 11, '2023-02-17 01:52:10', '2023-02-17 01:52:10'),
+(112, 45, 1, 'invoice', 45, '1   cantidad vendida en factura  FACTURA00013', 11, '2023-02-17 02:28:05', '2023-02-17 02:28:05'),
+(123, 48, 1, 'invoice', 47, '1 cantidad vendida en  COT.00013 Propuesta convertida en factura  FACTURA00015', 11, '2023-02-17 02:41:41', '2023-02-17 02:41:41'),
+(126, 94, 70, 'invoice', 48, '70 cantidad vendida en  COT.00014 Propuesta convertida en factura  FACTURA00016', 11, '2023-02-17 02:55:29', '2023-02-17 02:55:29'),
+(127, 43, 1, 'bill', 31, '1   Cantidad Comprada en factura  #BILL00030', 11, '2023-02-17 14:37:45', '2023-02-17 14:37:45'),
+(128, 45, 1, 'bill', 32, '1   Cantidad Comprada en factura  #BILL00031', 11, '2023-02-17 14:46:50', '2023-02-17 14:46:50'),
+(129, 95, 8, 'bill', 33, '8   Cantidad Comprada en factura  #BILL00032', 11, '2023-02-17 23:28:20', '2023-02-17 23:28:20'),
+(130, 96, 9, 'bill', 33, '9   Cantidad Comprada en factura  #BILL00032', 11, '2023-02-17 23:28:20', '2023-02-17 23:28:20'),
+(131, 95, 8, 'invoice', 49, '8   cantidad vendida en factura  FACTURA00017', 11, '2023-02-17 23:39:08', '2023-02-17 23:39:08');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `supports`
+-- Table structure for table `supports`
 --
 
 CREATE TABLE `supports` (
@@ -9026,7 +9523,7 @@ CREATE TABLE `supports` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `support_replies`
+-- Table structure for table `support_replies`
 --
 
 CREATE TABLE `support_replies` (
@@ -9043,7 +9540,7 @@ CREATE TABLE `support_replies` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_checklists`
+-- Table structure for table `task_checklists`
 --
 
 CREATE TABLE `task_checklists` (
@@ -9058,16 +9555,17 @@ CREATE TABLE `task_checklists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `task_checklists`
+-- Dumping data for table `task_checklists`
 --
 
 INSERT INTO `task_checklists` (`id`, `name`, `task_id`, `user_type`, `created_by`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ya no hay tubos', 3, 'User', 11, 1, '2022-11-25 15:10:16', '2022-11-27 10:10:01');
+(1, 'ya no hay tubos', 3, 'User', 11, 1, '2022-11-25 15:10:16', '2022-11-27 10:10:01'),
+(2, 'Nisa Delgado', 7, 'User', 21, 1, '2023-02-14 14:29:43', '2023-02-14 14:29:45');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_comments`
+-- Table structure for table `task_comments`
 --
 
 CREATE TABLE `task_comments` (
@@ -9082,7 +9580,7 @@ CREATE TABLE `task_comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `task_comments`
+-- Dumping data for table `task_comments`
 --
 
 INSERT INTO `task_comments` (`id`, `comment`, `task_id`, `user_id`, `user_type`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -9096,7 +9594,7 @@ INSERT INTO `task_comments` (`id`, `comment`, `task_id`, `user_id`, `user_type`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_files`
+-- Table structure for table `task_files`
 --
 
 CREATE TABLE `task_files` (
@@ -9113,16 +9611,18 @@ CREATE TABLE `task_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `task_files`
+-- Dumping data for table `task_files`
 --
 
 INSERT INTO `task_files` (`id`, `file`, `name`, `extension`, `file_size`, `task_id`, `user_type`, `created_by`, `created_at`, `updated_at`) VALUES
-(5, '31671081268_kisspng-laptop-computer-repair-technician-logo-clip-art-home-repair-logos-5aac41069e2b30.8159994015212382786479.png', 'kisspng-laptop-computer-repair-technician-logo-clip-art-home-repair-logos-5aac41069e2b30.8159994015212382786479.png', 'png', '0.12 MB', 3, 'User', 11, '2022-12-15 04:14:28', '2022-12-15 04:14:28');
+(5, '31671081268_kisspng-laptop-computer-repair-technician-logo-clip-art-home-repair-logos-5aac41069e2b30.8159994015212382786479.png', 'kisspng-laptop-computer-repair-technician-logo-clip-art-home-repair-logos-5aac41069e2b30.8159994015212382786479.png', 'png', '0.12 MB', 3, 'User', 11, '2022-12-15 04:14:28', '2022-12-15 04:14:28'),
+(6, '71676388594_1729737.jpg', '1729737.jpg', 'jpg', '0.58 MB', 7, 'User', 21, '2023-02-14 14:29:56', '2023-02-14 14:29:56'),
+(7, '81676590004_69644835_2529235337098560_8741871740155592704_n.jpg', '69644835_2529235337098560_8741871740155592704_n.jpg', 'jpg', '0.09 MB', 8, 'User', 2, '2023-02-16 22:26:44', '2023-02-16 22:26:44');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `task_stages`
+-- Table structure for table `task_stages`
 --
 
 CREATE TABLE `task_stages` (
@@ -9138,7 +9638,7 @@ CREATE TABLE `task_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `task_stages`
+-- Dumping data for table `task_stages`
 --
 
 INSERT INTO `task_stages` (`id`, `name`, `complete`, `project_id`, `color`, `order`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -9197,12 +9697,16 @@ INSERT INTO `task_stages` (`id`, `name`, `complete`, `project_id`, `color`, `ord
 (53, 'To Do', 0, 0, NULL, 0, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (54, 'In Progress', 0, 0, NULL, 1, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
 (55, 'Review', 0, 0, NULL, 2, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
-(56, 'Done', 0, 0, NULL, 3, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05');
+(56, 'Done', 0, 0, NULL, 3, 26, '2023-02-09 12:21:05', '2023-02-09 12:21:05'),
+(57, 'To Do', 0, 0, NULL, 0, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(58, 'In Progress', 0, 0, NULL, 1, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(59, 'Review', 0, 0, NULL, 2, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52'),
+(60, 'Done', 0, 0, NULL, 3, 28, '2023-02-15 20:45:52', '2023-02-15 20:45:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `taxes`
+-- Table structure for table `taxes`
 --
 
 CREATE TABLE `taxes` (
@@ -9215,7 +9719,7 @@ CREATE TABLE `taxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `taxes`
+-- Dumping data for table `taxes`
 --
 
 INSERT INTO `taxes` (`id`, `name`, `rate`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -9226,7 +9730,7 @@ INSERT INTO `taxes` (`id`, `name`, `rate`, `created_by`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `terminations`
+-- Table structure for table `terminations`
 --
 
 CREATE TABLE `terminations` (
@@ -9244,7 +9748,7 @@ CREATE TABLE `terminations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `termination_types`
+-- Table structure for table `termination_types`
 --
 
 CREATE TABLE `termination_types` (
@@ -9258,7 +9762,7 @@ CREATE TABLE `termination_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `timesheets`
+-- Table structure for table `timesheets`
 --
 
 CREATE TABLE `timesheets` (
@@ -9276,7 +9780,7 @@ CREATE TABLE `timesheets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `time_trackers`
+-- Table structure for table `time_trackers`
 --
 
 CREATE TABLE `time_trackers` (
@@ -9298,7 +9802,7 @@ CREATE TABLE `time_trackers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `track_photos`
+-- Table structure for table `track_photos`
 --
 
 CREATE TABLE `track_photos` (
@@ -9315,7 +9819,7 @@ CREATE TABLE `track_photos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trainers`
+-- Table structure for table `trainers`
 --
 
 CREATE TABLE `trainers` (
@@ -9335,7 +9839,7 @@ CREATE TABLE `trainers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `trainings`
+-- Table structure for table `trainings`
 --
 
 CREATE TABLE `trainings` (
@@ -9360,7 +9864,7 @@ CREATE TABLE `trainings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `training_types`
+-- Table structure for table `training_types`
 --
 
 CREATE TABLE `training_types` (
@@ -9374,7 +9878,7 @@ CREATE TABLE `training_types` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transactions`
+-- Table structure for table `transactions`
 --
 
 CREATE TABLE `transactions` (
@@ -9394,7 +9898,7 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `transactions`
+-- Dumping data for table `transactions`
 --
 
 INSERT INTO `transactions` (`id`, `user_id`, `user_type`, `account`, `type`, `amount`, `description`, `date`, `created_by`, `payment_id`, `category`, `created_at`, `updated_at`) VALUES
@@ -9451,12 +9955,25 @@ INSERT INTO `transactions` (`id`, `user_id`, `user_type`, `account`, `type`, `am
 (53, 5, 'Vender', 4, 'Partial', '66.00', NULL, '2023-02-09', 20, 22, 'Bill', '2023-02-09 17:30:25', '2023-02-09 17:30:25'),
 (54, 5, 'Vender', 4, 'Partial', '1368.00', NULL, '2023-02-07', 20, 23, 'Bill', '2023-02-09 17:49:23', '2023-02-09 17:49:23'),
 (55, 24, 'Customer', 4, 'Partial', '4352.00', NULL, '2023-02-09', 20, 21, 'Invoice', '2023-02-09 18:14:11', '2023-02-09 18:14:11'),
-(56, 5, 'Vender', 4, 'Partial', '752.00', NULL, '2023-02-11', 20, 24, 'Bill', '2023-02-11 17:26:55', '2023-02-11 17:26:55');
+(56, 5, 'Vender', 4, 'Partial', '752.00', NULL, '2023-02-11', 20, 24, 'Bill', '2023-02-11 17:26:55', '2023-02-11 17:26:55'),
+(57, 0, 'Vender', 3, 'Payment', '100.00', NULL, '2023-02-13', 21, 3, 'Criative Digital', '2023-02-14 14:57:21', '2023-02-14 14:57:21'),
+(58, 0, 'Vender', 1, 'Payment', '120.00', NULL, '2023-02-16', 2, 4, 'Categoria 2', '2023-02-16 22:37:15', '2023-02-16 22:37:15'),
+(59, 3, 'Vender', 4, 'Partial', '724.00', NULL, '2023-02-14', 20, 25, 'Bill', '2023-02-17 00:43:40', '2023-02-17 00:43:40'),
+(60, 13, 'Vender', 4, 'Partial', '125.00', NULL, '2023-02-14', 20, 26, 'Bill', '2023-02-17 00:45:56', '2023-02-17 00:45:56'),
+(61, 13, 'Vender', 4, 'Partial', '274.00', NULL, '2023-02-09', 20, 27, 'Bill', '2023-02-17 01:20:31', '2023-02-17 01:20:31'),
+(62, 3, 'Vender', 4, 'Partial', '100.00', NULL, '2023-02-16', 20, 28, 'Bill', '2023-02-17 01:49:56', '2023-02-17 01:49:56'),
+(63, 30, 'Customer', 4, 'Partial', '1652.00', NULL, '2023-02-15', 20, 22, 'Invoice', '2023-02-17 02:43:00', '2023-02-17 02:43:00'),
+(64, 25, 'Customer', 4, 'Partial', '499.50', NULL, '2023-02-01', 20, 23, 'Invoice', '2023-02-17 02:57:32', '2023-02-17 02:57:32'),
+(65, 16, 'Vender', 4, 'Partial', '236.50', NULL, '2023-02-01', 24, 29, 'Bill', '2023-02-17 14:49:15', '2023-02-17 14:49:15'),
+(66, 5, 'Vender', 4, 'Partial', '1099.00', NULL, '2023-02-09', 24, 30, 'Bill', '2023-02-17 14:50:17', '2023-02-17 14:50:17'),
+(67, 14, 'Vender', 4, 'Partial', '15.00', NULL, '2023-02-16', 24, 31, 'Bill', '2023-02-17 14:52:52', '2023-02-17 14:52:52'),
+(69, 15, 'Vender', 4, 'Partial', '1740.00', NULL, '2023-02-13', 24, 33, 'Bill', '2023-02-17 15:02:51', '2023-02-17 15:02:51'),
+(70, 16, 'Vender', 4, 'Partial', '92.00', NULL, '2023-02-17', 20, 34, 'Bill', '2023-02-17 23:29:50', '2023-02-17 23:29:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transfers`
+-- Table structure for table `transfers`
 --
 
 CREATE TABLE `transfers` (
@@ -9474,7 +9991,7 @@ CREATE TABLE `transfers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `travels`
+-- Table structure for table `travels`
 --
 
 CREATE TABLE `travels` (
@@ -9493,7 +10010,7 @@ CREATE TABLE `travels` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -9523,37 +10040,38 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `plan`, `plan_expire_date`, `requested_plan`, `type`, `avatar`, `lang`, `mode`, `created_by`, `default_pipeline`, `delete_status`, `is_active`, `remember_token`, `last_login_at`, `created_at`, `updated_at`, `messenger_color`, `dark_mode`, `active_status`) VALUES
-(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2023-02-11 12:41:45', '2022-10-26 17:37:48', '2023-02-11 15:41:45', '#2180f3', 0, 0),
-(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'es', 'light', 1, 1, 1, 1, NULL, '2023-02-13 21:46:15', '2022-10-26 17:37:54', '2023-02-14 00:46:15', '#2180f3', 0, 0),
+(1, 'Super Admin', 'contacto@criativedigital.com', NULL, '$2y$10$PlXe7fvukCliq2BpdpwZOeqFdVCnXfSxT.ZWw6g4VImKOsJfa/AX2', NULL, NULL, 0, 'super admin', 'cpvDS0KU_400x400_1667068373.jpg', 'pt', 'light', 0, NULL, 1, 1, NULL, '2023-02-18 08:21:37', '2022-10-26 17:37:48', '2023-02-18 11:21:37', '#2180f3', 0, 0),
+(2, 'company', 'company@example.com', NULL, '$2y$10$ouJRxgD9gkzRqXxac4s5Iu4polkgMtRhi6Q0F8DFCsGIPWiTMA5Aq', 1, NULL, 0, 'company', 'User_font_awesome.svg_1667932474.png', 'es', 'light', 1, 1, 1, 1, NULL, '2023-02-21 18:44:44', '2022-10-26 17:37:54', '2023-02-21 21:44:44', '#2180f3', 0, 0),
 (3, 'accountant', 'accountant@example.com', NULL, '$2y$10$4D6fO0pJmhGTGnrZXOaR6eMJFavnesKCJL4CimxzzPqUBKgltksI6', NULL, NULL, 0, 'accountant', '', 'en', 'light', 2, 1, 1, 1, NULL, '2022-11-02 01:13:07', '2022-10-26 17:37:55', '2022-11-02 04:13:07', '#2180f3', 0, 0),
 (4, 'client', 'client@example.com', NULL, '$2y$10$D1o/wWl1JIeyvwsjia474ufKeUdpOLL4CCRyFFFnXmFWaLupoN8vi', NULL, NULL, 0, 'client', '', 'en', 'light', 2, 1, 1, 1, NULL, NULL, '2022-10-26 17:37:57', '2022-10-26 17:37:57', '#2180f3', 0, 0),
 (5, 'Erick', 'dr.ericksantos@gmail.com', NULL, '$2y$10$edisJbzmPniC1qJSCKIVb.nn327Fz3yGP8Q5h11yEwVFN0JNNes6O', 1, NULL, 0, 'company', 'Logo_1667351386.png', 'pt', 'light', 1, NULL, 1, 1, NULL, '2022-11-22 08:53:34', '2022-10-28 22:14:30', '2022-12-29 16:34:42', '#2180f3', 0, 0),
 (6, 'Erick Santos', 'cliente@cliente.com', NULL, '$2y$10$suoDAUOf/Vaz0BrVwtZRo.6v2GoHZCoNRTB7cf/iq0n9ootFsS1WS', NULL, NULL, 0, 'client', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, '2022-12-28 16:31:53', '2022-11-02 18:59:38', '2022-12-28 19:31:53', '#2180f3', 0, 0),
 (8, 'Victor', 'vico.1245@gmail.com', NULL, '$2y$10$Gh.IlbVdD/cBUJoAT3WQkO.D1Q0vffJLJcZ6DOdGFv1BqnjGBkqq6', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-18 16:37:32', '2022-11-18 16:37:32', '#2180f3', 0, 0),
 (9, 'Viviana', 'vivisilmat9890@gmail.com', NULL, '$2y$10$CDO801wKYMUGcKw2o0ORfuv6hIhdS3eRng/WzCKlVz969s1F9PnOS', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-11-19 18:16:48', '2022-11-19 18:16:48', '#2180f3', 0, 0),
-(10, 'Ferreteria', 'ferreteria@i9finance.com', NULL, '$2y$10$sw1x11zY/cZGVxwWqL4uGuGnTSamR.r6YublNbvP8tH85iCeL4KiC', 1, NULL, 0, 'company', 'Mi-Ferreteria-Logo-small_1668907495.jpg', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-14 08:45:16', '2022-11-20 04:18:14', '2023-02-14 11:45:16', '#2180f3', 0, 0),
-(11, 'Elias Roclas', 'elias.roclas@gmail.com', NULL, '$2y$10$MuBU8P6/YHLw1ZGAEk6SlOaF2dRZxjTb8HyTPfbXdVvy777.DUMJW', 2, '2023-02-28', 0, 'company', 'logo-dark (1)_1669233700.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-14 10:47:35', '2022-11-21 12:24:12', '2023-02-14 13:47:35', '#2180f3', 0, 0),
+(10, 'Ferreteria', 'ferreteria@i9finance.com', NULL, '$2y$10$sw1x11zY/cZGVxwWqL4uGuGnTSamR.r6YublNbvP8tH85iCeL4KiC', 1, NULL, 0, 'company', 'Mi-Ferreteria-Logo-small_1668907495.jpg', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-14 14:41:09', '2022-11-20 04:18:14', '2023-02-14 17:41:09', '#2180f3', 0, 0),
+(11, 'Elias Roclas', 'elias.roclas@gmail.com', NULL, '$2y$10$MuBU8P6/YHLw1ZGAEk6SlOaF2dRZxjTb8HyTPfbXdVvy777.DUMJW', 2, '2023-02-28', 0, 'company', 'logo-dark (1)_1669233700.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-18 22:08:32', '2022-11-21 12:24:12', '2023-02-19 01:08:32', '#2180f3', 0, 0),
 (12, 'Erick Santos', 'gerente@gerente.com', NULL, '$2y$10$y5z7bTxW3RgWuLGYahdbauTcwhbm.6zx5Va1uZFUDEENSSaiPV9pC', NULL, NULL, 0, 'Gerente', NULL, 'es', 'light', 5, NULL, 1, 1, NULL, NULL, '2022-11-21 17:05:26', '2022-11-21 17:05:26', '#2180f3', 0, 0),
 (13, 'Usuario', 'usuario@i9finance.com', NULL, '$2y$10$7vkHTpLUOHigffikcz/c4ODe20.M/AQ79tiuESQXe.mGAeu3CTS42', NULL, NULL, 0, 'Vendedor', NULL, 'es', 'light', 10, NULL, 1, 1, NULL, NULL, '2022-11-22 13:59:49', '2022-11-22 13:59:49', '#2180f3', 0, 0),
 (14, 'Erick Santos', 'clienteproyecto@i9finance.com', NULL, '$2y$10$0qkXjgT24a76QAbg7G3pYuFbmc5dVfExLvQ3rrirUjYsqEbnp4y42', NULL, NULL, 0, 'client', NULL, 'en', 'light', 10, NULL, 1, 1, NULL, NULL, '2022-11-22 14:01:56', '2022-11-22 14:01:56', '#2180f3', 0, 0),
-(15, 'Mi alegria', 'istelectric@gmail.com', NULL, '$2y$10$mCM/hwvkmiIXjxLcRqhejOF.gvnaBbaGHP3ZMnFr92VwBBidSennm', NULL, NULL, 0, 'client', NULL, 'en', 'light', 11, NULL, 1, 1, NULL, NULL, '2022-11-23 10:30:11', '2022-11-23 10:30:11', '#2180f3', 0, 0),
+(15, 'Mi alegria', 'istelectric@gmail.com', NULL, '$2y$10$mCM/hwvkmiIXjxLcRqhejOF.gvnaBbaGHP3ZMnFr92VwBBidSennm', NULL, NULL, 0, 'client', NULL, 'en', 'light', 21, NULL, 1, 1, NULL, NULL, '2022-11-23 10:30:11', '2022-11-23 10:30:11', '#2180f3', 0, 0),
 (17, 'Jaime', 'tangoorellanajaime@gmail.com', NULL, '$2y$10$AZoiRvzad51bOymDLvtAw.c7Yg2un7dNEOQrAdU3NTKTg8/XC0b8m', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-12-03 10:08:04', '2022-12-03 10:08:04', '#2180f3', 0, 0),
-(18, 'Motorstorm', 'jesuslancelote@msn.com', NULL, '$2y$10$zMQF1KlTqpY2f.qlkERu6epsY5yZDSgkRNk7dyxAvkmeGzYh8QCVS', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2022-12-03 21:07:20', '2022-12-03 21:07:20', '#2180f3', 0, 0),
+(18, 'Motorstorm', 'jesuslancelote@msn.com', NULL, '$2y$10$zMQF1KlTqpY2f.qlkERu6epsY5yZDSgkRNk7dyxAvkmeGzYh8QCVS', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-21 17:07:03', '2022-12-03 21:07:20', '2023-02-21 20:07:03', '#2180f3', 0, 0),
 (19, 'DONAL CENTRAL USUARIOS', 'donal@gmail.com', NULL, '$2y$10$mWT4CCeGwg/IvfR177bPYeMPlSwGqOSenoHYWHGN2dS8K2NKdPNrm', NULL, NULL, 0, 'client', NULL, 'en', 'light', 11, NULL, 1, 1, NULL, NULL, '2022-12-29 01:14:34', '2022-12-29 01:14:34', '#2180f3', 0, 0),
-(20, 'YANET MOYE', 'yanet.atlanta@gmail.com', NULL, '$2y$10$o7nnmS2UzjDQnLIVqaqj3uhhzAQB0ArCa/5U7ZkiA3YrHWDjEuRqS', NULL, NULL, 0, 'PUNTO DE VENTA', NULL, 'es', 'light', 11, NULL, 1, 1, NULL, '2023-02-13 20:49:09', '2022-12-29 01:43:19', '2023-02-13 23:49:09', '#2180f3', 0, 0),
-(21, 'Erick Santos', 'criativedigitalbo@gmail.com', NULL, '$2y$10$qUzCwMK5cgmPR7BGigWWHucTKvAXL8Xauux1/pkH3XSixOPzr75sS', 1, NULL, 0, 'company', 'logo_1672695157.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-14 09:45:01', '2023-01-02 20:31:42', '2023-02-14 12:45:01', '#2180f3', 0, 0),
-(24, 'Elias Rosas', 'istelectric24@gmail.com', NULL, '$2y$10$NgItuV4DqWttQtyJ/RhrTOBg9jFKyoU9bCRuPCWCkxbu/gPwl4eue', NULL, NULL, 0, 'GERENTE', NULL, 'es', 'light', 11, NULL, 1, 1, NULL, '2023-01-29 10:05:12', '2023-01-17 00:00:43', '2023-01-29 13:25:43', '#2180f3', 0, 0),
+(20, 'YANET MOYE', 'yanet.atlanta@gmail.com', NULL, '$2y$10$o7nnmS2UzjDQnLIVqaqj3uhhzAQB0ArCa/5U7ZkiA3YrHWDjEuRqS', NULL, NULL, 0, 'PUNTO DE VENTA', NULL, 'es', 'light', 11, NULL, 1, 1, NULL, '2023-02-19 07:42:05', '2022-12-29 01:43:19', '2023-02-19 10:42:05', '#2180f3', 0, 0),
+(21, 'Erick Santos', 'criativedigitalbo@gmail.com', NULL, '$2y$10$qUzCwMK5cgmPR7BGigWWHucTKvAXL8Xauux1/pkH3XSixOPzr75sS', 1, NULL, 0, 'company', 'logo_1672695157.png', 'es', 'light', 1, NULL, 1, 1, NULL, '2023-02-18 08:30:48', '2023-01-02 20:31:42', '2023-02-18 11:30:48', '#2180f3', 0, 0),
+(24, 'Elias Rosas', 'istelectric24@gmail.com', NULL, '$2y$10$NgItuV4DqWttQtyJ/RhrTOBg9jFKyoU9bCRuPCWCkxbu/gPwl4eue', NULL, NULL, 0, 'GERENTE', NULL, 'es', 'light', 11, NULL, 1, 1, NULL, '2023-02-17 13:33:58', '2023-01-17 00:00:43', '2023-02-17 16:33:58', '#2180f3', 0, 0),
 (26, 'Cris Carmo DSNG', 'cris.carmo.designer@gmail.com', NULL, '$2y$10$yjNmm5u9HjNAE2gaZN7/NeOB0TDmEuMTiBjP0YYuefh0cywznDxk.', 1, NULL, 0, 'company', 'LOGO NOVA CRIS CARMO2_1675949811.png', 'pt', 'light', 1, NULL, 1, 1, NULL, '2023-02-14 10:44:19', '2023-02-09 12:21:03', '2023-02-14 13:44:19', '#2180f3', 0, 0),
-(27, 'Daiane Marques', 'dradaianemarques@gmail.com', NULL, '$2y$10$b8eFDCDYG7TZByHv.jq6muMlooux.ddD63HqJB0l4xtpStN4RJYcS', NULL, NULL, 0, 'Financeiro', NULL, 'es', 'light', 21, NULL, 1, 1, NULL, '2023-02-13 16:16:39', '2023-02-11 17:51:50', '2023-02-13 19:16:39', '#2180f3', 0, 0);
+(27, 'Daiane Marques', 'dradaianemarques@gmail.com', NULL, '$2y$10$b8eFDCDYG7TZByHv.jq6muMlooux.ddD63HqJB0l4xtpStN4RJYcS', NULL, NULL, 0, 'Financeiro', NULL, 'es', 'light', 21, NULL, 1, 1, NULL, '2023-02-18 08:27:06', '2023-02-11 17:51:50', '2023-02-18 11:27:06', '#2180f3', 0, 0),
+(28, 'Luiz cezar Evangelista fantin', 'facilitefinanceirasro@gmail.com', NULL, '$2y$10$ud6dq.D4UBPspcrpckniou2AVqcSw0XjSVNDvVgbbGM8MGpSpGng6', 1, NULL, 0, 'company', '', 'es', 'light', 1, NULL, 1, 1, NULL, NULL, '2023-02-15 20:45:51', '2023-02-15 20:45:51', '#2180f3', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_contacts`
+-- Table structure for table `user_contacts`
 --
 
 CREATE TABLE `user_contacts` (
@@ -9567,7 +10085,7 @@ CREATE TABLE `user_contacts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_coupons`
+-- Table structure for table `user_coupons`
 --
 
 CREATE TABLE `user_coupons` (
@@ -9582,7 +10100,7 @@ CREATE TABLE `user_coupons` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_deals`
+-- Table structure for table `user_deals`
 --
 
 CREATE TABLE `user_deals` (
@@ -9596,7 +10114,7 @@ CREATE TABLE `user_deals` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_email_templates`
+-- Table structure for table `user_email_templates`
 --
 
 CREATE TABLE `user_email_templates` (
@@ -9609,7 +10127,7 @@ CREATE TABLE `user_email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user_email_templates`
+-- Dumping data for table `user_email_templates`
 --
 
 INSERT INTO `user_email_templates` (`id`, `template_id`, `user_id`, `is_active`, `created_at`, `updated_at`) VALUES
@@ -9934,12 +10452,35 @@ INSERT INTO `user_email_templates` (`id`, `template_id`, `user_id`, `is_active`,
 (319, 20, 26, 1, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (320, 21, 26, 1, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
 (321, 22, 26, 1, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
-(322, 23, 26, 1, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(322, 23, 26, 1, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(323, 1, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(324, 2, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(325, 3, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(326, 4, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(327, 5, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(328, 6, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(329, 7, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(330, 8, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(331, 9, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(332, 10, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(333, 11, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(334, 12, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(335, 13, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(336, 14, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(337, 15, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(338, 16, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(339, 17, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(340, 18, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(341, 19, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(342, 20, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(343, 21, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(344, 22, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51'),
+(345, 23, 28, 1, '2023-02-15 20:45:51', '2023-02-15 20:45:51');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_leads`
+-- Table structure for table `user_leads`
 --
 
 CREATE TABLE `user_leads` (
@@ -9951,7 +10492,7 @@ CREATE TABLE `user_leads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user_leads`
+-- Dumping data for table `user_leads`
 --
 
 INSERT INTO `user_leads` (`id`, `user_id`, `lead_id`, `created_at`, `updated_at`) VALUES
@@ -9961,7 +10502,7 @@ INSERT INTO `user_leads` (`id`, `user_id`, `lead_id`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_to_dos`
+-- Table structure for table `user_to_dos`
 --
 
 CREATE TABLE `user_to_dos` (
@@ -9976,7 +10517,7 @@ CREATE TABLE `user_to_dos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venders`
+-- Table structure for table `venders`
 --
 
 CREATE TABLE `venders` (
@@ -10013,26 +10554,31 @@ CREATE TABLE `venders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `venders`
+-- Dumping data for table `venders`
 --
 
 INSERT INTO `venders` (`id`, `vender_id`, `name`, `email`, `tax_number`, `password`, `contact`, `avatar`, `created_by`, `is_active`, `email_verified_at`, `billing_name`, `billing_country`, `billing_state`, `billing_city`, `billing_phone`, `billing_zip`, `billing_address`, `shipping_name`, `shipping_country`, `shipping_state`, `shipping_city`, `shipping_phone`, `shipping_zip`, `shipping_address`, `lang`, `balance`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Vendedor 01', 'Vendedor@vendedor.com', NULL, '', '123456', '', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 0.00, NULL, '2022-11-10 06:40:13', '2022-11-10 06:40:13'),
 (2, 1, 'Proveedor01', 'proveedor@i9finance.com', '01', '', '01', '', 10, 1, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'Santa Cruz', 'Bolivia', 'Santa Cruz', 'Santa Cruz', '591 71608981', NULL, NULL, 'es', 207468.00, NULL, '2022-11-21 18:50:08', '2022-11-21 18:55:38'),
-(3, 1, 'Electropaulo', 'Elias.roclas@ gmail.com', NULL, '', '135788', '', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 9800.00, NULL, '2022-11-22 11:53:36', '2023-02-08 00:53:18'),
+(3, 1, 'Electropaulo', 'Elias.roclas@ gmail.com', NULL, '', '135788', '', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', 9800.00, NULL, '2022-11-22 11:53:36', '2023-02-17 01:49:56'),
 (4, 2, 'REFRILONDON', 'REFRILONDON@GMAIL.COM', '3001953013', '', '70385514', '', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'es', -5450.00, NULL, '2023-01-05 00:22:04', '2023-02-02 02:01:37'),
-(5, 3, 'DIGICORP', 'DIGICORP@GMAIL.COM', '151536020', '', '44141052', '', 11, 1, NULL, 'DIGICORP', 'bolivia', NULL, 'Cochabamba', NULL, NULL, 'PACATA', 'ANELIZ CAYO', NULL, NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-01-05 00:23:50', '2023-02-11 17:26:55'),
+(5, 3, 'DIGICORP', 'DIGICORP@GMAIL.COM', '151536020', '', '44141052', '', 11, 1, NULL, 'DIGICORP', 'bolivia', NULL, 'Cochabamba', NULL, NULL, 'PACATA', 'ANELIZ CAYO', NULL, NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-01-05 00:23:50', '2023-02-17 14:50:17'),
 (6, 4, 'D LUVEL', 'yanet.atlanta@gmail.com', '3729025010', '', '76452215', '', 11, 1, NULL, 'DANIEL STEBEN VELASCO BARRON', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'BLANCO GALINDO', 'DANIEL STEBEN', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-01-29 14:35:20', '2023-01-29 14:49:52'),
 (7, 5, 'FERRETERIA TINTIN', 'tintin@gmail.com', '7931693012', '', '76443726', '', 11, 1, NULL, 'OTALORA SILES NELSON MIGUEL', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'san martin', 'OTALORA SILES  NELSON', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-01-29 15:32:12', '2023-01-29 15:35:05'),
 (8, 6, 'LUCALU', 'lucalu@gmail.com', '4754588011', '', '77977924', '', 11, 1, NULL, 'FRADE DURAN LUCIANO', 'bolivia', NULL, 'CBBA', NULL, NULL, 'TADEO HAENKE', 'FRADE DURAN', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', -62.00, NULL, '2023-01-29 15:43:20', '2023-02-01 13:23:30'),
 (9, 7, 'ENERGYMATIC S.A', 'energymatic@gmail.com', '369996025', '', '4502052', '', 11, 1, NULL, 'ENERGYMATIC S.A', 'bolivia', NULL, 'CBBA', NULL, NULL, 'CALLA BOLIVAR', 'ENERGYMATIC S.A', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-01-30 23:39:35', '2023-02-02 01:21:30'),
 (10, 8, 'STI ILUMINACION', 'sti@gmail.com', '1020789020', '', '4522500', '', 11, 1, NULL, 'STI', 'bolivia', 'COCHABAMBA', 'CBBA', NULL, NULL, NULL, 'STI', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-04 14:39:12', '2023-02-04 14:43:37'),
-(11, 9, 'TECNOLUM', 'gerencia@tecnolum.com', '3618639015', '', '76444144', '', 11, 1, NULL, 'CALLE GENERAL ACHA', 'bolivia', NULL, 'CBBA', NULL, NULL, NULL, 'CALLE GENERAL ACHA', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 370.00, NULL, '2023-02-08 00:47:05', '2023-02-08 00:50:56');
+(11, 9, 'TECNOLUM', 'gerencia@tecnolum.com', '3618639015', '', '76444144', '', 11, 1, NULL, 'CALLE GENERAL ACHA', 'bolivia', NULL, 'CBBA', NULL, NULL, NULL, 'CALLE GENERAL ACHA', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 370.00, NULL, '2023-02-08 00:47:05', '2023-02-08 00:50:56'),
+(12, 1, 'Sulavitta', 'lucas.cabral@sulavittaseguros.com.br', '44226059000178', '', '01176018835', '', 26, 1, NULL, 'Sulavitta Seguros', 'Brasil', 'SP', 'São Paulo', '01176018835', '04280030', 'Rua Marcos Portugal, 303 – apto 63, Vila Nair – São Paulo – SP – CEP: 04.280-030', 'Sulavitta Seguros', 'Brasil', 'SP', 'São Paulo', '01176018835', '04280030', 'Rua Marcos Portugal, 303 – apto 63, Vila Nair – São Paulo – SP – CEP: 04.280-030', 'es', 0.00, NULL, '2023-02-14 14:21:44', '2023-02-14 14:21:44'),
+(13, 10, 'ILUMINACIONES LIMBERTH', 'iluminacioneslimberth@gmail.com', '2434044018', '', '4252280', '', 11, 1, NULL, 'OSCO VILA  LUCY ADELA', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'HEROINAS', 'OSCO VILA LUCY ADELA', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-17 00:03:49', '2023-02-17 01:20:31'),
+(14, 11, 'PERNOS EL DORADO', 'pernoseldorado@gmail.com', '13131778014', '', '69544034', '', 11, 1, NULL, 'RUIZ GUTIEREZ  LUIS', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'GENERAL ACHA', 'RUIZ GUTIEREZ LUIS', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-17 01:41:04', '2023-02-17 14:52:52'),
+(15, 12, 'WINAY TEC', 'winaytec@gmail.com', '840189010', '', '71704098', '', 11, 1, NULL, 'VELARDE MONTECINOS ROMEO CHRISTIAN', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'CALLE WIÑAY', 'VELARDE MONTECINOS ROMEO CHRISTIAN', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-17 01:47:18', '2023-02-17 15:02:51'),
+(16, 13, 'CLAROS ARNEZ GABRIEL', 'clarosarnezgabriel@gmail.com', '4534114016', '', '70753079', '', 11, 1, NULL, 'CLAROS ARNEZ GABRIEL', 'bolivia', 'COCHABAMBA', 'Cochabamba', NULL, NULL, 'HEROINAS', 'CLAROS ARNEZ GABRIEL', 'bolivia', NULL, 'cbba', NULL, NULL, NULL, 'es', 0.00, NULL, '2023-02-17 14:43:56', '2023-02-17 23:29:50');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warehouses`
+-- Table structure for table `warehouses`
 --
 
 CREATE TABLE `warehouses` (
@@ -10047,7 +10593,7 @@ CREATE TABLE `warehouses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `warehouses`
+-- Dumping data for table `warehouses`
 --
 
 INSERT INTO `warehouses` (`id`, `name`, `address`, `city`, `city_zip`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -10067,12 +10613,13 @@ INSERT INTO `warehouses` (`id`, `name`, `address`, `city`, `city_zip`, `created_
 (15, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 22, '2023-01-03 19:38:57', '2023-01-03 19:38:57'),
 (16, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 23, '2023-01-12 18:33:15', '2023-01-12 18:33:15'),
 (17, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 25, '2023-01-27 17:11:20', '2023-01-27 17:11:20'),
-(18, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04');
+(18, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 26, '2023-02-09 12:21:04', '2023-02-09 12:21:04'),
+(19, 'North Warehouse', '723 N. Tillamook Street Portland, OR Portland, United States', 'Portland', '97227', 28, '2023-02-15 20:45:51', '2023-02-15 20:45:51');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warehouse_products`
+-- Table structure for table `warehouse_products`
 --
 
 CREATE TABLE `warehouse_products` (
@@ -10086,7 +10633,7 @@ CREATE TABLE `warehouse_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `warehouse_products`
+-- Dumping data for table `warehouse_products`
 --
 
 INSERT INTO `warehouse_products` (`id`, `warehouse_id`, `product_id`, `quantity`, `created_by`, `created_at`, `updated_at`) VALUES
@@ -10108,7 +10655,7 @@ INSERT INTO `warehouse_products` (`id`, `warehouse_id`, `product_id`, `quantity`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `warnings`
+-- Table structure for table `warnings`
 --
 
 CREATE TABLE `warnings` (
@@ -10126,7 +10673,7 @@ CREATE TABLE `warnings` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `zoom_meetings`
+-- Table structure for table `zoom_meetings`
 --
 
 CREATE TABLE `zoom_meetings` (
@@ -10148,174 +10695,174 @@ CREATE TABLE `zoom_meetings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `activity_logs`
+-- Indexes for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `admin_payment_settings`
+-- Indexes for table `admin_payment_settings`
 --
 ALTER TABLE `admin_payment_settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admin_payment_settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `allowances`
+-- Indexes for table `allowances`
 --
 ALTER TABLE `allowances`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `allowance_options`
+-- Indexes for table `allowance_options`
 --
 ALTER TABLE `allowance_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `announcements`
+-- Indexes for table `announcements`
 --
 ALTER TABLE `announcements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `announcement_employees`
+-- Indexes for table `announcement_employees`
 --
 ALTER TABLE `announcement_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `appraisals`
+-- Indexes for table `appraisals`
 --
 ALTER TABLE `appraisals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `assets`
+-- Indexes for table `assets`
 --
 ALTER TABLE `assets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `attendance_employees`
+-- Indexes for table `attendance_employees`
 --
 ALTER TABLE `attendance_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `awards`
+-- Indexes for table `awards`
 --
 ALTER TABLE `awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `award_types`
+-- Indexes for table `award_types`
 --
 ALTER TABLE `award_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bank_accounts`
+-- Indexes for table `bank_accounts`
 --
 ALTER TABLE `bank_accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bank_transfers`
+-- Indexes for table `bank_transfers`
 --
 ALTER TABLE `bank_transfers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bills`
+-- Indexes for table `bills`
 --
 ALTER TABLE `bills`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bill_payments`
+-- Indexes for table `bill_payments`
 --
 ALTER TABLE `bill_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bill_products`
+-- Indexes for table `bill_products`
 --
 ALTER TABLE `bill_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `branches`
+-- Indexes for table `branches`
 --
 ALTER TABLE `branches`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `budgets`
+-- Indexes for table `budgets`
 --
 ALTER TABLE `budgets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bugs`
+-- Indexes for table `bugs`
 --
 ALTER TABLE `bugs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_comments`
+-- Indexes for table `bug_comments`
 --
 ALTER TABLE `bug_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_files`
+-- Indexes for table `bug_files`
 --
 ALTER TABLE `bug_files`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `bug_statuses`
+-- Indexes for table `bug_statuses`
 --
 ALTER TABLE `bug_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_accounts`
+-- Indexes for table `chart_of_accounts`
 --
 ALTER TABLE `chart_of_accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_account_sub_types`
+-- Indexes for table `chart_of_account_sub_types`
 --
 ALTER TABLE `chart_of_account_sub_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `chart_of_account_types`
+-- Indexes for table `chart_of_account_types`
 --
 ALTER TABLE `chart_of_account_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ch_favorites`
+-- Indexes for table `ch_favorites`
 --
 ALTER TABLE `ch_favorites`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ch_messages`
+-- Indexes for table `ch_messages`
 --
 ALTER TABLE `ch_messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `client_deals`
+-- Indexes for table `client_deals`
 --
 ALTER TABLE `client_deals`
   ADD PRIMARY KEY (`id`),
@@ -10323,93 +10870,93 @@ ALTER TABLE `client_deals`
   ADD KEY `client_deals_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `commissions`
+-- Indexes for table `commissions`
 --
 ALTER TABLE `commissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `company_payment_settings`
+-- Indexes for table `company_payment_settings`
 --
 ALTER TABLE `company_payment_settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `company_payment_settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `company_policies`
+-- Indexes for table `company_policies`
 --
 ALTER TABLE `company_policies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `competencies`
+-- Indexes for table `competencies`
 --
 ALTER TABLE `competencies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `complaints`
+-- Indexes for table `complaints`
 --
 ALTER TABLE `complaints`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contracts`
+-- Indexes for table `contracts`
 --
 ALTER TABLE `contracts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_attachment`
+-- Indexes for table `contract_attachment`
 --
 ALTER TABLE `contract_attachment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_comment`
+-- Indexes for table `contract_comment`
 --
 ALTER TABLE `contract_comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_notes`
+-- Indexes for table `contract_notes`
 --
 ALTER TABLE `contract_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `contract_types`
+-- Indexes for table `contract_types`
 --
 ALTER TABLE `contract_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `coupons`
+-- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `credit_notes`
+-- Indexes for table `credit_notes`
 --
 ALTER TABLE `credit_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `customers_email_unique` (`email`);
 
 --
--- Indices de la tabla `custom_fields`
+-- Indexes for table `custom_fields`
 --
 ALTER TABLE `custom_fields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `custom_field_values`
+-- Indexes for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   ADD PRIMARY KEY (`id`),
@@ -10417,501 +10964,501 @@ ALTER TABLE `custom_field_values`
   ADD KEY `custom_field_values_field_id_foreign` (`field_id`);
 
 --
--- Indices de la tabla `custom_questions`
+-- Indexes for table `custom_questions`
 --
 ALTER TABLE `custom_questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deals`
+-- Indexes for table `deals`
 --
 ALTER TABLE `deals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deal_calls`
+-- Indexes for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_calls_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_discussions`
+-- Indexes for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_discussions_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_emails`
+-- Indexes for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_emails_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_files`
+-- Indexes for table `deal_files`
 --
 ALTER TABLE `deal_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_files_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `deal_tasks`
+-- Indexes for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `deal_tasks_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `debit_notes`
+-- Indexes for table `debit_notes`
 --
 ALTER TABLE `debit_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `deduction_options`
+-- Indexes for table `deduction_options`
 --
 ALTER TABLE `deduction_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `departments`
+-- Indexes for table `departments`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `designations`
+-- Indexes for table `designations`
 --
 ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `documents`
+-- Indexes for table `documents`
 --
 ALTER TABLE `documents`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ducument_uploads`
+-- Indexes for table `ducument_uploads`
 --
 ALTER TABLE `ducument_uploads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ecommerces`
+-- Indexes for table `ecommerces`
 --
 ALTER TABLE `ecommerces`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `email_templates`
+-- Indexes for table `email_templates`
 --
 ALTER TABLE `email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `email_template_langs`
+-- Indexes for table `email_template_langs`
 --
 ALTER TABLE `email_template_langs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `employees`
+-- Indexes for table `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `employee_documents`
+-- Indexes for table `employee_documents`
 --
 ALTER TABLE `employee_documents`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estimations`
+-- Indexes for table `estimations`
 --
 ALTER TABLE `estimations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `event_employees`
+-- Indexes for table `event_employees`
 --
 ALTER TABLE `event_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `expenses`
+-- Indexes for table `expenses`
 --
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `experience_certificates`
+-- Indexes for table `experience_certificates`
 --
 ALTER TABLE `experience_certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_builders`
+-- Indexes for table `form_builders`
 --
 ALTER TABLE `form_builders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `form_builders_code_unique` (`code`);
 
 --
--- Indices de la tabla `form_fields`
+-- Indexes for table `form_fields`
 --
 ALTER TABLE `form_fields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_field_responses`
+-- Indexes for table `form_field_responses`
 --
 ALTER TABLE `form_field_responses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `form_responses`
+-- Indexes for table `form_responses`
 --
 ALTER TABLE `form_responses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `generate_offer_letters`
+-- Indexes for table `generate_offer_letters`
 --
 ALTER TABLE `generate_offer_letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `genrate_payslip_options`
+-- Indexes for table `genrate_payslip_options`
 --
 ALTER TABLE `genrate_payslip_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goals`
+-- Indexes for table `goals`
 --
 ALTER TABLE `goals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goal_trackings`
+-- Indexes for table `goal_trackings`
 --
 ALTER TABLE `goal_trackings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `goal_types`
+-- Indexes for table `goal_types`
 --
 ALTER TABLE `goal_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `holidays`
+-- Indexes for table `holidays`
 --
 ALTER TABLE `holidays`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `indicators`
+-- Indexes for table `indicators`
 --
 ALTER TABLE `indicators`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `interview_schedules`
+-- Indexes for table `interview_schedules`
 --
 ALTER TABLE `interview_schedules`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoices`
+-- Indexes for table `invoices`
 --
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoice_payments`
+-- Indexes for table `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `invoice_products`
+-- Indexes for table `invoice_products`
 --
 ALTER TABLE `invoice_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ip_restricts`
+-- Indexes for table `ip_restricts`
 --
 ALTER TABLE `ip_restricts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `jobs`
+-- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_applications`
+-- Indexes for table `job_applications`
 --
 ALTER TABLE `job_applications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_application_notes`
+-- Indexes for table `job_application_notes`
 --
 ALTER TABLE `job_application_notes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_categories`
+-- Indexes for table `job_categories`
 --
 ALTER TABLE `job_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_on_boards`
+-- Indexes for table `job_on_boards`
 --
 ALTER TABLE `job_on_boards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `job_stages`
+-- Indexes for table `job_stages`
 --
 ALTER TABLE `job_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `joining_letters`
+-- Indexes for table `joining_letters`
 --
 ALTER TABLE `joining_letters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `journal_entries`
+-- Indexes for table `journal_entries`
 --
 ALTER TABLE `journal_entries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `journal_items`
+-- Indexes for table `journal_items`
 --
 ALTER TABLE `journal_items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `labels`
+-- Indexes for table `labels`
 --
 ALTER TABLE `labels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `landing_page_sections`
+-- Indexes for table `landing_page_sections`
 --
 ALTER TABLE `landing_page_sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leads`
+-- Indexes for table `leads`
 --
 ALTER TABLE `leads`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `leads_email_unique` (`email`);
 
 --
--- Indices de la tabla `lead_activity_logs`
+-- Indexes for table `lead_activity_logs`
 --
 ALTER TABLE `lead_activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `lead_calls`
+-- Indexes for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_calls_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_discussions`
+-- Indexes for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_discussions_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_emails`
+-- Indexes for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_emails_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_files`
+-- Indexes for table `lead_files`
 --
 ALTER TABLE `lead_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lead_files_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `lead_stages`
+-- Indexes for table `lead_stages`
 --
 ALTER TABLE `lead_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leaves`
+-- Indexes for table `leaves`
 --
 ALTER TABLE `leaves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `leave_types`
+-- Indexes for table `leave_types`
 --
 ALTER TABLE `leave_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `loans`
+-- Indexes for table `loans`
 --
 ALTER TABLE `loans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `loan_options`
+-- Indexes for table `loan_options`
 --
 ALTER TABLE `loan_options`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `log_activities`
+-- Indexes for table `log_activities`
 --
 ALTER TABLE `log_activities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `meetings`
+-- Indexes for table `meetings`
 --
 ALTER TABLE `meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `meeting_employees`
+-- Indexes for table `meeting_employees`
 --
 ALTER TABLE `meeting_employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `milestones`
+-- Indexes for table `milestones`
 --
 ALTER TABLE `milestones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `model_has_permissions`
+-- Indexes for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
   ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indices de la tabla `model_has_roles`
+-- Indexes for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indices de la tabla `noc_certificates`
+-- Indexes for table `noc_certificates`
 --
 ALTER TABLE `noc_certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `notifications`
+-- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `orders_order_id_unique` (`order_id`);
 
 --
--- Indices de la tabla `other_payments`
+-- Indexes for table `other_payments`
 --
 ALTER TABLE `other_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `overtimes`
+-- Indexes for table `overtimes`
 --
 ALTER TABLE `overtimes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `payments`
+-- Indexes for table `payments`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `payslip_types`
+-- Indexes for table `payslip_types`
 --
 ALTER TABLE `payslip_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pay_slips`
+-- Indexes for table `pay_slips`
 --
 ALTER TABLE `pay_slips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `performance_types`
+-- Indexes for table `performance_types`
 --
 ALTER TABLE `performance_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -10919,329 +11466,329 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indices de la tabla `pipelines`
+-- Indexes for table `pipelines`
 --
 ALTER TABLE `pipelines`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `plans`
+-- Indexes for table `plans`
 --
 ALTER TABLE `plans`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `plans_name_unique` (`name`);
 
 --
--- Indices de la tabla `plan_requests`
+-- Indexes for table `plan_requests`
 --
 ALTER TABLE `plan_requests`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos`
+-- Indexes for table `pos`
 --
 ALTER TABLE `pos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos_payments`
+-- Indexes for table `pos_payments`
 --
 ALTER TABLE `pos_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pos_products`
+-- Indexes for table `pos_products`
 --
 ALTER TABLE `pos_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_services`
+-- Indexes for table `product_services`
 --
 ALTER TABLE `product_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_service_categories`
+-- Indexes for table `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_service_units`
+-- Indexes for table `product_service_units`
 --
 ALTER TABLE `product_service_units`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `product_variations`
+-- Indexes for table `product_variations`
 --
 ALTER TABLE `product_variations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `projects`
+-- Indexes for table `projects`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `projectstages`
+-- Indexes for table `projectstages`
 --
 ALTER TABLE `projectstages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_email_templates`
+-- Indexes for table `project_email_templates`
 --
 ALTER TABLE `project_email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_invoices`
+-- Indexes for table `project_invoices`
 --
 ALTER TABLE `project_invoices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_tasks`
+-- Indexes for table `project_tasks`
 --
 ALTER TABLE `project_tasks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `project_users`
+-- Indexes for table `project_users`
 --
 ALTER TABLE `project_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `promotions`
+-- Indexes for table `promotions`
 --
 ALTER TABLE `promotions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `proposals`
+-- Indexes for table `proposals`
 --
 ALTER TABLE `proposals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `proposal_products`
+-- Indexes for table `proposal_products`
 --
 ALTER TABLE `proposal_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchases`
+-- Indexes for table `purchases`
 --
 ALTER TABLE `purchases`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchase_payments`
+-- Indexes for table `purchase_payments`
 --
 ALTER TABLE `purchase_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `purchase_products`
+-- Indexes for table `purchase_products`
 --
 ALTER TABLE `purchase_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `resignations`
+-- Indexes for table `resignations`
 --
 ALTER TABLE `resignations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `revenues`
+-- Indexes for table `revenues`
 --
 ALTER TABLE `revenues`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `role_has_permissions`
+-- Indexes for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
--- Indices de la tabla `saturation_deductions`
+-- Indexes for table `saturation_deductions`
 --
 ALTER TABLE `saturation_deductions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_name_created_by_unique` (`name`,`created_by`);
 
 --
--- Indices de la tabla `set_salaries`
+-- Indexes for table `set_salaries`
 --
 ALTER TABLE `set_salaries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `sources`
+-- Indexes for table `sources`
 --
 ALTER TABLE `sources`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `stages`
+-- Indexes for table `stages`
 --
 ALTER TABLE `stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `stock_reports`
+-- Indexes for table `stock_reports`
 --
 ALTER TABLE `stock_reports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `supports`
+-- Indexes for table `supports`
 --
 ALTER TABLE `supports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `support_replies`
+-- Indexes for table `support_replies`
 --
 ALTER TABLE `support_replies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_checklists`
+-- Indexes for table `task_checklists`
 --
 ALTER TABLE `task_checklists`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_comments`
+-- Indexes for table `task_comments`
 --
 ALTER TABLE `task_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_files`
+-- Indexes for table `task_files`
 --
 ALTER TABLE `task_files`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `task_stages`
+-- Indexes for table `task_stages`
 --
 ALTER TABLE `task_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `taxes`
+-- Indexes for table `taxes`
 --
 ALTER TABLE `taxes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `terminations`
+-- Indexes for table `terminations`
 --
 ALTER TABLE `terminations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `termination_types`
+-- Indexes for table `termination_types`
 --
 ALTER TABLE `termination_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `timesheets`
+-- Indexes for table `timesheets`
 --
 ALTER TABLE `timesheets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `time_trackers`
+-- Indexes for table `time_trackers`
 --
 ALTER TABLE `time_trackers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `track_photos`
+-- Indexes for table `track_photos`
 --
 ALTER TABLE `track_photos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `trainers`
+-- Indexes for table `trainers`
 --
 ALTER TABLE `trainers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `trainings`
+-- Indexes for table `trainings`
 --
 ALTER TABLE `trainings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `training_types`
+-- Indexes for table `training_types`
 --
 ALTER TABLE `training_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `transactions`
+-- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `transfers`
+-- Indexes for table `transfers`
 --
 ALTER TABLE `transfers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `travels`
+-- Indexes for table `travels`
 --
 ALTER TABLE `travels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indices de la tabla `user_contacts`
+-- Indexes for table `user_contacts`
 --
 ALTER TABLE `user_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_coupons`
+-- Indexes for table `user_coupons`
 --
 ALTER TABLE `user_coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_deals`
+-- Indexes for table `user_deals`
 --
 ALTER TABLE `user_deals`
   ADD PRIMARY KEY (`id`),
@@ -11249,13 +11796,13 @@ ALTER TABLE `user_deals`
   ADD KEY `user_deals_deal_id_foreign` (`deal_id`);
 
 --
--- Indices de la tabla `user_email_templates`
+-- Indexes for table `user_email_templates`
 --
 ALTER TABLE `user_email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_leads`
+-- Indexes for table `user_leads`
 --
 ALTER TABLE `user_leads`
   ADD PRIMARY KEY (`id`),
@@ -11263,1225 +11810,1225 @@ ALTER TABLE `user_leads`
   ADD KEY `user_leads_lead_id_foreign` (`lead_id`);
 
 --
--- Indices de la tabla `user_to_dos`
+-- Indexes for table `user_to_dos`
 --
 ALTER TABLE `user_to_dos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `venders`
+-- Indexes for table `venders`
 --
 ALTER TABLE `venders`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `venders_email_unique` (`email`);
 
 --
--- Indices de la tabla `warehouses`
+-- Indexes for table `warehouses`
 --
 ALTER TABLE `warehouses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `warehouse_products`
+-- Indexes for table `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `warnings`
+-- Indexes for table `warnings`
 --
 ALTER TABLE `warnings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `zoom_meetings`
+-- Indexes for table `zoom_meetings`
 --
 ALTER TABLE `zoom_meetings`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `activity_logs`
+-- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `admin_payment_settings`
+-- AUTO_INCREMENT for table `admin_payment_settings`
 --
 ALTER TABLE `admin_payment_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
--- AUTO_INCREMENT de la tabla `allowances`
+-- AUTO_INCREMENT for table `allowances`
 --
 ALTER TABLE `allowances`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `allowance_options`
+-- AUTO_INCREMENT for table `allowance_options`
 --
 ALTER TABLE `allowance_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `announcements`
+-- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `announcement_employees`
+-- AUTO_INCREMENT for table `announcement_employees`
 --
 ALTER TABLE `announcement_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `appraisals`
+-- AUTO_INCREMENT for table `appraisals`
 --
 ALTER TABLE `appraisals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `assets`
+-- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `attendance_employees`
+-- AUTO_INCREMENT for table `attendance_employees`
 --
 ALTER TABLE `attendance_employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT de la tabla `awards`
+-- AUTO_INCREMENT for table `awards`
 --
 ALTER TABLE `awards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `award_types`
+-- AUTO_INCREMENT for table `award_types`
 --
 ALTER TABLE `award_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bank_accounts`
+-- AUTO_INCREMENT for table `bank_accounts`
 --
 ALTER TABLE `bank_accounts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `bank_transfers`
+-- AUTO_INCREMENT for table `bank_transfers`
 --
 ALTER TABLE `bank_transfers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bills`
+-- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT de la tabla `bill_payments`
---
-ALTER TABLE `bill_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT de la tabla `bill_products`
---
-ALTER TABLE `bill_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT de la tabla `branches`
+-- AUTO_INCREMENT for table `bill_payments`
+--
+ALTER TABLE `bill_payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `bill_products`
+--
+ALTER TABLE `bill_products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `budgets`
+-- AUTO_INCREMENT for table `budgets`
 --
 ALTER TABLE `budgets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bugs`
+-- AUTO_INCREMENT for table `bugs`
 --
 ALTER TABLE `bugs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_comments`
+-- AUTO_INCREMENT for table `bug_comments`
 --
 ALTER TABLE `bug_comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_files`
+-- AUTO_INCREMENT for table `bug_files`
 --
 ALTER TABLE `bug_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bug_statuses`
+-- AUTO_INCREMENT for table `bug_statuses`
 --
 ALTER TABLE `bug_statuses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_accounts`
+-- AUTO_INCREMENT for table `chart_of_accounts`
 --
 ALTER TABLE `chart_of_accounts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=449;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=481;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_account_sub_types`
+-- AUTO_INCREMENT for table `chart_of_account_sub_types`
 --
 ALTER TABLE `chart_of_account_sub_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
 
 --
--- AUTO_INCREMENT de la tabla `chart_of_account_types`
+-- AUTO_INCREMENT for table `chart_of_account_types`
 --
 ALTER TABLE `chart_of_account_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `client_deals`
+-- AUTO_INCREMENT for table `client_deals`
 --
 ALTER TABLE `client_deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `commissions`
+-- AUTO_INCREMENT for table `commissions`
 --
 ALTER TABLE `commissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `company_payment_settings`
+-- AUTO_INCREMENT for table `company_payment_settings`
 --
 ALTER TABLE `company_payment_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `company_policies`
+-- AUTO_INCREMENT for table `company_policies`
 --
 ALTER TABLE `company_policies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `competencies`
+-- AUTO_INCREMENT for table `competencies`
 --
 ALTER TABLE `competencies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `complaints`
+-- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contracts`
+-- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `contract_attachment`
+-- AUTO_INCREMENT for table `contract_attachment`
 --
 ALTER TABLE `contract_attachment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_comment`
+-- AUTO_INCREMENT for table `contract_comment`
 --
 ALTER TABLE `contract_comment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_notes`
+-- AUTO_INCREMENT for table `contract_notes`
 --
 ALTER TABLE `contract_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contract_types`
+-- AUTO_INCREMENT for table `contract_types`
 --
 ALTER TABLE `contract_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `coupons`
+-- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `credit_notes`
+-- AUTO_INCREMENT for table `credit_notes`
 --
 ALTER TABLE `credit_notes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT de la tabla `custom_fields`
+-- AUTO_INCREMENT for table `custom_fields`
 --
 ALTER TABLE `custom_fields`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `custom_field_values`
+-- AUTO_INCREMENT for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `custom_questions`
+-- AUTO_INCREMENT for table `custom_questions`
 --
 ALTER TABLE `custom_questions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deals`
+-- AUTO_INCREMENT for table `deals`
 --
 ALTER TABLE `deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_calls`
+-- AUTO_INCREMENT for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_discussions`
+-- AUTO_INCREMENT for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_emails`
+-- AUTO_INCREMENT for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_files`
+-- AUTO_INCREMENT for table `deal_files`
 --
 ALTER TABLE `deal_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deal_tasks`
+-- AUTO_INCREMENT for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `debit_notes`
+-- AUTO_INCREMENT for table `debit_notes`
 --
 ALTER TABLE `debit_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `deduction_options`
+-- AUTO_INCREMENT for table `deduction_options`
 --
 ALTER TABLE `deduction_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `departments`
+-- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `designations`
+-- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `documents`
+-- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `ducument_uploads`
+-- AUTO_INCREMENT for table `ducument_uploads`
 --
 ALTER TABLE `ducument_uploads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ecommerces`
+-- AUTO_INCREMENT for table `ecommerces`
 --
 ALTER TABLE `ecommerces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `email_templates`
+-- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de la tabla `email_template_langs`
+-- AUTO_INCREMENT for table `email_template_langs`
 --
 ALTER TABLE `email_template_langs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
--- AUTO_INCREMENT de la tabla `employees`
+-- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `employee_documents`
+-- AUTO_INCREMENT for table `employee_documents`
 --
 ALTER TABLE `employee_documents`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `estimations`
+-- AUTO_INCREMENT for table `estimations`
 --
 ALTER TABLE `estimations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `event_employees`
+-- AUTO_INCREMENT for table `event_employees`
 --
 ALTER TABLE `event_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `expenses`
+-- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `experience_certificates`
+-- AUTO_INCREMENT for table `experience_certificates`
 --
 ALTER TABLE `experience_certificates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_builders`
+-- AUTO_INCREMENT for table `form_builders`
 --
 ALTER TABLE `form_builders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `form_fields`
+-- AUTO_INCREMENT for table `form_fields`
 --
 ALTER TABLE `form_fields`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_field_responses`
+-- AUTO_INCREMENT for table `form_field_responses`
 --
 ALTER TABLE `form_field_responses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `form_responses`
+-- AUTO_INCREMENT for table `form_responses`
 --
 ALTER TABLE `form_responses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `generate_offer_letters`
+-- AUTO_INCREMENT for table `generate_offer_letters`
 --
 ALTER TABLE `generate_offer_letters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
--- AUTO_INCREMENT de la tabla `genrate_payslip_options`
+-- AUTO_INCREMENT for table `genrate_payslip_options`
 --
 ALTER TABLE `genrate_payslip_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goals`
+-- AUTO_INCREMENT for table `goals`
 --
 ALTER TABLE `goals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goal_trackings`
+-- AUTO_INCREMENT for table `goal_trackings`
 --
 ALTER TABLE `goal_trackings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `goal_types`
+-- AUTO_INCREMENT for table `goal_types`
 --
 ALTER TABLE `goal_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `holidays`
+-- AUTO_INCREMENT for table `holidays`
 --
 ALTER TABLE `holidays`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `indicators`
+-- AUTO_INCREMENT for table `indicators`
 --
 ALTER TABLE `indicators`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `interview_schedules`
+-- AUTO_INCREMENT for table `interview_schedules`
 --
 ALTER TABLE `interview_schedules`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `invoices`
+-- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT de la tabla `invoice_payments`
+-- AUTO_INCREMENT for table `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de la tabla `invoice_products`
+-- AUTO_INCREMENT for table `invoice_products`
 --
 ALTER TABLE `invoice_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
--- AUTO_INCREMENT de la tabla `ip_restricts`
+-- AUTO_INCREMENT for table `ip_restricts`
 --
 ALTER TABLE `ip_restricts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `jobs`
+-- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_applications`
+-- AUTO_INCREMENT for table `job_applications`
 --
 ALTER TABLE `job_applications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_application_notes`
+-- AUTO_INCREMENT for table `job_application_notes`
 --
 ALTER TABLE `job_application_notes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_categories`
+-- AUTO_INCREMENT for table `job_categories`
 --
 ALTER TABLE `job_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_on_boards`
+-- AUTO_INCREMENT for table `job_on_boards`
 --
 ALTER TABLE `job_on_boards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `job_stages`
+-- AUTO_INCREMENT for table `job_stages`
 --
 ALTER TABLE `job_stages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `joining_letters`
+-- AUTO_INCREMENT for table `joining_letters`
 --
 ALTER TABLE `joining_letters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
--- AUTO_INCREMENT de la tabla `journal_entries`
+-- AUTO_INCREMENT for table `journal_entries`
 --
 ALTER TABLE `journal_entries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `journal_items`
+-- AUTO_INCREMENT for table `journal_items`
 --
 ALTER TABLE `journal_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `labels`
+-- AUTO_INCREMENT for table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- AUTO_INCREMENT de la tabla `landing_page_sections`
+-- AUTO_INCREMENT for table `landing_page_sections`
 --
 ALTER TABLE `landing_page_sections`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `leads`
+-- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `lead_activity_logs`
+-- AUTO_INCREMENT for table `lead_activity_logs`
 --
 ALTER TABLE `lead_activity_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_calls`
+-- AUTO_INCREMENT for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_discussions`
+-- AUTO_INCREMENT for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_emails`
+-- AUTO_INCREMENT for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_files`
+-- AUTO_INCREMENT for table `lead_files`
 --
 ALTER TABLE `lead_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `lead_stages`
+-- AUTO_INCREMENT for table `lead_stages`
 --
 ALTER TABLE `lead_stages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `leaves`
+-- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `leave_types`
+-- AUTO_INCREMENT for table `leave_types`
 --
 ALTER TABLE `leave_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `loans`
+-- AUTO_INCREMENT for table `loans`
 --
 ALTER TABLE `loans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `loan_options`
+-- AUTO_INCREMENT for table `loan_options`
 --
 ALTER TABLE `loan_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `log_activities`
+-- AUTO_INCREMENT for table `log_activities`
 --
 ALTER TABLE `log_activities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `meetings`
+-- AUTO_INCREMENT for table `meetings`
 --
 ALTER TABLE `meetings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `meeting_employees`
+-- AUTO_INCREMENT for table `meeting_employees`
 --
 ALTER TABLE `meeting_employees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 
 --
--- AUTO_INCREMENT de la tabla `milestones`
+-- AUTO_INCREMENT for table `milestones`
 --
 ALTER TABLE `milestones`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `noc_certificates`
+-- AUTO_INCREMENT for table `noc_certificates`
 --
 ALTER TABLE `noc_certificates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
--- AUTO_INCREMENT de la tabla `notifications`
+-- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `other_payments`
+-- AUTO_INCREMENT for table `other_payments`
 --
 ALTER TABLE `other_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `overtimes`
+-- AUTO_INCREMENT for table `overtimes`
 --
 ALTER TABLE `overtimes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `payments`
+-- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `payslip_types`
+--
+ALTER TABLE `payslip_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `payslip_types`
---
-ALTER TABLE `payslip_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `pay_slips`
+-- AUTO_INCREMENT for table `pay_slips`
 --
 ALTER TABLE `pay_slips`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `performance_types`
+-- AUTO_INCREMENT for table `performance_types`
 --
 ALTER TABLE `performance_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=499;
 
 --
--- AUTO_INCREMENT de la tabla `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pipelines`
+-- AUTO_INCREMENT for table `pipelines`
 --
 ALTER TABLE `pipelines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `plans`
+-- AUTO_INCREMENT for table `plans`
 --
 ALTER TABLE `plans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `plan_requests`
+-- AUTO_INCREMENT for table `plan_requests`
 --
 ALTER TABLE `plan_requests`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `pos`
+-- AUTO_INCREMENT for table `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
--- AUTO_INCREMENT de la tabla `pos_payments`
+-- AUTO_INCREMENT for table `pos_payments`
 --
 ALTER TABLE `pos_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
--- AUTO_INCREMENT de la tabla `pos_products`
+-- AUTO_INCREMENT for table `pos_products`
 --
 ALTER TABLE `pos_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT de la tabla `product_services`
+-- AUTO_INCREMENT for table `product_services`
 --
 ALTER TABLE `product_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT de la tabla `product_service_categories`
+-- AUTO_INCREMENT for table `product_service_categories`
 --
 ALTER TABLE `product_service_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de la tabla `product_service_units`
+-- AUTO_INCREMENT for table `product_service_units`
 --
 ALTER TABLE `product_service_units`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `product_variations`
+-- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `projects`
+-- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `projectstages`
+-- AUTO_INCREMENT for table `projectstages`
 --
 ALTER TABLE `projectstages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_email_templates`
+-- AUTO_INCREMENT for table `project_email_templates`
 --
 ALTER TABLE `project_email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_invoices`
+-- AUTO_INCREMENT for table `project_invoices`
 --
 ALTER TABLE `project_invoices`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `project_tasks`
+-- AUTO_INCREMENT for table `project_tasks`
 --
 ALTER TABLE `project_tasks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `project_users`
+-- AUTO_INCREMENT for table `project_users`
 --
 ALTER TABLE `project_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `promotions`
+-- AUTO_INCREMENT for table `promotions`
 --
 ALTER TABLE `promotions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `proposals`
+-- AUTO_INCREMENT for table `proposals`
 --
 ALTER TABLE `proposals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT de la tabla `proposal_products`
+-- AUTO_INCREMENT for table `proposal_products`
 --
 ALTER TABLE `proposal_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
--- AUTO_INCREMENT de la tabla `purchases`
+-- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT de la tabla `purchase_payments`
+-- AUTO_INCREMENT for table `purchase_payments`
 --
 ALTER TABLE `purchase_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `purchase_products`
+-- AUTO_INCREMENT for table `purchase_products`
 --
 ALTER TABLE `purchase_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT de la tabla `resignations`
+-- AUTO_INCREMENT for table `resignations`
 --
 ALTER TABLE `resignations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `revenues`
+-- AUTO_INCREMENT for table `revenues`
 --
 ALTER TABLE `revenues`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `saturation_deductions`
+-- AUTO_INCREMENT for table `saturation_deductions`
 --
 ALTER TABLE `saturation_deductions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=644;
 
 --
--- AUTO_INCREMENT de la tabla `set_salaries`
+-- AUTO_INCREMENT for table `set_salaries`
 --
 ALTER TABLE `set_salaries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `sources`
+-- AUTO_INCREMENT for table `sources`
 --
 ALTER TABLE `sources`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `stages`
+-- AUTO_INCREMENT for table `stages`
 --
 ALTER TABLE `stages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT de la tabla `stock_reports`
+-- AUTO_INCREMENT for table `stock_reports`
 --
 ALTER TABLE `stock_reports`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
--- AUTO_INCREMENT de la tabla `supports`
+-- AUTO_INCREMENT for table `supports`
 --
 ALTER TABLE `supports`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `support_replies`
+-- AUTO_INCREMENT for table `support_replies`
 --
 ALTER TABLE `support_replies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `task_checklists`
+-- AUTO_INCREMENT for table `task_checklists`
 --
 ALTER TABLE `task_checklists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `task_comments`
+-- AUTO_INCREMENT for table `task_comments`
 --
 ALTER TABLE `task_comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `task_files`
+-- AUTO_INCREMENT for table `task_files`
 --
 ALTER TABLE `task_files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `task_stages`
+-- AUTO_INCREMENT for table `task_stages`
 --
 ALTER TABLE `task_stages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT de la tabla `taxes`
+-- AUTO_INCREMENT for table `taxes`
 --
 ALTER TABLE `taxes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `terminations`
+-- AUTO_INCREMENT for table `terminations`
 --
 ALTER TABLE `terminations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `termination_types`
+-- AUTO_INCREMENT for table `termination_types`
 --
 ALTER TABLE `termination_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `timesheets`
+-- AUTO_INCREMENT for table `timesheets`
 --
 ALTER TABLE `timesheets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `time_trackers`
+-- AUTO_INCREMENT for table `time_trackers`
 --
 ALTER TABLE `time_trackers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `track_photos`
+-- AUTO_INCREMENT for table `track_photos`
 --
 ALTER TABLE `track_photos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `trainers`
+-- AUTO_INCREMENT for table `trainers`
 --
 ALTER TABLE `trainers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `trainings`
+-- AUTO_INCREMENT for table `trainings`
 --
 ALTER TABLE `trainings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `training_types`
+-- AUTO_INCREMENT for table `training_types`
 --
 ALTER TABLE `training_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `transactions`
+-- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT de la tabla `transfers`
+-- AUTO_INCREMENT for table `transfers`
 --
 ALTER TABLE `transfers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `travels`
+-- AUTO_INCREMENT for table `travels`
 --
 ALTER TABLE `travels`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT de la tabla `user_contacts`
+-- AUTO_INCREMENT for table `user_contacts`
 --
 ALTER TABLE `user_contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_coupons`
+-- AUTO_INCREMENT for table `user_coupons`
 --
 ALTER TABLE `user_coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_deals`
+-- AUTO_INCREMENT for table `user_deals`
 --
 ALTER TABLE `user_deals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `user_email_templates`
+-- AUTO_INCREMENT for table `user_email_templates`
 --
 ALTER TABLE `user_email_templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
 
 --
--- AUTO_INCREMENT de la tabla `user_leads`
+-- AUTO_INCREMENT for table `user_leads`
 --
 ALTER TABLE `user_leads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `user_to_dos`
+-- AUTO_INCREMENT for table `user_to_dos`
 --
 ALTER TABLE `user_to_dos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `venders`
+-- AUTO_INCREMENT for table `venders`
 --
 ALTER TABLE `venders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `warehouses`
+-- AUTO_INCREMENT for table `warehouses`
 --
 ALTER TABLE `warehouses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT de la tabla `warehouse_products`
+-- AUTO_INCREMENT for table `warehouse_products`
 --
 ALTER TABLE `warehouse_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `warnings`
+-- AUTO_INCREMENT for table `warnings`
 --
 ALTER TABLE `warnings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `zoom_meetings`
+-- AUTO_INCREMENT for table `zoom_meetings`
 --
 ALTER TABLE `zoom_meetings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `client_deals`
+-- Constraints for table `client_deals`
 --
 ALTER TABLE `client_deals`
   ADD CONSTRAINT `client_deals_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `client_deals_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `custom_field_values`
+-- Constraints for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   ADD CONSTRAINT `custom_field_values_field_id_foreign` FOREIGN KEY (`field_id`) REFERENCES `custom_fields` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_calls`
+-- Constraints for table `deal_calls`
 --
 ALTER TABLE `deal_calls`
   ADD CONSTRAINT `deal_calls_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_discussions`
+-- Constraints for table `deal_discussions`
 --
 ALTER TABLE `deal_discussions`
   ADD CONSTRAINT `deal_discussions_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_emails`
+-- Constraints for table `deal_emails`
 --
 ALTER TABLE `deal_emails`
   ADD CONSTRAINT `deal_emails_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_files`
+-- Constraints for table `deal_files`
 --
 ALTER TABLE `deal_files`
   ADD CONSTRAINT `deal_files_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `deal_tasks`
+-- Constraints for table `deal_tasks`
 --
 ALTER TABLE `deal_tasks`
   ADD CONSTRAINT `deal_tasks_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_calls`
+-- Constraints for table `lead_calls`
 --
 ALTER TABLE `lead_calls`
   ADD CONSTRAINT `lead_calls_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_discussions`
+-- Constraints for table `lead_discussions`
 --
 ALTER TABLE `lead_discussions`
   ADD CONSTRAINT `lead_discussions_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_emails`
+-- Constraints for table `lead_emails`
 --
 ALTER TABLE `lead_emails`
   ADD CONSTRAINT `lead_emails_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `lead_files`
+-- Constraints for table `lead_files`
 --
 ALTER TABLE `lead_files`
   ADD CONSTRAINT `lead_files_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `model_has_permissions`
+-- Constraints for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `model_has_roles`
+-- Constraints for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `role_has_permissions`
+-- Constraints for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `user_deals`
+-- Constraints for table `user_deals`
 --
 ALTER TABLE `user_deals`
   ADD CONSTRAINT `user_deals_deal_id_foreign` FOREIGN KEY (`deal_id`) REFERENCES `deals` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_deals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `user_leads`
+-- Constraints for table `user_leads`
 --
 ALTER TABLE `user_leads`
   ADD CONSTRAINT `user_leads_lead_id_foreign` FOREIGN KEY (`lead_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE,
