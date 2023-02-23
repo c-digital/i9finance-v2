@@ -16,14 +16,21 @@
 				$img = 'data:image/' . $type . ';base64,' . base64_encode($img);
 			@endphp
 
-			<img width="20%" src="{{ $img }}" alt="">
-
-			<br><br>
-
 
 			<table width="100%">
+
 				<tr>
-					<td valign="top" width="39%">
+					<td valign="center" width="39%">
+						<img width="50%" src="{{ $img }}" alt="">
+					</td>
+
+					<td valign="center" width="39%">
+						<h1>{{ __('COTIZACION') }}</h1>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="padding-top: 100px" valign="top" width="39%">
 						@if($settings['company_name'])<b>{{$settings['company_name']}}</b><br>@endif
 						@if($settings['company_telephone']){{$settings['company_telephone']}}<br>@endif
                         @if($settings['company_address']){{$settings['company_address']}}@endif
@@ -33,7 +40,7 @@
                     	@if(!empty($settings['tax_type']) && !empty($settings['vat_number'])){{$settings['tax_type'].' '. __('Number')}} : {{$settings['vat_number']}} <br>@endif
 					</td>
 
-					<td valign="top" width="39%">
+					<td style="padding-top: 100px" valign="top" width="39%">
 						<b>Para:</b><br>
 						@if($customer->name)<b>{{$customer->name}}</b><br>@endif
 						@if($customer->billing_phone){{$customer->billing_phone}}<br>@endif
@@ -42,7 +49,7 @@
 						@if($customer->billing_city){{!empty($customer->billing_city)?$customer->billing_city:'' .', '}} {{!empty($customer->billing_state)?$customer->billing_state:'',', '}} {{!empty($customer->billing_country)?$customer->billing_country:''}}@endif
 					</td>
 
-					<td valign="top" widht="10%">
+					<td style="padding-top: 100px" valign="top" widht="10%">
 						{!! DNS2D::getBarcodeHTML( route('proposal.link.copy',Crypt::encrypt($proposal->proposal_id)), "QRCODE",2,2) !!}
 					</td>
 				</tr>
@@ -138,7 +145,7 @@
 		</div>
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	<script>
 		element = document.getElementById('element-to-print');
@@ -152,6 +159,6 @@
 		html2pdf().set(options)
 			.from(element)
 			.save('propuesta.pdf');
-	</script>
+	</script> --}}
 </body>
 </html>

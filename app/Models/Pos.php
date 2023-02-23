@@ -32,6 +32,19 @@ class Pos extends Model
     public function posPayment(){
         return $this->hasOne('App\Models\PosPayment','pos_id','id');
     }
+
+    public function getAmountAttribute()
+    {
+        $products = PosProduct::where('pos_id', $this->id)->get();
+
+        $total = 0;
+
+        foreach ($products as $product) {
+            $total = $total + ($product->price * $product->quantity);
+        }
+
+        return number_format($total, 2);
+    }
 }
 
 

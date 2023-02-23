@@ -355,6 +355,10 @@
                                     <div class="form-group">
                                         {{ Form::label('category_id', __('Category'),['class'=>'form-label']) }}
                                         {{ Form::select('category_id', $category,null, array('class' => 'form-control select','required'=>'required')) }}
+
+                                        <div class=" text-xs">
+                                            {{__('Please add constant category. ')}}<a href="{{route('product-category.index')}}"><b>{{__('Add Category')}}</b></a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

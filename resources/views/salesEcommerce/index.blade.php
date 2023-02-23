@@ -62,7 +62,6 @@
                                     <th>{{__('POS ID')}}</th>
                                     <th>{{ __('Date') }}</th>
                                     <th>{{ __('Customer') }}</th>
-                                    <th>{{ __('Warehouse') }}</th>
                                     <th>{{ __('Amount') }}</th>
                                     <th>{{ __('Status') }}</th>
                                     <th></th>
@@ -84,8 +83,7 @@
                                             <td>{{ !empty($posPayment->customer) ? $posPayment->customer->name : '' }} </td>
 
                                         @endif
-                                        <td>{{ !empty($posPayment->warehouse) ? $posPayment->warehouse->name : '' }} </td>
-                                        <td>{{!empty($posPayment->posPayment)? $posPayment->posPayment->amount:0}}</td>
+                                        <td>{{$posPayment->amount}}</td>
                                         <td>{{$posPayment->order_status}}</td>
                                         <td>
                                             <a href="" data-bs-toggle="modal" data-bs-target="#change-status-{{$posPayment->id}}" class="btn btn-info">Cambiar estado</a>

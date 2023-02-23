@@ -189,13 +189,13 @@
 
                                                 @if($invoice->recurring)
                                                     <div class="action-btn bg-danger ms-2">
-                                                        <a href="#" id="{{ route('invoice.disabled-recurring',[$invoiceID]) }}" class="mx-3 btn btn-sm align-items-center" data-bs-toggle="tooltip" data-original-title="{{__('Disabled recurring')}}"><i class="ti ti-x text-white"></i></a>
+                                                        <a href="#" id="{{ route('invoice.disabled-recurring',[$invoiceID]) }}" class="mx-3 btn btn-sm align-items-center" data-bs-toggle="tooltip" data-original-title="{{__('Disabled recurring')}}" title="{{__('Disabled recurring')}}"><i class="ti ti-x text-white"></i></a>
                                                     </div>
                                                 @endif
 
                                                 @can('copy invoice')
                                                     <div class="action-btn bg-warning ms-2">
-                                                        <a href="#" id="{{ route('invoice.link.copy',[$invoiceID]) }}" class="mx-3 btn btn-sm align-items-center"   onclick="copyToClipboard(this)" data-bs-toggle="tooltip" data-original-title="{{__('Click to copy')}}"><i class="ti ti-link text-white"></i></a>
+                                                        <a href="#" id="{{ route('invoice.link.copy',[$invoiceID]) }}" class="mx-3 btn btn-sm align-items-center" title="{{__('Click to copy')}}" onclick="copyToClipboard(this)" data-bs-toggle="tooltip" data-original-title="{{__('Click to copy')}}"><i class="ti ti-link text-white"></i></a>
                                                     </div>
                                                 @endcan
 
