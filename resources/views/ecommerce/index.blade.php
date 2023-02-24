@@ -208,11 +208,9 @@
 
     <script>
         function copyToClipboard(element) {
-            value = document.getElementById('slug').value;
-            document.getElementById('slug-hidden').value = 'https://i9finance.com/shop/' + value;
-            copyText = document.getElementById('slug-hidden');
-            copyText.select();
-            document.execCommand("copy");
+            slug = document.getElementById('slug').value;
+            value = 'https://i9finance.com/shop/' + slug;
+            navigator.clipboard.writeText(value);
         }
     </script>    
 

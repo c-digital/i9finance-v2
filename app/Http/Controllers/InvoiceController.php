@@ -41,6 +41,7 @@ class InvoiceController extends Controller
             $next_invoice_date->modify($item->invoice_interval);
 
             $invoice = Invoice::create([
+                'invoice_id' => $this->invoiceNumber(),
                 'customer_id' => $item->customer_id,
                 'issue_date' => date('Y-m-d'),
                 'due_date' => date('Y-m-d'),
@@ -55,9 +56,11 @@ class InvoiceController extends Controller
                 'created_by' => $item->created_by
             ]);
 
-            foreach ($invoice->items as $invoiceProduct) {
+            $invoiceProducts = InvoiceProduct::where('invoice_id', $item->id)->get();
+
+            foreach ($invoiceProducts as $invoiceProduct) {
                 InvoiceProduct::create([
-                    'invoice_id' => $invoiceProduct->invoice_id,
+                    'invoice_id' => $invoice->id,
                     'product_id' => $invoiceProduct->product_id,
                     'quantity' => $invoiceProduct->quantity,
                     'tax' => $invoiceProduct->tax,
