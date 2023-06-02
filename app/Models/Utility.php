@@ -39,18 +39,19 @@ class Utility extends Model
 
 
         $settings = [
+            "customer_invoice_sent" => 0,
             "site_currency" => "USD",
             "site_currency_symbol" => "$",
             "site_currency_symbol_position" => "pre",
             "site_date_format" => "M j, Y",
             "site_time_format" => "g:i A",
-            "company_name" => "",
-            "company_address" => "",
-            "company_city" => "",
-            "company_state" => "",
-            "company_zipcode" => "",
-            "company_country" => "",
-            "company_telephone" => "",
+            "company_name" => "Criative Digital",
+            "company_address" => "Av. Bush 590 Edificio Aguazú II",
+            "company_city" => "Santa Cruz de la Sierra",
+            "company_state" => "Santa Cruz",
+            "company_zipcode" => "10699",
+            "company_country" => "Bolivia",
+            "company_telephone" => "71608981",
             "company_email" => "",
             "company_email_from_name" => "",
             "invoice_prefix" => "#INVO",
@@ -162,6 +163,7 @@ class Utility extends Model
             "proposal_logo" =>"",
             "invoice_logo" =>"",
             "contract_prefix" => "#CON",
+            "vat_gst_number_switch" => "off"
 
 
 
@@ -173,6 +175,34 @@ class Utility extends Model
         }
 
         return $settings;
+    }
+
+    public static function userBalances($users, $id, $amount, $type)
+    {
+        if($users == 'customer')
+        {
+            $user = Customer::find($id);
+        }
+        else
+        {
+            $user = Vender::find($id);
+        }
+
+        if(!empty($user))
+        {
+            if($type == 'credit')
+            {
+                $oldBalance    = $user->balance;
+                $user->balance = $oldBalance - $amount;
+                $user->save();
+            }
+            elseif($type == 'debit')
+            {
+                $oldBalance    = $user->balance;
+                $user->balance = $oldBalance + $amount;
+                $user->save();
+            }
+        }
     }
 
     public static function settingsById($user_id)
@@ -301,6 +331,7 @@ class Utility extends Model
             "wasabi_root" => "",
             "wasabi_max_upload_size" => "",
             "wasabi_storage_validation" => "",
+            "vat_gst_number_switch" => "off"
 
         ];
 
@@ -446,6 +477,7 @@ class Utility extends Model
             "template8" => "Tokyo",
             "template9" => "Sydney",
             "template10" => "Paris",
+            "template11" => "Erick"
         ];
 
         return $arr;
