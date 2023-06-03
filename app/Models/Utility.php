@@ -477,7 +477,7 @@ class Utility extends Model
             "template8" => "Tokyo",
             "template9" => "Sydney",
             "template10" => "Paris",
-            "template11" => "Erick"
+            "template11" => "Sao Paulo"
         ];
 
         return $arr;

@@ -62,14 +62,8 @@
                 <div>
                     <div class="font-weight-bold">Para:</div>
                     <div>{{!empty($customer->billing_name)?$customer->billing_name:''}}</div>
-                    <div>{{!empty($customer->billing_country)?$customer->billing_country:''}}</div>
                     <div>{{!empty($customer->billing_phone)?$customer->billing_phone:''}}</div>
-                </div>
-
-                <div class="mt-3">
-                    <div>{{!empty($customer->billing_state)?$customer->billing_state:''}}</div>
-                    <div>{{!empty($customer->billing_country)?$customer->billing_country:''}} {{!empty($customer->billing_zip)?$customer->billing_zip:''}}</div>
-                    <div>{{!empty($customer->billing_phone)?$customer->billing_phone:''}}</div>
+                    <div>{{!empty($customer->billing_address)?$customer->billing_address:''}}</div>
                 </div>
             </div>
         </div>
